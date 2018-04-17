@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello, World | Breeze Bless U</title>
+    <title>#LeetCode 7. Reverse Integer | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="从今天起，做一个牛逼的人。">
+    <meta name="description" content="整数翻转题目描述：
+Given a 32-bit signed integer, reverse digits of an integer.ExampleInput: 123Output:  321Input: -123Output: -321Input: 120Output: 21
+
+题目并不复杂">
     
     
     
@@ -67,29 +70,37 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/Hello-World/" title="Hello, World" itemprop="url">Hello, World</a>
+      <a href="/2018/04/7-Reverse-Integer/" title="#LeetCode 7. Reverse Integer" itemprop="url">#LeetCode 7. Reverse Integer</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-06T04:02:18.000Z" itemprop="datePublished">2018-04-06</time>
-    更新日期:<time datetime="2018-04-17T14:49:53.760Z" itemprop="dateModified">2018-04-17</time>
+    <time datetime="2018-04-09T08:34:55.000Z" itemprop="datePublished">2018-04-09</time>
+    更新日期:<time datetime="2018-04-17T15:04:40.493Z" itemprop="dateModified">2018-04-17</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<p>从今天起，做一个牛逼的人。</p>
-  
+		<h2 id="整数翻转"><a href="#整数翻转" class="headerlink" title="整数翻转"></a>整数翻转</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
+<p>Given a 32-bit signed integer, reverse digits of an integer.<br>Example<br>Input: 123<br>Output:  321<br>Input: -123<br>Output: -321<br>Input: 120<br>Output: 21</p>
+</blockquote>
+<p>题目并不复杂，但我使用了Java的API——StringBuilder，通过它轻松地实现了整数的翻转，但是因此我用了很多奇怪的操作，</p>
+<ul>
+<li>new StringBuilder(l <em> -1)不会产生l相反数对应的String，所以我使用了String.valueOf(l </em> -1)在中间用一个String做过渡操作；</li>
+<li>另一个问题就是最小的负数的绝对值是大于最大的正整形数的，所以直接将负数取相反数会有溢出；</li>
+<li>但若是不使用StringBuilder的reverse()函数，可以将x转成String进而转成char[]，从两端互换进行来翻转。</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A07_reverseInteger</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(reverse(<span class="number">12345</span>)==<span class="number">54321</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> l = x;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            StringBuilder string = <span class="keyword">new</span> StringBuilder(l + <span class="string">""</span>);</span><br><span class="line">            l = Long.valueOf(string.reverse().toString());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            StringBuilder string = <span class="keyword">new</span> StringBuilder(String.valueOf(l * -<span class="number">1</span>));</span><br><span class="line">            l = Long.valueOf(string.reverse().toString()) * -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (l &gt; Integer.MAX_VALUE || l &lt; Integer.MIN_VALUE) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> (<span class="keyword">int</span>) l;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> l = x;</span><br><span class="line">        <span class="keyword">if</span>(l==Integer.MIN_VALUE) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            StringBuilder string = <span class="keyword">new</span> StringBuilder(x + <span class="string">""</span>);</span><br><span class="line">            l = Long.valueOf(string.reverse().toString());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            StringBuilder string = <span class="keyword">new</span> StringBuilder(String.valueOf(l * -<span class="number">1</span>));</span><br><span class="line">            l = Long.valueOf(string.reverse().toString()) * -<span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/memo/">memo</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/algs/">algs</a>
   </div>
 
 
@@ -97,7 +108,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/2018/04/Hello-World/" data-title="Hello, World | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/2018/04/7-Reverse-Integer/" data-title="#LeetCode 7. Reverse Integer | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -107,13 +118,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/04/1-twoSum/" title="#LeetCode 1. twoSum">
+ <a href="/2018/04/9-Palindrome-Number/" title="#LeetCode 9. Palindrome Number">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  #LeetCode 1. twoSum</span>
+  #LeetCode 9. Palindrome Number</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2018/04/1-twoSum/"  title="#LeetCode 1. twoSum">
+ <strong>NEXT:</strong><br/> 
+ <span>#LeetCode 1. twoSum
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -123,7 +142,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#整数翻转"><span class="toc-number">1.</span> <span class="toc-text">整数翻转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">

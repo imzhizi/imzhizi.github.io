@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello, World | Breeze Bless U</title>
+    <title>#LeetCode 1. twoSum | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="从今天起，做一个牛逼的人。">
+    <meta name="description" content="两数之和题目描述：
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.You may assume that each input woul">
     
     
     
@@ -67,29 +68,32 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/Hello-World/" title="Hello, World" itemprop="url">Hello, World</a>
+      <a href="/2018/04/1-twoSum/" title="#LeetCode 1. twoSum" itemprop="url">#LeetCode 1. twoSum</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-06T04:02:18.000Z" itemprop="datePublished">2018-04-06</time>
-    更新日期:<time datetime="2018-04-17T14:49:53.760Z" itemprop="dateModified">2018-04-17</time>
+    <time datetime="2018-04-07T03:34:07.000Z" itemprop="datePublished">2018-04-07</time>
+    更新日期:<time datetime="2018-04-17T15:04:33.857Z" itemprop="dateModified">2018-04-17</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<p>从今天起，做一个牛逼的人。</p>
-  
+		<h2 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
+<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.<br>Eg.<br>Given nums = [2, 7, 11, 15], target = 9,<br>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
+</blockquote>
+<p>这是LeetCode的第一道题，没什么难度，但可以通过这个来适应LeetCode的OJ，可以看到只要在LeetCode上提交一个函数即可，不需做额外的输出什么的，同时我发现将函数写成静态也是可以正常执行的，我目前还没发现效率上的影响，我之后的题目为了方便都会写成静态的。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A01_twoSum</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums=twoSum(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>&#125;,<span class="number">9</span>);</span><br><span class="line">        System.out.println(nums[<span class="number">0</span>] + <span class="string">" "</span> + nums[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] + nums[j] == target)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i, j&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/memo/">memo</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/algs/">algs</a>
   </div>
 
 
@@ -97,7 +101,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/2018/04/Hello-World/" data-title="Hello, World | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/2018/04/1-twoSum/" data-title="#LeetCode 1. twoSum | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -107,13 +111,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/04/1-twoSum/" title="#LeetCode 1. twoSum">
+ <a href="/2018/04/7-Reverse-Integer/" title="#LeetCode 7. Reverse Integer">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  #LeetCode 1. twoSum</span>
+  #LeetCode 7. Reverse Integer</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2018/04/Hello-World/"  title="Hello, World">
+ <strong>NEXT:</strong><br/> 
+ <span>Hello, World
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -123,7 +135,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两数之和"><span class="toc-number">1.</span> <span class="toc-text">两数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">

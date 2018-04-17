@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello, World | Breeze Bless U</title>
+    <title>#LeetCode 14. Longest Common Prefix | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="从今天起，做一个牛逼的人。">
+    <meta name="description" content="最长公共前缀序列题目描述：
+Write a function to find the longest common prefix string amongst an array of strings.
+
+
+要找出一个String数组的公宫前缀，首先想到的依然是暴力解法，不过有几个需要注意的点，比如空">
     
     
     
@@ -67,29 +71,37 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/Hello-World/" title="Hello, World" itemprop="url">Hello, World</a>
+      <a href="/2018/04/14-Longest-Common-Prefix/" title="#LeetCode 14. Longest Common Prefix" itemprop="url">#LeetCode 14. Longest Common Prefix</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-06T04:02:18.000Z" itemprop="datePublished">2018-04-06</time>
-    更新日期:<time datetime="2018-04-17T14:49:53.760Z" itemprop="dateModified">2018-04-17</time>
+    <time datetime="2018-04-17T13:40:27.000Z" itemprop="datePublished">2018-04-17</time>
+    更新日期:<time datetime="2018-04-17T15:12:53.404Z" itemprop="dateModified">2018-04-17</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<p>从今天起，做一个牛逼的人。</p>
+		<h2 id="最长公共前缀序列"><a href="#最长公共前缀序列" class="headerlink" title="最长公共前缀序列"></a>最长公共前缀序列</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+</blockquote>
+<ul>
+<li>要找出一个String数组的公宫前缀，首先想到的依然是暴力解法，不过有几个需要注意的点，比如空字符串和null；</li>
+<li>另外一个要考虑的就是每次循环的次数，这要取决于当下的公共前缀序列的长度和将要前缀比较的序列长度；</li>
+<li>可以通过计算公共前缀的坐标来实现该题目，因为假如是公共前缀，那么任意一个序列的都可以通过此坐标输出前缀。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 14. Longest Common Prefix</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/15</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A14_LongestCommonPrefix</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] strs = &#123;<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs == <span class="keyword">null</span> || strs[<span class="number">0</span>].isEmpty()) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        String common = strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; strs.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (strs[i].isEmpty()) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">int</span> length = common.length() &lt; strs[i].length() ? common.length() : strs[i].length();</span><br><span class="line">            <span class="keyword">int</span> j;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (common.charAt(j) != strs[i].charAt(j)) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>)<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            common = common.substring(<span class="number">0</span>, j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> common;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/memo/">memo</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/algs/">algs</a>
   </div>
 
 
@@ -97,7 +109,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/2018/04/Hello-World/" data-title="Hello, World | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/2018/04/14-Longest-Common-Prefix/" data-title="#LeetCode 14. Longest Common Prefix | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -107,13 +119,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/04/1-twoSum/" title="#LeetCode 1. twoSum">
+ <a href="/2018/04/北邮OJ-108-虚数/" title="北邮OJ 108 虚数">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  #LeetCode 1. twoSum</span>
+  北邮OJ 108 虚数</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2018/04/String 的字面量、常量池、构造函数和intern()函数，基于JDK1.8 版本/"  title="#Java8 String 的字面量、常量池、构造函数和intern()函数">
+ <strong>NEXT:</strong><br/> 
+ <span>#Java8 String 的字面量、常量池、构造函数和intern()函数
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -123,7 +143,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最长公共前缀序列"><span class="toc-number">1.</span> <span class="toc-text">最长公共前缀序列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">

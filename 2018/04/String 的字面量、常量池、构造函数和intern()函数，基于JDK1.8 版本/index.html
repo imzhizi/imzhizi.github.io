@@ -1,0 +1,394 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>#Java8 String 的字面量、常量池、构造函数和intern()函数 | Breeze Bless U</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="质子">
+    
+    <meta name="description" content="一、内存中的 String 对象Java 的堆和栈
+对于基本数据类型变量和对象的引用，也就是局部变量表属于栈内存；
+而通过 new 关键字和 constructor 创建的对象存放在堆内存；
+直接的 “hello” 被称为字面量形式，在JDK1.7之后存放在位于堆内存的独立的常量池中；
+
+比如说：S">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Breeze Bless U" title="Breeze Bless U"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Breeze Bless U">Breeze Bless U</a></h1>
+				<h2 class="blog-motto">质子的博客</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页 | Home</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">简介 | About</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:imzhizi.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/04/String 的字面量、常量池、构造函数和intern()函数，基于JDK1.8 版本/" title="#Java8 String 的字面量、常量池、构造函数和intern()函数" itemprop="url">#Java8 String 的字面量、常量池、构造函数和intern()函数</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://imzhizi.com" title="质子">质子</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2018-04-17T08:18:58.000Z" itemprop="datePublished">2018-04-17</time>
+    更新日期:<time datetime="2018-04-17T15:04:02.750Z" itemprop="dateModified">2018-04-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<h2 id="一、内存中的-String-对象"><a href="#一、内存中的-String-对象" class="headerlink" title="一、内存中的 String 对象"></a>一、内存中的 String 对象</h2><h3 id="Java-的堆和栈"><a href="#Java-的堆和栈" class="headerlink" title="Java 的堆和栈"></a>Java 的堆和栈</h3><ul>
+<li>对于基本数据类型变量和对象的引用，也就是局部变量表属于<strong>栈内存</strong>；</li>
+<li>而通过 new 关键字和 constructor 创建的对象存放在<strong>堆内存</strong>；</li>
+<li><p>直接的 “hello” 被称为字面量形式，在JDK1.7之后存放在位于<strong>堆内存</strong>的独立的<strong>常量池</strong>中；</p>
+<blockquote>
+<p>比如说：<br><code>String s1=&quot;hello&quot;;</code><br><code>Scanner input = new Scanner();</code><br>上面的语句中变量名 s1、input 存放在栈内存中，”hello” 为字面量，所以放在常量池，而用构造函数创建的对象放在堆内存中。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="什么是String常量池"><a href="#什么是String常量池" class="headerlink" title="什么是String常量池"></a>什么是String常量池</h3><p>JVM为了减少字符串对象的重复创建，维护了一个特殊的内存，这段内存被称为字符串常量池或者字符串字面量池。我们所知道的几个String的特点都来源于此。</p>
+<ul>
+<li>在这个常量池中，共享所有的String对象 ，因此String对象不可被修改，因为一旦被修改那么同时引用此String对象的变量都会随之改变，所以被设计成不可修改的；</li>
+<li>也因此我们常常会听说String拼接字符串的性能较差；</li>
+<li>使用双引号声明的String对象会直接存储在常量池中，若已存在，则直接引用已存在的String对象；</li>
+<li>每个String对象都是唯一的，这样才能达到节约内存的目的；</li>
+</ul>
+<h3 id="补充说明-“-”-和-“equals-”"><a href="#补充说明-“-”-和-“equals-”" class="headerlink" title="补充说明 “==” 和 “equals()”"></a>补充说明 “==” 和 “equals()”</h3><ul>
+<li>在基本数据类型中，只可以使用“ == ”，也就是比较他们的值是否相同；</li>
+<li>而对于对象（包括 String ）来说，“ == ”表示比较地址是否相同，“ equals() ”才表示比较他们内容是否相同；</li>
+<li>equals()是object都拥有的一个函数，本身就要求对内部值进行比较；</li>
+</ul>
+<h2 id="二、String-的字面量和构造函数"><a href="#二、String-的字面量和构造函数" class="headerlink" title="二、String 的字面量和构造函数"></a>二、String 的字面量和构造函数</h2><h3 id="1-两者的不同"><a href="#1-两者的不同" class="headerlink" title="1. 两者的不同"></a>1. 两者的不同</h3><p>除了”1”这种字面量，还有一种就是使用构造函数 new String() 进行String对象的创建。</p>
+<p>而对于<code>String str1 = &quot;1&quot;;</code>和<code>String str2 = new String(&quot;1&quot;);</code>两个语句在执行时，内存中的操作是不同的。</p>
+<p>对于<code>String str1 = &quot;1&quot;;</code>来说，和之前介绍的常量池一致，当语句执行时，JVM会首先检查常量池中是否存在该字面量：</p>
+<ul>
+<li>若存在，则直接返回此字面量的引用；</li>
+<li>若不存在，则在常量池中创建该字面量，返回其引用；</li>
+</ul>
+<p>对于<code>String str2 = new String(&quot;1&quot;);</code>来说，当语句执行时，JVM同样会先检查常量池中是否存在对应的字面量：</p>
+<ul>
+<li>若存在，则在堆中创建String对象，在对象内部引用该字面量；</li>
+<li>若不存在，则先在常量池中创建字面量，然后在堆中创建String对象，在对象内部引用该字面量；</li>
+</ul>
+<h3 id="2-初步结论"><a href="#2-初步结论" class="headerlink" title="2. 初步结论"></a>2. 初步结论</h3><ul>
+<li>无论任何时候，new String() 都会自己另行在堆中开辟空间，创建新的String对象；</li>
+<li>而假如常量池中不存在对应的字面量，new String() 会创建两个对象，一个放进常量池中，一个放进堆中；</li>
+<li>因为new String() 总是创建新的String 对象，所以当使用”==”将<code>str2</code>与<code>1</code>比较时，结果一定是false，因为两者的地址是不同的。</li>
+</ul>
+<h2 id="intern-函数和新的问题"><a href="#intern-函数和新的问题" class="headerlink" title="intern()函数和新的问题"></a>intern()函数和新的问题</h2><h3 id="intern-函数"><a href="#intern-函数" class="headerlink" title="intern()函数"></a>intern()函数</h3><p>先介绍一个神奇的函数—— <strong>intern()</strong>，它是一个native方法，不妨来看一下这个函数的介绍</p>
+<ol>
+<li>返回值是一个标准的字符串形式；</li>
+</ol>
+<ul>
+<li>返回值是与此对象具有相同内容的字符串，但保证来自字符串池；</li>
+<li>对于两个字符串s、t，当且仅当s.equals(t)为true时，才能说<code>s.intern()==t.intern()</code>为true；</li>
+<li>当此方法被调用时，如果常量池中已经包含了一个和该对象内容相同的字符串，那就返回这个字符串；若不包含，如果大家有查看其它资料，他们都会说不存在则新建，但事实上，在接下来的问题之前，根本没有不存在的情况，字面量总是存在的；</li>
+</ul>
+<h3 id="新的问题"><a href="#新的问题" class="headerlink" title="新的问题"></a>新的问题</h3><p>这个函数有什么用，个人认为，可以粗率地认为这个函数可以找到所有的String object在常量池中对应的字面量（存在则返回引用，不存在则创建后返回引用）。但是不难想到，之前的初步结论已经得出new String(“”)会确保两个对象的存在，那么intern()函数的存在有什么意义呢？为了得到一个String对象中引用的的源对象？<br>这时引入下面一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String str1 = <span class="keyword">new</span> String(<span class="string">"1"</span>);</span><br><span class="line">System.out.println(str1 == str1.intern());</span><br><span class="line">System.out.println(str1 == <span class="string">"1"</span>);</span><br><span class="line"></span><br><span class="line">String str2 = <span class="keyword">new</span> String(<span class="string">"2"</span>) + <span class="keyword">new</span> String(<span class="string">"3"</span>);</span><br><span class="line">System.out.println(str2 == str2.intern());</span><br><span class="line">System.out.println(str2 == <span class="string">"23"</span>);</span><br><span class="line"></span><br><span class="line">String str4=<span class="string">"45"</span>;</span><br><span class="line">String str3 = <span class="keyword">new</span> String(<span class="string">"4"</span>) + <span class="keyword">new</span> String(<span class="string">"5"</span>);</span><br><span class="line">System.out.println(str3==str3.intern());</span><br><span class="line">System.out.println(str3 == <span class="string">"45"</span>);</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="http://oonxokoe8.bkt.clouddn.com/18-4-16/23539985.jpg" alt="运行结果"> </p>
+<p>对于结果，相信str1的两个输出结果都是可以理解的，str1创建后产生两个对象，保存在堆的 str1 和常量池中的 “1” 地址显然不同，而intern() 则是返回的”1”的地址，所以输出均为false；</p>
+<p>而str2、str3、str4就变得诡异起来了，经过了字符串拼装之后，<code>str2</code>和<code>str2.intern()</code>神奇的具有了相同的地址，但同时，因为一个str4，<code>str3</code>和<code>str3.intern()</code>相同的地址又变的不同起来；</p>
+<p>所以新的问题就来源于字符串拼接，根据前文已经知道字符串是不可修改的，那么想要进行一次<code>String str2 = new String(&quot;2&quot;) + new String(&quot;3&quot;);</code>这样的字符串拼接消耗就非常大了（相信大家都听过字符串拼接效率差的说法），所以JVM对其进行了优化，具体是如何优化的呢？</p>
+<h3 id="分析（intern-结论）"><a href="#分析（intern-结论）" class="headerlink" title="分析（intern()结论）"></a>分析（intern()结论）</h3><ul>
+<li>如果是<code>String str2 = &quot;2&quot; + &quot;3&quot;;</code>，则直接将”2”和”3”折叠为”23”，然后直接作为字面量放入常量池中，也就是和<code>String str2 = &quot;23&quot;;</code>没区别，具体可见<a href="https://www.zhihu.com/question/38733755/answer/77863144" target="_blank" rel="noopener">String a=”a”+”b”+”c”在内存中创建几个对象？ - 陈肖恩的回答 - 知乎</a></li>
+<li>如果是<code>String str2 = new String(&quot;2&quot;) + new String(&quot;3&quot;);</code>这种情况，JVM同样会进行优化，目前根据我的调查，会被优化成<strong>三个对象</strong>的创建——在常量池中创建”2”、”3”，在堆中创建内容为”23”的String对象，大家可能会奇怪，不在常量池创建”23”吗？目前看是不会的；</li>
+<li>之前我也说到intern() 根本没有不存在的情况，但眼下这种情况是真的不存在了，intern()采取了一种<strong>截然不同</strong>的处理方案——不是在常量池中建立字面量，而是直接将该对象自身的引用复制到常量池中，所以代码的第二段就不难解释了，此时堆中的<code>str2</code>才是<strong>真正的源字符串</strong>，而常量池也只是对它的引用。</li>
+<li>而使用intern() 场和也变得显而易见，当你需要进行大量可能会重复的字符串的拼接的时候，为了避免内存的浪费进而导致GC清理无用字符串降低性能，那就可以使用intern()了。</li>
+</ul>
+<h2 id="三、其他个人总结的-String-类相关结论"><a href="#三、其他个人总结的-String-类相关结论" class="headerlink" title="三、其他个人总结的 String 类相关结论"></a>三、其他个人总结的 String 类相关结论</h2><h3 id="构造函数结论"><a href="#构造函数结论" class="headerlink" title="构造函数结论"></a>构造函数结论</h3><p>不难看出，总是new String(“”)这样的函数在浪费内存，降低性能，所以大家在写程序的时候应该尽量直接使用字面量，而避免构造函数的使用。</p>
+<h3 id="String-是否为空的结论"><a href="#String-是否为空的结论" class="headerlink" title="String 是否为空的结论"></a>String 是否为空的结论</h3><p>String 存在一个方法叫 <code>str.isEmpty()</code>，如果查看源代码就会发现和 <code>str.length()==0</code> 没有任何区别。</p>
+<p><code>public boolean isEmpty() { return value.length == 0;} //源代码</code></p>
+<blockquote>
+<p>何时出现此种情况：</p>
+<ol>
+<li><code>String s1 = new String();</code> </li>
+<li><code>String s1 = new String(&quot;&quot;);</code></li>
+<li><code>String s1 = &quot;&quot;;</code></li>
+</ol>
+</blockquote>
+<h3 id="String-是否为null的结论"><a href="#String-是否为null的结论" class="headerlink" title="String 是否为null的结论"></a>String 是否为null的结论</h3><p>null即未指定对象，如果直接使用会出现所谓的空指针错误。值得注意的是第二种情况，字符串数组在创建之后并不会像字符串新建时一样初始化为长度为1的字符串，而是空指针。</p>
+<blockquote>
+<p>何时出现此种情况：</p>
+<ol>
+<li><code>String s1 = null;</code> </li>
+<li><code>String[] s1 = new String[n];</code></li>
+</ol>
+</blockquote>
+<h3 id="String-equals-的结论"><a href="#String-equals-的结论" class="headerlink" title="String equals() 的结论"></a>String equals() 的结论</h3><p>所以根据 equals() 的定义就能发现，此无论任何情况下， equals() 总是比较两个字符串的内容，无论是否开辟内存或别的怎样，假如需求就是简单地进行字符串匹配，使用 equals() 总是没错的。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/java/">java</a><a href="/tags/面试/">面试</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://imzhizi.com/2018/04/String 的字面量、常量池、构造函数和intern()函数，基于JDK1.8 版本/" data-title="#Java8 String 的字面量、常量池、构造函数和intern()函数 | Breeze Bless U" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2018/04/14-Longest-Common-Prefix/" title="#LeetCode 14. Longest Common Prefix">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  #LeetCode 14. Longest Common Prefix</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2018/04/13-Roman-to-Integer/"  title="#LeetCode 13. Roman to Integer">
+ <strong>NEXT:</strong><br/> 
+ <span>#LeetCode 13. Roman to Integer
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、内存中的-String-对象"><span class="toc-number">1.</span> <span class="toc-text">一、内存中的 String 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-的堆和栈"><span class="toc-number">1.1.</span> <span class="toc-text">Java 的堆和栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是String常量池"><span class="toc-number">1.2.</span> <span class="toc-text">什么是String常量池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充说明-“-”-和-“equals-”"><span class="toc-number">1.3.</span> <span class="toc-text">补充说明 “==” 和 “equals()”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、String-的字面量和构造函数"><span class="toc-number">2.</span> <span class="toc-text">二、String 的字面量和构造函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-两者的不同"><span class="toc-number">2.1.</span> <span class="toc-text">1. 两者的不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-初步结论"><span class="toc-number">2.2.</span> <span class="toc-text">2. 初步结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#intern-函数和新的问题"><span class="toc-number">3.</span> <span class="toc-text">intern()函数和新的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#intern-函数"><span class="toc-number">3.1.</span> <span class="toc-text">intern()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新的问题"><span class="toc-number">3.2.</span> <span class="toc-text">新的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分析（intern-结论）"><span class="toc-number">3.3.</span> <span class="toc-text">分析（intern()结论）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、其他个人总结的-String-类相关结论"><span class="toc-number">4.</span> <span class="toc-text">三、其他个人总结的 String 类相关结论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数结论"><span class="toc-number">4.1.</span> <span class="toc-text">构造函数结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-是否为空的结论"><span class="toc-number">4.2.</span> <span class="toc-text">String 是否为空的结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-是否为null的结论"><span class="toc-number">4.3.</span> <span class="toc-text">String 是否为null的结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-equals-的结论"><span class="toc-number">4.4.</span> <span class="toc-text">String equals() 的结论</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/algs/" title="algs">algs<sup>6</sup></a></li>
+		
+			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+		
+			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>5</sup></a></li>
+		
+			<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">8</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/imzhizi" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/imzhizi" target="_blank" title="github"></a>
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+		
+		<a href="http://imzhizi.com" target="_blank" title="质子">质子</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
