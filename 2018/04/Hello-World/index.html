@@ -13,6 +13,11 @@
     
     
     
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="imzhizi" />
+    <meta name="twitter:title" content="Hello, World | Breeze Bless U" />
+      
+    
     
     
     <link rel="icon" href="/img/favicon.ico">
@@ -34,7 +39,7 @@
 			
 			<div id="textlogo">
 				<h1 class="site-name"><a href="/" title="Breeze Bless U">Breeze Bless U</a></h1>
-				<h2 class="blog-motto">质子的博客</h2>
+				<h2 class="blog-motto">欢迎来到质子的博客</h2>
 			</div>
 			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
@@ -43,9 +48,11 @@
 					
 						<li><a href="/">主页 | Home</a></li>
 					
+						<li><a href="/about">简介 | About</a></li>
+					
 						<li><a href="/archives">归档 | Archives</a></li>
 					
-						<li><a href="/about">简介 | About</a></li>
+						<li><a href="/tags">标签 | Tags</a></li>
 					
 					<li>
 					
@@ -81,6 +88,11 @@
 </header>
 	<div class="article-content">
 		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		</div>
 		
 		<p>从今天起，做一个牛逼的人。</p>
   
@@ -121,11 +133,6 @@
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
-  
-  </div>
-
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
@@ -156,6 +163,15 @@
   </div>
 
 
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/algs/" style="font-size: 20px;">algs</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/memo/" style="font-size: 10px;">memo</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+
 </aside>
 </div>
     </div>
@@ -167,10 +183,17 @@
 	</div>
 	
 	
+	<section class="info">
+		<p> 马齿年年增， <br/>
+			牢影日日长。</p>
+	</section>
+	 
 	<div class="social-font clearfix">
 		
 		<a href="http://weibo.com/imzhizi" target="_blank" title="weibo"></a>
 		
+		
+		<a href="https://douban.com/people/imzhizi" target="_blank" title="twitter"></a>
 		
 		
 		<a href="https://github.com/imzhizi" target="_blank" title="github"></a>
@@ -212,8 +235,6 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
