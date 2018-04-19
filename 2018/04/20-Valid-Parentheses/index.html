@@ -9,9 +9,9 @@
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="括号匹配
+    <meta name="description" content="有序单链表的合并题目描述
 Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.
-An input string is valid i">
+An input string is">
     
     
     
@@ -84,7 +84,7 @@ An input string is valid i">
     </p>
   <p class="article-time">
     <time datetime="2018-04-18T13:14:39.000Z" itemprop="datePublished">2018-04-18</time>
-    更新日期:<time datetime="2018-04-18T13:40:20.245Z" itemprop="dateModified">2018-04-18</time>
+    更新日期:<time datetime="2018-04-19T03:29:06.888Z" itemprop="dateModified">2018-04-19</time>
     
   </p>
 </header>
@@ -93,10 +93,10 @@ An input string is valid i">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#括号匹配"><span class="toc-number">1.</span> <span class="toc-text">括号匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#有序单链表的合并"><span class="toc-number">1.</span> <span class="toc-text">有序单链表的合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
 		</div>
 		
-		<h2 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h2><blockquote>
+		<h2 id="有序单链表的合并"><a href="#有序单链表的合并" class="headerlink" title="有序单链表的合并"></a>有序单链表的合并</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
 <p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
 <p>An input string is valid if:<br>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.</p>
 <p>Note that an empty string is also considered valid.</p>
@@ -106,7 +106,7 @@ An input string is valid i">
 <p>Example 4:<br>Input: “([)]”<br>Output: false</p>
 <p>Example 5:<br>Input: “{[]}”<br>Output: true</p>
 </blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 20. Valid Parentheses</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/18</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A20_ValidParentheses</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 括号匹配是典型的栈的应用，原本想要使用JavaAPI内置的Stack类</span></span><br><span class="line"><span class="comment">     * 但发现用一个char[]和一个栈顶指针可以轻松模拟一个栈，所以选择了这个简单的方式</span></span><br><span class="line"><span class="comment">     * 若栈为空，则直接进栈；不为空进栈，与栈顶括号尝试匹配，若匹配则一起出栈，不匹配则进栈</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 运行时长：7 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 栈的简单使用，通过ASCII编码判断左右括号非常快捷</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">char</span>[] brackets = <span class="keyword">new</span> <span class="keyword">char</span>[s.length()];</span><br><span class="line">        <span class="keyword">int</span> depth = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (depth == -<span class="number">1</span>)</span><br><span class="line">                brackets[++depth] = s.charAt(i);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (brackets[depth] == s.charAt(i) - <span class="number">1</span> || brackets[depth] == s.charAt(i) - <span class="number">2</span>)</span><br><span class="line">                depth--;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                brackets[++depth]=s.charAt(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (depth == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(isValid(<span class="string">"()[]&#123;&#125;"</span>));</span><br><span class="line">        System.out.println(isValid(<span class="string">"&#123;[]&#125;"</span>));</span><br><span class="line">        System.out.println(isValid(<span class="string">"([)]"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 20. Valid Parentheses</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/18</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A20_ValidParentheses</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 括号匹配是典型的栈的应用，原本想要使用JavaAPI内置的Stack类</span></span><br><span class="line"><span class="comment">     * 但发现用一个char[]和一个栈顶指针可以轻松模拟一个栈，所以选择了这个简单的方式</span></span><br><span class="line"><span class="comment">     * 若栈为空，则直接进栈；不为空进栈，与栈顶括号尝试匹配，若匹配则一起出栈，不匹配则进栈</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 运行时长：7 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 栈的简单使用，通过ASCII编码判断左右括号非常快捷</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">char</span>[] brackets = <span class="keyword">new</span> <span class="keyword">char</span>[s.length()];</span><br><span class="line">        <span class="keyword">int</span> depth = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (depth == -<span class="number">1</span>)</span><br><span class="line">                brackets[++depth] = s.charAt(i);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (brackets[depth] == s.charAt(i) - <span class="number">1</span> || brackets[depth] == s.charAt(i) - <span class="number">2</span>)</span><br><span class="line">                depth--;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                brackets[++depth]=s.charAt(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (depth == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(isValid(<span class="string">"()[]&#123;&#125;"</span>));</span><br><span class="line">        System.out.println(isValid(<span class="string">"&#123;[]&#125;"</span>));</span><br><span class="line">        System.out.println(isValid(<span class="string">"([)]"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -130,6 +130,14 @@ An input string is valid i">
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2018/04/21-Merge-Two-Sorted-Lists/" title="#LeetCode 21. Merge Two Sorted Lists">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  #LeetCode 21. Merge Two Sorted Lists</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2018/04/北邮OJ-108-虚数/"  title="北邮OJ 108 虚数">
@@ -154,6 +162,9 @@ An input string is valid i">
     <ul>
       <li><a href="https://ithinkok.cn" target="_blank" >Sharing & Sorb</a></li>
     </ul>
+    <ul>
+      <li><a href="http://hiwangzi.com/" target="_blank" >WANG!</a></li>
+    </ul>
 </div>
 
   <div class="visited">
@@ -167,11 +178,11 @@ An input string is valid i">
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/algs/" title="algs">algs<sup>7</sup></a></li>
+			<li><a href="/tags/algs/" title="algs">algs<sup>8</sup></a></li>
 		
 			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
 		
-			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>6</sup></a></li>
+			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>7</sup></a></li>
 		
 			<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
 		
@@ -184,7 +195,7 @@ An input string is valid i">
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">10</span></li></ul>
   </div>
 
 
