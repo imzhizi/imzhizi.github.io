@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>#LeetCode 26. Remove Duplicates from Sorted Array | Breeze Bless U</title>
+    <title>#LeetCode 35. Search Insert Position | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="清除有序表中的重复元素题目描述
-Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.Do not all">
+    <meta name="description" content="## 
+题目描述代码实现详解见注释12">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#LeetCode 26. Remove Duplicates from Sorted Array | Breeze Bless U" />
+    <meta name="twitter:title" content="#LeetCode 35. Search Insert Position | Breeze Bless U" />
       
     
     
@@ -75,15 +75,15 @@ Given a sorted array nums, remove the duplicates in-place such that each element
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/26-Remove-Duplicates-from-Sorted-Array/" title="#LeetCode 26. Remove Duplicates from Sorted Array" itemprop="url">#LeetCode 26. Remove Duplicates from Sorted Array</a>
+      <a href="/2018/04/35-Search-Insert-Position/" title="#LeetCode 35. Search Insert Position" itemprop="url">#LeetCode 35. Search Insert Position</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-19T03:33:37.000Z" itemprop="datePublished">2018-04-19</time>
-    更新日期:<time datetime="2018-04-20T17:43:09.361Z" itemprop="dateModified">2018-04-21</time>
+    <time datetime="2018-04-20T18:40:11.000Z" itemprop="datePublished">2018-04-21</time>
+    更新日期:<time datetime="2018-04-20T18:49:35.184Z" itemprop="dateModified">2018-04-21</time>
     
   </p>
 </header>
@@ -92,14 +92,11 @@ Given a sorted array nums, remove the duplicates in-place such that each element
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#清除有序表中的重复元素"><span class="toc-number">1.</span> <span class="toc-text">清除有序表中的重复元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a></li></ol>
 		</div>
 		
-		<h2 id="清除有序表中的重复元素"><a href="#清除有序表中的重复元素" class="headerlink" title="清除有序表中的重复元素"></a>清除有序表中的重复元素</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Example 1:<br>Given nums = [1,1,2],<br>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.<br>It doesn’t matter what you leave beyond the returned length.</p>
-</blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A26_removeDuplicates</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 如果不同，则放到自己的下一位，这道题抽象到最简之后的内核</span></span><br><span class="line"><span class="comment">     * 运行时长：14 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] != nums[l]) &#123;</span><br><span class="line">                nums[++l] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">        System.out.println(removeDuplicates(nums));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+		<p>## </p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -114,7 +111,7 @@ Given a sorted array nums, remove the duplicates in-place such that each element
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/2018/04/26-Remove-Duplicates-from-Sorted-Array/" data-title="#LeetCode 26. Remove Duplicates from Sorted Array | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/2018/04/35-Search-Insert-Position/" data-title="#LeetCode 35. Search Insert Position | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -129,19 +126,11 @@ Given a sorted array nums, remove the duplicates in-place such that each element
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/04/27-Remove-Element/" title="#LeetCode 27. Remove Element">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  #LeetCode 27. Remove Element</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/04/21-Merge-Two-Sorted-Lists/"  title="#LeetCode 21. Merge Two Sorted Lists">
+<a href="/2018/04/28-Implement-strStr/"  title="#LeetCode 28. Implement strStr()">
  <strong>NEXT:</strong><br/> 
- <span>#LeetCode 21. Merge Two Sorted Lists
+ <span>#LeetCode 28. Implement strStr()
 </span>
 </a>
 </div>
