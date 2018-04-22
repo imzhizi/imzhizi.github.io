@@ -4,19 +4,21 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>#LeetCode 1. twoSum | Breeze Bless U</title>
+    <title>#LeetCode 9. Palindrome Number | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="两数之和题目描述：
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.You may assume that each input woul">
+    <meta name="description" content="回文数题目描述：
+判断一个整数是否是回文数。不能使用辅助空间。如：2147447412
+
+两种实现具体介绍见方法注释123456789101112131415161718192021222324252627282930313233343536373839public class A09_isPali">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#LeetCode 1. twoSum | Breeze Bless U" />
+    <meta name="twitter:title" content="#LeetCode 9. Palindrome Number | Breeze Bless U" />
       
     
     
@@ -77,15 +79,15 @@ Given an array of integers, return indices of the two numbers such that they add
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/1-twoSum/" title="#LeetCode 1. twoSum" itemprop="url">#LeetCode 1. twoSum</a>
+      <a href="/201804-9-palindrome-number.html" title="#LeetCode 9. Palindrome Number" itemprop="url">#LeetCode 9. Palindrome Number</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-07T03:34:07.000Z" itemprop="datePublished">2018-04-07</time>
-    更新日期:<time datetime="2018-04-20T17:26:31.083Z" itemprop="dateModified">2018-04-21</time>
+    <time datetime="2018-04-11T13:35:50.000Z" itemprop="datePublished">2018-04-11</time>
+    更新日期:<time datetime="2018-04-18T05:01:02.006Z" itemprop="dateModified">2018-04-18</time>
     
   </p>
 </header>
@@ -94,14 +96,13 @@ Given an array of integers, return indices of the two numbers such that they add
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两数之和"><span class="toc-number">1.</span> <span class="toc-text">两数之和</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种实现"><span class="toc-number">1.2.</span> <span class="toc-text">两种实现</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#回文数"><span class="toc-number">1.</span> <span class="toc-text">回文数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种实现"><span class="toc-number">1.2.</span> <span class="toc-text">两种实现</span></a></li></ol></li></ol>
 		</div>
 		
-		<h2 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.<br>Eg.<br>Given nums = [2, 7, 11, 15], target = 9,<br>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
+		<h2 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
+<p>判断一个整数是否是回文数。不能使用辅助空间。<br>如：2147447412</p>
 </blockquote>
-<p>这是LeetCode的第一道题，没什么难度，但可以通过这个来适应LeetCode的OJ，可以看到只要在LeetCode上提交一个函数即可，不需做额外的输出什么的，同时我发现将函数写成静态也是可以正常执行的，暂时还没发现效率上的影响，之后的题目为了方便都会写成静态的。</p>
-<h3 id="两种实现"><a href="#两种实现" class="headerlink" title="两种实现"></a>两种实现</h3><p>具体介绍见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A01_twoSum</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 无</span></span><br><span class="line"><span class="comment">     * 时长：未知</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 将函数写成静态也是可以正常执行的，暂时还没发现效率上的影响，之后的题目为了方便都会写成静态的。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] + nums[j] == target)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i, j&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums=twoSum(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>&#125;,<span class="number">9</span>);</span><br><span class="line">        System.out.println(nums[<span class="number">0</span>] + <span class="string">" "</span> + nums[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="两种实现"><a href="#两种实现" class="headerlink" title="两种实现"></a>两种实现</h3><p>具体介绍见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A09_isPalindrome</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 使用StringBuilder的reverse函数进行翻转，然后使用equals函数进行比较</span></span><br><span class="line"><span class="comment">     * 运行时长：未知</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 使用JavaAPI函数，非常简单</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            StringBuilder string = <span class="keyword">new</span> StringBuilder(Long.toString(x));</span><br><span class="line">            <span class="keyword">return</span> string.reverse().equals(string);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 手动使用char[]进行对称检查，若对称则回文</span></span><br><span class="line"><span class="comment">     * 运行时长：未知</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">char</span>[] chars = String.valueOf(x).toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chars.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chars[i] != chars[chars.length - <span class="number">1</span> - i]) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(A09_isPalindrome.isPalindrome2(<span class="number">2147447412</span>));<span class="comment">//isPalindrome2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +117,7 @@ Given an array of integers, return indices of the two numbers such that they add
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/2018/04/1-twoSum/" data-title="#LeetCode 1. twoSum | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/201804-9-palindrome-number.html" data-title="#LeetCode 9. Palindrome Number | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -126,18 +127,18 @@ Given an array of integers, return indices of the two numbers such that they add
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/04/7-Reverse-Integer/" title="#LeetCode 7. Reverse Integer">
+ <a href="/201804-13-roman-to-integer.html" title="#LeetCode 13. Roman to Integer">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  #LeetCode 7. Reverse Integer</span>
+  #LeetCode 13. Roman to Integer</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/04/Hello-World/"  title="Hello, World">
+<a href="/201804-7-reverse-integer.html"  title="#LeetCode 7. Reverse Integer">
  <strong>NEXT:</strong><br/> 
- <span>Hello, World
+ <span>#LeetCode 7. Reverse Integer
 </span>
 </a>
 </div>

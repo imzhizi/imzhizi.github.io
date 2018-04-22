@@ -18,8 +18,8 @@
   
   <entry>
     <title>#LeetCode 35. Search Insert Position</title>
-    <link href="http://imzhizi.com/2018/04/35-Search-Insert-Position/"/>
-    <id>http://imzhizi.com/2018/04/35-Search-Insert-Position/</id>
+    <link href="http://imzhizi.com/201804-35-search-insert-position.html"/>
+    <id>http://imzhizi.com/201804-35-search-insert-position.html</id>
     <published>2018-04-20T18:40:11.000Z</published>
     <updated>2018-04-22T08:55:26.869Z</updated>
     
@@ -43,8 +43,8 @@
   
   <entry>
     <title>#LeetCode 28. Implement strStr()</title>
-    <link href="http://imzhizi.com/2018/04/28-Implement-strStr/"/>
-    <id>http://imzhizi.com/2018/04/28-Implement-strStr/</id>
+    <link href="http://imzhizi.com/201804-28-implement-strstr.html"/>
+    <id>http://imzhizi.com/201804-28-implement-strstr.html</id>
     <published>2018-04-20T18:18:45.000Z</published>
     <updated>2018-04-21T07:47:46.900Z</updated>
     
@@ -68,8 +68,8 @@
   
   <entry>
     <title>#LeetCode 27. Remove Element</title>
-    <link href="http://imzhizi.com/2018/04/27-Remove-Element/"/>
-    <id>http://imzhizi.com/2018/04/27-Remove-Element/</id>
+    <link href="http://imzhizi.com/201804-27-remove-element.html"/>
+    <id>http://imzhizi.com/201804-27-remove-element.html</id>
     <published>2018-04-20T17:23:06.000Z</published>
     <updated>2018-04-20T18:19:40.447Z</updated>
     
@@ -93,8 +93,8 @@
   
   <entry>
     <title>#LeetCode 26. Remove Duplicates from Sorted Array</title>
-    <link href="http://imzhizi.com/2018/04/26-Remove-Duplicates-from-Sorted-Array/"/>
-    <id>http://imzhizi.com/2018/04/26-Remove-Duplicates-from-Sorted-Array/</id>
+    <link href="http://imzhizi.com/201804-26-remove-duplicates-from-sorted-array.html"/>
+    <id>http://imzhizi.com/201804-26-remove-duplicates-from-sorted-array.html</id>
     <published>2018-04-19T03:33:37.000Z</published>
     <updated>2018-04-20T17:43:09.361Z</updated>
     
@@ -118,8 +118,8 @@
   
   <entry>
     <title>#LeetCode 21. Merge Two Sorted Lists</title>
-    <link href="http://imzhizi.com/2018/04/21-Merge-Two-Sorted-Lists/"/>
-    <id>http://imzhizi.com/2018/04/21-Merge-Two-Sorted-Lists/</id>
+    <link href="http://imzhizi.com/201804-21-merge-two-sorted-lists.html"/>
+    <id>http://imzhizi.com/201804-21-merge-two-sorted-lists.html</id>
     <published>2018-04-19T03:11:49.000Z</published>
     <updated>2018-04-19T03:31:35.718Z</updated>
     
@@ -143,8 +143,8 @@
   
   <entry>
     <title>#LeetCode 20. Valid Parentheses</title>
-    <link href="http://imzhizi.com/2018/04/20-Valid-Parentheses/"/>
-    <id>http://imzhizi.com/2018/04/20-Valid-Parentheses/</id>
+    <link href="http://imzhizi.com/201804-20-valid-parentheses.html"/>
+    <id>http://imzhizi.com/201804-20-valid-parentheses.html</id>
     <published>2018-04-18T13:14:39.000Z</published>
     <updated>2018-04-19T03:30:34.402Z</updated>
     
@@ -168,8 +168,8 @@
   
   <entry>
     <title>北邮OJ 108 虚数</title>
-    <link href="http://imzhizi.com/2018/04/%E5%8C%97%E9%82%AEOJ-108-%E8%99%9A%E6%95%B0/"/>
-    <id>http://imzhizi.com/2018/04/北邮OJ-108-虚数/</id>
+    <link href="http://imzhizi.com/201804-bei-you-oj-108-xu-shu.html"/>
+    <id>http://imzhizi.com/201804-bei-you-oj-108-xu-shu.html</id>
     <published>2018-04-17T15:21:44.000Z</published>
     <updated>2018-04-18T04:38:00.512Z</updated>
     
@@ -191,8 +191,8 @@
   
   <entry>
     <title>#LeetCode 14. Longest Common Prefix</title>
-    <link href="http://imzhizi.com/2018/04/14-Longest-Common-Prefix/"/>
-    <id>http://imzhizi.com/2018/04/14-Longest-Common-Prefix/</id>
+    <link href="http://imzhizi.com/201804-14-longest-common-prefix.html"/>
+    <id>http://imzhizi.com/201804-14-longest-common-prefix.html</id>
     <published>2018-04-17T13:40:27.000Z</published>
     <updated>2018-04-20T18:27:38.321Z</updated>
     
@@ -216,8 +216,8 @@
   
   <entry>
     <title>#Java8 String 的字面量、常量池、构造函数和intern()函数</title>
-    <link href="http://imzhizi.com/2018/04/String%20%E7%9A%84%E5%AD%97%E9%9D%A2%E9%87%8F%E3%80%81%E5%B8%B8%E9%87%8F%E6%B1%A0%E3%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8Cintern()%E5%87%BD%E6%95%B0%EF%BC%8C%E5%9F%BA%E4%BA%8EJDK1.8%20%E7%89%88%E6%9C%AC/"/>
-    <id>http://imzhizi.com/2018/04/String 的字面量、常量池、构造函数和intern()函数，基于JDK1.8 版本/</id>
+    <link href="http://imzhizi.com/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html"/>
+    <id>http://imzhizi.com/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html</id>
     <published>2018-04-17T08:18:58.000Z</published>
     <updated>2018-04-17T15:04:02.750Z</updated>
     
@@ -241,8 +241,8 @@
   
   <entry>
     <title>#LeetCode 13. Roman to Integer</title>
-    <link href="http://imzhizi.com/2018/04/13-Roman-to-Integer/"/>
-    <id>http://imzhizi.com/2018/04/13-Roman-to-Integer/</id>
+    <link href="http://imzhizi.com/201804-13-roman-to-integer.html"/>
+    <id>http://imzhizi.com/201804-13-roman-to-integer.html</id>
     <published>2018-04-14T09:41:02.000Z</published>
     <updated>2018-04-18T04:59:55.359Z</updated>
     
@@ -266,8 +266,8 @@
   
   <entry>
     <title>#LeetCode 9. Palindrome Number</title>
-    <link href="http://imzhizi.com/2018/04/9-Palindrome-Number/"/>
-    <id>http://imzhizi.com/2018/04/9-Palindrome-Number/</id>
+    <link href="http://imzhizi.com/201804-9-palindrome-number.html"/>
+    <id>http://imzhizi.com/201804-9-palindrome-number.html</id>
     <published>2018-04-11T13:35:50.000Z</published>
     <updated>2018-04-18T05:01:02.006Z</updated>
     
@@ -291,8 +291,8 @@
   
   <entry>
     <title>#LeetCode 7. Reverse Integer</title>
-    <link href="http://imzhizi.com/2018/04/7-Reverse-Integer/"/>
-    <id>http://imzhizi.com/2018/04/7-Reverse-Integer/</id>
+    <link href="http://imzhizi.com/201804-7-reverse-integer.html"/>
+    <id>http://imzhizi.com/201804-7-reverse-integer.html</id>
     <published>2018-04-09T08:34:55.000Z</published>
     <updated>2018-04-18T04:58:29.048Z</updated>
     
@@ -316,8 +316,8 @@
   
   <entry>
     <title>#LeetCode 1. twoSum</title>
-    <link href="http://imzhizi.com/2018/04/1-twoSum/"/>
-    <id>http://imzhizi.com/2018/04/1-twoSum/</id>
+    <link href="http://imzhizi.com/201804-1-twosum.html"/>
+    <id>http://imzhizi.com/201804-1-twosum.html</id>
     <published>2018-04-07T03:34:07.000Z</published>
     <updated>2018-04-20T17:26:31.083Z</updated>
     
@@ -341,8 +341,8 @@
   
   <entry>
     <title>Hello, World</title>
-    <link href="http://imzhizi.com/2018/04/Hello-World/"/>
-    <id>http://imzhizi.com/2018/04/Hello-World/</id>
+    <link href="http://imzhizi.com/201804-hello-world.html"/>
+    <id>http://imzhizi.com/201804-hello-world.html</id>
     <published>2018-04-06T04:02:18.000Z</published>
     <updated>2018-04-18T12:13:48.115Z</updated>
     

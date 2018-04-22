@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>#LeetCode 9. Palindrome Number | Breeze Bless U</title>
+    <title>#LeetCode 7. Reverse Integer | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="回文数题目描述：
-判断一个整数是否是回文数。不能使用辅助空间。如：2147447412
+    <meta name="description" content="整数翻转题目描述：
+Given a 32-bit signed integer, reverse digits of an integer.ExampleInput: 123Output:  321Input: -123Output: -321Input: 120Output: 21
 
-两种实现具体介绍见方法注释123456789101112131415161718192021222324252627282930313233343536373839public class A09_isPali">
+两种实现具体">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#LeetCode 9. Palindrome Number | Breeze Bless U" />
+    <meta name="twitter:title" content="#LeetCode 7. Reverse Integer | Breeze Bless U" />
       
     
     
@@ -79,15 +79,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/9-Palindrome-Number/" title="#LeetCode 9. Palindrome Number" itemprop="url">#LeetCode 9. Palindrome Number</a>
+      <a href="/201804-7-reverse-integer.html" title="#LeetCode 7. Reverse Integer" itemprop="url">#LeetCode 7. Reverse Integer</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-11T13:35:50.000Z" itemprop="datePublished">2018-04-11</time>
-    更新日期:<time datetime="2018-04-18T05:01:02.006Z" itemprop="dateModified">2018-04-18</time>
+    <time datetime="2018-04-09T08:34:55.000Z" itemprop="datePublished">2018-04-09</time>
+    更新日期:<time datetime="2018-04-18T04:58:29.048Z" itemprop="dateModified">2018-04-18</time>
     
   </p>
 </header>
@@ -96,13 +96,13 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#回文数"><span class="toc-number">1.</span> <span class="toc-text">回文数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种实现"><span class="toc-number">1.2.</span> <span class="toc-text">两种实现</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#整数翻转"><span class="toc-number">1.</span> <span class="toc-text">整数翻转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种实现"><span class="toc-number">1.2.</span> <span class="toc-text">两种实现</span></a></li></ol></li></ol>
 		</div>
 		
-		<h2 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
-<p>判断一个整数是否是回文数。不能使用辅助空间。<br>如：2147447412</p>
+		<h2 id="整数翻转"><a href="#整数翻转" class="headerlink" title="整数翻转"></a>整数翻转</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
+<p>Given a 32-bit signed integer, reverse digits of an integer.<br>Example<br>Input: 123<br>Output:  321<br>Input: -123<br>Output: -321<br>Input: 120<br>Output: 21</p>
 </blockquote>
-<h3 id="两种实现"><a href="#两种实现" class="headerlink" title="两种实现"></a>两种实现</h3><p>具体介绍见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A09_isPalindrome</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 使用StringBuilder的reverse函数进行翻转，然后使用equals函数进行比较</span></span><br><span class="line"><span class="comment">     * 运行时长：未知</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 使用JavaAPI函数，非常简单</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            StringBuilder string = <span class="keyword">new</span> StringBuilder(Long.toString(x));</span><br><span class="line">            <span class="keyword">return</span> string.reverse().equals(string);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 手动使用char[]进行对称检查，若对称则回文</span></span><br><span class="line"><span class="comment">     * 运行时长：未知</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">char</span>[] chars = String.valueOf(x).toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chars.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chars[i] != chars[chars.length - <span class="number">1</span> - i]) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(A09_isPalindrome.isPalindrome2(<span class="number">2147447412</span>));<span class="comment">//isPalindrome2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="两种实现"><a href="#两种实现" class="headerlink" title="两种实现"></a>两种实现</h3><p>具体介绍见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A07_reverseInteger</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 功能描述</span></span><br><span class="line"><span class="comment">     * 使用StringBuilder进行翻转，因为翻转后可能会大于整形数字，因此使用Long.valueOf()来接收翻转后的数字</span></span><br><span class="line"><span class="comment">     * 运行时长：43ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结</span></span><br><span class="line"><span class="comment">     * int型的负数转换成正数时会有一位越界</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> l = x;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            l = Long.valueOf(<span class="keyword">new</span> StringBuilder(l + <span class="string">""</span>).reverse().toString());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            l = Long.valueOf(<span class="keyword">new</span> StringBuilder(String.valueOf(l * -<span class="number">1</span>)).reverse().toString()) * -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; Integer.MAX_VALUE || l &lt; Integer.MIN_VALUE) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> (<span class="keyword">int</span>) l;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 使用数学方法进行翻转，思路是从个位开始求余数，然后将余数变成最高位</span></span><br><span class="line"><span class="comment">     * 第一个循环计算长度，第二个循环依次处理余数</span></span><br><span class="line"><span class="comment">     * 运行时长：52ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 没想到这种方法时间竟然比StringBuilder翻转，可见JavaAPI函数优化的非常好</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">reverse2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = x; i != <span class="number">0</span>; i /= <span class="number">10</span>) &#123;</span><br><span class="line">            length++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; x != <span class="number">0</span>; x /= <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> rest = x % <span class="number">10</span>;</span><br><span class="line">            result += rest * Math.pow(<span class="number">10</span>, --length);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (result &gt; Integer.MAX_VALUE || result &lt; Integer.MIN_VALUE) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> (<span class="keyword">int</span>) result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(reverse2(<span class="number">2147483647</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -117,7 +117,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/2018/04/9-Palindrome-Number/" data-title="#LeetCode 9. Palindrome Number | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/201804-7-reverse-integer.html" data-title="#LeetCode 7. Reverse Integer | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -127,18 +127,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/04/13-Roman-to-Integer/" title="#LeetCode 13. Roman to Integer">
+ <a href="/201804-9-palindrome-number.html" title="#LeetCode 9. Palindrome Number">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  #LeetCode 13. Roman to Integer</span>
+  #LeetCode 9. Palindrome Number</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/04/7-Reverse-Integer/"  title="#LeetCode 7. Reverse Integer">
+<a href="/201804-1-twosum.html"  title="#LeetCode 1. twoSum">
  <strong>NEXT:</strong><br/> 
- <span>#LeetCode 7. Reverse Integer
+ <span>#LeetCode 1. twoSum
 </span>
 </a>
 </div>
