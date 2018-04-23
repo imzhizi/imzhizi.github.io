@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>#Java8 String 的字面量、常量池、构造函数和intern()函数 | Breeze Bless U</title>
+    <title>#Java8 String的字面量、常量池、构造函数和intern()函数 | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
@@ -20,7 +20,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#Java8 String 的字面量、常量池、构造函数和intern()函数 | Breeze Bless U" />
+    <meta name="twitter:title" content="#Java8 String的字面量、常量池、构造函数和intern()函数 | Breeze Bless U" />
       
     
     
@@ -81,7 +81,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html" title="#Java8 String 的字面量、常量池、构造函数和intern()函数" itemprop="url">#Java8 String 的字面量、常量池、构造函数和intern()函数</a>
+      <a href="/201804/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html" title="#Java8 String的字面量、常量池、构造函数和intern()函数" itemprop="url">#Java8 String的字面量、常量池、构造函数和intern()函数</a>
   </h1>
   <p class="article-author">By
     
@@ -89,7 +89,7 @@
     </p>
   <p class="article-time">
     <time datetime="2018-04-17T08:18:58.000Z" itemprop="datePublished">2018-04-17</time>
-    更新日期:<time datetime="2018-04-17T15:04:02.750Z" itemprop="dateModified">2018-04-17</time>
+    更新日期:<time datetime="2018-04-23T12:12:46.083Z" itemprop="dateModified">2018-04-23</time>
     
   </p>
 </header>
@@ -150,7 +150,7 @@
 </ul>
 <h3 id="新的问题"><a href="#新的问题" class="headerlink" title="新的问题"></a>新的问题</h3><p>这个函数有什么用，个人认为，可以粗率地认为这个函数可以找到所有的String object在常量池中对应的字面量（存在则返回引用，不存在则创建后返回引用）。但是不难想到，之前的初步结论已经得出new String(“”)会确保两个对象的存在，那么intern()函数的存在有什么意义呢？为了得到一个String对象中引用的的源对象？<br>这时引入下面一段代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String str1 = <span class="keyword">new</span> String(<span class="string">"1"</span>);</span><br><span class="line">System.out.println(str1 == str1.intern());</span><br><span class="line">System.out.println(str1 == <span class="string">"1"</span>);</span><br><span class="line"></span><br><span class="line">String str2 = <span class="keyword">new</span> String(<span class="string">"2"</span>) + <span class="keyword">new</span> String(<span class="string">"3"</span>);</span><br><span class="line">System.out.println(str2 == str2.intern());</span><br><span class="line">System.out.println(str2 == <span class="string">"23"</span>);</span><br><span class="line"></span><br><span class="line">String str4=<span class="string">"45"</span>;</span><br><span class="line">String str3 = <span class="keyword">new</span> String(<span class="string">"4"</span>) + <span class="keyword">new</span> String(<span class="string">"5"</span>);</span><br><span class="line">System.out.println(str3==str3.intern());</span><br><span class="line">System.out.println(str3 == <span class="string">"45"</span>);</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br><img src="http://oonxokoe8.bkt.clouddn.com/18-4-16/23539985.jpg" alt="运行结果"> </p>
+<p>运行结果：<br><img src="img/20180417运行结果.jpg" alt="运行结果"> </p>
 <p>对于结果，相信str1的两个输出结果都是可以理解的，str1创建后产生两个对象，保存在堆的 str1 和常量池中的 “1” 地址显然不同，而intern() 则是返回的”1”的地址，所以输出均为false；</p>
 <p>而str2、str3、str4就变得诡异起来了，经过了字符串拼装之后，<code>str2</code>和<code>str2.intern()</code>神奇的具有了相同的地址，但同时，因为一个str4，<code>str3</code>和<code>str3.intern()</code>相同的地址又变的不同起来；</p>
 <p>所以新的问题就来源于字符串拼接，根据前文已经知道字符串是不可修改的，那么想要进行一次<code>String str2 = new String(&quot;2&quot;) + new String(&quot;3&quot;);</code>这样的字符串拼接消耗就非常大了（相信大家都听过字符串拼接效率差的说法），所以JVM对其进行了优化，具体是如何优化的呢？</p>
@@ -194,7 +194,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html" data-title="#Java8 String 的字面量、常量池、构造函数和intern()函数 | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/201804/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html" data-title="#Java8 String的字面量、常量池、构造函数和intern()函数 | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -204,7 +204,7 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/201804-14-longest-common-prefix.html" title="#LeetCode 14. Longest Common Prefix">
+ <a href="/201804/201804-14-longest-common-prefix.html" title="#LeetCode 14. Longest Common Prefix">
   <strong>PREVIOUS:</strong><br/>
   <span>
   #LeetCode 14. Longest Common Prefix</span>
@@ -213,7 +213,7 @@
 
 
 <div class="next">
-<a href="/201804-13-roman-to-integer.html"  title="#LeetCode 13. Roman to Integer">
+<a href="/201804/201804-13-roman-to-integer.html"  title="#LeetCode 13. Roman to Integer">
  <strong>NEXT:</strong><br/> 
  <span>#LeetCode 13. Roman to Integer
 </span>
@@ -255,11 +255,11 @@
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/algs/" title="algs">algs<sup>12</sup></a></li>
+			<li><a href="/tags/algs/" title="algs">algs<sup>13</sup></a></li>
 		
 			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
 		
-			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>11</sup></a></li>
+			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>12</sup></a></li>
 		
 			<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
 		
@@ -272,7 +272,7 @@
  	 		
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">15</span></li></ul>
   </div>
 
 		
@@ -302,7 +302,7 @@
 	
 	<section class="info">
 		<p> 好好做人，爱智求真。 <br/>
-			感谢浏览，希望能够有所帮助。</p>
+			感谢浏览，希望我的文字能够有所帮助。</p>
 	</section>
 	 
 	<div class="social-font clearfix">

@@ -4,18 +4,27 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello, World | Breeze Bless U</title>
+    <title>#LeetCode 38. Count and Say | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="从今天起，做一个牛逼的人。">
+    <meta name="description" content="数数字，说出来题目描述
+The count-and-say sequence is the sequence of integers with the first five terms as following:
+
+1
+11
+21
+1211
+111221
+
+1 is read off as “one">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="Hello, World | Breeze Bless U" />
+    <meta name="twitter:title" content="#LeetCode 38. Count and Say | Breeze Bless U" />
       
     
     
@@ -76,15 +85,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/201804-hello-world.html" title="Hello, World" itemprop="url">Hello, World</a>
+      <a href="/201804/201804-38-count-and-say.html" title="#LeetCode 38. Count and Say" itemprop="url">#LeetCode 38. Count and Say</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-06T04:02:18.000Z" itemprop="datePublished">2018-04-06</time>
-    更新日期:<time datetime="2018-04-18T12:13:48.115Z" itemprop="dateModified">2018-04-18</time>
+    <time datetime="2018-04-23T11:20:26.000Z" itemprop="datePublished">2018-04-23</time>
+    更新日期:<time datetime="2018-04-23T11:33:52.892Z" itemprop="dateModified">2018-04-23</time>
     
   </p>
 </header>
@@ -93,17 +102,28 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数数字，说出来"><span class="toc-number">1.</span> <span class="toc-text">数数字，说出来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
 		</div>
 		
-		<p>从今天起，做一个牛逼的人。</p>
+		<h2 id="数数字，说出来"><a href="#数数字，说出来" class="headerlink" title="数数字，说出来"></a>数数字，说出来</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+<ol>
+<li>1</li>
+<li>11</li>
+<li>21</li>
+<li>1211</li>
+<li>111221</li>
+</ol>
+<p>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.</p>
+</blockquote>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A38_CountandSay</span> </span>&#123;</span><br><span class="line">true<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 一道很别扭的字符串处理的题目，写了很久没想出来如何处理，最后还是选用了最暴力的方法</span></span><br><span class="line"><span class="comment">     * 为了字符串拼接方便，使用了StringBuilder</span></span><br><span class="line"><span class="comment">     * 第一层while循环控制n，第二层控制字符串的每个字符，第三层计算相同元素的个数</span></span><br><span class="line"><span class="comment">     * 运行时长：5 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 这种字符串处理问题总是解决的不太好，很少能想出暴力以外的方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">countAndSay</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="string">"1"</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) <span class="keyword">return</span> <span class="string">"11"</span>;</span><br><span class="line">        String str = <span class="string">"11"</span>;</span><br><span class="line">        <span class="keyword">while</span> (n-- != <span class="number">2</span>) &#123;</span><br><span class="line">            StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">int</span> length = str.length();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (count + i &lt; length &amp;&amp; str.charAt(i) == str.charAt(count + i)) &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">                result.append(count).append(str.charAt(i));</span><br><span class="line">                i = i + count - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            str = result.toString();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(countAndSay(<span class="number">2</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">3</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">4</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">5</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">6</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">7</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/memo/">memo</a>
+  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/algs/">algs</a>
   </div>
 
 
@@ -111,7 +131,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/201804-hello-world.html" data-title="Hello, World | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/201804/201804-38-count-and-say.html" data-title="#LeetCode 38. Count and Say | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -120,14 +140,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/201804-1-twosum.html" title="#LeetCode 1. twoSum">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  #LeetCode 1. twoSum</span>
+
+<div class="next">
+<a href="/201804/201804-35-search-insert-position.html"  title="#LeetCode 35. Search Insert Position">
+ <strong>NEXT:</strong><br/> 
+ <span>#LeetCode 35. Search Insert Position
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -164,11 +184,11 @@
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/algs/" title="algs">algs<sup>12</sup></a></li>
+			<li><a href="/tags/algs/" title="algs">algs<sup>13</sup></a></li>
 		
 			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
 		
-			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>11</sup></a></li>
+			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>12</sup></a></li>
 		
 			<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
 		
@@ -181,7 +201,7 @@
  	 		
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">15</span></li></ul>
   </div>
 
 		
@@ -211,7 +231,7 @@
 	
 	<section class="info">
 		<p> 好好做人，爱智求真。 <br/>
-			感谢浏览，希望能够有所帮助。</p>
+			感谢浏览，希望我的文字能够有所帮助。</p>
 	</section>
 	 
 	<div class="social-font clearfix">
