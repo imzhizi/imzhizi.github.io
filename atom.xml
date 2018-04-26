@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imzhizi.com/"/>
-  <updated>2018-04-25T15:05:46.549Z</updated>
+  <updated>2018-04-26T05:57:47.904Z</updated>
   <id>http://imzhizi.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>#LeetCode 58. Length of Last Word</title>
+    <link href="http://imzhizi.com/201804/201804-58-length-of-last-word.html"/>
+    <id>http://imzhizi.com/201804/201804-58-length-of-last-word.html</id>
+    <published>2018-04-26T05:56:30.000Z</published>
+    <updated>2018-04-26T05:57:47.904Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="58-最后一个单词的长度"><a href="#58-最后一个单词的长度" class="headerlink" title="58. 最后一个单词的长度"></a>58. 最后一个单词的长度</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.<br>If the last word does not exist, return 0.<br>Note: A word is defined as a character sequence consists of non-space characters only.</p><p>Example:<br>Input: “Hello World”<br>Output: 5</p></blockquote><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/26</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A58_LengthOfLastWord</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 题目并不复杂，只要注意几个特殊的样例即可</span></span><br><span class="line"><span class="comment">     * 其中有："a "，"    "，</span></span><br><span class="line"><span class="comment">     * 运行时长：5 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 两种结束情况，一种是遇到最后一个单词之前的空格，一个是整个字符串直接遍历结束</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) != <span class="string">' '</span>) length++;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">' '</span> &amp;&amp; length != <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(lengthOfLastWord(<span class="string">"Hello World"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;58-最后一个单词的长度&quot;&gt;&lt;a href=&quot;#58-最后一个单词的长度&quot; class=&quot;headerlink&quot; title=&quot;58. 最后一个单词的长度&quot;&gt;&lt;/a&gt;58. 最后一个单词的长度&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; c
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://imzhizi.com/tags/leetcode/"/>
+    
+      <category term="algs" scheme="http://imzhizi.com/tags/algs/"/>
+    
+  </entry>
   
   <entry>
     <title>#LeetCode 53. Maximum Subarray</title>
