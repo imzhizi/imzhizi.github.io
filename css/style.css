@@ -1943,7 +1943,7 @@ footer {
   zoom: 1;
   font-size: 0.85em;
   text-align: left;
-  color: #649655;
+  color: #228b22;
   line-height: 1em;
   padding: 0.5em 0;
   margin-bottom: 0.5em;
@@ -1992,7 +1992,7 @@ footer {
 }
 .article-content .gist .gist-file .gist-meta {
   background: #efefef;
-  color: #649655;
+  color: #228b22;
   font: 0.85em "Georgia", serif;
   padding: 0;
   margin-top: 1em;
@@ -2006,7 +2006,7 @@ footer {
   color: #ea6753;
 }
 pre .comment {
-  color: #649655;
+  color: #228b22;
 }
 pre .title,
 pre .variable,
@@ -2029,12 +2029,10 @@ pre .built_in,
 pre .literal,
 pre .constant,
 pre .string {
-  color: #4c80f0;
+  color: #008b8b;
 }
 pre .class .title,
-pre .rules .attribute,
-pre .params,
-pre .java .variable {
+pre .rules .attribute {
   color: #e9967a;
 }
 pre .value,
@@ -2042,7 +2040,7 @@ pre .inheritance,
 pre .header,
 pre .symbol,
 pre .cdata {
-  color: #81a2be;
+  color: #000080;
 }
 pre .css .hexcolor {
   color: #8abeb7;
@@ -2054,9 +2052,12 @@ pre .python .title,
 pre .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
-pre .coffeescript .title,
+pre .coffeescript .title {
+  color: #000080;
+}
 pre .keyword,
-pre .javascript .function {
+pre .javascript .function,
+pre .params {
   color: #820060;
 }
 pre .coffeescript .javascript,
