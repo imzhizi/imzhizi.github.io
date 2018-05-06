@@ -4,27 +4,20 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>#LeetCode 38. Count and Say | Breeze Bless U</title>
+    <title>#LeetCode 88. Merge Sorted Array | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="报数题目描述
-The count-and-say sequence is the sequence of integers with the first five terms as following:
-
-1
-11
-21
-1211
-111221
-
-1 is read off as “one 1” o">
+    <meta name="description" content="合并有序数列题目描述
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+Note:The number of elements initialized in num">
     
     
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#LeetCode 38. Count and Say | Breeze Bless U" />
+    <meta name="twitter:title" content="#LeetCode 88. Merge Sorted Array | Breeze Bless U" />
       
     
     
@@ -85,15 +78,15 @@ The count-and-say sequence is the sequence of integers with the first five terms
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/201804/201804-38-count-and-say.html" title="#LeetCode 38. Count and Say" itemprop="url">#LeetCode 38. Count and Say</a>
+      <a href="/201805/201805-88-merge-sorted-array.html" title="#LeetCode 88. Merge Sorted Array" itemprop="url">#LeetCode 88. Merge Sorted Array</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-23T11:20:26.000Z" itemprop="datePublished">2018-04-23</time>
-    更新日期:<time datetime="2018-04-28T16:24:01.113Z" itemprop="dateModified">2018-04-29</time>
+    <time datetime="2018-05-06T01:37:36.000Z" itemprop="datePublished">2018-05-06</time>
+    更新日期:<time datetime="2018-05-06T02:33:40.667Z" itemprop="dateModified">2018-05-06</time>
     
   </p>
 </header>
@@ -102,21 +95,15 @@ The count-and-say sequence is the sequence of integers with the first five terms
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#报数"><span class="toc-number">1.</span> <span class="toc-text">报数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#合并有序数列"><span class="toc-number">1.</span> <span class="toc-text">合并有序数列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
 		</div>
 		
-		<h2 id="报数"><a href="#报数" class="headerlink" title="报数"></a>报数</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
-<ol>
-<li>1</li>
-<li>11</li>
-<li>21</li>
-<li>1211</li>
-<li>111221</li>
-</ol>
-<p>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.</p>
+		<h2 id="合并有序数列"><a href="#合并有序数列" class="headerlink" title="合并有序数列"></a>合并有序数列</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
+<p>Note:<br>The number of elements initialized in nums1 and nums2 are m and n respectively.<br>You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.<br>Example:</p>
+<p>Input:<br>nums1 = [1,2,3,0,0,0], m = 3<br>nums2 = [2,5,6],       n = 3<br>Output: [1,2,2,3,5,6]</p>
 </blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A38_CountandSay</span> </span>&#123;</span><br><span class="line">true<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 一道很别扭的字符串处理的题目，写了很久没想出来如何处理，最后还是选用了最暴力的方法</span></span><br><span class="line"><span class="comment">     * 为了字符串拼接方便，使用了StringBuilder</span></span><br><span class="line"><span class="comment">     * 第一层while循环控制n，第二层控制字符串的每个字符，第三层计算相同元素的个数</span></span><br><span class="line"><span class="comment">     * 运行时长：5 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 这种字符串处理问题总是解决的不太好，很少能想出暴力以外的方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">countAndSay</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="string">"1"</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>) <span class="keyword">return</span> <span class="string">"11"</span>;</span><br><span class="line">        String str = <span class="string">"11"</span>;</span><br><span class="line">        <span class="keyword">while</span> (n-- != <span class="number">2</span>) &#123;</span><br><span class="line">            StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">int</span> length = str.length();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (count + i &lt; length &amp;&amp; str.charAt(i) == str.charAt(count + i)) &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">                result.append(count).append(str.charAt(i));</span><br><span class="line">                i = i + count - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            str = result.toString();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(countAndSay(<span class="number">2</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">3</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">4</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">5</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">6</span>));</span><br><span class="line">        System.out.println(countAndSay(<span class="number">7</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/6</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A88_MergeSortedArray</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 使用了空间换时间的方法，整体实现上来看比较纠结，先把顺序合并到r[]中，然后重新复制到nums1[]中</span></span><br><span class="line"><span class="comment">     * nums1[]的长度为m+n，带来了许多不必要的问题</span></span><br><span class="line"><span class="comment">     * 或许出题人希望就地处理，但是就地处理总是难免要进行顺序移位，不可接受</span></span><br><span class="line"><span class="comment">     * 运行时长：5 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge2</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span> m, <span class="keyword">int</span>[] nums2, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] r = <span class="keyword">new</span> <span class="keyword">int</span>[m + n];</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j &lt; m &amp;&amp; (k == n || nums1[j] &lt;= nums2[k])) &#123;</span><br><span class="line">                r[i] = nums1[j++];</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">                r[i] = nums2[k++];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m + n; i++) &#123;</span><br><span class="line">            nums1[i] = r[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：先合并，再排序，十分无脑，当然效率也差</span></span><br><span class="line"><span class="comment">     * 运行时长：7 ms</span></span><br><span class="line"><span class="comment">     * 总结：无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span> m, <span class="keyword">int</span>[] nums2, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            nums1[m + i] = nums2[i];</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(nums1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] nums2 = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;</span><br><span class="line">        merge2(nums1, <span class="number">3</span>, nums2, <span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -131,7 +118,7 @@ The count-and-say sequence is the sequence of integers with the first five terms
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/201804/201804-38-count-and-say.html" data-title="#LeetCode 38. Count and Say | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/201805/201805-88-merge-sorted-array.html" data-title="#LeetCode 88. Merge Sorted Array | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -140,19 +127,11 @@ The count-and-say sequence is the sequence of integers with the first five terms
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/201804/201804-53-maximum-subarray.html" title="#LeetCode 53. Maximum Subarray">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  #LeetCode 53. Maximum Subarray</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/201804/201804-35-search-insert-position.html"  title="#LeetCode 35. Search Insert Position">
+<a href="/201805/201805-83-remove-duplicates-from-sorted-list.html"  title="#LeetCode 83. Remove Duplicates from Sorted List">
  <strong>NEXT:</strong><br/> 
- <span>#LeetCode 35. Search Insert Position
+ <span>#LeetCode 83. Remove Duplicates from Sorted List
 </span>
 </a>
 </div>
