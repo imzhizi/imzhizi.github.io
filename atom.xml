@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imzhizi.com/"/>
-  <updated>2018-05-06T02:33:40.667Z</updated>
+  <updated>2018-05-07T08:07:50.463Z</updated>
   <id>http://imzhizi.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>#LeetCode 100. Same Tree</title>
+    <link href="http://imzhizi.com/201805/201805-100-same-tree.html"/>
+    <id>http://imzhizi.com/201805/201805-100-same-tree.html</id>
+    <published>2018-05-07T08:06:39.000Z</published>
+    <updated>2018-05-07T08:07:50.463Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="相同的树"><a href="#相同的树" class="headerlink" title="相同的树"></a>相同的树</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>Given two binary trees, write a function to check if they are the same or not.<br>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p><p>Example 1:<br>Input:     1         1<br>          / \       / \<br>         2   3     2   3<br>       [1,2,3],   [1,2,3]<br>Output: true</p><p>Example 2:<br>Input:     1         1<br>          /           \<br>         2             2<br>        [1,2],     [1,null,2]<br>Output: false</p></blockquote><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/7</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A100_SameTree</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 比较两个树是否完全相同，显然要用递归，否则就是复杂的层次遍历了</span></span><br><span class="line"><span class="comment">     * 假如能够一次遍历，中间任何一处不同都直接结束遍历应该是效率比较高的</span></span><br><span class="line"><span class="comment">     * 于是就有了下面的代码</span></span><br><span class="line"><span class="comment">     * 运行时长：5 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：无，一次草率的实现</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p,TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>((p!=<span class="keyword">null</span>&amp;&amp;q==<span class="keyword">null</span>)||(p==<span class="keyword">null</span>&amp;&amp;q!=<span class="keyword">null</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(p==<span class="keyword">null</span>&amp;&amp;q==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(p.val!=q.val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> isSameTree(p.left,q.left)&amp;&amp;isSameTree(p.right,q.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TreeNode t1=<span class="keyword">new</span> TreeNode(<span class="number">1</span>);</span><br><span class="line">        TreeNode t2=<span class="keyword">new</span> TreeNode(<span class="number">1</span>);</span><br><span class="line">        TreeNode t3=<span class="keyword">new</span> TreeNode(<span class="number">2</span>);</span><br><span class="line">        TreeNode t4=<span class="keyword">new</span> TreeNode(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        t1.left=t3;</span><br><span class="line">        t1.right = t4;</span><br><span class="line">        t2.right = t4;</span><br><span class="line">        t2.left = t3;</span><br><span class="line"></span><br><span class="line">        System.out.println(isSameTree(t1,t2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;相同的树&quot;&gt;&lt;a href=&quot;#相同的树&quot; class=&quot;headerlink&quot; title=&quot;相同的树&quot;&gt;&lt;/a&gt;相同的树&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://imzhizi.com/tags/leetcode/"/>
+    
+      <category term="algs" scheme="http://imzhizi.com/tags/algs/"/>
+    
+  </entry>
   
   <entry>
     <title>#LeetCode 88. Merge Sorted Array</title>
@@ -478,31 +503,6 @@
       
       
         &lt;h2 id=&quot;罗马数字转换为整形数字&quot;&gt;&lt;a href=&quot;#罗马数字转换为整形数字&quot; class=&quot;headerlink&quot; title=&quot;罗马数字转换为整形数字&quot;&gt;&lt;/a&gt;罗马数字转换为整形数字&lt;/h2&gt;&lt;h3 id=&quot;题目描述：&quot;&gt;&lt;a href=&quot;#题目描述：&quot; class
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://imzhizi.com/tags/leetcode/"/>
-    
-      <category term="algs" scheme="http://imzhizi.com/tags/algs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>#LeetCode 9. Palindrome Number</title>
-    <link href="http://imzhizi.com/201804/201804-9-palindrome-number.html"/>
-    <id>http://imzhizi.com/201804/201804-9-palindrome-number.html</id>
-    <published>2018-04-11T13:35:50.000Z</published>
-    <updated>2018-04-18T05:01:02.006Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote><p>判断一个整数是否是回文数。不能使用辅助空间。<br>如：2147447412</p></blockquote><h3 id="两种实现"><a href="#两种实现" class="headerlink" title="两种实现"></a>两种实现</h3><p>具体介绍见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A09_isPalindrome</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 使用StringBuilder的reverse函数进行翻转，然后使用equals函数进行比较</span></span><br><span class="line"><span class="comment">     * 运行时长：未知</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 使用JavaAPI函数，非常简单</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            StringBuilder string = <span class="keyword">new</span> StringBuilder(Long.toString(x));</span><br><span class="line">            <span class="keyword">return</span> string.reverse().equals(string);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 手动使用char[]进行对称检查，若对称则回文</span></span><br><span class="line"><span class="comment">     * 运行时长：未知</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPalindrome2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">char</span>[] chars = String.valueOf(x).toCharArray();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; chars.length / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chars[i] != chars[chars.length - <span class="number">1</span> - i]) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(A09_isPalindrome.isPalindrome2(<span class="number">2147447412</span>));<span class="comment">//isPalindrome2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;回文数&quot;&gt;&lt;a href=&quot;#回文数&quot; class=&quot;headerlink&quot; title=&quot;回文数&quot;&gt;&lt;/a&gt;回文数&lt;/h2&gt;&lt;h3 id=&quot;题目描述：&quot;&gt;&lt;a href=&quot;#题目描述：&quot; class=&quot;headerlink&quot; title=&quot;题目描述：&quot;&gt;&lt;/a&gt;
       
     
     </summary>
