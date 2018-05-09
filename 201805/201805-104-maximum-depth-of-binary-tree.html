@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>#LeetCode 66. Plus One | Breeze Bless U</title>
+    <title>LeetCode #104. Maximum Depth of Binary Tree | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="加一题目描述
-Given a non-empty array of digits representing a non-negative integer, plus one to the integer.The digits are stored such that the most signifi">
+    <meta name="description" content="二叉树的最大深度题目描述
+Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to th">
     
     
 <!--     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#LeetCode 66. Plus One | Breeze Bless U" /> -->
+    <meta name="twitter:title" content="LeetCode #104. Maximum Depth of Binary Tree | Breeze Bless U" /> -->
       
     
     
@@ -77,15 +77,15 @@ Given a non-empty array of digits representing a non-negative integer, plus one 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/201804/201804-66-plus-one.html" title="#LeetCode 66. Plus One" itemprop="url">#LeetCode 66. Plus One</a>
+      <a href="/201805/201805-104-maximum-depth-of-binary-tree.html" title="LeetCode #104. Maximum Depth of Binary Tree" itemprop="url">LeetCode #104. Maximum Depth of Binary Tree</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-04-28T16:22:07.000Z" itemprop="datePublished">2018-04-29</time>
-    更新日期:<time datetime="2018-05-04T04:08:31.982Z" itemprop="dateModified">2018-05-04</time>
+    <time datetime="2018-05-09T05:41:04.000Z" itemprop="datePublished">2018-05-09</time>
+    更新日期:<time datetime="2018-05-09T06:46:39.606Z" itemprop="dateModified">2018-05-09</time>
     
   </p>
 </header>
@@ -94,15 +94,13 @@ Given a non-empty array of digits representing a non-negative integer, plus one 
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#加一"><span class="toc-number">1.</span> <span class="toc-text">加一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的最大深度"><span class="toc-number">1.</span> <span class="toc-text">二叉树的最大深度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
 		</div>
 		
-		<h2 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given a non-empty array of digits representing a non-negative integer, plus one to the integer.<br>The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.<br>You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
-<p>Example 1:<br>Input: [1,2,3]<br>Output: [1,2,4]<br>Explanation: The array represents the integer 123.</p>
-<p>Example 2:<br>Input: [4,3,2,9]<br>Output: [4,3,3,0]<br>Explanation: The array represents the integer 4321.</p>
+		<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given a binary tree, find its maximum depth.<br>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.<br>Note: A leaf is a node with no children.<br><img src="../img/104MaximumDepth.png" alt="示例"></p>
 </blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/26</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A66_PlusOne</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 给数组的最后一位增加1，返回增加后的数组，主要难点在于处理[9,9,9]这种有进位的情况，写的不好看只是跑过了</span></span><br><span class="line"><span class="comment">     * 运行时长：0 ms/1 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 这道题意义不太大，数据集也比较小，也难以看出优化效果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</span><br><span class="line">        <span class="keyword">int</span> length = digits.length - <span class="number">1</span>;</span><br><span class="line">        digits[length]++;</span><br><span class="line">        <span class="keyword">if</span> (digits[length] &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> digits;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = length; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (digits[i] &gt; <span class="number">9</span>) &#123;</span><br><span class="line">                    digits[i] -= <span class="number">10</span>;</span><br><span class="line">                    <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[length + <span class="number">2</span>];</span><br><span class="line">                        temp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">                        digits = temp;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        digits[i - <span class="number">1</span>]++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> digits;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = plusOne(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            System.out.printf(nums[i] + <span class="string">","</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A104_MaximumDepthOfBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 求树的最大深度，不复杂，也很容易想出递归体</span></span><br><span class="line"><span class="comment">     * 运行时长：0 ms??</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 似乎还是用例太少的缘故，运行时长居然是0ms？</span></span><br><span class="line"><span class="comment">     * 不过在这道题遇到一个别的问题，那就是如果我使用三目表达式就会超时，可见三目不是好东西，以后再也不用了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>+Math.max(maxDepth(root.left), maxDepth(root.right));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TreeNode t1 = <span class="keyword">new</span> TreeNode(<span class="number">3</span>);</span><br><span class="line">        TreeNode t2 = <span class="keyword">new</span> TreeNode(<span class="number">9</span>);</span><br><span class="line">        TreeNode t3 = <span class="keyword">new</span> TreeNode(<span class="number">20</span>);</span><br><span class="line">        TreeNode t4 = <span class="keyword">new</span> TreeNode(<span class="number">5</span>);</span><br><span class="line">        TreeNode t5 = <span class="keyword">new</span> TreeNode(<span class="number">7</span>);</span><br><span class="line"></span><br><span class="line">        t1.left = t2;</span><br><span class="line">        t1.right = t3;</span><br><span class="line">        t3.left = t4;</span><br><span class="line">        t3.right = t5;</span><br><span class="line"></span><br><span class="line">        System.out.println(maxDepth(t1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -117,7 +115,7 @@ Given a non-empty array of digits representing a non-negative integer, plus one 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/201804/201804-66-plus-one.html" data-title="#LeetCode 66. Plus One | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/201805/201805-104-maximum-depth-of-binary-tree.html" data-title="LeetCode #104. Maximum Depth of Binary Tree | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -126,19 +124,11 @@ Given a non-empty array of digits representing a non-negative integer, plus one 
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/201804/201804-67-add-binary.html" title="#LeetCode 67. Add Binary">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  #LeetCode 67. Add Binary</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/201804/201804-58-length-of-last-word.html"  title="#LeetCode 58. Length of Last Word">
+<a href="/201805/201805-101-symmetric-tree.html"  title="#LeetCode 101. Symmetric Tree">
  <strong>NEXT:</strong><br/> 
- <span>#LeetCode 58. Length of Last Word
+ <span>#LeetCode 101. Symmetric Tree
 </span>
 </a>
 </div>
