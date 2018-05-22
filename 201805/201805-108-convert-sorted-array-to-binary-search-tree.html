@@ -4,21 +4,19 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>#LeetCode 101. Symmetric Tree | Breeze Bless U</title>
+    <title>#LeetCode 108. Convert Sorted Array to Binary Search Tree | Breeze Bless U</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="对称二叉树题目描述
-Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
-
-代码实现详解见注释12345678910111213141516171819202122">
+    <meta name="description" content="把有序数列转化为二叉查找树题目描述
+Given an array where elements are sorted in ascending order, convert it to a height balanced BST. For this problem, a height-balance">
     
     
 <!--     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#LeetCode 101. Symmetric Tree | Breeze Bless U" /> -->
+    <meta name="twitter:title" content="#LeetCode 108. Convert Sorted Array to Binary Search Tree | Breeze Bless U" /> -->
       
     
     
@@ -79,15 +77,15 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/201805/201805-101-symmetric-tree.html" title="#LeetCode 101. Symmetric Tree" itemprop="url">#LeetCode 101. Symmetric Tree</a>
+      <a href="/201805/201805-108-convert-sorted-array-to-binary-search-tree.html" title="#LeetCode 108. Convert Sorted Array to Binary Search Tree" itemprop="url">#LeetCode 108. Convert Sorted Array to Binary Search Tree</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://imzhizi.com" title="质子">质子</a>
     </p>
   <p class="article-time">
-    <time datetime="2018-05-08T02:15:08.000Z" itemprop="datePublished">2018-05-08</time>
-    更新日期:<time datetime="2018-05-09T06:46:07.829Z" itemprop="dateModified">2018-05-09</time>
+    <time datetime="2018-05-11T01:33:32.000Z" itemprop="datePublished">2018-05-11</time>
+    更新日期:<time datetime="2018-05-22T11:54:48.082Z" itemprop="dateModified">2018-05-22</time>
     
   </p>
 </header>
@@ -96,13 +94,13 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对称二叉树"><span class="toc-number">1.</span> <span class="toc-text">对称二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#把有序数列转化为二叉查找树"><span class="toc-number">1.</span> <span class="toc-text">把有序数列转化为二叉查找树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
 		</div>
 		
-		<h2 id="对称二叉树"><a href="#对称二叉树" class="headerlink" title="对称二叉树"></a>对称二叉树</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).<br><img src="../img/101SymmetricTree.png" alt="对称树示例"></p>
+		<h2 id="把有序数列转化为二叉查找树"><a href="#把有序数列转化为二叉查找树" class="headerlink" title="把有序数列转化为二叉查找树"></a>把有序数列转化为二叉查找树</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST. For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.<br><img src="../img/108ConvertToTree.png" alt="示例"></p>
 </blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A101_SymmetricTree</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 跟上一题类似的做法，为了达到递归，我甚至新写了一个函数用来递归</span></span><br><span class="line"><span class="comment">     * 可能层次遍历会有更好的效果，因为运行时长的distribution为48%，但暂时没心情了解了</span></span><br><span class="line"><span class="comment">     * 运行时长：16 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> isSymmetric(root.left,root.right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isSymmetric</span><span class="params">(TreeNode left,TreeNode right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>((left!=<span class="keyword">null</span>&amp;&amp;right==<span class="keyword">null</span>)||(left==<span class="keyword">null</span>&amp;&amp;right!=<span class="keyword">null</span>))<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(left==<span class="keyword">null</span>&amp;&amp;right==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(left.val!=right.val)<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> isSymmetric(left.left,right.right)&amp;&amp;isSymmetric(left.right,right.left);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TreeNode t1=<span class="keyword">new</span> TreeNode(<span class="number">1</span>);</span><br><span class="line">        TreeNode t2=<span class="keyword">new</span> TreeNode(<span class="number">1</span>);</span><br><span class="line">        TreeNode t3=<span class="keyword">new</span> TreeNode(<span class="number">1</span>);</span><br><span class="line">        TreeNode t4=<span class="keyword">new</span> TreeNode(<span class="number">2</span>);</span><br><span class="line">        TreeNode t5=<span class="keyword">new</span> TreeNode(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        t1.left=t2;</span><br><span class="line">        t1.right = t3;</span><br><span class="line">        t2.right = t4;</span><br><span class="line">        t3.right = t5;</span><br><span class="line"></span><br><span class="line">        System.out.println(isSymmetric(t1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/11</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A108_ConvertSortedArrayToBinarySearchTree</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 有序序列转化为平衡树，那么两侧的结点一定是相同或者仅相差1，所以只要依次取中间值，两侧重新递归即可</span></span><br><span class="line"><span class="comment">     * 结束体直接分了三种情况，单一结点、两个结点和三个结点</span></span><br><span class="line"><span class="comment">     * 运行时长：1 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 需要注意，每个结点都需要new出来，然后nums中数字不便移动，所以直接传输头尾坐标</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">sortedArrayToBST</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> toTree(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">toTree</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        TreeNode root=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (begin == end) &#123;</span><br><span class="line">            root= <span class="keyword">new</span> TreeNode(nums[begin]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (begin + <span class="number">1</span> == end) &#123;</span><br><span class="line">            root = <span class="keyword">new</span> TreeNode(nums[end]);</span><br><span class="line">            root.left = <span class="keyword">new</span> TreeNode(nums[begin]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (begin + <span class="number">2</span> == end) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (end + begin) / <span class="number">2</span>;</span><br><span class="line">            root = <span class="keyword">new</span> TreeNode(nums[mid]);</span><br><span class="line">            root.left = <span class="keyword">new</span> TreeNode(nums[begin]);</span><br><span class="line">            root.right = <span class="keyword">new</span> TreeNode(nums[end]);</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (end + begin) / <span class="number">2</span>;</span><br><span class="line">            root = <span class="keyword">new</span> TreeNode(nums[mid]);</span><br><span class="line">            root.left = toTree(nums, begin, mid - <span class="number">1</span>);</span><br><span class="line">            root.right = toTree(nums, mid + <span class="number">1</span>, end);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(sortedArrayToBST(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -117,7 +115,7 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
 
 <div class="article-share" id="share">
 
-  <div data-url="http://imzhizi.com/201805/201805-101-symmetric-tree.html" data-title="#LeetCode 101. Symmetric Tree | Breeze Bless U" data-tsina="" class="share clearfix">
+  <div data-url="http://imzhizi.com/201805/201805-108-convert-sorted-array-to-binary-search-tree.html" data-title="#LeetCode 108. Convert Sorted Array to Binary Search Tree | Breeze Bless U" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -126,19 +124,11 @@ Given a binary tree, check whether it is a mirror of itself (ie, symmetric aroun
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/201805/201805-104-maximum-depth-of-binary-tree.html" title="LeetCode #104. Maximum Depth of Binary Tree">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  LeetCode #104. Maximum Depth of Binary Tree</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/201805/201805-100-same-tree.html"  title="#LeetCode 100. Same Tree">
+<a href="/201805/201805-107-binary-tree-level-order-traversal-ii.html"  title="#LeetCode 107. Binary Tree Level Order Traversal II">
  <strong>NEXT:</strong><br/> 
- <span>#LeetCode 100. Same Tree
+ <span>#LeetCode 107. Binary Tree Level Order Traversal II
 </span>
 </a>
 </div>
