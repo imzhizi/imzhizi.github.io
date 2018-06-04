@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imzhizi.com/"/>
-  <updated>2018-05-30T01:43:12.859Z</updated>
+  <updated>2018-06-04T01:00:10.139Z</updated>
   <id>http://imzhizi.com/</id>
   
   <author>
@@ -17,20 +17,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LeetCode &quot;112. Path Sum&quot;</title>
+    <title>#LeetCode 112. Path Sum</title>
     <link href="http://imzhizi.com/201805/201805-112-path-sum.html"/>
     <id>http://imzhizi.com/201805/201805-112-path-sum.html</id>
     <published>2018-05-30T01:43:12.000Z</published>
-    <updated>2018-05-30T01:43:12.859Z</updated>
+    <updated>2018-06-04T01:00:10.139Z</updated>
     
-    <content type="html"><![CDATA[<p>## </p><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="路径的权"><a href="#路径的权" class="headerlink" title="路径的权"></a>路径的权</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br>Note: A leaf is a node with no children.<br><img src="../img/PathSum.png" alt="示例"></p></blockquote><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/30</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A112_PathSum</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 这道题事实上在寻找一个路径，这个路径和等于给定值，依然是递归题</span></span><br><span class="line"><span class="comment">     * 思路嘛，还是要判定是否是叶子，但比上一道题容易处理，因为通过自身即可验证是否已经找到（root.val == sum）</span></span><br><span class="line"><span class="comment">     * 关键思路在于一旦出现true，那么就要把true一路传上去</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 运行时长：1 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 很快写出来的一个很优雅的递归，很满意。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (root.left==<span class="keyword">null</span>&amp;&amp;root.right==<span class="keyword">null</span> &amp;&amp; root.val == sum) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;## &lt;/p&gt;
-&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;h3 id=&quot;代码实现&quot;&gt;&lt;a href=&quot;#代码实现&quot; class=&quot;headerlink&quot; title
+        &lt;h2 id=&quot;路径的权&quot;&gt;&lt;a href=&quot;#路径的权&quot; class=&quot;headerlink&quot; title=&quot;路径的权&quot;&gt;&lt;/a&gt;路径的权&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a
       
     
     </summary>
