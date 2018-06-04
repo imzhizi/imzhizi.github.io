@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imzhizi.com/"/>
-  <updated>2018-05-30T01:39:05.861Z</updated>
+  <updated>2018-05-30T01:43:12.859Z</updated>
   <id>http://imzhizi.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode &quot;112. Path Sum&quot;</title>
+    <link href="http://imzhizi.com/201805/201805-112-path-sum.html"/>
+    <id>http://imzhizi.com/201805/201805-112-path-sum.html</id>
+    <published>2018-05-30T01:43:12.000Z</published>
+    <updated>2018-05-30T01:43:12.859Z</updated>
+    
+    <content type="html"><![CDATA[<p>## </p><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;## &lt;/p&gt;
+&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;h3 id=&quot;代码实现&quot;&gt;&lt;a href=&quot;#代码实现&quot; class=&quot;headerlink&quot; title
+      
+    
+    </summary>
+    
+    
+      <category term="leetcode" scheme="http://imzhizi.com/tags/leetcode/"/>
+    
+      <category term="algs" scheme="http://imzhizi.com/tags/algs/"/>
+    
+  </entry>
   
   <entry>
     <title>#LeetCode 111. Minimum Depth of Binary Tree</title>
@@ -480,31 +506,6 @@
       
       
         &lt;h2 id=&quot;清除指定元素&quot;&gt;&lt;a href=&quot;#清除指定元素&quot; class=&quot;headerlink&quot; title=&quot;清除指定元素&quot;&gt;&lt;/a&gt;清除指定元素&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题
-      
-    
-    </summary>
-    
-    
-      <category term="leetcode" scheme="http://imzhizi.com/tags/leetcode/"/>
-    
-      <category term="algs" scheme="http://imzhizi.com/tags/algs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>#LeetCode 26. Remove Duplicates from Sorted Array</title>
-    <link href="http://imzhizi.com/201804/201804-26-remove-duplicates-from-sorted-array.html"/>
-    <id>http://imzhizi.com/201804/201804-26-remove-duplicates-from-sorted-array.html</id>
-    <published>2018-04-19T03:33:37.000Z</published>
-    <updated>2018-04-20T17:43:09.361Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="清除有序表中的重复元素"><a href="#清除有序表中的重复元素" class="headerlink" title="清除有序表中的重复元素"></a>清除有序表中的重复元素</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p><p>Example 1:<br>Given nums = [1,1,2],<br>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.<br>It doesn’t matter what you leave beyond the returned length.</p></blockquote><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A26_removeDuplicates</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 如果不同，则放到自己的下一位，这道题抽象到最简之后的内核</span></span><br><span class="line"><span class="comment">     * 运行时长：14 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：无</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] != nums[l]) &#123;</span><br><span class="line">                nums[++l] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">        System.out.println(removeDuplicates(nums));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;清除有序表中的重复元素&quot;&gt;&lt;a href=&quot;#清除有序表中的重复元素&quot; class=&quot;headerlink&quot; title=&quot;清除有序表中的重复元素&quot;&gt;&lt;/a&gt;清除有序表中的重复元素&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;
       
     
     </summary>
