@@ -85,7 +85,7 @@ Given a binary tree and a sum, determine if the tree has a root-to-leaf path suc
     </p>
   <p class="article-time">
     <time datetime="2018-05-30T01:43:12.000Z" itemprop="datePublished">2018-05-30</time>
-    更新日期:<time datetime="2018-06-04T01:00:10.139Z" itemprop="dateModified">2018-06-04</time>
+    更新日期:<time datetime="2018-06-04T01:01:10.965Z" itemprop="dateModified">2018-06-04</time>
     
   </p>
 </header>
@@ -98,7 +98,7 @@ Given a binary tree and a sum, determine if the tree has a root-to-leaf path suc
 		</div>
 		
 		<h2 id="路径的权"><a href="#路径的权" class="headerlink" title="路径的权"></a>路径的权</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br>Note: A leaf is a node with no children.<br><img src="../img/PathSum.png" alt="示例"></p>
+<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br>Note: A leaf is a node with no children.<br><img src="../img/112PathSum.png" alt="示例"></p>
 </blockquote>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/30</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A112_PathSum</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 这道题事实上在寻找一个路径，这个路径和等于给定值，依然是递归题</span></span><br><span class="line"><span class="comment">     * 思路嘛，还是要判定是否是叶子，但比上一道题容易处理，因为通过自身即可验证是否已经找到（root.val == sum）</span></span><br><span class="line"><span class="comment">     * 关键思路在于一旦出现true，那么就要把true一路传上去</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 运行时长：1 ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 很快写出来的一个很优雅的递归，很满意。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (root.left==<span class="keyword">null</span>&amp;&amp;root.right==<span class="keyword">null</span> &amp;&amp; root.val == sum) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
@@ -124,6 +124,14 @@ Given a binary tree and a sum, determine if the tree has a root-to-leaf path suc
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/201806/201806-121-best-time-to-buy-and-sell-stock.html" title="#LeetCode 121. Best Time to Buy and Sell Stock">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  #LeetCode 121. Best Time to Buy and Sell Stock</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/201805/201805-111-minimum-depth-of-binary-tree.html"  title="#LeetCode 111. Minimum Depth of Binary Tree">
@@ -170,11 +178,11 @@ Given a binary tree and a sum, determine if the tree has a root-to-leaf path suc
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/algs/" title="algs">algs<sup>29</sup></a></li>
+			<li><a href="/tags/algs/" title="algs">algs<sup>30</sup></a></li>
 		
 			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
 		
-			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>28</sup></a></li>
+			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>29</sup></a></li>
 		
 			<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
 		
@@ -187,7 +195,7 @@ Given a binary tree and a sum, determine if the tree has a root-to-leaf path suc
  	 		
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li></ul>
   </div>
 
 		
