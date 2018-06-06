@@ -5,38 +5,42 @@
   <meta charset="UTF-8">
   
     <title>#LeetCode 13. Roman to Integer | Breeze Bless U</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="罗马数字转换为整形数字题目描述：
-Given a roman numeral, convert it to an integer.Input is guaranteed to be within the range from 1 to 3999.
 
-十几以内的罗马数字数学里用过，VI、VII、IX、">
     
+    <meta name="description" content="题目描述： 罗马数字转换为整形数字Given a roman numeral, convert it to an integer.Input is guaranteed to be within the range from 1 to 3999.  关于罗马数字十几以内的罗马数字数学里用过，VI、VII、IX、之类的，但是成百上千就完全不知道了。所以我先去搜索了一下罗马数字的表示方法，具体算法如下">
+<meta name="keywords" content="leetcode,algs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="#LeetCode 13. Roman to Integer">
+<meta property="og:url" content="https://imzhizi.com/201804/201804-13-roman-to-integer.html">
+<meta property="og:site_name" content="Breeze Bless U">
+<meta property="og:description" content="题目描述： 罗马数字转换为整形数字Given a roman numeral, convert it to an integer.Input is guaranteed to be within the range from 1 to 3999.  关于罗马数字十几以内的罗马数字数学里用过，VI、VII、IX、之类的，但是成百上千就完全不知道了。所以我先去搜索了一下罗马数字的表示方法，具体算法如下">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-06T07:29:09.748Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="#LeetCode 13. Roman to Integer">
+<meta name="twitter:description" content="题目描述： 罗马数字转换为整形数字Given a roman numeral, convert it to an integer.Input is guaranteed to be within the range from 1 to 3999.  关于罗马数字十几以内的罗马数字数学里用过，VI、VII、IX、之类的，但是成百上千就完全不知道了。所以我先去搜索了一下罗马数字的表示方法，具体算法如下">
+
     
-<!--     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="#LeetCode 13. Roman to Integer | Breeze Bless U" /> -->
-      
-    
-    
-    <link rel="alternate" href="/atom.xml" title="Breeze Bless U" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Breeze Bless U" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/favicon.ico">
     
     
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
     <header>
-      <div>
+      
+<div>
 		
 			<div id="imglogo">
 				<a href="/"><img src="/img/logo.svg" alt="Breeze Bless U" title="Breeze Bless U"/></a>
@@ -50,20 +54,21 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
 			</a></div>
 			<nav class="animated">
 				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
 					
-						<li><a href="/">主页 | Home</a></li>
+						<li><a href="/about">简介</a></li>
 					
-						<li><a href="/about">简介 | About</a></li>
+						<li><a href="/archives">归档</a></li>
 					
-						<li><a href="/archives">归档 | Archives</a></li>
-					
-						<li><a href="/tags">标签 | Tags</a></li>
+						<li><a href="/tags">标签</a></li>
 					
 					<li>
-					
+ 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:imzhizi.com">
 					</form>
 					
@@ -71,10 +76,10 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
 				</ul>
 			</nav>			
 </div>
-
     </header>
     <div id="container">
       <div id="main" class="post" itemscope itemprop="blogPost">
+  
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
@@ -82,46 +87,50 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
       <a href="/201804/201804-13-roman-to-integer.html" title="#LeetCode 13. Roman to Integer" itemprop="url">#LeetCode 13. Roman to Integer</a>
   </h1>
   <p class="article-author">By
-    
-      <a href="http://imzhizi.com" title="质子">质子</a>
-    </p>
+       
+		<a href="/about" title="质子" target="_blank" itemprop="author">质子</a>
+		
   <p class="article-time">
-    <time datetime="2018-04-14T09:41:02.000Z" itemprop="datePublished">2018-04-14</time>
-    更新日期:<time datetime="2018-04-18T04:59:55.359Z" itemprop="dateModified">2018-04-18</time>
-    
+    <time datetime="2018-04-14T09:41:02.000Z" itemprop="datePublished"> 发表于 2018-04-14</time>
   </p>
 </header>
 	<div class="article-content">
 		
-		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#罗马数字转换为整形数字"><span class="toc-number">1.</span> <span class="toc-text">罗马数字转换为整形数字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述："><span class="toc-number">1.1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两种实现"><span class="toc-number">1.2.</span> <span class="toc-text">两种实现</span></a></li></ol></li></ol>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述："><span class="toc-number">1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于罗马数字"><span class="toc-number">2.</span> <span class="toc-text">关于罗马数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两种实现"><span class="toc-number">3.</span> <span class="toc-text">两种实现</span></a></li></ol>
+		
 		</div>
 		
-		<h2 id="罗马数字转换为整形数字"><a href="#罗马数字转换为整形数字" class="headerlink" title="罗马数字转换为整形数字"></a>罗马数字转换为整形数字</h2><h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><blockquote>
-<p>Given a roman numeral, convert it to an integer.<br>Input is guaranteed to be within the range from 1 to 3999.</p>
+		<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><blockquote>
+<p><strong>罗马数字转换为整形数字</strong><br>Given a roman numeral, convert it to an integer.<br>Input is guaranteed to be within the range from 1 to 3999.</p>
 </blockquote>
-<p>十几以内的罗马数字数学里用过，VI、VII、IX、之类的，但是成百上千就完全不知道了。所以我先去搜索了一下罗马数字的表示方法，具体算法如下：<br>I: 1    V: 5    X: 10    L: 50    C: 100    D: 500    M: 1000<br>表示方法和低位的并没有区别，所以<br>MMMDLXXXVI 就是 3586<br>MCMXCVI 就是 1996<br>MMMCCCXXXIII 就是 3333<br>M 就是 1000<br>XCIX 就是 99<br>CMIX 就是 909</p>
-<h3 id="两种实现"><a href="#两种实现" class="headerlink" title="两种实现"></a>两种实现</h3><p>具体介绍见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A013_RomanToInteger</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 经室友提点，总结了罗马数字的特点，发现不用写得那么复杂</span></span><br><span class="line"><span class="comment">     * 当存在一个罗马数字时，假如左边的单位小于右边，那么右边一定是要被减去的，而大于等于右边，则是加上去</span></span><br><span class="line"><span class="comment">     * 接下来的一个很长的循环是针对各种情况做了if判断</span></span><br><span class="line"><span class="comment">     * 时长：130 ms</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 做了修改之后代码的长度和可读性有所提升，不过时间倒是没太大变化😂</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">romanToInt2</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] roman = <span class="keyword">new</span> <span class="keyword">int</span>[s.length()];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = roman.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (s.charAt(i)) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'I'</span>:</span><br><span class="line">                    roman[i] = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'V'</span>:<span class="comment">//5</span></span><br><span class="line">                    roman[i] = <span class="number">5</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'X'</span>:</span><br><span class="line">                    roman[i] = <span class="number">10</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'L'</span>:<span class="comment">//50</span></span><br><span class="line">                    roman[i] = <span class="number">50</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'C'</span>:</span><br><span class="line">                    roman[i] = <span class="number">100</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'D'</span>:<span class="comment">//500</span></span><br><span class="line">                    roman[i] = <span class="number">500</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'M'</span>:</span><br><span class="line">                    roman[i] = <span class="number">1000</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == s.length() - <span class="number">1</span> || roman[i] &gt;= roman[i + <span class="number">1</span>])</span><br><span class="line">                result += roman[i];</span><br><span class="line">            <span class="keyword">else</span> result -= roman[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 非常无脑的办法，因为各单位之间没有关系，所以使用switch函数将String转化为有一定意义的char[]</span></span><br><span class="line"><span class="comment">     * 接下来的一个很长的循环是针对各种情况做了if判断</span></span><br><span class="line"><span class="comment">     * 时长：139 ms</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 程序非常的长，耗时也比较久</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] cs = s.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cs.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (cs[i]) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'I'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'0'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'V'</span>:<span class="comment">//5</span></span><br><span class="line">                    cs[i] = <span class="string">'1'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'X'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'2'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'L'</span>:<span class="comment">//50</span></span><br><span class="line">                    cs[i] = <span class="string">'3'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'C'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'4'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'D'</span>:<span class="comment">//500</span></span><br><span class="line">                    cs[i] = <span class="string">'5'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'M'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'6'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">short</span>[] total = <span class="keyword">new</span> <span class="keyword">short</span>[<span class="number">4</span>];</span><br><span class="line">        <span class="keyword">int</span> position;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cs.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            position = (cs[i] - <span class="number">48</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> ((cs[i] - <span class="number">48</span>) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">1</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] &amp;&amp; cs[i] == cs[i - <span class="number">2</span>]) &#123; <span class="comment">//3</span></span><br><span class="line">                    total[position] += <span class="number">3</span>;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">2</span> &amp;&amp; cs[i] == cs[i - <span class="number">3</span>] - <span class="number">1</span>) &#123;<span class="comment">//8 VIII</span></span><br><span class="line">                        total[position] += <span class="number">5</span>;</span><br><span class="line">                        i--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    i -= <span class="number">2</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">1</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>]) &#123; <span class="comment">//2</span></span><br><span class="line">                    total[position] += <span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">2</span> &amp;&amp; cs[i] == cs[i - <span class="number">2</span>] - <span class="number">1</span>) &#123;<span class="comment">//7 VII</span></span><br><span class="line">                        total[position] += <span class="number">5</span>;</span><br><span class="line">                        i--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] - <span class="number">1</span>) &#123;<span class="comment">//6 VI XC</span></span><br><span class="line">                    total[position] += <span class="number">6</span>;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] + <span class="number">2</span>) &#123;<span class="comment">//9 IX</span></span><br><span class="line">                    position--;</span><br><span class="line">                    total[position] += <span class="number">9</span>;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    total[position]++; <span class="comment">//1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] + <span class="number">1</span>) &#123;<span class="comment">//4 IV</span></span><br><span class="line">                    total[position] += <span class="number">4</span>;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    total[position] += <span class="number">5</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> total[<span class="number">3</span>] * <span class="number">1000</span> + total[<span class="number">2</span>] * <span class="number">100</span> + total[<span class="number">1</span>] * <span class="number">10</span> + total[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"MMMDLXXXVI"</span>));<span class="comment">//3586</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"MCMXCVI"</span>));<span class="comment">//1996</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"MMMCCCXXXIII"</span>));<span class="comment">//3333</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"M"</span>));<span class="comment">//1000</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"XCIX"</span>));<span class="comment">//99</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"CMIX"</span>));<span class="comment">//909</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="关于罗马数字"><a href="#关于罗马数字" class="headerlink" title="关于罗马数字"></a>关于罗马数字</h2><p>十几以内的罗马数字数学里用过，VI、VII、IX、之类的，但是成百上千就完全不知道了。所以我先去搜索了一下罗马数字的表示方法，具体算法如下：<br>I: 1    V: 5    X: 10    L: 50    C: 100    D: 500    M: 1000<br>表示方法和低位的并没有区别，所以<br>MMMDLXXXVI 就是 3586<br>MCMXCVI 就是 1996<br>MMMCCCXXXIII 就是 3333<br>M 就是 1000<br>XCIX 就是 99<br>CMIX 就是 909</p>
+<h2 id="两种实现"><a href="#两种实现" class="headerlink" title="两种实现"></a>两种实现</h2><p>具体介绍见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A013_RomanToInteger</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 经室友提点，总结了罗马数字的特点，发现不用写得那么复杂</span></span><br><span class="line"><span class="comment">     * 当存在一个罗马数字时，假如左边的单位小于右边，那么右边一定是要被减去的，而大于等于右边，则是加上去</span></span><br><span class="line"><span class="comment">     * 接下来的一个很长的循环是针对各种情况做了if判断</span></span><br><span class="line"><span class="comment">     * 时长：130 ms</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 做了修改之后代码的长度和可读性有所提升，不过时间倒是没太大变化😂</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">romanToInt2</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] roman = <span class="keyword">new</span> <span class="keyword">int</span>[s.length()];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = roman.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (s.charAt(i)) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'I'</span>:</span><br><span class="line">                    roman[i] = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'V'</span>:<span class="comment">//5</span></span><br><span class="line">                    roman[i] = <span class="number">5</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'X'</span>:</span><br><span class="line">                    roman[i] = <span class="number">10</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'L'</span>:<span class="comment">//50</span></span><br><span class="line">                    roman[i] = <span class="number">50</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'C'</span>:</span><br><span class="line">                    roman[i] = <span class="number">100</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'D'</span>:<span class="comment">//500</span></span><br><span class="line">                    roman[i] = <span class="number">500</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'M'</span>:</span><br><span class="line">                    roman[i] = <span class="number">1000</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == s.length() - <span class="number">1</span> || roman[i] &gt;= roman[i + <span class="number">1</span>])</span><br><span class="line">                result += roman[i];</span><br><span class="line">            <span class="keyword">else</span> result -= roman[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 非常无脑的办法，因为各单位之间没有关系，所以使用switch函数将String转化为有一定意义的char[]</span></span><br><span class="line"><span class="comment">     * 接下来的一个很长的循环是针对各种情况做了if判断</span></span><br><span class="line"><span class="comment">     * 时长：139 ms</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 程序非常的长，耗时也比较久</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] cs = s.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cs.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">switch</span> (cs[i]) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'I'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'0'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'V'</span>:<span class="comment">//5</span></span><br><span class="line">                    cs[i] = <span class="string">'1'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'X'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'2'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'L'</span>:<span class="comment">//50</span></span><br><span class="line">                    cs[i] = <span class="string">'3'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'C'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'4'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'D'</span>:<span class="comment">//500</span></span><br><span class="line">                    cs[i] = <span class="string">'5'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="string">'M'</span>:</span><br><span class="line">                    cs[i] = <span class="string">'6'</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">short</span>[] total = <span class="keyword">new</span> <span class="keyword">short</span>[<span class="number">4</span>];</span><br><span class="line">        <span class="keyword">int</span> position;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cs.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            position = (cs[i] - <span class="number">48</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> ((cs[i] - <span class="number">48</span>) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">1</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] &amp;&amp; cs[i] == cs[i - <span class="number">2</span>]) &#123; <span class="comment">//3</span></span><br><span class="line">                    total[position] += <span class="number">3</span>;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">2</span> &amp;&amp; cs[i] == cs[i - <span class="number">3</span>] - <span class="number">1</span>) &#123;<span class="comment">//8 VIII</span></span><br><span class="line">                        total[position] += <span class="number">5</span>;</span><br><span class="line">                        i--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    i -= <span class="number">2</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">1</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>]) &#123; <span class="comment">//2</span></span><br><span class="line">                    total[position] += <span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">2</span> &amp;&amp; cs[i] == cs[i - <span class="number">2</span>] - <span class="number">1</span>) &#123;<span class="comment">//7 VII</span></span><br><span class="line">                        total[position] += <span class="number">5</span>;</span><br><span class="line">                        i--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] - <span class="number">1</span>) &#123;<span class="comment">//6 VI XC</span></span><br><span class="line">                    total[position] += <span class="number">6</span>;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] + <span class="number">2</span>) &#123;<span class="comment">//9 IX</span></span><br><span class="line">                    position--;</span><br><span class="line">                    total[position] += <span class="number">9</span>;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    total[position]++; <span class="comment">//1</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; cs[i] == cs[i - <span class="number">1</span>] + <span class="number">1</span>) &#123;<span class="comment">//4 IV</span></span><br><span class="line">                    total[position] += <span class="number">4</span>;</span><br><span class="line">                    i--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    total[position] += <span class="number">5</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> total[<span class="number">3</span>] * <span class="number">1000</span> + total[<span class="number">2</span>] * <span class="number">100</span> + total[<span class="number">1</span>] * <span class="number">10</span> + total[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"MMMDLXXXVI"</span>));<span class="comment">//3586</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"MCMXCVI"</span>));<span class="comment">//1996</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"MMMCCCXXXIII"</span>));<span class="comment">//3333</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"M"</span>));<span class="comment">//1000</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"XCIX"</span>));<span class="comment">//99</span></span><br><span class="line">        System.out.println(romanToInt2(<span class="string">"CMIX"</span>));<span class="comment">//909</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
 
   <div class="article-tags">
   
   <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/algs/">algs</a>
   </div>
 
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://imzhizi.com/201804/201804-13-roman-to-integer.html" data-title="#LeetCode 13. Roman to Integer | Breeze Bless U" data-tsina="" class="share clearfix">
-  </div>
-
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://imzhizi.com/201804/201804-13-roman-to-integer.html" data-title="#LeetCode 13. Roman to Integer | Breeze Bless U" data-tsina="imzhizi" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
 </footer>   	       
 	</article>
 	
@@ -129,7 +138,7 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
  
  <div class="prev" >
  <a href="/201804/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html" title="#Java8 String的字面量、常量池、构造函数和intern()函数">
-  <strong>PREVIOUS:</strong><br/>
+  <strong>上一篇：</strong><br/>
   <span>
   #Java8 String的字面量、常量池、构造函数和intern()函数</span>
 </a>
@@ -138,7 +147,7 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
 
 <div class="next">
 <a href="/201804/201804-9-palindrome-number.html"  title="#LeetCode 9. Palindrome Number">
- <strong>NEXT:</strong><br/> 
+ <strong>下一篇：</strong><br/> 
  <span>#LeetCode 9. Palindrome Number
 </span>
 </a>
@@ -146,63 +155,113 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
 
 </nav>
 
-	
-</div>  
-      <div class="openaside">
-	<a class="navbutton" href="#" title="显示侧边栏"></a>
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<style type="text/css">
+input::-webkit-input-placeholder{
+    color:gray;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:gray;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:gray;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+    color:gray;
+}
+.info{
+	display: none;
+}
+</style>
+<p style="margin-left:30px;font-size: 1.5em">评论</p>
+<div style="margin-left:30px" class="comment"></div>
+<script>
+	var valine = new Valine({
+	    el: '.comment',
+	    appId: 'FnaAVwgUVy2IeRW10l2EiwVO-9Nh9j0Va',
+	    appKey: 'M8xCRxvjbtGNrdSegGciQ4Dt',
+	    placeholder: '来啊，快活啊!'
+	})
+</script>
 </div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述："><span class="toc-number">1.</span> <span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于罗马数字"><span class="toc-number">2.</span> <span class="toc-text">关于罗马数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两种实现"><span class="toc-number">3.</span> <span class="toc-text">两种实现</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
-	<div class="closeaside">
-		<a class="closebutton" href="#" title="隐藏侧边栏"></a>
-	</div>
-	<aside class="clearfix">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
 		
- 	 		<div class="linkslist">
+			
+				<li><a href="/tags/algs/" title="algs">algs<sup>30</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>29</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
   <p class="asidetitle">质子的朋友们</p>
     <ul>
-      <li><a href="https://ithinkok.cn" target="_blank" >Sharing & Sorb</a></li>
-    </ul>
-    <ul>
-      <li><a href="http://hiwangzi.com/" target="_blank" >WANG!</a></li>
+        
+          <li>
+            
+            	<a href="https://i-tech.tech" target="_blank" title="Call Him HuangKemeng">Call Him HuangKemeng</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hiwangzi.com" target="_blank" title="WANG!">WANG!</a>
+            
+          </li>
+        
     </ul>
 </div>
-		
- 	 		<div class="visited">
+
+  <div class="visited">
     <p class="asidetitle">博客统计</p>
      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span id="busuanzi_container_site_uv">
     	本站访客数<span id="busuanzi_value_site_uv"></span>人次
     </span>
 </div>
-		
- 	 		
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/algs/" title="algs">algs<sup>30</sup></a></li>
-		
-			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
-		
-			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>29</sup></a></li>
-		
-			<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
-		
-			<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
-		
-		</ul>
-</div>
 
-		
- 	 		
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li></ul>
-  </div>
-
-		
- 	 		
+  
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
@@ -210,12 +269,12 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
     </div>
   </div>
 
-		
- 	 		<div class="rsspart">
+
+  <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
-		
-	</aside>
+
+</aside>
 </div>
     </div>
     <footer><div id="footer" >
@@ -231,27 +290,51 @@ Given a roman numeral, convert it to an integer.Input is guaranteed to be within
 			感谢浏览，希望我的文字能够有所帮助。</p>
 	</section>
 	 
-	<div class="social-font clearfix">
+	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/imzhizi" target="_blank" title="weibo"></a>
-		
-		
-		<a href="https://douban.com/people/imzhizi" target="_blank" title="twitter"></a>
+		<a href="http://weibo.com/imzhizi" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
-		<a href="https://github.com/imzhizi" target="_blank" title="github"></a>
+		<a href="https://github.com/imzhizi" target="_blank" class="icon-github" title="github"></a>
 		
 		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/imzhizi" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imzhizi@outlook.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+		
+		<a href="https://www.douban.com/people/imzhizi" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+			
 		
-		<a href="http://imzhizi.com" target="_blank" title="质子">质子</a>
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="质子">质子</a>
+		
 		
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){ 
   $('.navbar').click(function(){
@@ -269,18 +352,6 @@ $(document).ready(function(){
       a = $('#asidepart'),
       c = $('.closeaside'),
       o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-        
-    }
-  });
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
     o.css('display', 'block').addClass('fadeIn');
@@ -294,6 +365,20 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
 });
 </script>
 
@@ -302,8 +387,6 @@ $(document).ready(function(){
   var ai = $('.article-content>iframe'),
       ae = $('.article-content>embed'),
       t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
       ta = $('#toc.toc-aside'),
       o  = $('.openaside'),
       c  = $('.closeaside');
@@ -313,55 +396,105 @@ $(document).ready(function(){
   if(ae.length>0){
    ae.wrap('<div class="video-container" />');
   };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
 });
 </script>
 
 
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
   var $this = $('.share'),
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
       title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
   var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
   '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
   '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
   '<span title="Share to"></span>'
   ].join('');
   $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
   });
-});     
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
 </script>
 
 
 
 
 
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
 
   </body>
 </html>

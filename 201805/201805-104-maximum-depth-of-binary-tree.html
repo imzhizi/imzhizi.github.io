@@ -5,36 +5,44 @@
   <meta charset="UTF-8">
   
     <title>LeetCode #104. Maximum Depth of Binary Tree | Breeze Bless U</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="质子">
     
-    <meta name="description" content="二叉树的最大深度题目描述
-Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to th">
+
     
+    <meta name="description" content="题目描述 二叉树的最大深度Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.Note: A leaf is a node with n">
+<meta name="keywords" content="leetcode,algs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode #104. Maximum Depth of Binary Tree">
+<meta property="og:url" content="https://imzhizi.com/201805/201805-104-maximum-depth-of-binary-tree.html">
+<meta property="og:site_name" content="Breeze Bless U">
+<meta property="og:description" content="题目描述 二叉树的最大深度Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.Note: A leaf is a node with n">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://imzhizi.com/img/post/104MaximumDepth.png">
+<meta property="og:updated_time" content="2018-06-06T07:12:22.942Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode #104. Maximum Depth of Binary Tree">
+<meta name="twitter:description" content="题目描述 二叉树的最大深度Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.Note: A leaf is a node with n">
+<meta name="twitter:image" content="https://imzhizi.com/img/post/104MaximumDepth.png">
+
     
-<!--     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="imzhizi" />
-    <meta name="twitter:title" content="LeetCode #104. Maximum Depth of Binary Tree | Breeze Bless U" /> -->
-      
-    
-    
-    <link rel="alternate" href="/atom.xml" title="Breeze Bless U" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Breeze Bless U" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/favicon.ico">
     
     
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
     <header>
-      <div>
+      
+<div>
 		
 			<div id="imglogo">
 				<a href="/"><img src="/img/logo.svg" alt="Breeze Bless U" title="Breeze Bless U"/></a>
@@ -48,20 +56,21 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
 			</a></div>
 			<nav class="animated">
 				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
 					
-						<li><a href="/">主页 | Home</a></li>
+						<li><a href="/about">简介</a></li>
 					
-						<li><a href="/about">简介 | About</a></li>
+						<li><a href="/archives">归档</a></li>
 					
-						<li><a href="/archives">归档 | Archives</a></li>
-					
-						<li><a href="/tags">标签 | Tags</a></li>
+						<li><a href="/tags">标签</a></li>
 					
 					<li>
-					
+ 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:imzhizi.com">
 					</form>
 					
@@ -69,10 +78,10 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
 				</ul>
 			</nav>			
 </div>
-
     </header>
     <div id="container">
       <div id="main" class="post" itemscope itemprop="blogPost">
+  
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
@@ -80,45 +89,49 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
       <a href="/201805/201805-104-maximum-depth-of-binary-tree.html" title="LeetCode #104. Maximum Depth of Binary Tree" itemprop="url">LeetCode #104. Maximum Depth of Binary Tree</a>
   </h1>
   <p class="article-author">By
-    
-      <a href="http://imzhizi.com" title="质子">质子</a>
-    </p>
+       
+		<a href="/about" title="质子" target="_blank" itemprop="author">质子</a>
+		
   <p class="article-time">
-    <time datetime="2018-05-09T05:41:04.000Z" itemprop="datePublished">2018-05-09</time>
-    更新日期:<time datetime="2018-05-09T06:46:39.606Z" itemprop="dateModified">2018-05-09</time>
-    
+    <time datetime="2018-05-09T05:41:04.000Z" itemprop="datePublished"> 发表于 2018-05-09</time>
   </p>
 </header>
 	<div class="article-content">
 		
-		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树的最大深度"><span class="toc-number">1.</span> <span class="toc-text">二叉树的最大深度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a></li></ol>
+		
 		</div>
 		
-		<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given a binary tree, find its maximum depth.<br>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.<br>Note: A leaf is a node with no children.<br><img src="../img/104MaximumDepth.png" alt="示例"></p>
+		<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
+<p><strong>二叉树的最大深度</strong><br>Given a binary tree, find its maximum depth.<br>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.<br>Note: A leaf is a node with no children.<br><img src="../img/post/104MaximumDepth.png" alt="示例"></p>
 </blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A104_MaximumDepthOfBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 求树的最大深度，不复杂，也很容易想出递归体</span></span><br><span class="line"><span class="comment">     * 运行时长：0 ms??</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 似乎还是用例太少的缘故，运行时长居然是0ms？</span></span><br><span class="line"><span class="comment">     * 不过在这道题遇到一个别的问题，那就是如果我使用三目表达式就会超时，可见三目不是好东西，以后再也不用了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>+Math.max(maxDepth(root.left), maxDepth(root.right));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TreeNode t1 = <span class="keyword">new</span> TreeNode(<span class="number">3</span>);</span><br><span class="line">        TreeNode t2 = <span class="keyword">new</span> TreeNode(<span class="number">9</span>);</span><br><span class="line">        TreeNode t3 = <span class="keyword">new</span> TreeNode(<span class="number">20</span>);</span><br><span class="line">        TreeNode t4 = <span class="keyword">new</span> TreeNode(<span class="number">5</span>);</span><br><span class="line">        TreeNode t5 = <span class="keyword">new</span> TreeNode(<span class="number">7</span>);</span><br><span class="line"></span><br><span class="line">        t1.left = t2;</span><br><span class="line">        t1.right = t3;</span><br><span class="line">        t3.left = t4;</span><br><span class="line">        t3.right = t5;</span><br><span class="line"></span><br><span class="line">        System.out.println(maxDepth(t1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>详解见注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/5/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A104_MaximumDepthOfBinaryTree</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 题目分析：</span></span><br><span class="line"><span class="comment">     * 求树的最大深度，不复杂，也很容易想出递归体</span></span><br><span class="line"><span class="comment">     * 运行时长：0 ms??</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 似乎还是用例太少的缘故，运行时长居然是0ms？</span></span><br><span class="line"><span class="comment">     * 不过在这道题遇到一个别的问题，那就是如果我使用三目表达式就会超时，可见三目不是好东西，以后再也不用了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>+Math.max(maxDepth(root.left), maxDepth(root.right));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TreeNode t1 = <span class="keyword">new</span> TreeNode(<span class="number">3</span>);</span><br><span class="line">        TreeNode t2 = <span class="keyword">new</span> TreeNode(<span class="number">9</span>);</span><br><span class="line">        TreeNode t3 = <span class="keyword">new</span> TreeNode(<span class="number">20</span>);</span><br><span class="line">        TreeNode t4 = <span class="keyword">new</span> TreeNode(<span class="number">5</span>);</span><br><span class="line">        TreeNode t5 = <span class="keyword">new</span> TreeNode(<span class="number">7</span>);</span><br><span class="line"></span><br><span class="line">        t1.left = t2;</span><br><span class="line">        t1.right = t3;</span><br><span class="line">        t3.left = t4;</span><br><span class="line">        t3.right = t5;</span><br><span class="line"></span><br><span class="line">        System.out.println(maxDepth(t1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
 
   <div class="article-tags">
   
   <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/algs/">algs</a>
   </div>
 
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://imzhizi.com/201805/201805-104-maximum-depth-of-binary-tree.html" data-title="LeetCode #104. Maximum Depth of Binary Tree | Breeze Bless U" data-tsina="" class="share clearfix">
-  </div>
-
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://imzhizi.com/201805/201805-104-maximum-depth-of-binary-tree.html" data-title="LeetCode #104. Maximum Depth of Binary Tree | Breeze Bless U" data-tsina="imzhizi" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
 </footer>   	       
 	</article>
 	
@@ -126,7 +139,7 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
  
  <div class="prev" >
  <a href="/201805/201805-107-binary-tree-level-order-traversal-ii.html" title="#LeetCode 107. Binary Tree Level Order Traversal II">
-  <strong>PREVIOUS:</strong><br/>
+  <strong>上一篇：</strong><br/>
   <span>
   #LeetCode 107. Binary Tree Level Order Traversal II</span>
 </a>
@@ -135,7 +148,7 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
 
 <div class="next">
 <a href="/201805/201805-101-symmetric-tree.html"  title="#LeetCode 101. Symmetric Tree">
- <strong>NEXT:</strong><br/> 
+ <strong>下一篇：</strong><br/> 
  <span>#LeetCode 101. Symmetric Tree
 </span>
 </a>
@@ -143,63 +156,113 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
 
 </nav>
 
-	
-</div>  
-      <div class="openaside">
-	<a class="navbutton" href="#" title="显示侧边栏"></a>
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<style type="text/css">
+input::-webkit-input-placeholder{
+    color:gray;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:gray;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:gray;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+    color:gray;
+}
+.info{
+	display: none;
+}
+</style>
+<p style="margin-left:30px;font-size: 1.5em">评论</p>
+<div style="margin-left:30px" class="comment"></div>
+<script>
+	var valine = new Valine({
+	    el: '.comment',
+	    appId: 'FnaAVwgUVy2IeRW10l2EiwVO-9Nh9j0Va',
+	    appKey: 'M8xCRxvjbtGNrdSegGciQ4Dt',
+	    placeholder: '来啊，快活啊!'
+	})
+</script>
 </div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
-	<div class="closeaside">
-		<a class="closebutton" href="#" title="隐藏侧边栏"></a>
-	</div>
-	<aside class="clearfix">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
 		
- 	 		<div class="linkslist">
+			
+				<li><a href="/tags/algs/" title="algs">algs<sup>30</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>29</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li></ul>
+  </div>
+
+
+  <div class="linkslist">
   <p class="asidetitle">质子的朋友们</p>
     <ul>
-      <li><a href="https://ithinkok.cn" target="_blank" >Sharing & Sorb</a></li>
-    </ul>
-    <ul>
-      <li><a href="http://hiwangzi.com/" target="_blank" >WANG!</a></li>
+        
+          <li>
+            
+            	<a href="https://i-tech.tech" target="_blank" title="Call Him HuangKemeng">Call Him HuangKemeng</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://hiwangzi.com" target="_blank" title="WANG!">WANG!</a>
+            
+          </li>
+        
     </ul>
 </div>
-		
- 	 		<div class="visited">
+
+  <div class="visited">
     <p class="asidetitle">博客统计</p>
      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span id="busuanzi_container_site_uv">
     	本站访客数<span id="busuanzi_value_site_uv"></span>人次
     </span>
 </div>
-		
- 	 		
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/algs/" title="algs">algs<sup>30</sup></a></li>
-		
-			<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
-		
-			<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>29</sup></a></li>
-		
-			<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
-		
-			<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
-		
-		</ul>
-</div>
 
-		
- 	 		
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li></ul>
-  </div>
-
-		
- 	 		
+  
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
@@ -207,12 +270,12 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
     </div>
   </div>
 
-		
- 	 		<div class="rsspart">
+
+  <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
-		
-	</aside>
+
+</aside>
 </div>
     </div>
     <footer><div id="footer" >
@@ -228,27 +291,51 @@ Given a binary tree, find its maximum depth.The maximum depth is the number of n
 			感谢浏览，希望我的文字能够有所帮助。</p>
 	</section>
 	 
-	<div class="social-font clearfix">
+	<div class="social-font" class="clearfix">
 		
-		<a href="http://weibo.com/imzhizi" target="_blank" title="weibo"></a>
-		
-		
-		<a href="https://douban.com/people/imzhizi" target="_blank" title="twitter"></a>
+		<a href="http://weibo.com/imzhizi" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
-		<a href="https://github.com/imzhizi" target="_blank" title="github"></a>
+		<a href="https://github.com/imzhizi" target="_blank" class="icon-github" title="github"></a>
 		
 		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/imzhizi" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:imzhizi@outlook.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+		
+		<a href="https://www.douban.com/people/imzhizi" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+			
 		
-		<a href="http://imzhizi.com" target="_blank" title="质子">质子</a>
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="质子">质子</a>
+		
 		
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){ 
   $('.navbar').click(function(){
@@ -266,18 +353,6 @@ $(document).ready(function(){
       a = $('#asidepart'),
       c = $('.closeaside'),
       o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-        
-    }
-  });
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
     o.css('display', 'block').addClass('fadeIn');
@@ -291,6 +366,20 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
 });
 </script>
 
@@ -299,8 +388,6 @@ $(document).ready(function(){
   var ai = $('.article-content>iframe'),
       ae = $('.article-content>embed'),
       t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
       ta = $('#toc.toc-aside'),
       o  = $('.openaside'),
       c  = $('.closeaside');
@@ -310,55 +397,105 @@ $(document).ready(function(){
   if(ae.length>0){
    ae.wrap('<div class="video-container" />');
   };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
 });
 </script>
 
 
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
   var $this = $('.share'),
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
       title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
   var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
   '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
   '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
   '<span title="Share to"></span>'
   ].join('');
   $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
   });
-});     
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
 </script>
 
 
 
 
 
+
+
+
+
+
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
 
   </body>
 </html>
