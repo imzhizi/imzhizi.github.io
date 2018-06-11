@@ -1,502 +1,273 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang=zh>
 <head>
-  <meta charset="UTF-8">
-  
-    <title>#LeetCode 14. Longest Common Prefix | Breeze Bless U</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="质子">
-    
-
-    
-    <meta name="description" content="题目描述 最长公共前缀序列Write a function to find the longest common prefix string amongst an array of strings.  代码实现具体思路见方法注释12345678910111213141516171819202122232425262728293031323334353637383940/** * created b">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="最长公共前缀序列题目描述 Write a function to find the longest common prefix string amongst an array of strings.  代码实现具体思路见方法注释12345678910111213141516171819202122232425262728293031323334353637383940414243444546474">
 <meta name="keywords" content="leetcode,algs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="#LeetCode 14. Longest Common Prefix">
 <meta property="og:url" content="https://imzhizi.com/201804/201804-14-longest-common-prefix.html">
-<meta property="og:site_name" content="Breeze Bless U">
-<meta property="og:description" content="题目描述 最长公共前缀序列Write a function to find the longest common prefix string amongst an array of strings.  代码实现具体思路见方法注释12345678910111213141516171819202122232425262728293031323334353637383940/** * created b">
+<meta property="og:site_name" content="难以想象的晴朗">
+<meta property="og:description" content="最长公共前缀序列题目描述 Write a function to find the longest common prefix string amongst an array of strings.  代码实现具体思路见方法注释12345678910111213141516171819202122232425262728293031323334353637383940414243444546474">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-06T07:14:10.686Z">
+<meta property="og:updated_time" content="2018-10-25T14:29:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="#LeetCode 14. Longest Common Prefix">
-<meta name="twitter:description" content="题目描述 最长公共前缀序列Write a function to find the longest common prefix string amongst an array of strings.  代码实现具体思路见方法注释12345678910111213141516171819202122232425262728293031323334353637383940/** * created b">
-<meta name="twitter:creator" content="@imzhizi">
-
-    
-    <link rel="alternative" href="/atom.xml" title="Breeze Bless U" type="application/atom+xml">
+<meta name="twitter:description" content="最长公共前缀序列题目描述 Write a function to find the longest common prefix string amongst an array of strings.  代码实现具体思路见方法注释12345678910111213141516171819202122232425262728293031323334353637383940414243444546474">
     
     
-    <link rel="icon" href="/img/favicon.ico">
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
     
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
+    <!-- title -->
+    <title>#LeetCode 14. Longest Common Prefix</title>
+    <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="难以想象的晴朗" type="application/atom+xml" />
+    
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="Breeze Bless U" title="Breeze Bless U"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Breeze Bless U">Breeze Bless U</a></h1>
-				<h2 class="blog-motto">欢迎来到质子的博客</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">主页</a></li>
-					
-						<li><a href="/about">简介</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/tags">标签</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:imzhizi.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
+<body class="max-width mx-auto px3 ltr">
     
-      <a href="/201804/201804-14-longest-common-prefix.html" title="#LeetCode 14. Longest Common Prefix" itemprop="url">#LeetCode 14. Longest Common Prefix</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="质子" target="_blank" itemprop="author">质子</a>
-		
-  <p class="article-time">
-    <time datetime="2018-04-17T13:40:27.000Z" itemprop="datePublished"> 发表于 2018-04-17</time>
-  </p>
-</header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a></li></ol>
-		
-		</div>
-		
-		<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
-<p><strong>最长公共前缀序列</strong><br>Write a function to find the longest common prefix string amongst an array of strings.</p>
-</blockquote>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>具体思路见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/15</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A14_LongestCommonPrefix</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 要找出一个String数组的公共前缀，首先想到的依然是暴力解法</span></span><br><span class="line"><span class="comment">     * 时长：16ms</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 要考虑两点，一是空String[]，String[]中String为null，String[]中String为空</span></span><br><span class="line"><span class="comment">     * 另外是每次循环的次数取决于当下的公共前缀序列的长度和将要前缀比较的序列长度</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span> || strs[<span class="number">0</span>] == <span class="keyword">null</span> || strs[<span class="number">0</span>].length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        String common = strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; strs.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (strs[i] == <span class="keyword">null</span> || strs[i].length()==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">int</span> length = Math.min(common.length() ,strs[i].length());</span><br><span class="line">            <span class="keyword">int</span> j;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (common.charAt(j) != strs[i].charAt(j)) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>)<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            common = common.substring(<span class="number">0</span>, j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> common;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] strs = &#123;<span class="string">"flower"</span>,<span class="string">"flow"</span>,<span class="string">"flight"</span>&#125;;</span><br><span class="line">        System.out.println(longestCommonPrefix(strs));</span><br><span class="line">        String[] strs1 = &#123;<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>&#125;;</span><br><span class="line">        System.out.println(longestCommonPrefix(strs1));</span><br><span class="line">        String[] strs2 = &#123;<span class="string">"c"</span>,<span class="string">"c"</span>&#125;;</span><br><span class="line">        System.out.println(longestCommonPrefix(strs2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/leetcode/">leetcode</a><a href="/tags/algs/">algs</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://imzhizi.com/201804/201804-14-longest-common-prefix.html" data-title="#LeetCode 14. Longest Common Prefix | Breeze Bless U" data-tsina="imzhizi" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/201804/201804-bei-you-oj-108-xu-shu.html" title="北邮OJ 108 虚数">
-  <strong>上一篇：</strong><br/>
-  <span>
-  北邮OJ 108 虚数</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/201804/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html"  title="#Java8 String的字面量、常量池、构造函数和intern()函数">
- <strong>下一篇：</strong><br/> 
- <span>#Java8 String的字面量、常量池、构造函数和intern()函数
-</span>
-</a>
-</div>
-
-</nav>
-
-	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-<style type="text/css">
-input::-webkit-input-placeholder{
-    color:gray;
-}
-input::-moz-placeholder{   /* Mozilla Firefox 19+ */
-    color:gray;
-}
-input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
-    color:gray;
-}
-input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
-    color:gray;
-}
-.info{
-	display: none;
-}
-</style>
-<p style="margin-left:30px;font-size: 1.5em">评论</p>
-<div style="margin-left:30px" class="comment"></div>
-<script>
-	var valine = new Valine({
-	    el: '.comment',
-	    appId: 'FnaAVwgUVy2IeRW10l2EiwVO-9Nh9j0Va',
-	    appKey: 'M8xCRxvjbtGNrdSegGciQ4Dt',
-	    placeholder: '来啊，快活啊!'
-	})
-</script>
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/algs/" title="algs">algs<sup>31</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/leetcode/" title="leetcode">leetcode<sup>30</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/memo/" title="memo">memo<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/java/" title="java">java<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/面试/" title="面试">面试<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
-
-
-  
-  <div class="archiveslist">
-    <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">19</span></li></ul>
-  </div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">质子的朋友们</p>
-    <ul>
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
         
-          <li>
-            
-            	<a href="https://i-tech.tech" target="_blank" title="Call Him HuangKemeng">Call Him HuangKemeng</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://hiwangzi.com" target="_blank" title="WANG!">WANG!</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  <div class="visited">
-    <p class="asidetitle">博客统计</p>
-     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_uv">
-    	本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      </ul>
     </span>
-</div>
-
-  
-  <div class="tagcloudlist">
-    <p class="asidetitle">标签云</p>
-    <div class="tagcloudlist clearfix">
-       <a href="/tags/algs/" style="font-size: 20px;">algs</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/memo/" style="font-size: 10px;">memo</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
-    </div>
-  </div>
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> 好好做人，爱智求真。 <br/>
-			感谢浏览，希望我的文字能够有所帮助。</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/imzhizi" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		<a href="https://github.com/imzhizi" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		<a href="https://twitter.com/imzhizi" target="_blank" class="icon-twitter" title="twitter"></a>
-		
-		
-		
-		
-		<a href="http://www.zhihu.com/people/imzhizi" target="_blank" class="icon-zhihu" title="知乎"></a>
-		
-		
-		
-		<a href="mailto:imzhizi@outlook.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-		
-		<a href="https://www.douban.com/people/imzhizi" target="_blank" class="icon-douban" title="豆瓣"></a>
-		
-	</div>
-			
-		
-				<div class="cc-license">
-          <a href="http://creativecommons.org/licenses/by-nc-nd/4.0" class="cc-opacity" target="_blank">
-            <img src="/img/cc-by-nc-nd.svg" alt="Creative Commons" />
-          </a>
-        </div>
-    
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="质子">质子</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
+    <br/>
+    <span id="actions">
+      <ul>
         
-    }
-  });
-});
+        <li><a class="icon" href="/201804/201804-bei-you-oj-108-xu-shu.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/201804/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201804/201804-14-longest-common-prefix.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&text=#LeetCode 14. Longest Common Prefix"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&is_video=false&description=#LeetCode 14. Longest Common Prefix"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#LeetCode 14. Longest Common Prefix&body=Check out this article: https://imzhizi.com/201804/201804-14-longest-common-prefix.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&name=#LeetCode 14. Longest Common Prefix&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最长公共前缀序列"><span class="toc-number">1.</span> <span class="toc-text">最长公共前缀序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">2.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        #LeetCode 14. Longest Common Prefix
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">质子</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-04-17T13:40:27.000Z" itemprop="datePublished">2018-04-17</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algs/">algs</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="最长公共前缀序列"><a href="#最长公共前缀序列" class="headerlink" title="最长公共前缀序列"></a>最长公共前缀序列</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+</blockquote>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>具体思路见方法注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * created by zhizi on 2018/4/15</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A14_LongestCommonPrefix</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 要找出一个String数组的公共前缀，首先想到的依然是暴力解法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 时长：9ms / 20%</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 要考虑三点，字符串数组为空、字符串数组中字符串为null、字符串数组中字符串为空</span></span><br><span class="line"><span class="comment">     * 另外是每次循环的次数取决于当下的公共前缀序列的长度和将要前缀比较的序列长度</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span> || strs[<span class="number">0</span>] == <span class="keyword">null</span> || strs[<span class="number">0</span>].length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;<span class="comment">//字符串数组为空、字符串数组中字符串为null、字符串数组中字符串为空</span></span><br><span class="line">        String common = strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; strs.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (strs[i] == <span class="keyword">null</span> || strs[i].isEmpty()) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">int</span> length = Math.min(common.length() ,strs[i].length());</span><br><span class="line">            <span class="keyword">int</span> j;</span><br><span class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (common.charAt(j) != strs[i].charAt(j)) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>)<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            common = common.substring(<span class="number">0</span>, j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> common;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 函数描述：</span></span><br><span class="line"><span class="comment">     * 取巧利用 JavaAPI 中 Arrays 的排序函数，得到结果后直接处理第一个和最后一个</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 时长：8ms / 35%</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 总结：</span></span><br><span class="line"><span class="comment">     * 稍微快了一丢丢，这个方法易于实现也主要是依赖于 JavaAPI 中排序函数的优化了</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longestCommonPrefix2</span><span class="params">(String[] strs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (strs.length == <span class="number">0</span> || strs[<span class="number">0</span>] == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span> (strs[<span class="number">0</span>].length() == <span class="number">0</span> || strs.length == <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">        Arrays.sort(strs);</span><br><span class="line">        String start = strs[<span class="number">0</span>];</span><br><span class="line">        String end = strs[strs.length-<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> minLen = Math.min(start.length(), end.length());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;minLen; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (start.charAt(i) != end.charAt(i)) <span class="keyword">return</span> start.substring(<span class="number">0</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> start;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] strs = &#123;<span class="string">"flower"</span>,<span class="string">"flow"</span>,<span class="string">"flight"</span>&#125;;</span><br><span class="line">        System.out.println(longestCommonPrefix2(strs));</span><br><span class="line">        String[] strs1 = &#123;<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>&#125;;</span><br><span class="line">        System.out.println(longestCommonPrefix2(strs1));</span><br><span class="line">        String[] strs2 = &#123;<span class="string">"c"</span>,<span class="string">"c"</span>&#125;;</span><br><span class="line">        System.out.println(longestCommonPrefix2(strs2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最长公共前缀序列"><span class="toc-number">1.</span> <span class="toc-text">最长公共前缀序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目描述"><span class="toc-number">2.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">3.</span> <span class="toc-text">代码实现</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201804/201804-14-longest-common-prefix.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&text=#LeetCode 14. Longest Common Prefix"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&is_video=false&description=#LeetCode 14. Longest Common Prefix"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=#LeetCode 14. Longest Common Prefix&body=Check out this article: https://imzhizi.com/201804/201804-14-longest-common-prefix.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&title=#LeetCode 14. Longest Common Prefix"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201804/201804-14-longest-common-prefix.html&name=#LeetCode 14. Longest Common Prefix&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 质子
+<i class="fas fa-heartbeat"></i>
+<span id="busuanzi_container_site_uv">
+  访问<span id="busuanzi_value_site_uv"></span>人
+</span>/
+<span id="busuanzi_container_site_pv">
+  <span id="busuanzi_value_site_pv"></span>次
+</span>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Analytics Begin -->
-
-
-
-
-
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+</body>
 </html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'imzhizi-com';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="安装步骤1、下载，到MySQL官网：https://dev.mysql.com/downloads/mysql/ 2、解压安装包解压下载的安装包，放到你的电脑路径，我放置的是 E:\mysql 3、配置my.ini文件解压后，在根目录下创建配置文件my.ini，内容如下：12345678910111213141516[mysql]; 设置MySQL客户端默认字符集default-character">
+<meta name="keywords" content="dev,config">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win10-MySQL-zip安装方法">
+<meta property="og:url" content="https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html">
+<meta property="og:site_name" content="难以想象的晴朗">
+<meta property="og:description" content="安装步骤1、下载，到MySQL官网：https://dev.mysql.com/downloads/mysql/ 2、解压安装包解压下载的安装包，放到你的电脑路径，我放置的是 E:\mysql 3、配置my.ini文件解压后，在根目录下创建配置文件my.ini，内容如下：12345678910111213141516[mysql]; 设置MySQL客户端默认字符集default-character">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-25T13:32:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Win10-MySQL-zip安装方法">
+<meta name="twitter:description" content="安装步骤1、下载，到MySQL官网：https://dev.mysql.com/downloads/mysql/ 2、解压安装包解压下载的安装包，放到你的电脑路径，我放置的是 E:\mysql 3、配置my.ini文件解压后，在根目录下创建配置文件my.ini，内容如下：12345678910111213141516[mysql]; 设置MySQL客户端默认字符集default-character">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Win10-MySQL-zip安装方法</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="难以想象的晴朗" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/201811/201811-205-isomorphic-strings.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&text=Win10-MySQL-zip安装方法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&is_video=false&description=Win10-MySQL-zip安装方法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Win10-MySQL-zip安装方法&body=Check out this article: https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&name=Win10-MySQL-zip安装方法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">1.</span> <span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记密码"><span class="toc-number">2.</span> <span class="toc-text">忘记密码</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Win10-MySQL-zip安装方法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">质子</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-10-23T14:17:49.000Z" itemprop="datePublished">2018-10-23</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/config/">config</a>, <a class="tag-link" href="/tags/dev/">dev</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>1、下载，到MySQL官网：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+<p>2、解压安装包<br>解压下载的安装包，放到你的电脑路径，我放置的是 <code>E:\mysql</code></p>
+<p>3、配置my.ini文件<br>解压后，在根目录下创建配置文件my.ini，内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment">; 设置MySQL客户端默认字符集</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">;设置3306端口</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">3306</span></span><br><span class="line"><span class="comment">; 设置MySQL的安装目录，应该与解压位置相匹配</span></span><br><span class="line"><span class="attr">basedir</span>=E:\mysql</span><br><span class="line"><span class="comment">; 设置MySQL数据库的数据的存放目录</span></span><br><span class="line"><span class="attr">datadir</span>=E:\mysql\data</span><br><span class="line"><span class="comment">; 允许最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">200</span></span><br><span class="line"><span class="comment">; 服务端使用的字符集默认为8比特编码的latin1字符集</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"><span class="comment">; 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br></pre></td></tr></table></figure></p>
+<p>4、配置MySQL环境变量<br>为了以后方便启动mysql，在环境变量Path追加：<code>E:\mysql\bin</code></p>
+<p>5、安装MySQL<br>以管理员身份打开cmd窗口（开始菜单下输入cmd，右键管理员方式运行）</p>
+<ul>
+<li>输入：<code>mysqld --initialize-insecure</code>，安装需要等待一会<br>这一步用于初始化MySQL的data文件夹，官方的压缩包解压后并没有data文件夹，运行命令后，按照my.ini中配置的位置生成data文件；</li>
+<li>输入：<code>mysqld install</code> 会提示安装成功；</li>
+<li>输入：<code>net start mysql</code> 启动服务，若显示启动成功则安装成功；</li>
+<li>最后输入：<code>net stop mysql</code>，停止服务，以便进行以下操作。</li>
+</ul>
+<p>6、设置root管理员密码</p>
+<ul>
+<li>在cmd中输入 <code>mysql -u root -p</code></li>
+<li><p>此时cmd显示 <code>Enter password：</code> 不必理会，直接回车即可成功进入MySQL，进入后使用以下方法修改密码</p>
+<ul>
+<li><code>SET PASSWORD for root@localhost = PASSWORD(&quot;root&quot;);</code> (5.7版本修改密码）</li>
+<li><code>ALTER USER root@localhost IDENTIFIED BY &quot;root&quot;;</code> (8.0版本修改密码）</li>
+</ul>
+</li>
+<li><p>以后就可以通过在cmd中输入 <code>mysql -u root -p</code> 进入MySQL</p>
+</li>
+</ul>
+<p>至此，MySQL就安装完成并可以使用了。</p>
+<h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><ul>
+<li>以系统管理员身份运行cmd</li>
+<li>查看mysql是否已经启动，如果已经启动，就使用 <code>net stop mysql</code> 停止服务</li>
+<li>在命令行输入 <code>mysqld -nt --skip-grant-tables</code></li>
+<li>此时通过 <code>mysql -u root -p</code> 就可以直接进入MySQL</li>
+<li>进入后需要设置密码，因为mysql会仍以为你是第一次进入MySQL</li>
+<li>输入之前设定重新确定密码</li>
+</ul>
+<p>PS：大部分SQL语句需要加分号，可以使用quit或者exit来退出MySQL<br>但是，在日常使用中，建议使用权限更低的用户来操作具体的数据库，SQL语句如下：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> xxx;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> zhizi <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'111'</span>;</span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> xxx.* <span class="keyword">to</span> zhizi@<span class="string">'localhost'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'111'</span>;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">1.</span> <span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忘记密码"><span class="toc-number">2.</span> <span class="toc-text">忘记密码</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&text=Win10-MySQL-zip安装方法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&is_video=false&description=Win10-MySQL-zip安装方法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Win10-MySQL-zip安装方法&body=Check out this article: https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&title=Win10-MySQL-zip安装方法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html&name=Win10-MySQL-zip安装方法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 质子
+<i class="fas fa-heartbeat"></i>
+<span id="busuanzi_container_site_uv">
+  访问<span id="busuanzi_value_site_uv"></span>人
+</span>/
+<span id="busuanzi_container_site_pv">
+  <span id="busuanzi_value_site_pv"></span>次
+</span>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'imzhizi-com';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

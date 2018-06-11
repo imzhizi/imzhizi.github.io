@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="快捷键123456789Ctl-A   光标移动到行首Ctl-C   终止命令Ctl-D   注销登录Ctl-E   光标移动到行尾Ctl-U   删除光标到行首的所有字符,在某些设置下,删除全行Ctl-W   删除当前光标到前边的最近一个空格之间的字符Ctl-H   删除光标前边的字符Ctl-R   匹配最相近的一个文件，然后输出Ctl-Z   将目前任务转为后台运行 Path 相关（cd、ls">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux（三）——Unix&amp;Linux 的基础命令">
+<meta property="og:url" content="https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html">
+<meta property="og:site_name" content="难以想象的晴朗">
+<meta property="og:description" content="快捷键123456789Ctl-A   光标移动到行首Ctl-C   终止命令Ctl-D   注销登录Ctl-E   光标移动到行尾Ctl-U   删除光标到行首的所有字符,在某些设置下,删除全行Ctl-W   删除当前光标到前边的最近一个空格之间的字符Ctl-H   删除光标前边的字符Ctl-R   匹配最相近的一个文件，然后输出Ctl-Z   将目前任务转为后台运行 Path 相关（cd、ls">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s1.imgsha.com/2018/10/01/7x3sCD.png">
+<meta property="og:updated_time" content="2018-09-30T20:01:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux（三）——Unix&amp;Linux 的基础命令">
+<meta name="twitter:description" content="快捷键123456789Ctl-A   光标移动到行首Ctl-C   终止命令Ctl-D   注销登录Ctl-E   光标移动到行尾Ctl-U   删除光标到行首的所有字符,在某些设置下,删除全行Ctl-W   删除当前光标到前边的最近一个空格之间的字符Ctl-H   删除光标前边的字符Ctl-R   匹配最相近的一个文件，然后输出Ctl-Z   将目前任务转为后台运行 Path 相关（cd、ls">
+<meta name="twitter:image" content="https://s1.imgsha.com/2018/10/01/7x3sCD.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Linux（三）——Unix&amp;Linux 的基础命令</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="难以想象的晴朗" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/201809/201809-go-yu-yan-bi-ji.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&text=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&is_video=false&description=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux（三）——Unix&amp;Linux 的基础命令&body=Check out this article: https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&name=Linux（三）——Unix&amp;Linux 的基础命令&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键"><span class="toc-number">1.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-相关（cd、ls）"><span class="toc-number">2.</span> <span class="toc-text">Path 相关（cd、ls）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#帮助命令（help、man、info、type）"><span class="toc-number">3.</span> <span class="toc-text">帮助命令（help、man、info、type）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件相关"><span class="toc-number">4.</span> <span class="toc-text">文件相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件查看（cat、nl、head、tail、more、less、file）"><span class="toc-number">4.1.</span> <span class="toc-text">文件查看（cat、nl、head、tail、more、less、file）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）"><span class="toc-number">4.2.</span> <span class="toc-text">文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件压缩和解压"><span class="toc-number">4.3.</span> <span class="toc-text">文件压缩和解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件软链接（ln）"><span class="toc-number">4.4.</span> <span class="toc-text">文件软链接（ln）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件查找（whereis、which、find）"><span class="toc-number">4.5.</span> <span class="toc-text">文件查找（whereis、which、find）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-Permission（chown、chmod）"><span class="toc-number">4.6.</span> <span class="toc-text">File Permission（chown、chmod）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件合并（join、paste）"><span class="toc-number">4.7.</span> <span class="toc-text">文件合并（join、paste）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件安装"><span class="toc-number">5.</span> <span class="toc-text">软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dpkg-和-apt-get"><span class="toc-number">5.1.</span> <span class="toc-text">dpkg 和 apt-get</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#apt-get-的使用"><span class="toc-number">5.1.1.</span> <span class="toc-text">apt-get 的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dpkg-的使用"><span class="toc-number">5.1.2.</span> <span class="toc-text">dpkg 的使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPM-和-yum"><span class="toc-number">5.2.</span> <span class="toc-text">RPM 和 yum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Homebrew"><span class="toc-number">5.3.</span> <span class="toc-text">Homebrew</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Linux（三）——Unix&amp;Linux 的基础命令
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">质子</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-09-17T12:00:47.000Z" itemprop="datePublished">2018-09-17</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/linux/">linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ctl-A   光标移动到行首</span><br><span class="line">Ctl-C   终止命令</span><br><span class="line">Ctl-D   注销登录</span><br><span class="line">Ctl-E   光标移动到行尾</span><br><span class="line">Ctl-U   删除光标到行首的所有字符,在某些设置下,删除全行</span><br><span class="line">Ctl-W   删除当前光标到前边的最近一个空格之间的字符</span><br><span class="line">Ctl-H   删除光标前边的字符</span><br><span class="line">Ctl-R   匹配最相近的一个文件，然后输出</span><br><span class="line">Ctl-Z   将目前任务转为后台运行</span><br></pre></td></tr></table></figure>
+<h2 id="Path-相关（cd、ls）"><a href="#Path-相关（cd、ls）" class="headerlink" title="Path 相关（cd、ls）"></a>Path 相关（cd、ls）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span>             <span class="comment">#print working dir</span></span><br><span class="line">// 目录查看</span><br><span class="line">ls == ls -h     <span class="comment">#list files under current directory</span></span><br><span class="line">ls -l           <span class="comment">#list with block and property</span></span><br><span class="line">ls -A           <span class="comment">#list including hidden files</span></span><br><span class="line">ls -Alh         <span class="comment">#list in a friendly view</span></span><br><span class="line">ls /home        <span class="comment">#list a upper dir</span></span><br><span class="line">ls *.json       <span class="comment">#list by wildcards</span></span><br><span class="line">ls -lrt         <span class="comment">#按时间排序，以列表的方式显示目录项</span></span><br><span class="line"></span><br><span class="line">// 目录跳转</span><br><span class="line"><span class="built_in">cd</span> -            <span class="comment">#switch to last path</span></span><br><span class="line"><span class="built_in">cd</span>  ..          <span class="comment">#switch to upper path</span></span><br><span class="line"><span class="built_in">cd</span> /            <span class="comment">#switch to root path</span></span><br><span class="line"><span class="built_in">cd</span> ~/hexo       <span class="comment">#switch by absolute path</span></span><br><span class="line"><span class="built_in">cd</span> ./user/xx    <span class="comment">#switch by relative path</span></span><br></pre></td></tr></table></figure>
+<h2 id="帮助命令（help、man、info、type）"><a href="#帮助命令（help、man、info、type）" class="headerlink" title="帮助命令（help、man、info、type）"></a>帮助命令（help、man、info、type）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span>            <span class="comment">#仅适用于内置命令，效果不佳</span></span><br><span class="line">man ls          <span class="comment">#查看命令手册</span></span><br><span class="line">info ls         <span class="comment">#GNU的更详细的命令手册</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">type</span> xxx</span><br><span class="line">$ xxx is a shell <span class="built_in">builtin</span>        <span class="comment">#说明是内建命令，这些命令都是在 bash 源码中的 builtins 的 .def 中</span></span><br><span class="line">$ xxx is /usr/bin/xxx           <span class="comment">#说明是外部命令</span></span><br><span class="line">$ xxx is an <span class="built_in">alias</span> <span class="keyword">for</span> xx        <span class="comment">#说明该指令为命令别名所设定的名称</span></span><br></pre></td></tr></table></figure>
+<h2 id="文件相关"><a href="#文件相关" class="headerlink" title="文件相关"></a>文件相关</h2><h3 id="文件查看（cat、nl、head、tail、more、less、file）"><a href="#文件查看（cat、nl、head、tail、more、less、file）" class="headerlink" title="文件查看（cat、nl、head、tail、more、less、file）"></a>文件查看（cat、nl、head、tail、more、less、file）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//文件内容</span><br><span class="line">cat file            <span class="comment">#preview file</span></span><br><span class="line">cat -n fileA        <span class="comment">#preview file with linenum</span></span><br><span class="line">nl fileA            <span class="comment">#preview trim file with linenum</span></span><br><span class="line">more/less fileA     <span class="comment">#分页查看，more会直接结束，less 需要q退出</span></span><br><span class="line">tail file           <span class="comment">#只看后几行</span></span><br><span class="line">tail -n 2 file      <span class="comment">#只看2行</span></span><br><span class="line"></span><br><span class="line">cut -c -5 file      <span class="comment">#每行前五个字节（包含第五个）</span></span><br><span class="line">cut -c 5- file      <span class="comment">#每行前五个之后的字节（包含第五个）</span></span><br><span class="line">cut -c 5 file       <span class="comment">#每行第五个字节</span></span><br><span class="line">cut -c 2-5 file     <span class="comment">#每行第2到5之间的字节（包含第五个）</span></span><br><span class="line"></span><br><span class="line">//文件类型</span><br><span class="line">file file           <span class="comment">#查看文件类型</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）"><a href="#文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）" class="headerlink" title="文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）"></a>文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 创建</span><br><span class="line">touch filename              <span class="comment">#create empty file</span></span><br><span class="line">mkdir xxx/xx -p             <span class="comment">#create path(-p: create xxx)</span></span><br><span class="line">//复制</span><br><span class="line">cp -r A B                   <span class="comment">#duplicate A's files to B(B unexist &amp; only one floor)</span></span><br><span class="line">cp -r A B                   <span class="comment">#copy A to B(if B exist)</span></span><br><span class="line">//删除</span><br><span class="line">rm filename                 <span class="comment">#delete filename</span></span><br><span class="line">rm -r dir                   <span class="comment">#delete dir</span></span><br><span class="line">//重命名</span><br><span class="line">mv xxx/oldfile xxx/newfile  <span class="comment">#rename a file</span></span><br><span class="line">mv oldfile xxx/newfile      <span class="comment">#rename &amp; move a file</span></span><br><span class="line">mv dir  xxx/dir             <span class="comment">#move dir to xxx/dir which is created</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件压缩和解压"><a href="#文件压缩和解压" class="headerlink" title="文件压缩和解压"></a>文件压缩和解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">// 压缩 zip</span><br><span class="line">zip -rqo file.zip ./filename        <span class="comment">#普通压缩</span></span><br><span class="line">zip -&#123;1…9&#125; -rqo zip.zip ./filename  <span class="comment">#不同级别压缩、加密压缩</span></span><br><span class="line">zip -dv cp.zip file                 <span class="comment">#从cp.zip中删除文件</span></span><br><span class="line">    <span class="comment"># -d 从压缩文件内删除指定的文件</span></span><br><span class="line">    <span class="comment"># -o 将压缩文件的更改时间设成和文件的最新更改时间一致</span></span><br><span class="line">    <span class="comment"># -q 不显示指令执行过程</span></span><br><span class="line">    <span class="comment"># -r 递归处理，将指定目录下的所有文件和子目录一并处理</span></span><br><span class="line">    <span class="comment"># -v 显示指令执行过程或显示版本信息</span></span><br><span class="line"></span><br><span class="line">//查看</span><br><span class="line">unzip -l file.zip                   <span class="comment">#显示压缩文件内所包含的文件</span></span><br><span class="line"></span><br><span class="line">//解压 unzip</span><br><span class="line">unzip file.zip                      <span class="comment">#直接解压</span></span><br><span class="line">unzip -q file.zip -d ./dir          <span class="comment">#解压到 dir 中</span></span><br><span class="line">    <span class="comment"># -d &lt;目录&gt; 指定文件解压缩后所要存储的目录</span></span><br><span class="line">    <span class="comment"># -q 执行时不显示任何信息</span></span><br><span class="line">    <span class="comment"># -v 执行时显示详细的信息</span></span><br><span class="line"></span><br><span class="line">//tar</span><br><span class="line">//压缩</span><br><span class="line">tar -cf file.tar xxx.xx             <span class="comment">#把xxx.xx 压缩为 file.tar</span></span><br><span class="line">tar -czvf file.tar.gz xxx.xx        <span class="comment">#把xxx.xx 打包为 tar.gz 文件</span></span><br><span class="line">    <span class="comment"># -c 建立新的备份文件</span></span><br><span class="line">    <span class="comment"># -f 指定备份文件</span></span><br><span class="line">    <span class="comment"># -v(--verbose) 显示指令执行过程</span></span><br><span class="line">    <span class="comment"># -z(--gzip) 通过gzip指令处理备份文件</span></span><br><span class="line">    </span><br><span class="line">tar -cphf etc.tar /dir              <span class="comment">#一般用于系统备份</span></span><br><span class="line">    <span class="comment"># -p 保留文件属性和跟随链接（符号链接或软链接）</span></span><br><span class="line">    <span class="comment"># -h(--dereference) 不建立符号连接，直接复制该连接所指向的原始文件</span></span><br><span class="line">    <span class="comment"># 使用 tar 备份文件当你在其他主机还原时希望保留文件的属性和备份链接指向的源文件而不是链接本身</span></span><br><span class="line"></span><br><span class="line">//查看压缩内容</span><br><span class="line">tar -tf file.tar                    <span class="comment">#查看 file.tar</span></span><br><span class="line">tar -tzvf test.tar.gz               <span class="comment">#查看压缩文件内容</span></span><br><span class="line">    <span class="comment"># -C&lt;目录&gt;(--directory) 指定文件解压缩后所要存储的目录</span></span><br><span class="line">    <span class="comment"># -f 指定备份文件</span></span><br><span class="line"></span><br><span class="line">//解压</span><br><span class="line">tar -xf file.tar -C ./dir           <span class="comment">#解压 file.tar</span></span><br><span class="line">tar -xzf file.tar.gz                <span class="comment">#解压 tar.gz 打包文件</span></span><br><span class="line">    <span class="comment"># -x (--extract) 从备份文件中还原文件</span></span><br><span class="line">    <span class="comment"># -z(--gzip) 通过gzip指令处理备份文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件软链接（ln）"><a href="#文件软链接（ln）" class="headerlink" title="文件软链接（ln）"></a>文件软链接（ln）</h3><p>软链接：</p>
+<ol>
+<li>软链接，以路径的形式存在。类似于Windows操作系统中的快捷方式</li>
+<li>软链接可以 跨文件系统 ，硬链接不可以</li>
+<li>软链接可以对一个不存在的文件名进行链接</li>
+<li>软链接可以对目录进行链接</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s log.log link          <span class="comment">#为log.log 建立名为 link 的软链接</span></span><br><span class="line">    <span class="comment"># -s 软链接(符号链接)</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件查找（whereis、which、find）"><a href="#文件查找（whereis、which、find）" class="headerlink" title="文件查找（whereis、which、find）"></a>文件查找（whereis、which、find）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">locate \*.jpg       <span class="comment">#locate 会维护一个数据库，查找时不会真的去找</span></span><br><span class="line"><span class="built_in">which</span> who           <span class="comment">#查找安装的命令、程序可以用</span></span><br><span class="line"></span><br><span class="line">//find 命令</span><br><span class="line">find [path] [option] [action]</span><br><span class="line">find . -name \*.jpg     <span class="comment">#查找 jpg 文件</span></span><br><span class="line">find . -<span class="built_in">type</span> f          <span class="comment">#查找一般文件</span></span><br><span class="line">    <span class="comment">#d: 目录</span></span><br><span class="line">    <span class="comment">#c: 字型装置文件</span></span><br><span class="line">    <span class="comment">#b: 区块装置文件</span></span><br><span class="line">    <span class="comment">#p: 具名贮列</span></span><br><span class="line">    <span class="comment">#f: 一般文件</span></span><br><span class="line">    <span class="comment">#l: 符号连结</span></span><br><span class="line">    <span class="comment">#s: socket</span></span><br><span class="line">find . -ctime n         <span class="comment">#在过去n天内被变更过的文件</span></span><br><span class="line">find . -atime n         <span class="comment">#在过去n天内被访问过的文件</span></span><br><span class="line">find . -mtime n         <span class="comment">#在过去n天内容最后被修改的时间的文件</span></span><br><span class="line">    <span class="comment"># -mtime n：n 为数字，表示为在 n 天之前的一天之内修改过的文件</span></span><br><span class="line">    <span class="comment"># -mtime +n：列出在 n 天之前（不包含 n 天本身）被修改过的文件</span></span><br><span class="line">    <span class="comment"># -mtime -n：列出在 n 天之内（包含 n 天本身）被修改过的文件</span></span><br><span class="line">find . -newer /home/shiyanlou/Code</span><br><span class="line">    <span class="comment"># -newer file：file为一个已存在的文件，列出比file还要新的文件</span></span><br><span class="line">    </span><br><span class="line">find . -<span class="built_in">type</span> f -perm 644 -<span class="built_in">exec</span> ls -l &#123;&#125; \;</span><br><span class="line">    <span class="comment">#查找前目录中文件属主具有读、写权限，并且文件所属组的用户和其他用户具有读权限的文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="File-Permission（chown、chmod）"><a href="#File-Permission（chown、chmod）" class="headerlink" title="File Permission（chown、chmod）"></a>File Permission（chown、chmod）</h3><ul>
+<li>3 个权限组，每组 3 位</li>
+<li>一个目录同时具有读权限和执行权限才可以打开并查看内部文件，而一个目录要有写权限才允许在其中创建其它文件</li>
+<li><img src="https://s1.imgsha.com/2018/10/01/7x3sCD.png" alt="权限"></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 file          <span class="comment">#为 file 设置600权限</span></span><br><span class="line">//g、o 还有 u 分别表示 group、others和user</span><br><span class="line">//+ 和 - 分别表示增加和去掉相应的权限</span><br><span class="line">chmod go-rw iphone6     <span class="comment">#表示去掉group、others 的读写权限</span></span><br><span class="line"></span><br><span class="line">chown username file     <span class="comment">#grant file ownership to user</span></span><br><span class="line">chown :group file       <span class="comment">#grant file ownership to group</span></span><br><span class="line">chown xx:xx file        <span class="comment">#grant file ownership to xx &amp; xx</span></span><br><span class="line">chown -R user:group dir <span class="comment">#grant dir(-r) ownership to xx &amp; xx</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件合并（join、paste）"><a href="#文件合并（join、paste）" class="headerlink" title="文件合并（join、paste）"></a>文件合并（join、paste）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">join file1 file2         <span class="comment">#逐行合并，相同的部分仅保留一份</span></span><br><span class="line">    <span class="comment">#「1 hello」和「1 world」合并为「1 hello world」</span></span><br><span class="line"></span><br><span class="line">paste f1 f2 [文件...]     <span class="comment">#逐行合并</span></span><br><span class="line">    <span class="comment"># -d 自定义合并后的分割符（ '\n' 以回车为每行的分割符）</span></span><br><span class="line">paste -s file            <span class="comment">#将一个文件中的多行数据合并为一行显示，但不修改原文件</span></span><br></pre></td></tr></table></figure>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h3 id="dpkg-和-apt-get"><a href="#dpkg-和-apt-get" class="headerlink" title="dpkg 和 apt-get"></a>dpkg 和 apt-get</h3><p><strong>主要应用于类 Debian 系统</strong><br>dpkg 是 Debian 的软件包管理的底层系统（名称来源于 Debian Package），被用于安装、卸载和供给和 <code>.deb</code>软件包相关的信息。</p>
+<p>apt 是Advance Packaging Tool（高级包装工具）的缩写，APT最早被设计成dpkg的前端，用来处理deb格式的软件包，现在已经成为 Debian 及其派生发行版的软件包管理器。</p>
+<p>apt 主要解决了软件的安装源、依赖关系处理、软件更新和发行版升级的问题。</p>
+<h4 id="apt-get-的使用"><a href="#apt-get-的使用" class="headerlink" title="apt-get 的使用"></a>apt-get 的使用</h4><p>一般情况下，使用 apt 命令即可完成一般的安装操作。<br>主要由三个功能组成</p>
+<ul>
+<li>apt-get</li>
+<li>apt-cache</li>
+<li>apt-file</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// apt-get</span><br><span class="line">apt-get update          <span class="comment">#更新软件源，软件源记录了软件和软件依赖，通过一并安装依赖保证软件能够正常运行</span></span><br><span class="line">apt-get install name    <span class="comment">#安装软件</span></span><br><span class="line">apt-get remove name     <span class="comment">#移除&lt;package&gt;以及任何依此存包的其它包 </span></span><br><span class="line">apt-get purge name      <span class="comment">#与remove相同，同时移除配置等文件</span></span><br><span class="line">apt-get autoremove name <span class="comment">#移除不再被依赖的软件包</span></span><br><span class="line">apt-get autoclean       <span class="comment">#移除已安装的软件包</span></span><br><span class="line">    <span class="comment"># -y 自动同意安装软件包的选项</span></span><br><span class="line">    <span class="comment"># -q 静默安装方式</span></span><br><span class="line">    <span class="comment"># -f 修复损坏的依赖关系</span></span><br><span class="line">    <span class="comment"># -d 只下载不安装</span></span><br><span class="line"></span><br><span class="line">// apt-cache</span><br><span class="line">apt-cache search softname <span class="comment">#搜索是否安装了该软件</span></span><br><span class="line"></span><br><span class="line">// apt-file</span><br></pre></td></tr></table></figure>
+<h4 id="dpkg-的使用"><a href="#dpkg-的使用" class="headerlink" title="dpkg 的使用"></a>dpkg 的使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l                 <span class="comment">#列出系统中安装的所有程序</span></span><br><span class="line">sudo dpkg -i name.deb   <span class="comment">#安装指定deb包</span></span><br><span class="line">sudo dpkg -r name       <span class="comment">#移除指定的软件包</span></span><br><span class="line">dpkg -s name            <span class="comment">#查看已安装软件的详细信息</span></span><br></pre></td></tr></table></figure>
+<h3 id="RPM-和-yum"><a href="#RPM-和-yum" class="headerlink" title="RPM 和 yum"></a>RPM 和 yum</h3><p><strong>具体使用方法还请自行搜索。</strong><br><a href="http://www.runoob.com/linux/linux-comm-rpm.html" target="_blank" rel="noopener"> Linux rpm命令 | 菜鸟教程 </a></p>
+<p>RPM包管理器（简称RPM，全称为The RPM Package Manager），是由Red Hat推出的软件包管理系统，现在在各种发行版中普遍使用，被用于安装、卸载和供给和 <code>.rpm</code>软件包相关的信息。</p>
+<blockquote>
+<p>使用RPM的发行版<br>Fedora 和 Red Hat Enterprise Linux<br>CentOS、Oracle Linux<br>openSUSE 和 SUSE Linux Enterprise</p>
+</blockquote>
+<p>rpm软件包形式管理软件虽然方便，但是rpm只是追踪软件包之间的依赖关系并没有进行解决。</p>
+<p>yum(yellowdog Updater,Modified)是一个rpm的前端程序，主要目的是用来解决rpm的依赖关系问题，其特点如下：</p>
+<ul>
+<li>自动解决依赖关系</li>
+<li>可以对rpm进行分组，并基于组进行安装操作</li>
+<li>引入仓库概念，支持多个仓库</li>
+<li>配置简单</li>
+</ul>
+<h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h3><p>macOS 上使用的包管理器，功能强大，使用方便。</p>
+<p><em>主要是凑一下 Unix 系统包管理的数。</em></p>
+<p>详细介绍参看少数派文章 <a href="https://sspai.com/post/42924" target="_blank" rel="noopener">像 Mac 高手一样管理应用，从 Homebrew 开始</a>。</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键"><span class="toc-number">1.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Path-相关（cd、ls）"><span class="toc-number">2.</span> <span class="toc-text">Path 相关（cd、ls）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#帮助命令（help、man、info、type）"><span class="toc-number">3.</span> <span class="toc-text">帮助命令（help、man、info、type）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件相关"><span class="toc-number">4.</span> <span class="toc-text">文件相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件查看（cat、nl、head、tail、more、less、file）"><span class="toc-number">4.1.</span> <span class="toc-text">文件查看（cat、nl、head、tail、more、less、file）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）"><span class="toc-number">4.2.</span> <span class="toc-text">文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件压缩和解压"><span class="toc-number">4.3.</span> <span class="toc-text">文件压缩和解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件软链接（ln）"><span class="toc-number">4.4.</span> <span class="toc-text">文件软链接（ln）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件查找（whereis、which、find）"><span class="toc-number">4.5.</span> <span class="toc-text">文件查找（whereis、which、find）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-Permission（chown、chmod）"><span class="toc-number">4.6.</span> <span class="toc-text">File Permission（chown、chmod）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件合并（join、paste）"><span class="toc-number">4.7.</span> <span class="toc-text">文件合并（join、paste）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件安装"><span class="toc-number">5.</span> <span class="toc-text">软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dpkg-和-apt-get"><span class="toc-number">5.1.</span> <span class="toc-text">dpkg 和 apt-get</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#apt-get-的使用"><span class="toc-number">5.1.1.</span> <span class="toc-text">apt-get 的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dpkg-的使用"><span class="toc-number">5.1.2.</span> <span class="toc-text">dpkg 的使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPM-和-yum"><span class="toc-number">5.2.</span> <span class="toc-text">RPM 和 yum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Homebrew"><span class="toc-number">5.3.</span> <span class="toc-text">Homebrew</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&text=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&is_video=false&description=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux（三）——Unix&amp;Linux 的基础命令&body=Check out this article: https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&title=Linux（三）——Unix&amp;Linux 的基础命令"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201809/201809-linux-san-unix-linux-de-ji-chu-ming-ling.html&name=Linux（三）——Unix&amp;Linux 的基础命令&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 质子
+<i class="fas fa-heartbeat"></i>
+<span id="busuanzi_container_site_uv">
+  访问<span id="busuanzi_value_site_uv"></span>人
+</span>/
+<span id="busuanzi_container_site_pv">
+  <span id="busuanzi_value_site_pv"></span>次
+</span>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/links/">友链</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'imzhizi-com';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
