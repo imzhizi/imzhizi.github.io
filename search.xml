@@ -3,19 +3,57 @@
   
     
     <entry>
-      <title>Git 笔记</title>
-      <link href="/201812/201812-git-bi-ji.html"/>
-      <url>/201812/201812-git-bi-ji.html</url>
+      <title>Week - 2018/11/25</title>
+      <link href="/201812/201812-week-2018-11-25.html"/>
+      <url>/201812/201812-week-2018-11-25.html</url>
       
-        <content type="html"><![CDATA[<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p><a href="https://segmentfault.com/a/1190000002533334" target="_blank" rel="noopener">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p><h2 id="其他需求"><a href="#其他需求" class="headerlink" title="其他需求"></a>其他需求</h2><h3 id="1-合并多个commit"><a href="#1-合并多个commit" class="headerlink" title="1. 合并多个commit"></a>1. 合并多个commit</h3><ul><li><p>方法一<br><a href="https://segmentfault.com/a/1190000007748862" target="_blank" rel="noopener">(Git)合并多个commit </a></p></li><li><p>方法二</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br></pre></td></tr></table></figure></li></ul><h3 id="2-Git-Config"><a href="#2-Git-Config" class="headerlink" title="2. Git Config"></a>2. Git Config</h3><p>使用不同的代码托管平台, 可能 username 和 email 也有所不同.</p><p><strong>全局配置, 为项目提供默认配置</strong><br>通过下面一条命令, 可以为电脑配置 git 默认的 name 和 email</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">'name'</span></span><br><span class="line">git config --global user.username <span class="string">'username'</span></span><br><span class="line">git config --global user.email <span class="string">'address@mail.com'</span></span><br></pre></td></tr></table></figure><p>实际上, 执行该命令会在个人根目录下创建 .gitconfig 文件, 通过修改该文件能达到相同的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">truename = name</span><br><span class="line">trueemail = address@mail.com</span><br></pre></td></tr></table></figure></p><p><strong>局部配置, 针对项目进行专有配置</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="built_in">local</span> user.name <span class="string">'name'</span></span><br><span class="line">git config --<span class="built_in">local</span> user.username <span class="string">'username'</span></span><br><span class="line">git config --<span class="built_in">local</span> user.email <span class="string">'address@mail.com'</span></span><br></pre></td></tr></table></figure></p><p>同样地, 执行该命令会在 .git文件夹下创建 config文件, 通过修改该文件能达到相同的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">truename = 王智宇</span><br><span class="line">trueemail = imzhizi@foxmail.com</span><br></pre></td></tr></table></figure></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Week-2018-11-25"><a href="#Week-2018-11-25" class="headerlink" title="Week - 2018/11/25"></a>Week - 2018/11/25</h1><h2 id="Me"><a href="#Me" class="headerlink" title="Me"></a>Me</h2><p>「塞尔达后遗症」<br>虽然玩塞尔达已经是一个多月前的事情, 但我梦中偶尔还是会出现我在滑翔的情节, 其实也不是像塞尔达里面一样撑着滑翔伞飞, 而是像怪盗基德那样, 从高空跳下, 展开双臂就可以顺着气流滑翔. 有时候在教室里, 我甚至也会有跳起来向下滑翔的冲动.<br><img src="https://s1.ax1x.com/2018/12/17/F0RjgI.md.png" alt="F0RjgI.md.png"></p><p>京东售后<br>我突然发现一直在用的数据线居然又两处破皮了, 我一直都放在寝室没有带出去用, 这是继 iPad 自带数据线破了以后第二根破的线. 我记得我是去年双十一在京东买的, 因为想用得久一些所以买的 Anker, 所以我决定尝试一下售后. 售后确实成功了, 以换代修发一根新的.<br>但是过了半个月左右也没发货, 我去找客服问这件事情, 据说是订单状况异常, 立刻委派特级专员来对我的订单负责, 来回有三四个人给我打电话确认此事, 第二天货就到了, 早知今日, 为什么不定期处理一下状况异常的订单呢.</p><p>闲鱼小法官<br>因为在闲鱼上卖了几次东西, 闲鱼最近常常喊我去做小法官. 大概就是有人的案件有纠纷了, 然后系统无法决断, 于是就推送给(信用比较高?)用户来投票看谁应该负责. 看了几次, 但都没有投票, 因为都是一些很难判断的事情, 双方都无法提供比较有力的证据, 所以我看了几次都没投票, 然后就把闲鱼的通知权限给关掉了, 所以, 如果在闲鱼买卖东西记得做好备份, 留好材料.</p><h2 id="News"><a href="#News" class="headerlink" title="News"></a>News</h2><p>今年 5 月上线的轻颜相机为今日头条收购 Faceu 后的一款延续产品，仍处在用户积累阶段，还未开始商业化。</p><blockquote><p>因为不是目标用户, 所以从来没有用过这两款产品, 但没想到这也是「字节跳动」家的, 再联想到最近谣传的「聊天IM」. 这家没什么好感的公司在产品领域倒是让人有些期待.  </p></blockquote><p><a href="https://mp.weixin.qq.com/s/2Ymb5f4cORKBf2JMy0utgA" target="_blank" rel="noopener">当下的形势 - 微信</a></p><blockquote><p>最近各方面都开始有消息显示没那么乐观了, 就像打针前要揉揉屁股一样, 大家被一再灌输要做好心理准备, 形势在变差, 行业在过冬, 这对于互联网从业者的工资影响应该挺大的.<br>我在更早的时候, 对此也很不乐观, 有些担忧未来会怎样, 但最近似乎又好了一些, 大概是觉得, 既然这些自媒体之类的都意识到了这一点, 那么国家想必也知道的, 他们应该会做各种措施防止惨剧发生的吧. 这挺讽刺的, 不相信国家的人, 这时候反而要靠国家了.  </p></blockquote>]]></content>
       
       
       
         <tags>
             
-            <tag> config </tag>
+            <tag> memo </tag>
+            
+            <tag> 周记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Week - 2018/12/15</title>
+      <link href="/201812/201812-week-2018-12-15.html"/>
+      <url>/201812/201812-week-2018-12-15.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Me"><a href="#Me" class="headerlink" title="Me"></a>Me</h2><p>我之前买了一些基金, 很少的一点点, 纯粹是买来玩, 学一学整个是如何运作的. 或许基金是通过长期持有来获得收益的, 我也不太清楚, 但目前来看, 我买的大部分都处于亏损状态.<br>其中的一个教训是: 由于基金和股票有很强的相关性, 如果是国内的交易, 应该在下午三点闭市之前, 根据股票的走势来决定买或者卖.<br>另外我常常优柔寡断, 不及时做决策, 导致错过了很多好时机, 可能是对市场不切实际的幻想.</p><p>之前的小米手环丢了, 最近又买了一只. 是在拼多多上买的. 很多人听到了肯定会笑, 但是我倒觉得还不错, 价格当然是便宜的, 因为是品牌店也不担心有太多质量问题. 之前双十一也有看到过有人讲, 拼多多是唯一一家直接标价, 标多少卖多少且价格最低的. 怎么说, 没想到最讨厌的一家却渐渐有了让人喜欢的样子, 当然, 拼多多 APP 内设计真的让人非常难以下手.</p><h2 id="News"><a href="#News" class="headerlink" title="News"></a>News</h2><p><a href="https://zhuanlan.zhihu.com/p/50992742" target="_blank" rel="noopener">遗传对寿命的影响还不如你的伴侣：4亿人大数据揭示长寿规律 - 知乎</a></p><blockquote><p>「虽然寿命的长度会受到一定的遗传因素影响，但是我们的研究表明，生命中还有其他很多种力量起到了重大的作用。」  </p></blockquote><p><a href="https://www.qdaily.com/articles/59252.html" target="_blank" rel="noopener">麦当劳将减少牛肉用的抗生素，将影响整个行业_商业_好奇心日报</a></p><blockquote><p>对人类健康至关重要的抗生素中 43% 都被用于养牛；相比之下，只有 6% 会影响人类健康的抗生素用到了鸡类养殖中。  </p></blockquote><p>苏宁近年一直在追潮流，电商、线下门店、便利店、无人店、生鲜、视频网站、拼购，都做了，但赚钱的业务是卖阿里巴巴的股票。</p><blockquote><p>单纯想分享一下  </p></blockquote><p>「谣零零」意指「让谣言归零」，同时也是「100」的谐音。「谣零零」计划的核心是，平台依据内容质量，筛选出 100 篇优质辟谣内容，予以现金奖励，以激发优质创作者热情，进一步净化网络空间。</p><blockquote><p>今日头条  </p></blockquote><h2 id="Words"><a href="#Words" class="headerlink" title="Words"></a>Words</h2><p>有什么样的国家，就有什么样的企业。</p><p>在《沃霍尔的哲学》一书中，这样说道“赚钱是一种艺术、工作也是一种艺术、最赚钱的买卖是最佳的艺术。 </p><h2 id="New"><a href="#New" class="headerlink" title="New"></a>New</h2><p>macOS 和 iOS都更新了新版本, 支持了新的双拼输入法方案-「小鹤双拼」, 如果有兴趣, 可以在手机上尝试一下.</p><p>新装了两个 Chrome 插件, 感觉都不错</p><ul><li>TabCopy: 可以直接复制网站的标题和链接, 可以选择复制 Markdown 格式, 设置快捷键之后非常方便,  <a href="https://chrome.google.com/webstore/detail/tabcopy/micdllihgoppmejpecmkilggmaagfdmb" target="_blank" rel="noopener">TabCopy - Chrome 网上应用店</a></li><li>搜索直达: 许多网站在网址跳转的时候都会进行重定向而不是直接访问该网站, 使用这个插件可以取出很多网站的重定向(百度, 谷歌, 知乎等), <a href="https://chrome.google.com/webstore/detail/faster-search-for-googley/mkpejojlockjoldbdbbgbibeogmemjfk" target="_blank" rel="noopener">搜索直达 - Chrome 网上应用店</a><br>faster-search-for-googley/mkpejojlockjoldbdbbgbibeogmemjfk)</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> memo </tag>
+            
+            <tag> 周记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Git 笔记</title>
+      <link href="/201812/201812-git-bi-ji.html"/>
+      <url>/201812/201812-git-bi-ji.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p><a href="https://segmentfault.com/a/1190000002533334" target="_blank" rel="noopener">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p><h2 id="其他需求"><a href="#其他需求" class="headerlink" title="其他需求"></a>其他需求</h2><h3 id="1-合并多个commit"><a href="#1-合并多个commit" class="headerlink" title="1. 合并多个commit"></a>1. 合并多个commit</h3><ul><li><p>方法一<br>在网上找到一种通过 git rebase 合并的方法<br><a href="https://segmentfault.com/a/1190000007748862" target="_blank" rel="noopener">(Git)合并多个commit - nihao - SegmentFault 思否</a></p></li><li><p>方法二<br>通过 git reset 合并(暂略)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br></pre></td></tr></table></figure></li></ul><h3 id="2-Git-Config"><a href="#2-Git-Config" class="headerlink" title="2. Git Config"></a>2. Git Config</h3><p>使用不同的代码托管平台, 可能 username 和 email 也有所不同.</p><p><strong>全局配置, 为项目提供默认配置</strong><br>通过下面一条命令, 可以为电脑配置 git 默认的 name 和 email<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">'name'</span></span><br><span class="line">git config --global user.username <span class="string">'username'</span></span><br><span class="line">git config --global user.email <span class="string">'address@mail.com'</span></span><br></pre></td></tr></table></figure></p><p>实际上, 执行该命令会在个人根目录下创建 .gitconfig 文件, 通过修改该文件能达到相同的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">truename = name</span><br><span class="line">trueemail = address@mail.com</span><br></pre></td></tr></table></figure></p><p><strong>局部配置, 针对项目进行专有配置</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="built_in">local</span> user.name <span class="string">'name'</span></span><br><span class="line">git config --<span class="built_in">local</span> user.username <span class="string">'username'</span></span><br><span class="line">git config --<span class="built_in">local</span> user.email <span class="string">'address@mail.com'</span></span><br></pre></td></tr></table></figure></p><p>同样地, 执行该命令会在 .git文件夹下创建 config文件, 通过修改该文件能达到相同的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">truename = 王智宇</span><br><span class="line">trueemail = imzhizi@foxmail.com</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+        <tags>
             
             <tag> dev </tag>
+            
+            <tag> config </tag>
             
         </tags>
       
@@ -68,9 +106,9 @@
       
         <tags>
             
-            <tag> 面试 </tag>
-            
             <tag> dev </tag>
+            
+            <tag> 面试 </tag>
             
         </tags>
       
@@ -334,9 +372,9 @@
       
         <tags>
             
-            <tag> config </tag>
-            
             <tag> dev </tag>
+            
+            <tag> config </tag>
             
         </tags>
       
@@ -539,9 +577,9 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> 面试 </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
@@ -1314,9 +1352,9 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> 面试 </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
