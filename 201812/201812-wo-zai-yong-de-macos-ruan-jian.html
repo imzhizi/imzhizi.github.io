@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="难以想象的晴朗">
 <meta property="og:description" content="HomebrewHomebrew 是统一管理 macOS 中应用的最佳方法之一，而且大量优秀的应用都可以在 Homebrew 中找到。 就不做过多介绍了, 有兴趣可以看相关教程, 像 Mac 高手一样管理应用，从 Homebrew 开始 - 少数派 终端和 Oh-My-ZSH终端是很重要的一个工具, 我在 Linux 文章中介绍过, 系统拥有内核, 内核拥有外壳, 也就是和外界交流的接口 shel">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-15T15:45:12.834Z">
+<meta property="og:updated_time" content="2018-12-15T16:14:43.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我在 Mac 上都用什么">
 <meta name="twitter:description" content="HomebrewHomebrew 是统一管理 macOS 中应用的最佳方法之一，而且大量优秀的应用都可以在 Homebrew 中找到。 就不做过多介绍了, 有兴趣可以看相关教程, 像 Mac 高手一样管理应用，从 Homebrew 开始 - 少数派 终端和 Oh-My-ZSH终端是很重要的一个工具, 我在 Linux 文章中介绍过, 系统拥有内核, 内核拥有外壳, 也就是和外界交流的接口 shel">
@@ -75,7 +75,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/201812/201812-github-pei-zhi.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/201812/201812-git-bi-ji.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/201812/201812-macos-an-zhuang-duo-ge-java-ban-ben.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -149,7 +149,7 @@
 <h2 id="终端和-Oh-My-ZSH"><a href="#终端和-Oh-My-ZSH" class="headerlink" title="终端和 Oh-My-ZSH"></a>终端和 Oh-My-ZSH</h2><p>终端是很重要的一个工具, 我在 Linux 文章中介绍过, 系统拥有内核, 内核拥有外壳, 也就是和外界交流的接口 shell, 因为是接口, 用户自然无法直接交互, 终端就是帮助用户和 shell 交互, 进而来操纵系统. 更多还是看文章吧.<br><a href="https://sspai.com/post/45534" target="_blank" rel="noopener">玩转 Terminal 终端：入门指南及进阶技巧 - 少数派</a></p>
 <p>如果使用终端, macOS自带的是 bash, 更多时候, 会使用 zsh, Oh-My-Zsh 是为了更方便使用 zsh 开发的插件, 具体可以到官网了解一下.<br><a href="https://ohmyz.sh/" target="_blank" rel="noopener">Oh My Zsh - a delightful &amp; open source framework for Z-Shell</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Homebrew 的安装</span></span><br><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Oh-My-ZSH 的安装</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
-<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## GUI 软件</span></span><br><span class="line">brew cask install qq neteasemusic youdaodict thunder google-chrome ticktick typora sublime-text mweb iina snipaste the-unarchiver toggl</span><br><span class="line"></span><br><span class="line">brew install tree v2ray/v2ray/v2ray-core</span><br></pre></td></tr></table></figure>
+<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## GUI 软件</span></span><br><span class="line">brew tap v2ray/v2ray homebrew/cask homebrew/cask-versions</span><br><span class="line"></span><br><span class="line">brew cask install qq neteasemusic youdaodict thunder google-chrome ticktick typora sublime-text mweb iina snipaste the-unarchiver toggl</span><br><span class="line"></span><br><span class="line">brew install tree v2ray/v2ray/v2ray-core</span><br></pre></td></tr></table></figure>
 <ul>
 <li>QQ: 不解释</li>
 <li>neteasemusic: 网易云音乐, 不解释</li>
@@ -167,7 +167,7 @@
 <li>tree: 以某一目录为根树形输出文件列表</li>
 <li>v2ray/v2ray/v2ray-core: 神秘的射线软件</li>
 </ul>
-<h2 id="开发软件"><a href="#开发软件" class="headerlink" title="开发软件"></a>开发软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install git python node mysql</span><br><span class="line">brew cask install java intellij-idea pycharm postman</span><br><span class="line"></span><br><span class="line"><span class="comment">## 其他未安装但可能遇到的</span></span><br><span class="line">brew install tomcat sqlite gcc</span><br></pre></td></tr></table></figure>
+<h2 id="开发软件"><a href="#开发软件" class="headerlink" title="开发软件"></a>开发软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install git python node@10 mysql@5.7</span><br><span class="line">brew cask install java8 intellij-idea pycharm postman</span><br><span class="line"></span><br><span class="line"><span class="comment">## 其他未安装但可能遇到的</span></span><br><span class="line">brew install tomcat sqlite gcc</span><br></pre></td></tr></table></figure>
 <ul>
 <li>git: 版本管理软件, 不解释</li>
 <li>python: 不解释</li>
