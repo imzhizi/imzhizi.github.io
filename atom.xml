@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://imzhizi.com/"/>
-  <updated>2018-12-17T13:16:00.522Z</updated>
+  <updated>2018-12-17T13:37:56.921Z</updated>
   <id>https://imzhizi.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018/12/22</title>
+    <link href="https://imzhizi.com/201812/201812-2018-12-22.html"/>
+    <id>https://imzhizi.com/201812/201812-2018-12-22.html</id>
+    <published>2018-12-17T13:37:56.000Z</published>
+    <updated>2018-12-17T13:37:56.921Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="memo" scheme="https://imzhizi.com/tags/memo/"/>
+    
+      <category term="周记" scheme="https://imzhizi.com/tags/%E5%91%A8%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Week - 2018/11/25</title>
@@ -46,7 +64,7 @@
     <link href="https://imzhizi.com/201812/201812-week-2018-12-15.html"/>
     <id>https://imzhizi.com/201812/201812-week-2018-12-15.html</id>
     <published>2018-12-17T13:04:56.000Z</published>
-    <updated>2018-12-17T13:15:53.694Z</updated>
+    <updated>2018-12-17T13:53:07.239Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Me"><a href="#Me" class="headerlink" title="Me"></a>Me</h2><p>我之前买了一些基金, 很少的一点点, 纯粹是买来玩, 学一学整个是如何运作的. 或许基金是通过长期持有来获得收益的, 我也不太清楚, 但目前来看, 我买的大部分都处于亏损状态.<br>其中的一个教训是: 由于基金和股票有很强的相关性, 如果是国内的交易, 应该在下午三点闭市之前, 根据股票的走势来决定买或者卖.<br>另外我常常优柔寡断, 不及时做决策, 导致错过了很多好时机, 可能是对市场不切实际的幻想.</p><p>之前的小米手环丢了, 最近又买了一只. 是在拼多多上买的. 很多人听到了肯定会笑, 但是我倒觉得还不错, 价格当然是便宜的, 因为是品牌店也不担心有太多质量问题. 之前双十一也有看到过有人讲, 拼多多是唯一一家直接标价, 标多少卖多少且价格最低的. 怎么说, 没想到最讨厌的一家却渐渐有了让人喜欢的样子, 当然, 拼多多 APP 内设计真的让人非常难以下手.</p><h2 id="News"><a href="#News" class="headerlink" title="News"></a>News</h2><p><a href="https://zhuanlan.zhihu.com/p/50992742" target="_blank" rel="noopener">遗传对寿命的影响还不如你的伴侣：4亿人大数据揭示长寿规律 - 知乎</a></p><blockquote><p>「虽然寿命的长度会受到一定的遗传因素影响，但是我们的研究表明，生命中还有其他很多种力量起到了重大的作用。」  </p></blockquote><p><a href="https://www.qdaily.com/articles/59252.html" target="_blank" rel="noopener">麦当劳将减少牛肉用的抗生素，将影响整个行业_商业_好奇心日报</a></p><blockquote><p>对人类健康至关重要的抗生素中 43% 都被用于养牛；相比之下，只有 6% 会影响人类健康的抗生素用到了鸡类养殖中。  </p></blockquote><p>苏宁近年一直在追潮流，电商、线下门店、便利店、无人店、生鲜、视频网站、拼购，都做了，但赚钱的业务是卖阿里巴巴的股票。</p><blockquote><p>单纯想分享一下  </p></blockquote><p>「谣零零」意指「让谣言归零」，同时也是「100」的谐音。「谣零零」计划的核心是，平台依据内容质量，筛选出 100 篇优质辟谣内容，予以现金奖励，以激发优质创作者热情，进一步净化网络空间。</p><blockquote><p>今日头条  </p></blockquote><h2 id="Words"><a href="#Words" class="headerlink" title="Words"></a>Words</h2><p>有什么样的国家，就有什么样的企业。</p><p>在《沃霍尔的哲学》一书中，这样说道“赚钱是一种艺术、工作也是一种艺术、最赚钱的买卖是最佳的艺术。 </p><h2 id="New"><a href="#New" class="headerlink" title="New"></a>New</h2><p>macOS 和 iOS都更新了新版本, 支持了新的双拼输入法方案-「小鹤双拼」, 如果有兴趣, 可以在手机上尝试一下.</p><p>新装了两个 Chrome 插件, 感觉都不错</p><ul><li>TabCopy: 可以直接复制网站的标题和链接, 可以选择复制 Markdown 格式, 设置快捷键之后非常方便,  <a href="https://chrome.google.com/webstore/detail/tabcopy/micdllihgoppmejpecmkilggmaagfdmb" target="_blank" rel="noopener">TabCopy - Chrome 网上应用店</a></li><li>搜索直达: 许多网站在网址跳转的时候都会进行重定向而不是直接访问该网站, 使用这个插件可以取出很多网站的重定向(百度, 谷歌, 知乎等), <a href="https://chrome.google.com/webstore/detail/faster-search-for-googley/mkpejojlockjoldbdbbgbibeogmemjfk" target="_blank" rel="noopener">搜索直达 - Chrome 网上应用店</a><br>faster-search-for-googley/mkpejojlockjoldbdbbgbibeogmemjfk)</li></ul>]]></content>
     
@@ -488,31 +506,6 @@
       <category term="leetcode" scheme="https://imzhizi.com/tags/leetcode/"/>
     
       <category term="algs" scheme="https://imzhizi.com/tags/algs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Win10-MySQL-zip安装方法</title>
-    <link href="https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html"/>
-    <id>https://imzhizi.com/201810/201810-win10-mysql-zip-an-zhuang-fang-fa.html</id>
-    <published>2018-10-23T14:17:49.000Z</published>
-    <updated>2018-10-25T13:32:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>1、下载，到MySQL官网：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p><p>2、解压安装包<br>解压下载的安装包，放到你的电脑路径，我放置的是 <code>E:\mysql</code></p><p>3、配置my.ini文件<br>解压后，在根目录下创建配置文件my.ini，内容如下：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment">; 设置MySQL客户端默认字符集</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">;设置3306端口</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">3306</span></span><br><span class="line"><span class="comment">; 设置MySQL的安装目录，应该与解压位置相匹配</span></span><br><span class="line"><span class="attr">basedir</span>=E:\mysql</span><br><span class="line"><span class="comment">; 设置MySQL数据库的数据的存放目录</span></span><br><span class="line"><span class="attr">datadir</span>=E:\mysql\data</span><br><span class="line"><span class="comment">; 允许最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">200</span></span><br><span class="line"><span class="comment">; 服务端使用的字符集默认为8比特编码的latin1字符集</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"><span class="comment">; 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br></pre></td></tr></table></figure></p><p>4、配置MySQL环境变量<br>为了以后方便启动mysql，在环境变量Path追加：<code>E:\mysql\bin</code></p><p>5、安装MySQL<br>以管理员身份打开cmd窗口（开始菜单下输入cmd，右键管理员方式运行）</p><ul><li>输入：<code>mysqld --initialize-insecure</code>，安装需要等待一会<br>这一步用于初始化MySQL的data文件夹，官方的压缩包解压后并没有data文件夹，运行命令后，按照my.ini中配置的位置生成data文件；</li><li>输入：<code>mysqld install</code> 会提示安装成功；</li><li>输入：<code>net start mysql</code> 启动服务，若显示启动成功则安装成功；</li><li>最后输入：<code>net stop mysql</code>，停止服务，以便进行以下操作。</li></ul><p>6、设置root管理员密码</p><ul><li>在cmd中输入 <code>mysql -u root -p</code></li><li><p>此时cmd显示 <code>Enter password：</code> 不必理会，直接回车即可成功进入MySQL，进入后使用以下方法修改密码</p><ul><li><code>SET PASSWORD for root@localhost = PASSWORD(&quot;root&quot;);</code> (5.7版本修改密码）</li><li><code>ALTER USER root@localhost IDENTIFIED BY &quot;root&quot;;</code> (8.0版本修改密码）</li></ul></li><li><p>以后就可以通过在cmd中输入 <code>mysql -u root -p</code> 进入MySQL</p></li></ul><p>至此，MySQL就安装完成并可以使用了。</p><h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><ul><li>以系统管理员身份运行cmd</li><li>查看mysql是否已经启动，如果已经启动，就使用 <code>net stop mysql</code> 停止服务</li><li>在命令行输入 <code>mysqld -nt --skip-grant-tables</code></li><li>此时通过 <code>mysql -u root -p</code> 就可以直接进入MySQL</li><li>进入后需要设置密码，因为mysql会仍以为你是第一次进入MySQL</li><li>输入之前设定重新确定密码</li></ul><p>PS：大部分SQL语句需要加分号，可以使用quit或者exit来退出MySQL<br>但是，在日常使用中，建议使用权限更低的用户来操作具体的数据库，SQL语句如下：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> xxx;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> zhizi <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'111'</span>;</span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> xxx.* <span class="keyword">to</span> zhizi@<span class="string">'localhost'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'111'</span>;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h2&gt;&lt;p&gt;1、下载，到MySQL官网：&lt;a href=&quot;https://dev.mysql.com/downloads/mysql/&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="dev" scheme="https://imzhizi.com/tags/dev/"/>
-    
-      <category term="config" scheme="https://imzhizi.com/tags/config/"/>
     
   </entry>
   
