@@ -7,14 +7,14 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="基本配置如何在本地环境配置github - trigkit4 - SegmentFault 思否 其他需求1. 合并多个commit 方法一在网上找到一种通过 git rebase 合并的方法(Git)合并多个commit - nihao - SegmentFault 思否  方法二通过 git reset 合并(暂略) 1git reset   2. Git Config使用不同的代码托管平台,">
-<meta name="keywords" content="dev,config">
+<meta name="keywords" content="config,dev">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 笔记">
 <meta property="og:url" content="https://imzhizi.com/201812/201812-git-bi-ji.html">
 <meta property="og:site_name" content="难以想象的晴朗">
 <meta property="og:description" content="基本配置如何在本地环境配置github - trigkit4 - SegmentFault 思否 其他需求1. 合并多个commit 方法一在网上找到一种通过 git rebase 合并的方法(Git)合并多个commit - nihao - SegmentFault 思否  方法二通过 git reset 合并(暂略) 1git reset   2. Git Config使用不同的代码托管平台,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-17T06:25:37.250Z">
+<meta property="og:updated_time" content="2018-12-19T01:14:02.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 笔记">
 <meta name="twitter:description" content="基本配置如何在本地环境配置github - trigkit4 - SegmentFault 思否 其他需求1. 合并多个commit 方法一在网上找到一种通过 git rebase 合并的方法(Git)合并多个commit - nihao - SegmentFault 思否  方法二通过 git reset 合并(暂略) 1git reset   2. Git Config使用不同的代码托管平台,">
@@ -160,7 +160,7 @@
 <p><strong>全局配置, 为项目提供默认配置</strong><br>通过下面一条命令, 可以为电脑配置 git 默认的 name 和 email<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">'name'</span></span><br><span class="line">git config --global user.username <span class="string">'username'</span></span><br><span class="line">git config --global user.email <span class="string">'address@mail.com'</span></span><br></pre></td></tr></table></figure></p>
 <p>实际上, 执行该命令会在个人根目录下创建 .gitconfig 文件, 通过修改该文件能达到相同的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">truename = name</span><br><span class="line">trueemail = address@mail.com</span><br></pre></td></tr></table></figure></p>
 <p><strong>局部配置, 针对项目进行专有配置</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="built_in">local</span> user.name <span class="string">'name'</span></span><br><span class="line">git config --<span class="built_in">local</span> user.username <span class="string">'username'</span></span><br><span class="line">git config --<span class="built_in">local</span> user.email <span class="string">'address@mail.com'</span></span><br></pre></td></tr></table></figure></p>
-<p>同样地, 执行该命令会在 .git文件夹下创建 config文件, 通过修改该文件能达到相同的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">truename = 王智宇</span><br><span class="line">trueemail = imzhizi@foxmail.com</span><br></pre></td></tr></table></figure></p>
+<p>同样地, 执行该命令会在 .git文件夹下创建 config文件, 通过修改该文件能达到相同的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">truename = name</span><br><span class="line">trueemail = address@mail.com</span><br></pre></td></tr></table></figure></p>
 
   </div>
 </article>

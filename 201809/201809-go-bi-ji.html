@@ -10,7 +10,7 @@
 <meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go 语言笔记">
-<meta property="og:url" content="https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html">
+<meta property="og:url" content="https://imzhizi.com/201809/201809-go-bi-ji.html">
 <meta property="og:site_name" content="难以想象的晴朗">
 <meta property="og:description" content="基本概念综述 Go 语言将静态语言的安全性和高效性与动态语言的易开发性进行有机结合，达到完美平衡。 设计者通过 goroutine 这种轻量级线程的概念来实现这个目标，然后通过 channel 来实现各个 goroutine 之间的通信，这个特性是 Go 语言最强有力的部分。 Go 语言像其它静态语言一样执行本地代码，但它依旧运行在某种意义上的虚拟机，以此来实现高效快速的垃圾回收。 「切片」是 g">
 <meta property="og:locale" content="zh-CN">
@@ -91,16 +91,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&text=Go 语言笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&is_video=false&description=Go 语言笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Go 语言笔记&body=Check out this article: https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&name=Go 语言笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201809/201809-go-bi-ji.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201809/201809-go-bi-ji.html&text=Go 语言笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201809/201809-go-bi-ji.html&is_video=false&description=Go 语言笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Go 语言笔记&body=Check out this article: https://imzhizi.com/201809/201809-go-bi-ji.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201809/201809-go-bi-ji.html&name=Go 语言笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -300,16 +300,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&text=Go 语言笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&is_video=false&description=Go 语言笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Go 语言笔记&body=Check out this article: https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&title=Go 语言笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201809/201809-go-yu-yan-bi-ji.html&name=Go 语言笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201809/201809-go-bi-ji.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201809/201809-go-bi-ji.html&text=Go 语言笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201809/201809-go-bi-ji.html&is_video=false&description=Go 语言笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Go 语言笔记&body=Check out this article: https://imzhizi.com/201809/201809-go-bi-ji.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201809/201809-go-bi-ji.html&title=Go 语言笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201809/201809-go-bi-ji.html&name=Go 语言笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
