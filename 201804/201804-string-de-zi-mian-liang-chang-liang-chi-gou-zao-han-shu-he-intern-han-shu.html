@@ -150,7 +150,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="一、内存中的-String-对象"><a href="#一、内存中的-String-对象" class="headerlink" title="一、内存中的 String 对象"></a>一、内存中的 String 对象</h2><h3 id="Java-的堆和栈"><a href="#Java-的堆和栈" class="headerlink" title="Java 的堆和栈"></a>Java 的堆和栈</h3><ul>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="一、内存中的-String-对象"><a href="#一、内存中的-String-对象" class="headerlink" title="一、内存中的 String 对象"></a>一、内存中的 String 对象</h2><h3 id="Java-的堆和栈"><a href="#Java-的堆和栈" class="headerlink" title="Java 的堆和栈"></a>Java 的堆和栈</h3><ul>
 <li>对于基本数据类型变量和对象的引用，也就是局部变量表属于<strong>栈内存</strong>；</li>
 <li>而通过 new 关键字和 constructor 创建的对象存放在<strong>堆内存</strong>；</li>
 <li>直接的 “hello” 被称为字面量形式，在JDK1.7之后存放在位于<strong>堆内存</strong>的独立的<strong>常量池</strong>中；  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 比如说：</span></span><br><span class="line">String s1=<span class="string">"hello"</span>;</span><br><span class="line">Scanner input = <span class="keyword">new</span> Scanner();</span><br><span class="line"><span class="comment">// 上面的语句中变量名 s1、input 存放在栈内存中，"hello" 为字面量，所以放在常量池，而用构造函数创建的对象放在堆内存中。</span></span><br></pre></td></tr></table></figure>
