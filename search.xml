@@ -13,8 +13,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -31,8 +29,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -108,7 +104,7 @@
       
         <tags>
             
-            <tag> dev </tag>
+            <tag> 笔记 </tag>
             
             <tag> config </tag>
             
@@ -118,8 +114,8 @@
     
     <entry>
       <title>我在 Mac 上都用什么</title>
-      <link href="/201812/201812-wo-zai-yong-de-macos-ruan-jian.html"/>
-      <url>/201812/201812-wo-zai-yong-de-macos-ruan-jian.html</url>
+      <link href="/201812/201812-wo-zai-mac-shang-du-yong-shi-me.html"/>
+      <url>/201812/201812-wo-zai-mac-shang-du-yong-shi-me.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h2><p>Homebrew 是统一管理 macOS 中应用的最佳方法之一，而且大量优秀的应用都可以在 Homebrew 中找到。</p><p>就不做过多介绍了, 有兴趣可以看相关教程, <a href="https://sspai.com/post/42924" target="_blank" rel="noopener">像 Mac 高手一样管理应用，从 Homebrew 开始 - 少数派</a></p><h2 id="终端和-Oh-My-ZSH"><a href="#终端和-Oh-My-ZSH" class="headerlink" title="终端和 Oh-My-ZSH"></a>终端和 Oh-My-ZSH</h2><p>终端是很重要的一个工具, 我在 Linux 文章中介绍过, 系统拥有内核, 内核拥有外壳, 也就是和外界交流的接口 shell, 因为是接口, 用户自然无法直接交互, 终端就是帮助用户和 shell 交互, 进而来操纵系统. 更多还是看文章吧.<br><a href="https://sspai.com/post/45534" target="_blank" rel="noopener">玩转 Terminal 终端：入门指南及进阶技巧 - 少数派</a></p><p>如果使用终端, macOS自带的是 bash, 更多时候, 会使用 zsh, Oh-My-Zsh 是为了更方便使用 zsh 开发的插件, 具体可以到官网了解一下.<br><a href="https://ohmyz.sh/" target="_blank" rel="noopener">Oh My Zsh - a delightful &amp; open source framework for Z-Shell</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Homebrew 的安装</span></span><br><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Oh-My-ZSH 的安装</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure><h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## GUI 软件</span></span><br><span class="line">brew tap v2ray/v2ray homebrew/cask homebrew/cask-versions</span><br><span class="line"></span><br><span class="line">brew cask install qq neteasemusic youdaodict thunder google-chrome ticktick typora sublime-text mweb iina snipaste the-unarchiver toggl</span><br><span class="line"></span><br><span class="line">brew install tree v2ray/v2ray/v2ray-core</span><br></pre></td></tr></table></figure><ul><li>QQ: 不解释</li><li>neteasemusic: 网易云音乐, 不解释</li><li>youdaodic: 有道词典, 不解释</li><li>thunder: 迅雷, 不解释</li><li>google-chrome: Chrome 浏览器, 不解释</li><li>ticktick: 滴答清单, 国产很强大的 GTD 软件</li><li>typora: 免费的 Markdown 编辑器, 特点是没有预览模式, 所见即所得</li><li>sublime-text: 强大的编辑器, 主要是为了替代系统自带的 editor</li><li>mweb: (付费) macOS 原生的 Markdown 笔记软件, 我的主力笔记软件</li><li>iina: 开源的视频播放器, 简单好用</li><li>snipaste: 很好用的截图软件, 有 Windows 版</li><li>the-unarchiver: 免费的解压软件</li><li>toggl: 一直在使用的全平台时间记录, 统计软件</li><li>tree: 以某一目录为根树形输出文件列表</li><li>v2ray/v2ray/v2ray-core: 神秘的射线软件</li></ul><h2 id="开发软件"><a href="#开发软件" class="headerlink" title="开发软件"></a>开发软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install git python node@10 mysql@5.7</span><br><span class="line">brew cask install java8 intellij-idea pycharm postman</span><br><span class="line"></span><br><span class="line"><span class="comment">## 其他未安装但可能遇到的</span></span><br><span class="line">brew install tomcat sqlite gcc</span><br></pre></td></tr></table></figure><ul><li>git: 版本管理软件, 不解释</li><li>python: 不解释</li><li>node.js: 不解释,这个博客就是基于 node.js 的</li><li>mysql: 数据库, 不解释</li><li>java: 不解释</li><li>intellij-idea: 最强的 Java IDE, 没有之一</li><li>pycharm: 工程相关的 Python 项目用它开发很舒服</li><li>postman: 很棒的测试 API 的工具</li></ul><h2 id="其他软件"><a href="#其他软件" class="headerlink" title="其他软件"></a>其他软件</h2><ul><li>PDF Expert: Mac 上最喜欢的软件之一</li><li>Office 2019: 不解释</li><li>Tuxera Disk Manager: 挂载 NTFS 格式用的软件</li><li>MoneyWiz2: 全能型记账软件</li><li>Numi: 一个顺手的计算器</li><li>CleanMyMac X: Mac 清理软件</li><li>Bear: 我的另一个一直在使用的笔记软件</li><li>Telegram: </li><li>微信</li><li>Reeder: RSS 订阅软件</li><li>坚果云: 云同步软件, 有了它我几乎不怎么担心数据会丢失</li></ul>]]></content>
       
@@ -127,9 +123,7 @@
       
         <tags>
             
-            <tag> config </tag>
-            
-            <tag> macOS </tag>
+            <tag> tool </tag>
             
         </tags>
       
@@ -146,7 +140,7 @@
       
         <tags>
             
-            <tag> macOS </tag>
+            <tag> config </tag>
             
         </tags>
       
@@ -163,9 +157,9 @@
       
         <tags>
             
-            <tag> dev </tag>
+            <tag> web </tag>
             
-            <tag> 面试 </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -182,9 +176,9 @@
       
         <tags>
             
-            <tag> memo </tag>
+            <tag> web </tag>
             
-            <tag> flask </tag>
+            <tag> memo </tag>
             
         </tags>
       
@@ -200,8 +194,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -220,8 +212,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -238,8 +228,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -258,8 +246,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -276,8 +262,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -296,8 +280,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -314,8 +296,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -334,8 +314,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -352,8 +330,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -372,8 +348,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -390,8 +364,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -410,8 +382,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -428,8 +398,6 @@
       
       
         <tags>
-            
-            <tag> dev </tag>
             
             <tag> config </tag>
             
@@ -448,7 +416,7 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> os </tag>
             
         </tags>
       
@@ -465,7 +433,9 @@
       
         <tags>
             
-            <tag> go </tag>
+            <tag> 笔记 </tag>
+            
+            <tag> 语言 </tag>
             
         </tags>
       
@@ -482,7 +452,7 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> os </tag>
             
         </tags>
       
@@ -499,11 +469,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
-            
-            <tag> go </tag>
             
         </tags>
       
@@ -519,8 +485,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -539,8 +503,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -557,8 +519,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -577,8 +537,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -595,8 +553,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -615,8 +571,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -624,7 +578,7 @@
     </entry>
     
     <entry>
-      <title>Java 位运算符和 int 类型的实现</title>
+      <title>Java - 位运算符和 int 类型的实现</title>
       <link href="/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html"/>
       <url>/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html</url>
       
@@ -634,7 +588,7 @@
       
         <tags>
             
-            <tag> 面试 </tag>
+            <tag> 语言 </tag>
             
             <tag> java </tag>
             
@@ -653,8 +607,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -671,8 +623,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -691,8 +641,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -709,8 +657,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -729,7 +675,7 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> os </tag>
             
         </tags>
       
@@ -745,8 +691,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -765,8 +709,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -783,8 +725,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -803,8 +743,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -821,8 +759,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -841,8 +777,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -859,8 +793,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -879,8 +811,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -897,8 +827,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -917,8 +845,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -935,8 +861,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -955,8 +879,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -973,8 +895,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -993,8 +913,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1011,8 +929,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1031,8 +947,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1049,8 +963,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1069,8 +981,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1087,8 +997,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1107,8 +1015,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1125,8 +1031,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1145,8 +1049,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1163,8 +1065,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1183,8 +1083,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1201,8 +1099,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1221,8 +1117,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1239,8 +1133,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1259,8 +1151,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1277,8 +1167,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1297,8 +1185,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1315,8 +1201,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1335,8 +1219,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1353,8 +1235,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1390,8 +1270,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1399,7 +1277,7 @@
     </entry>
     
     <entry>
-      <title>Java String的字面量、常量池、构造函数和intern()函数</title>
+      <title>Java - String的字面量、常量池、构造函数和intern()函数</title>
       <link href="/201804/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html"/>
       <url>/201804/201804-string-de-zi-mian-liang-chang-liang-chi-gou-zao-han-shu-he-intern-han-shu.html</url>
       
@@ -1409,7 +1287,7 @@
       
         <tags>
             
-            <tag> 面试 </tag>
+            <tag> 语言 </tag>
             
             <tag> java </tag>
             
@@ -1428,8 +1306,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1446,8 +1322,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             
@@ -1466,8 +1340,6 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> algs </tag>
             
         </tags>
@@ -1484,8 +1356,6 @@
       
       
         <tags>
-            
-            <tag> leetcode </tag>
             
             <tag> algs </tag>
             

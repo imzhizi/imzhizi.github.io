@@ -7,16 +7,16 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="其他运算符1234567891011121314151617# 算术运算符+、-、*、/、++i、i++、--i、i--# 关系运算符==、!=、&amp;gt;、&amp;lt;、&amp;gt;=、&amp;lt;=# 逻辑运算符&amp;amp;&amp;amp;、||、!# 赋值运算符=、运算符=# 其他运算符## 三元运算符bool表达式 ? x : y## instanceof 运算符boolean result = var ins">
-<meta name="keywords" content="面试,java">
+<meta name="keywords" content="语言,java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 位运算符和 int 类型的实现">
+<meta property="og:title" content="Java - 位运算符和 int 类型的实现">
 <meta property="og:url" content="https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html">
 <meta property="og:site_name" content="难以想象的晴朗">
 <meta property="og:description" content="其他运算符1234567891011121314151617# 算术运算符+、-、*、/、++i、i++、--i、i--# 关系运算符==、!=、&amp;gt;、&amp;lt;、&amp;gt;=、&amp;lt;=# 逻辑运算符&amp;amp;&amp;amp;、||、!# 赋值运算符=、运算符=# 其他运算符## 三元运算符bool表达式 ? x : y## instanceof 运算符boolean result = var ins">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-04T13:01:25.000Z">
+<meta property="og:updated_time" content="2018-12-28T05:46:56.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 位运算符和 int 类型的实现">
+<meta name="twitter:title" content="Java - 位运算符和 int 类型的实现">
 <meta name="twitter:description" content="其他运算符1234567891011121314151617# 算术运算符+、-、*、/、++i、i++、--i、i--# 关系运算符==、!=、&amp;gt;、&amp;lt;、&amp;gt;=、&amp;lt;=# 逻辑运算符&amp;amp;&amp;amp;、||、!# 赋值运算符=、运算符=# 其他运算符## 三元运算符bool表达式 ? x : y## instanceof 运算符boolean result = var ins">
     
     
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>Java 位运算符和 int 类型的实现</title>
+    <title>Java - 位运算符和 int 类型的实现</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -92,15 +92,15 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&text=Java 位运算符和 int 类型的实现"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&is_video=false&description=Java 位运算符和 int 类型的实现"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Java 位运算符和 int 类型的实现&body=Check out this article: https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&name=Java 位运算符和 int 类型的实现&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&text=Java - 位运算符和 int 类型的实现"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&is_video=false&description=Java - 位运算符和 int 类型的实现"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Java - 位运算符和 int 类型的实现&body=Check out this article: https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&name=Java - 位运算符和 int 类型的实现&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -117,7 +117,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Java 位运算符和 int 类型的实现
+        Java - 位运算符和 int 类型的实现
     </h1>
 
 
@@ -139,7 +139,7 @@
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/面试/">面试</a>
+        <a class="tag-link" href="/tags/java/">java</a>, <a class="tag-link" href="/tags/语言/">语言</a>
     </div>
 
 
@@ -207,15 +207,15 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&text=Java 位运算符和 int 类型的实现"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&is_video=false&description=Java 位运算符和 int 类型的实现"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Java 位运算符和 int 类型的实现&body=Check out this article: https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java 位运算符和 int 类型的实现"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&name=Java 位运算符和 int 类型的实现&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&text=Java - 位运算符和 int 类型的实现"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&is_video=false&description=Java - 位运算符和 int 类型的实现"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Java - 位运算符和 int 类型的实现&body=Check out this article: https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&title=Java - 位运算符和 int 类型的实现"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://imzhizi.com/201807/201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html&name=Java - 位运算符和 int 类型的实现&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
