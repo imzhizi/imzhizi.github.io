@@ -16,7 +16,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/28/FWnY4K.jpg">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/28/FWVzhF.png">
-<meta property="og:updated_time" content="2018-12-28T07:00:22.336Z">
+<meta property="og:updated_time" content="2018-12-28T07:01:49.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Week - 2018&#x2F;12&#x2F;29">
 <meta name="twitter:description" content="Me可能北方比较干燥的原因, 入秋以来经常被静电电到, 尤其是金属外壳、两脚插头、没有地线的 Mac, 睡了午觉回到实验室, 掀开电脑的瞬间, 心跳加速手指抽搐, 一发入魂. 后来每次我掀开电脑时总是像摸老虎一样特别紧张, 但紧张也没用, 该电还是会被电. 我调查了许多方法, 比如常常洗手什么的, 感觉效果都不好. 其实核心问题就是在用电脑之前把身上的静电释放掉, 所以找一个良好的导体很重要,">
@@ -162,13 +162,11 @@
 <h2 id="Skill"><a href="#Skill" class="headerlink" title="Skill"></a>Skill</h2><ul>
 <li><p>Git 里对于已经 commit 的代码,  如果想反悔, 可以用这个命令撤销commit <code>git reset HEAD .</code><br><a href="https://imzhizi.com/201812/201812-git-bi-ji.html">Git 笔记 - 难以想象的晴朗</a></p>
 </li>
-<li><p>还是一个跟 Git 相关的, 了解了 Unix 里 diff 命令输出结果应该怎么理解.</p>
+<li><p>还是一个跟 Git 相关的, 了解了 Unix 里 diff 命令输出结果应该怎么理解.<br>变动的位置用两个 @ 作为起首和结束。@@ -1,8 +1,8 @@<br>前面的分成三个部分：减号表示第一个文件(即 tt), “-1,8”表示下面是第一个文件从第 1 行开始的连续 8 行. 同样地，”+1,8”表示变动后，成为第二个文件从第 1 行开始的连续 8 行。<a href="[https://cnbin.github.io/blog/2015/06/20/li-jie-mac-diff-zhi-ling/](https://cnbin.github.io/blog/2015/06/20/li-jie-mac-diff-zhi-ling/">理解 Mac-diff 指令 - 陈斌彬的技术博客</a> )</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">diff -u old new</span><br><span class="line">--- tt	2018-12-28 14:31:01.000000000 +0800</span><br><span class="line">+++ tt的副本	2018-12-28 14:31:22.000000000 +0800</span><br><span class="line">@@ -1,8 +1,8 @@</span><br><span class="line"> 11</span><br><span class="line"> 22</span><br><span class="line">-33</span><br><span class="line">+88</span><br><span class="line"> 4</span><br><span class="line"> 5</span><br><span class="line"> 6</span><br><span class="line"> 7</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>变动的位置用两个 @ 作为起首和结束。@@ -1,8 +1,8 @@<br>前面的分成三个部分：减号表示第一个文件(即 tt), “-1,8”表示下面是第一个文件从第 1 行开始的连续 8 行. 同样地，”+1,8”表示变动后，成为第二个文件从第 1 行开始的连续 8 行。<a href="[https://cnbin.github.io/blog/2015/06/20/li-jie-mac-diff-zhi-ling/](https://cnbin.github.io/blog/2015/06/20/li-jie-mac-diff-zhi-ling/">理解 Mac-diff 指令 - 陈斌彬的技术博客</a> )</p>
-<ul>
-<li>在使用 Windows Server 时, 如果整个项目都已经规定了 UTF-8, 但数据保存到数据库还是成了乱码, 可以考虑设置一下在 datasource url 增加 <code>useUnicode=true&amp;characterEncoding=UTF-8</code></li>
+<li><p>在使用 Windows Server 时, 如果整个项目都已经规定了 UTF-8, 但数据保存到数据库还是成了乱码, 可以考虑设置一下在 datasource url 增加 <code>useUnicode=true&amp;characterEncoding=UTF-8</code></p>
+</li>
 </ul>
 
   </div>
@@ -234,7 +232,7 @@
     
     <footer id="footer">
   <div class="footer-left">
-    Copyright &copy; 2018 质子
+    Copyright &copy; 2019 质子
 <i class="fas fa-heartbeat"></i>
 <span id="busuanzi_container_site_uv">
   访问<span id="busuanzi_value_site_uv"></span>人
