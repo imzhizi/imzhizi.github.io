@@ -1,0 +1,420 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+        
+        9 Palindrome Number - 难以想象的晴朗
+        
+    </title>
+    
+    
+    <link href="atom.xml" rel="alternate" title="难以想象的晴朗" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css"/>
+    <link rel="stylesheet" href="asset/css/docs.css"/>
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/docco.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        function before_search() {
+            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            document.getElementById('search_q').value = searchVal;
+            return true;
+        }
+    </script>
+</head>
+<body class="antialiased hide-extras">
+
+<div class="marketing off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="top-bar docs-bar hide-for-small" data-topbar>
+            <section class="top-bar-section">
+                <div class="row">
+                    <div style="position: relative;width:100%;">
+                        <div style="position: absolute; width:100%;">
+                            <ul id="main-menu" class="left">
+                                
+                                <li id=""><a target="_self" href="index.html">Home</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                
+                                <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                            </ul>
+
+                            <ul class="right" id="search-wrap">
+                                <li>
+                                    <form target="_blank" onsubmit="return before_search();"
+                                          action="https://google.com/search" method="get">
+                                        <input type="hidden" id="search_q" name="q" value=""/>
+                                        <input tabindex="1" type="search" id="search_input" placeholder="Search"/>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </nav>
+
+        <nav class="tab-bar show-for-small">
+            <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon"><span> &nbsp; 难以想象的晴朗</span></a>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+
+                <li><label>Categories</label></li>
+
+                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+
+            </ul>
+        </aside>
+
+        <a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>9 Palindrome Number</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/4/11 21:35 下午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='note.html'>笔记</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <blockquote>
+<p>判断一个整数是否是回文数。不能使用辅助空间。<br/>
+如：2147447412</p>
+</blockquote>
+
+<h2 id="toc_0">两种实现</h2>
+
+<p>具体介绍见方法注释</p>
+
+<pre><code class="language-java">public class A9_isPalindrome {
+    /**
+     * 函数描述：
+     * 使用StringBuilder的reverse函数进行翻转，然后使用equals函数进行比较
+     *
+     * 运行时长：102ms / 52%
+ 
+&lt;!-- more --&gt;
+ 
+     *
+     * 总结：
+     * 使用 JavaAPI 函数，非常简单
+     */
+    public static boolean isPalindrome(int x) {
+        if (x &lt; 0) return false;
+        String reverse=new StringBuilder(x + &quot;&quot;).reverse().toString();
+        return reverse.equals(x + &quot;&quot;);
+    }
+
+    /**
+     * 题目分析：
+     * 手动使用char[]进行对称检查，若对称则回文
+     *
+     * 运行时长：100ms / 70%
+     *
+     * 总结：
+     * 手动做总是能获得更好的效果
+     */
+    public static boolean isPalindrome1(int x) {
+        if (x &lt; 0) return false;
+        char[] chars = String.valueOf(x).toCharArray();
+        for (int i = 0; i &lt; chars.length / 2; i++) {
+            if (chars[i] != chars[chars.length - 1 - i]) return false;
+        }
+        return true;
+    }
+
+    /**
+     * 题目分析：
+     * 根据上一道题，可以把数字先进行翻转，然后再将翻转结果和原数字对比，相等即为回文数
+     *
+     * 运行时长：96ms /94%
+     *
+     * 总结：
+     * 数字方法总是能获得更好的效率
+     */
+    public static boolean isPalindrome2(int x) {
+        if (x &lt; 0) return false;
+        int reverse = 0;
+        int origin=x;
+
+        while (x != 0) {
+            reverse = reverse * 10 + x % 10;
+            x /= 10;
+        }
+
+        return reverse==origin?true:false;
+    }
+
+        public static void main(String[] args) {
+//        System.out.println(A9_isPalindrome.isPalindrome2(10));//isPalindrome2
+//        System.out.println(A9_isPalindrome.isPalindrome(121));//isPalindrome2
+        System.out.println(A9_isPalindrome.isPalindrome2(121));//isPalindrome2
+    }
+}
+</code></pre>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15236988620000.html" 
+          title="Previous Post: 13 Roman to Integer">&laquo; 13 Roman to Integer</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15232628950000.html" 
+          title="Next Post: 7 Reverse Integer">7 Reverse Integer &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://imzhizi-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <div class="site-a-logo"><img src="asset/logo.png" /></div>
+            
+                <h1>难以想象的晴朗</h1>
+                <div class="site-des">马齿年年增, 牢影日日长</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/imzhizi" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:imzhizi@outlook.com" title="Email">Email</a>
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="week.html"><strong>Week</strong></a>
+        
+            <a href="memo.html"><strong>Memo</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="os.html"><strong>OS</strong></a>
+        
+            <a href="note.html"><strong>笔记</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="java.html"><strong>Java</strong></a>
+        
+            <a href="tool.html"><strong>工具</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15468721130000.html">Week 2019/1/6</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15459768320000.html">Week 2018/12/29</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458292480000.html">342 Power of Four</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458291380000.html">326 Power of Three</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15450538760000.html">Week 2018/12/22</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+    <div class="row">
+        <p class="copyright">Copyright &copy; 2019
+            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
+            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    </div>
+</div>
+
+</section>
+</div>
+</div>
+
+
+
+
+<script src="asset/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+
+    function fixSidebarHeight() {
+        var w1 = $('.markdown-body').height();
+        var w2 = $('#sidebar').height();
+        if (w1 > w2) {
+            $('#sidebar').height(w1);
+        }
+        ;
+    }
+    $(function () {
+        fixSidebarHeight();
+    })
+    $(window).load(function () {
+        fixSidebarHeight();
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

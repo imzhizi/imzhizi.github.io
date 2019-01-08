@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        难以想象的晴朗
+        Week - 难以想象的晴朗
         
     </title>
     
@@ -179,138 +179,6 @@
             </div><!-- article -->
             
             <div class="article">
-                <a class="clearlink" href="15458292480000.html">
-                    
-                    <h1>342 Power of Four</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given an integer (signed 32 bits), write a function to check whether it is a power of 4.</p>
-
-<p>Example 1:<br/>
-Input: 16<br/>
-Output: true</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018-12-26
- 
-&lt;!-- more --&gt;
- 
- */
-public class A342_PowerOfFour {
-    /**
-     * 题目分析：
-     * 这个比计算 3 的幂有想法，只要是 2 的幂，都是 1 开始，后面全是 0 的二进制
-     * 如果是 4 的幂，只要0的个数是2的倍数即可，所以产生了两种写法
-     *
-     * 运行时长：3ms / 6%
-     *
-     * 总结：
-     * 但没想到效率都很低，可能要使用到位运算才能降低时间复杂度。
-     */
-    static boolean isPowerOfFour0(int num) {
-        char[] chars=Integer.toBinaryString(num).toCharArray();
-        if (chars[0]!=&#39;1&#39;)return false;
-        if ((chars.length-1)%2!=0)return false;
-        for (int i = 1; i &lt; chars.length; i++) {
-            if (chars[i]!=&#39;0&#39;) return false;
-        }
-        return true;
-    }
-
-    static boolean isPowerOfFour1(int num) {
-        String nums = Integer.toBinaryString(num);
-        if ((nums.lastIndexOf(&quot;1&quot;) != 0)) return false;
-        if (nums.length() % 2 != 1) return false;
-        return true;
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/12/26 21:0 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15458291380000.html">
-                    
-                    <h1>326 Power of Three</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given an integer, write a function to determine if it is a power of three.</p>
-
-<p>Example 1:</p>
-
-<p>Input: 27<br/>
-Output: true<br/>
-Example 2:</p>
-
-<p>Input: 0<br/>
-Output: false</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15458291380000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/12/26 20:58 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
                 <a class="clearlink" href="15450538760000.html">
                     
                     <h1>Week 2018/12/22</h1>
@@ -453,55 +321,6 @@ Output: false</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15448890260000.html">
-                    
-                    <h1>Git 笔记</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">基本配置</h2>
-
-<p><a href="https://segmentfault.com/a/1190000002533334">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p>
-
-<h2 id="toc_1">合并多个commit</h2>
-
-<ul>
-<li><p>方法一<br/>
-在网上找到一种通过 git rebase 合并的方法<br/>
-<a href="https://segmentfault.com/a/1190000007748862">(Git)合并多个commit - nihao - SegmentFault 思否</a></p></li>
-<li><p>方法二<br/>
-通过 git reset 合并(暂略)</p>
-<pre><code class="language-bash">git reset 
-</code></pre></li>
-</ul>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15448890260000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/12/15 23:50 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='note.html'>笔记</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -512,7 +331,7 @@ Output: false</p>
                 </div>
                 <div class="large-6 columns">
                     <p class="text-right" style="padding-top:25px;">
-                         <a href="all_1.html">&raquo; Next Page</a> 
+                        
                     </p>
                 </div>
             </div>

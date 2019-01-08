@@ -1,0 +1,430 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+        
+        27 Remove Element - 难以想象的晴朗
+        
+    </title>
+    
+    
+    <link href="atom.xml" rel="alternate" title="难以想象的晴朗" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css"/>
+    <link rel="stylesheet" href="asset/css/docs.css"/>
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/docco.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        function before_search() {
+            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            document.getElementById('search_q').value = searchVal;
+            return true;
+        }
+    </script>
+</head>
+<body class="antialiased hide-extras">
+
+<div class="marketing off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="top-bar docs-bar hide-for-small" data-topbar>
+            <section class="top-bar-section">
+                <div class="row">
+                    <div style="position: relative;width:100%;">
+                        <div style="position: absolute; width:100%;">
+                            <ul id="main-menu" class="left">
+                                
+                                <li id=""><a target="_self" href="index.html">Home</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                
+                                <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                            </ul>
+
+                            <ul class="right" id="search-wrap">
+                                <li>
+                                    <form target="_blank" onsubmit="return before_search();"
+                                          action="https://google.com/search" method="get">
+                                        <input type="hidden" id="search_q" name="q" value=""/>
+                                        <input tabindex="1" type="search" id="search_input" placeholder="Search"/>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </nav>
+
+        <nav class="tab-bar show-for-small">
+            <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon"><span> &nbsp; 难以想象的晴朗</span></a>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+
+                <li><label>Categories</label></li>
+
+                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+
+            </ul>
+        </aside>
+
+        <a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>27 Remove Element</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/4/21 1:23 上午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='algs.html'>算法</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <blockquote>
+<p>Given an array nums and a value val, remove all instances of that value in-place and return the new length.<br/>
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.<br/>
+The order of elements can be changed. It doesn&#39;t matter what you leave beyond the new length.</p>
+
+<p>Example 1:<br/>
+  Given nums = [3,2,2,3], val = 3,<br/>
+  Your function should return length = 2, with the first two elements of nums being 2.<br/>
+  It doesn&#39;t matter what you leave beyond the returned length.</p>
+</blockquote>
+
+<h2 id="toc_0">两种实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java"> 
+&lt;!-- more --&gt;
+ 
+/**
+ * created by zhizi on 2018/4/20
+ */
+public class A27_RemoveElement {
+        /**
+         * 函数描述：
+         * 应该是这道题的最简形式，主要是利用了题目一再强调的一个条件，
+         * It doesn&#39;t matter what you leave beyond the new length.
+         * 这说明只要关注不等于 val 的部分，后面不用考虑，所以可以直接遍历，把不等于val的拷贝到数组前面即可
+         *
+         * 运行时长：5ms / 99%
+         *
+         * 总结：
+         * 要认真读题，题目给的条件往往是快速解题的途径
+         */
+    public static int removeElement1(int[] nums, int val) {
+        int position = 0;
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (nums[i] != val) {
+                nums[position] = nums[i];
+                position++;
+            }
+        }
+        return position;
+    }
+
+    /**
+     * 函数描述：
+     * 原始的思路，也就是把等于的都拷贝到数组的最后，如果最后已经为val，那就倒数第二位
+     * 整体上显得比较笨拙
+     *
+     * 运行时长：6ms / 36%
+     *
+     * 总结：
+     * 但其实运行也是一次遍历，时间复杂度事实上不足O(n)，但空间上和代码可读性上相差很大
+     * 其实思想上对上一道题有借鉴
+     */
+    public static int removeElement(int[] nums, int val) {
+        int length = nums.length - 1;
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (nums[i] == val) {
+                if (nums[length] == val) {
+                    length--;
+                    i--;
+                } else {
+                    int temp = nums[length];
+                    nums[length--] = nums[i];
+                    nums[i] = temp;
+                }
+            }
+            if (length == i) break;
+        }
+        return length+1;
+    }
+
+
+
+    public static void main(String[] args) {
+        int[] nums1={3,2,2,3};
+        int[] nums2 = {0, 1, 2, 2, 3, 0, 4, 2};
+        int[] nums3 = {3,1,3,3,3};
+        System.out.println(removeElement1(nums1,3));
+        System.out.println(removeElement1(nums2, 2));
+        System.out.println(removeElement1(nums3, 3));
+    }
+}
+</code></pre>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15242483250000.html" 
+          title="Previous Post: 28 Implement strStr">&laquo; 28 Implement strStr</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15241088170000.html" 
+          title="Next Post: 26 Remove Duplicates from Sorted Array">26 Remove Duplicates from Sorted Array &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://imzhizi-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <div class="site-a-logo"><img src="asset/logo.png" /></div>
+            
+                <h1>难以想象的晴朗</h1>
+                <div class="site-des">马齿年年增, 牢影日日长</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/imzhizi" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:imzhizi@outlook.com" title="Email">Email</a>
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="week.html"><strong>Week</strong></a>
+        
+            <a href="memo.html"><strong>Memo</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="os.html"><strong>OS</strong></a>
+        
+            <a href="note.html"><strong>笔记</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="java.html"><strong>Java</strong></a>
+        
+            <a href="tool.html"><strong>工具</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15468721130000.html">Week 2019/1/6</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15459768320000.html">Week 2018/12/29</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458292480000.html">342 Power of Four</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458291380000.html">326 Power of Three</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15450538760000.html">Week 2018/12/22</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+    <div class="row">
+        <p class="copyright">Copyright &copy; 2019
+            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
+            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    </div>
+</div>
+
+</section>
+</div>
+</div>
+
+
+
+
+<script src="asset/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+
+    function fixSidebarHeight() {
+        var w1 = $('.markdown-body').height();
+        var w2 = $('#sidebar').height();
+        if (w1 > w2) {
+            $('#sidebar').height(w1);
+        }
+        ;
+    }
+    $(function () {
+        fixSidebarHeight();
+    })
+    $(window).load(function () {
+        fixSidebarHeight();
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

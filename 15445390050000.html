@@ -1,0 +1,376 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+        
+        API 鉴权 - 难以想象的晴朗
+        
+    </title>
+    
+    
+    <link href="atom.xml" rel="alternate" title="难以想象的晴朗" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css"/>
+    <link rel="stylesheet" href="asset/css/docs.css"/>
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/docco.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        function before_search() {
+            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            document.getElementById('search_q').value = searchVal;
+            return true;
+        }
+    </script>
+</head>
+<body class="antialiased hide-extras">
+
+<div class="marketing off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="top-bar docs-bar hide-for-small" data-topbar>
+            <section class="top-bar-section">
+                <div class="row">
+                    <div style="position: relative;width:100%;">
+                        <div style="position: absolute; width:100%;">
+                            <ul id="main-menu" class="left">
+                                
+                                <li id=""><a target="_self" href="index.html">Home</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                
+                                <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                            </ul>
+
+                            <ul class="right" id="search-wrap">
+                                <li>
+                                    <form target="_blank" onsubmit="return before_search();"
+                                          action="https://google.com/search" method="get">
+                                        <input type="hidden" id="search_q" name="q" value=""/>
+                                        <input tabindex="1" type="search" id="search_input" placeholder="Search"/>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </nav>
+
+        <nav class="tab-bar show-for-small">
+            <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon"><span> &nbsp; 难以想象的晴朗</span></a>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+
+                <li><label>Categories</label></li>
+
+                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+
+            </ul>
+        </aside>
+
+        <a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>API 鉴权</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/12/11 22:36 下午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='note.html'>笔记</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h1 id="toc_0">鉴权</h1>
+
+<p>做 API 服务必须要鉴权, 根据鉴权结果来判断是否允许用户访问, 主流方法有三种:</p>
+
+<ul>
+<li>用户名和密码鉴权，使用 session 保存用户鉴权结果</li>
+<li>自行采用 Token 进行鉴权</li>
+<li>使用 OAuth 进行鉴权（其实 OAuth 也是一种基于 Token 的鉴权，只是没有规定Token的生成方式）</li>
+</ul>
+
+<h2 id="toc_1">Session - Cookie</h2>
+
+<p>Session 是一种久远的技术, 首先它只适用于 web 项目, 它跟别的技术完全不同. Session 一般由 Web 容器实现, 比如说 Tomcat 实现了 JSession, Tomcat 会为每一个连接开辟一块内存用来存储对应的相关信息, 在浏览器端通过 cookie 来维护该连接(cookie 中使用 JSessionID 来进行匹配), 整体被抽象为 session, 一旦登录成功, 服务器可以在 session 中保存某些认证信息(比如说用户名), 这里的点在于, 只要 session 中存在用户名, 一定是服务器放进去的, 因为维护  session 的 cookie 是加密的.</p>
+
+<h3 id="toc_2">弊端:</h3>
+
+<p>使用 session 方案某些场景下是无法满足需求的, 尤其是在多服务器的情况下, 此时 session 并不在服务器间共享, 所以鉴权结果无法取出.</p>
+
+<h2 id="toc_3">JWT (JSON Web Token)</h2>
+
+<span id="more"></span><!-- more -->
+
+<p>JWT 跟其他方案的很大的一点不同是 JWT 不使用 cookie, 而是将 token 保存在 header 中, 所以 JWT 不会自动失效, 如果不连接服务器, 就会一直存在. 也存在其他的 token 实现方式, 但基本思路都是一样的.</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/28295641">Web App Token 鉴权方案的设计与思考 - 知乎</a></p>
+
+<h2 id="toc_4">OAuth 2.0 (Open Authorization)</h2>
+
+<p>授权服务, 是通过第三方的授权服务器(provider)来鉴权, 在授权服务器通过验证拿到凭证(token), 然后通过该凭证访问自己真正要使用的服务, 主要用于大公司, 公司内部产品众多, 没有必要开发多个用户认证体系, 而是通过该授权服务器共享一个账户体系. 同时其他公司引入的第三方登录也是类似的机制.</p>
+
+<p><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html"> OAuth 2.0 介绍 </a></p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15446845600000.html" 
+          title="Previous Post: macOS 安装多个 Java 版本">&laquo; macOS 安装多个 Java 版本</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15444999660000.html" 
+          title="Next Post: 项目反思">项目反思 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://imzhizi-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <div class="site-a-logo"><img src="asset/logo.png" /></div>
+            
+                <h1>难以想象的晴朗</h1>
+                <div class="site-des">马齿年年增, 牢影日日长</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/imzhizi" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:imzhizi@outlook.com" title="Email">Email</a>
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="week.html"><strong>Week</strong></a>
+        
+            <a href="memo.html"><strong>Memo</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="os.html"><strong>OS</strong></a>
+        
+            <a href="note.html"><strong>笔记</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="java.html"><strong>Java</strong></a>
+        
+            <a href="tool.html"><strong>工具</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15468721130000.html">Week 2019/1/6</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15459768320000.html">Week 2018/12/29</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458292480000.html">342 Power of Four</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458291380000.html">326 Power of Three</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15450538760000.html">Week 2018/12/22</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+    <div class="row">
+        <p class="copyright">Copyright &copy; 2019
+            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
+            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    </div>
+</div>
+
+</section>
+</div>
+</div>
+
+
+
+
+<script src="asset/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+
+    function fixSidebarHeight() {
+        var w1 = $('.markdown-body').height();
+        var w2 = $('#sidebar').height();
+        if (w1 > w2) {
+            $('#sidebar').height(w1);
+        }
+        ;
+    }
+    $(function () {
+        fixSidebarHeight();
+    })
+    $(window).load(function () {
+        fixSidebarHeight();
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

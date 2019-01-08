@@ -1,0 +1,1691 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+        
+        难以想象的晴朗
+        
+    </title>
+    
+    
+    <link href="atom.xml" rel="alternate" title="难以想象的晴朗" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css"/>
+    <link rel="stylesheet" href="asset/css/docs.css"/>
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/docco.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        function before_search() {
+            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            document.getElementById('search_q').value = searchVal;
+            return true;
+        }
+    </script>
+</head>
+<body class="antialiased hide-extras">
+
+<div class="marketing off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="top-bar docs-bar hide-for-small" data-topbar>
+            <section class="top-bar-section">
+                <div class="row">
+                    <div style="position: relative;width:100%;">
+                        <div style="position: absolute; width:100%;">
+                            <ul id="main-menu" class="left">
+                                
+                                <li id=""><a target="_self" href="index.html">Home</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                
+                                <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                            </ul>
+
+                            <ul class="right" id="search-wrap">
+                                <li>
+                                    <form target="_blank" onsubmit="return before_search();"
+                                          action="https://google.com/search" method="get">
+                                        <input type="hidden" id="search_q" name="q" value=""/>
+                                        <input tabindex="1" type="search" id="search_input" placeholder="Search"/>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </nav>
+
+        <nav class="tab-bar show-for-small">
+            <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon"><span> &nbsp; 难以想象的晴朗</span></a>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+
+                <li><label>Categories</label></li>
+
+                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+
+            </ul>
+        </aside>
+
+        <a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
+    $(function () {
+        $('#menu_item_index').addClass('is_active');
+    });
+</script>
+<div class="row">
+    <div class="large-8 medium-8 columns">
+        <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15403042690000.html">
+                    
+                    <h1>Win10 MySQL zip安装方法</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>1、下载，到MySQL官网：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+
+<p>2、解压安装包<br/>
+解压下载的安装包，放到你的电脑路径，我放置的是 <code>E:\mysql</code></p>
+
+<p>3、配置my.ini文件<br/>
+解压后，在根目录下创建配置文件my.ini，内容如下：</p>
+
+<pre><code class="language-ini">[mysql]
+; 设置MySQL客户端默认字符集
+default-character-set=utf8
+[mysqld]
+;设置3306端口
+ 
+&lt;!-- more --&gt;
+ 
+port = 3306
+; 设置MySQL的安装目录，应该与解压位置相匹配
+basedir=E:\mysql
+; 设置MySQL数据库的数据的存放目录
+datadir=E:\mysql\data
+; 允许最大连接数
+max_connections=200
+; 服务端使用的字符集默认为8比特编码的latin1字符集
+character-set-server=utf8
+; 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+</code></pre>
+
+<p>4、配置MySQL环境变量<br/>
+为了以后方便启动mysql，在环境变量Path追加：<code>E:\mysql\bin</code></p>
+
+<p>5、安装MySQL<br/>
+以管理员身份打开cmd窗口（开始菜单下输入cmd，右键管理员方式运行）</p>
+
+<ul>
+<li>输入：<code>mysqld --initialize-insecure</code>，安装需要等待一会<br/>
+这一步用于初始化MySQL的data文件夹，官方的压缩包解压后并没有data文件夹，运行命令后，按照my.ini中配置的位置生成data文件；</li>
+<li>输入：<code>mysqld install</code> 会提示安装成功；</li>
+<li>输入：<code>net start mysql</code> 启动服务，若显示启动成功则安装成功；</li>
+<li>最后输入：<code>net stop mysql</code>，停止服务，以便进行以下操作。</li>
+</ul>
+
+<p>6、设置root管理员密码</p>
+
+<ul>
+<li>在cmd中输入 <code>mysql -u root -p</code></li>
+<li><p>此时cmd显示 <code>Enter password：</code> 不必理会，直接回车即可成功进入MySQL，进入后使用以下方法修改密码</p>
+<ul>
+<li><code>SET PASSWORD for root@localhost = PASSWORD(&quot;root&quot;);</code> (5.7版本修改密码）</li>
+<li><code>ALTER USER root@localhost IDENTIFIED BY &quot;root&quot;;</code> (8.0版本修改密码）</li>
+</ul></li>
+<li><p>以后就可以通过在cmd中输入 <code>mysql -u root -p</code> 进入MySQL</p></li>
+</ul>
+
+<p>至此，MySQL就安装完成并可以使用了。</p>
+
+<h2 id="toc_0">忘记密码</h2>
+
+<ul>
+<li>以系统管理员身份运行cmd</li>
+<li>查看mysql是否已经启动，如果已经启动，就使用 <code>net stop mysql</code> 停止服务</li>
+<li>在命令行输入 <code>mysqld -nt --skip-grant-tables</code></li>
+<li>此时通过 <code>mysql -u root -p</code> 就可以直接进入MySQL</li>
+<li>进入后需要设置密码，因为mysql会仍以为你是第一次进入MySQL</li>
+<li>输入之前设定重新确定密码</li>
+</ul>
+
+<p>PS：大部分SQL语句需要加分号，可以使用quit或者exit来退出MySQL<br/>
+但是，在日常使用中，建议使用权限更低的用户来操作具体的数据库，SQL语句如下：</p>
+
+<pre><code class="language-sql">create database xxx;
+CREATE USER zhizi IDENTIFIED BY &#39;111&#39;;
+grant all privileges on xxx.* to zhizi@&#39;localhost&#39; identified by &#39;111&#39;;
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/10/23 22:17 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='config.html'>Config</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15371856470000.html">
+                    
+                    <h1>Linux（三）—— Unix Linux 的基础命令</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>Ctl-A   光标移动到行首<br/>
+Ctl-C   终止命令<br/>
+Ctl-D   注销登录<br/>
+Ctl-E   光标移动到行尾<br/>
+Ctl-U   删除光标到行首的所有字符,在某些设置下,删除全行<br/>
+Ctl-W   删除当前光标到前边的最近一个空格之间的字符<br/>
+Ctl-H   删除光标前边的字符<br/>
+Ctl-R   匹配最相近的一个文件，然后输出<br/>
+Ctl-Z   将目前任务转为后台运行</p>
+
+<pre><code class="language-text">
+## Path 相关（cd、ls）
+```bash
+ 
+&lt;!-- more --&gt;
+ 
+pwd             #print working dir
+// 目录查看
+ls == ls -h     #list files under current directory
+ls -l           #list with block and property
+ls -A           #list including hidden files
+ls -Alh         #list in a friendly view
+ls /home        #list a upper dir
+ls *.json       #list by wildcards
+ls -lrt         #按时间排序，以列表的方式显示目录项
+
+// 目录跳转
+cd -            #switch to last path
+cd  ..          #switch to upper path
+cd /            #switch to root path
+cd ~/hexo       #switch by absolute path
+cd ./user/xx    #switch by relative path
+</code></pre>
+
+<h2 id="toc_0">帮助命令（help、man、info、type）</h2>
+
+<pre><code class="language-bash">help            #仅适用于内置命令，效果不佳
+man ls          #查看命令手册
+info ls         #GNU的更详细的命令手册
+
+type xxx
+$ xxx is a shell builtin        #说明是内建命令，这些命令都是在 bash 源码中的 builtins 的 .def 中
+$ xxx is /usr/bin/xxx           #说明是外部命令
+$ xxx is an alias for xx        #说明该指令为命令别名所设定的名称
+</code></pre>
+
+<h2 id="toc_1">文件相关</h2>
+
+<h3 id="toc_2">文件查看（cat、nl、head、tail、more、less、file）</h3>
+
+<pre><code class="language-bash">//文件内容
+cat file            #preview file
+cat -n fileA        #preview file with linenum
+nl fileA            #preview trim file with linenum
+more/less fileA     #分页查看，more会直接结束，less 需要q退出
+tail file           #只看后几行
+tail -n 2 file      #只看2行
+
+cut -c -5 file      #每行前五个字节（包含第五个）
+cut -c 5- file      #每行前五个之后的字节（包含第五个）
+cut -c 5 file       #每行第五个字节
+cut -c 2-5 file     #每行第2到5之间的字节（包含第五个）
+
+//文件类型
+file file           #查看文件类型
+</code></pre>
+
+<h3 id="toc_3">文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）</h3>
+
+<pre><code class="language-bash">// 创建
+touch filename              #create empty file
+mkdir xxx/xx -p             #create path(-p: create xxx)
+//复制
+cp -r A B                   #duplicate A&#39;s files to B(B unexist &amp; only one floor)
+cp -r A B                   #copy A to B(if B exist)
+//删除
+rm filename                 #delete filename
+rm -r dir                   #delete dir
+//重命名
+mv xxx/oldfile xxx/newfile  #rename a file
+mv oldfile xxx/newfile      #rename &amp; move a file
+mv dir  xxx/dir             #move dir to xxx/dir which is created
+</code></pre>
+
+<h3 id="toc_4">文件压缩和解压</h3>
+
+<pre><code class="language-bash">// 压缩 zip
+zip -rqo file.zip ./filename        #普通压缩
+zip -{1…9} -rqo zip.zip ./filename  #不同级别压缩、加密压缩
+zip -dv cp.zip file                 #从cp.zip中删除文件
+    # -d 从压缩文件内删除指定的文件
+    # -o 将压缩文件的更改时间设成和文件的最新更改时间一致
+    # -q 不显示指令执行过程
+    # -r 递归处理，将指定目录下的所有文件和子目录一并处理
+    # -v 显示指令执行过程或显示版本信息
+
+//查看
+unzip -l file.zip                   #显示压缩文件内所包含的文件
+
+//解压 unzip
+unzip file.zip                      #直接解压
+unzip -q file.zip -d ./dir          #解压到 dir 中
+    # -d &lt;目录&gt; 指定文件解压缩后所要存储的目录
+    # -q 执行时不显示任何信息
+    # -v 执行时显示详细的信息
+
+//tar
+//压缩
+tar -cf file.tar xxx.xx             #把xxx.xx 压缩为 file.tar
+tar -czvf file.tar.gz xxx.xx        #把xxx.xx 打包为 tar.gz 文件
+    # -c 建立新的备份文件
+    # -f 指定备份文件
+    # -v(--verbose) 显示指令执行过程
+    # -z(--gzip) 通过gzip指令处理备份文件
+    
+tar -cphf etc.tar /dir              #一般用于系统备份
+    # -p 保留文件属性和跟随链接（符号链接或软链接）
+    # -h(--dereference) 不建立符号连接，直接复制该连接所指向的原始文件
+    # 使用 tar 备份文件当你在其他主机还原时希望保留文件的属性和备份链接指向的源文件而不是链接本身
+
+//查看压缩内容
+tar -tf file.tar                    #查看 file.tar
+tar -tzvf test.tar.gz               #查看压缩文件内容
+    # -C&lt;目录&gt;(--directory) 指定文件解压缩后所要存储的目录
+    # -f 指定备份文件
+
+//解压
+tar -xf file.tar -C ./dir           #解压 file.tar
+tar -xzf file.tar.gz                #解压 tar.gz 打包文件
+    # -x (--extract) 从备份文件中还原文件
+    # -z(--gzip) 通过gzip指令处理备份文件
+</code></pre>
+
+<h3 id="toc_5">文件软链接（ln）</h3>
+
+<p>软链接：</p>
+
+<ol>
+<li>软链接，以路径的形式存在。类似于Windows操作系统中的快捷方式</li>
+<li>软链接可以 跨文件系统 ，硬链接不可以</li>
+<li>软链接可以对一个不存在的文件名进行链接</li>
+<li>软链接可以对目录进行链接</li>
+</ol>
+
+<pre><code class="language-bash">ln -s log.log link          #为log.log 建立名为 link 的软链接
+    # -s 软链接(符号链接)
+</code></pre>
+
+<h3 id="toc_6">文件查找（whereis、which、find）</h3>
+
+<pre><code class="language-bash">locate \*.jpg       #locate 会维护一个数据库，查找时不会真的去找
+which who           #查找安装的命令、程序可以用
+
+//find 命令
+find [path] [option] [action]
+find . -name \*.jpg     #查找 jpg 文件
+find . -type f          #查找一般文件
+    #d: 目录
+    #c: 字型装置文件
+    #b: 区块装置文件
+    #p: 具名贮列
+    #f: 一般文件
+    #l: 符号连结
+    #s: socket
+find . -ctime n         #在过去n天内被变更过的文件
+find . -atime n         #在过去n天内被访问过的文件
+find . -mtime n         #在过去n天内容最后被修改的时间的文件
+    # -mtime n：n 为数字，表示为在 n 天之前的一天之内修改过的文件
+    # -mtime +n：列出在 n 天之前（不包含 n 天本身）被修改过的文件
+    # -mtime -n：列出在 n 天之内（包含 n 天本身）被修改过的文件
+find . -newer /home/shiyanlou/Code
+    # -newer file：file为一个已存在的文件，列出比file还要新的文件
+    
+find . -type f -perm 644 -exec ls -l {} \;
+    #查找前目录中文件属主具有读、写权限，并且文件所属组的用户和其他用户具有读权限的文件
+</code></pre>
+
+<h3 id="toc_7">File Permission（chown、chmod）</h3>
+
+<ul>
+<li>3 个权限组，每组 3 位</li>
+<li>一个目录同时具有读权限和执行权限才可以打开并查看内部文件，而一个目录要有写权限才允许在其中创建其它文件</li>
+<li><img src="https://s1.imgsha.com/2018/10/01/7x3sCD.png" alt="权限"/></li>
+</ul>
+
+<pre><code class="language-bash">chmod 600 file          #为 file 设置600权限
+//g、o 还有 u 分别表示 group、others和user
+//+ 和 - 分别表示增加和去掉相应的权限
+chmod go-rw iphone6     #表示去掉group、others 的读写权限
+
+chown username file     #grant file ownership to user
+chown :group file       #grant file ownership to group
+chown xx:xx file        #grant file ownership to xx &amp; xx
+chown -R user:group dir #grant dir(-r) ownership to xx &amp; xx
+</code></pre>
+
+<h3 id="toc_8">文件合并（join、paste）</h3>
+
+<pre><code class="language-bash">join file1 file2         #逐行合并，相同的部分仅保留一份
+    #「1 hello」和「1 world」合并为「1 hello world」
+
+paste f1 f2 [文件...]     #逐行合并
+    # -d 自定义合并后的分割符（ &#39;\n&#39; 以回车为每行的分割符）
+paste -s file            #将一个文件中的多行数据合并为一行显示，但不修改原文件
+</code></pre>
+
+<h2 id="toc_9">软件安装</h2>
+
+<h3 id="toc_10">dpkg 和 apt-get</h3>
+
+<p><strong>主要应用于类 Debian 系统</strong><br/>
+dpkg 是 Debian 的软件包管理的底层系统（名称来源于 Debian Package），被用于安装、卸载和供给和 <code>.deb</code>软件包相关的信息。</p>
+
+<p>apt 是Advance Packaging Tool（高级包装工具）的缩写，APT最早被设计成dpkg的前端，用来处理deb格式的软件包，现在已经成为 Debian 及其派生发行版的软件包管理器。</p>
+
+<p>apt 主要解决了软件的安装源、依赖关系处理、软件更新和发行版升级的问题。</p>
+
+<h4 id="toc_11">apt-get 的使用</h4>
+
+<p>一般情况下，使用 apt 命令即可完成一般的安装操作。<br/>
+主要由三个功能组成</p>
+
+<ul>
+<li>apt-get</li>
+<li>apt-cache</li>
+<li>apt-file</li>
+</ul>
+
+<pre><code class="language-bash">// apt-get
+apt-get update          #更新软件源，软件源记录了软件和软件依赖，通过一并安装依赖保证软件能够正常运行
+apt-get install name    #安装软件
+apt-get remove name     #移除&lt;package&gt;以及任何依此存包的其它包 
+apt-get purge name      #与remove相同，同时移除配置等文件
+apt-get autoremove name #移除不再被依赖的软件包
+apt-get autoclean       #移除已安装的软件包
+    # -y 自动同意安装软件包的选项
+    # -q 静默安装方式
+    # -f 修复损坏的依赖关系
+    # -d 只下载不安装
+
+// apt-cache
+apt-cache search softname #搜索是否安装了该软件
+
+// apt-file
+</code></pre>
+
+<h4 id="toc_12">dpkg 的使用</h4>
+
+<pre><code class="language-bash">dpkg -l                 #列出系统中安装的所有程序
+sudo dpkg -i name.deb   #安装指定deb包
+sudo dpkg -r name       #移除指定的软件包
+dpkg -s name            #查看已安装软件的详细信息
+</code></pre>
+
+<h3 id="toc_13">RPM 和 yum</h3>
+
+<p><strong>具体使用方法还请自行搜索。</strong><br/>
+<a href="http://www.runoob.com/linux/linux-comm-rpm.html"> Linux rpm命令 | 菜鸟教程 </a></p>
+
+<p>RPM包管理器（简称RPM，全称为The RPM Package Manager），是由Red Hat推出的软件包管理系统，现在在各种发行版中普遍使用，被用于安装、卸载和供给和 <code>.rpm</code>软件包相关的信息。</p>
+
+<blockquote>
+<p>使用RPM的发行版<br/>
+Fedora 和 Red Hat Enterprise Linux<br/>
+CentOS、Oracle Linux<br/>
+openSUSE 和 SUSE Linux Enterprise</p>
+</blockquote>
+
+<p>rpm软件包形式管理软件虽然方便，但是rpm只是追踪软件包之间的依赖关系并没有进行解决。</p>
+
+<p>yum(yellowdog Updater,Modified)是一个rpm的前端程序，主要目的是用来解决rpm的依赖关系问题，其特点如下：</p>
+
+<ul>
+<li>自动解决依赖关系</li>
+<li>可以对rpm进行分组，并基于组进行安装操作</li>
+<li>引入仓库概念，支持多个仓库</li>
+<li>配置简单</li>
+</ul>
+
+<h3 id="toc_14">Homebrew</h3>
+
+<p>macOS 上使用的包管理器，功能强大，使用方便。</p>
+
+<p><em>主要是凑一下 Unix 系统包管理的数。</em></p>
+
+<p>详细介绍参看少数派文章 <a href="https://sspai.com/post/42924">像 Mac 高手一样管理应用，从 Homebrew 开始</a>。</p>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/9/17 20:0 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='os.html'>OS</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15371472710000.html">
+                    
+                    <h1>Go 笔记</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">基本概念</h2>
+
+<h3 id="toc_1">综述</h3>
+
+<ul>
+<li>Go 语言将静态语言的安全性和高效性与动态语言的易开发性进行有机结合，达到完美平衡。</li>
+<li>设计者通过 goroutine 这种轻量级线程的概念来实现这个目标，然后通过 channel 来实现各个 goroutine 之间的通信，这个特性是 Go 语言最强有力的部分。</li>
+<li>Go 语言像其它静态语言一样执行本地代码，但它依旧运行在某种意义上的虚拟机，以此来实现高效快速的垃圾回收。</li>
+<li>「切片」是 go 中的重要概念。</li>
+</ul>
+
+<pre><code class="language-go">package main
+import (&quot;fmt” 
+        “os”
+        )
+
+ 
+&lt;!-- more --&gt;
+ 
+func main() { 
+    target := &quot;World” 
+    if len(os.Args) &gt; 1 { 
+    /* os.Args是一个参数切片 */ 
+    target = os.Args[1] 
+    } 
+    fmt.Println(&quot;Hello&quot;, target) 
+}
+
+</code></pre>
+
+<h3 id="toc_2">引号</h3>
+
+<p>Go语言中字符串的可以使用双引号( &quot; )或者反引号( ` )来创建</p>
+
+<ul>
+<li>双引号用来创建可解析的字符串字面量</li>
+<li>反引号用来直接储存字面量</li>
+</ul>
+
+<h3 id="toc_3">Package</h3>
+
+<ul>
+<li>package是最基本的分发单位和工程管理中依赖关系的体现;</li>
+<li>每个GO语言源代码文件开头都拥有一一个package声明,表示源码文件所属代码包; </li>
+<li>同一个路径下只能存在一个package ,一个package可以拆成多个源文件组成;</li>
+<li>要生成GO语言可执行程序,必须要有main的package包,且必须在该包下有main()函数;</li>
+</ul>
+
+<h3 id="toc_4">import</h3>
+
+<ul>
+<li>导入的包将顺序导入</li>
+<li>导入的包中包含其他包，先导入前置包</li>
+<li>包中含有 init()，则先运行该函数</li>
+<li><code>import alias “package name” //别名</code></li>
+<li><code>import . &quot;package name&quot; //使用时不用加 PackageName.</code></li>
+<li><code>import _ &quot;package name&quot; //仅调用包的 init() 函数</code></li>
+</ul>
+
+<h2 id="toc_5">基本类型</h2>
+
+<pre><code class="language-go">// 基本类型
+float32 float64                                 //浮点型
+complex64 complex128                            //复数型，实部和虚部都是float
+bool                                            //布尔型
+int(取决于OS) int8 int16 rune(int32) int64       //整型
+uint(取决于OS) byte(uint8) uint16 uint32 uint64  //无符号整型
+uintptr(一个可以恰好容纳指针值的无符号整型)
+string                                          //字符串
+error
+
+</code></pre>
+
+<h2 id="toc_6">派生类型</h2>
+
+<h3 id="toc_7">函数类型(func)</h3>
+
+<ul>
+<li>Go语言中函数是一等（first-class）类型，说明可以把函数作为值来传递和使用</li>
+<li>Go语言中的函数可以返回多个结果</li>
+</ul>
+
+<pre><code class="language-go">//函数类型定义
+type MyFunc func(input1 string ,input2 string) string
+
+//标准函数定义-函数类型实现
+func myFunc(part1 string, part2 string) string {
+    return part1 + part2
+}
+
+//标准函数定义-函数类型实现(多返回值)
+func myFunc(part1 string, part2 string) part1 string, part2 string {
+    return
+}
+
+//其他形式函数定义-函数类型实现(返回值)
+func myFunc(part1 string, part2 string) (result string) {
+    result = part1 + part2
+    return
+}
+
+//初始化一个MyFunc变量
+var splice MyFunc
+
+//匿名函数类型初始化写法
+var splice = func(part1 string, part2 string) string {
+    return part1 + part2
+}
+
+//直接调用匿名函数
+var result = func(part1 string, part2 string) string {
+    return part1 + part2
+}(&quot;1&quot;, &quot;2&quot;)
+</code></pre>
+
+<h3 id="toc_8">指针类型(Pointer)</h3>
+
+<ul>
+<li>指针操作涉及到两个操作符——&amp;和*</li>
+<li>出现在一个类型之前就被视为符号，代表的就是对应类型的指针类型，而原类型视为指针类型的基地类型</li>
+<li>对p(Person类型对象)使用 &amp;p 得到的是 p 的指针(* Person)，两者视为相反的操作</li>
+<li>bp.Grow()是(&amp;bp).Grow()的速记法</li>
+<li>结构体方法的使用者为该结构体类型的指针类型</li>
+<li>值传递和地址传递</li>
+<li>结构化类型(struct)</li>
+</ul>
+
+<pre><code class="language-go">//分行定义属性（名称可选），行成一个一个结构体
+type Person struct {
+    Name string
+    Gender string
+    Age uint8
+}
+
+//结构体的方法定义，可以通过 p.Grow()调用
+//可以看到方法的实际接收者是Person的指针，地址传递
+    func (person *Person) Grow() {
+    person.Age++
+}
+
+// 更复杂的方法定义
+func (person *Person) Move(newAddress string) string{
+    oldAddress := person.Address
+    person.Address = newAddress
+    return oldAddress
+}
+
+//实例化的几种方法
+    p := Person{Name:&quot;Robert&quot;, Gender:&quot;Male&quot;, Age:33}
+    p := Person{&quot;Robert&quot;, &quot;Male&quot;, 33}
+    p := new(Person)
+
+//匿名结构体实例化
+p := struct {
+    Name   string
+    Gender string
+    Age    uint8
+}{&quot;Robert&quot;, &quot;Male&quot;, 33}
+</code></pre>
+
+<h3 id="toc_9">接口类型(interface)</h3>
+
+<ul>
+<li>接口类型中的方法声明是普通方法声明的简化形式，它们只包括方法名称、参数声明列表和结果声明列表</li>
+<li>空接口类型即是不包含任何方法声明的接口类型，用 interface{} 表示</li>
+</ul>
+
+<pre><code class="language-go">//不用声明一个数据类型中实现了哪个接口，只要满足了“方法集合为其超集”的条件，就建立了“实现”关系，这是典型的无侵入式的接口实现方法
+type Animal interface {
+    Grow()
+    Move(string) string
+}
+</code></pre>
+
+<ul>
+<li>判断是否实现了接口的方法</li>
+</ul>
+
+<pre><code class="language-go">//先将p转换成空接口类型，然后才能进行判断
+    v := interface{}(&amp;p)
+//类型断言，result是转换的结果，ok代表实现关系与否
+    result, ok := v.(Animal)
+//结果自然是实现了，因此只要满足方法集合要求，就算实现了该接口
+</code></pre>
+
+<h3 id="toc_10">数组类型</h3>
+
+<pre><code class="language-go">var nums = [5]float32{10.0, 2.0, 3.4, 7.0, 50.0}//标准初始化
+var nums = []float32{10.0, 2.0, 3.4, 7.0, 50.0} //不指定长度的初始化
+nums[3]=4.4                                     //赋值
+
+// []int 和 [4]int 在 go 中是不同的类型
+func main() {
+    var array = []int{1, 2, 3, 4, 5}
+    /* 未定义长度的数组只能传给不限制数组长度的函数 */
+    setArray(array)
+    /* 定义了长度的数组只能传给限制了相同数组长度的函数 */
+    var array2 = [5]int{1, 2, 3, 4, 5}
+    setArray2(array2)
+}
+
+func setArray(params []int) {
+    fmt.Println(&quot;params array length of setArray is : &quot;, len(params))
+}
+
+func setArray2(params [5]int) {
+    fmt.Println(&quot;params array length of setArray2 is : &quot;, len(params))
+}
+</code></pre>
+
+<h3 id="toc_11">切片类型(slice)</h3>
+
+<pre><code class="language-go">slice[n]        //返回切片/数组中的第n个元素
+slice[n:]       //返回从第n个元素到最后一个元素的切片
+slice[:n]       //返回从第一个元素到第 n 个元素的切片
+slice[m:n]      //返回 m 下标为开始的（n-m）个元素的切片
+</code></pre>
+
+<p><strong>切片保留着跟原数组的关联</strong> 这里产生了容量的概念，对数组的容量进行操作，可以读取到原数组的内容</p>
+
+<p>Append(slice,x,y,z……)：会对切片值进行扩展并返回一个新的切片值<br/>
+Copy(slice1,slice2)：该函数接受两个类型相同的切片值作为参数，并会把第二个参数值中的元素复制到第一个参数值中的相应位置（索引值相同）上</p>
+
+<h3 id="toc_12">字典类型(Map)</h3>
+
+<ul>
+<li>对于字典值来说，如果其中不存在索引表达式欲取出的键值对，那么就以它的值类型的空值（或称默认值）作为该索引表达式的求值结果</li>
+</ul>
+
+<pre><code class="language-go">//字典的字面量，“K”意为键的类型，而“T”则代表元素（或称值）的类型
+    map[K]T
+    demo := map[int]string{1: &quot;a&quot;, 2: &quot;b&quot;, 3: &quot;c&quot;}
+    
+    b := mm[2]      //值的取出
+    
+    e, ok := mm[5]  //e 指取出的值（可能为零值），ok 表示是否存在
+
+    delete(demo,5)  //删除demo 中 K 为5 的元素
+
+</code></pre>
+
+<h3 id="toc_13">通道类型(chan)</h3>
+
+<p>与其它的数据类型不同，我们无法表示一个通道类型的值。因此，我们也无法用字面量来为通道类型的变量赋值。我们只能通过调用内建函数make来达到目的</p>
+
+<pre><code class="language-go">    close(ch1) 
+    value := &lt;- ch1
+    value, ok := &lt;- ch1
+
+    make(chan int, 0)           //非缓冲的通道值的初始化方法 
+
+    type Receiver &lt;-chan int    //单向接收通道
+    type Sender chan&lt;- int      //单向发送通道
+    
+    var myChannel = make(chan int, 3)
+    var sender Sender = myChannel
+    var receiver Receiver = myChannel 
+</code></pre>
+
+<h2 id="toc_14">类型别名</h2>
+
+<pre><code class="language-go">import alias &quot;package name&quot;     //别名
+
+type alias name     //取了别名之后，和原类型视为不同类型
+
+reflect.TypeOf()    //反射，取出变量类型
+</code></pre>
+
+<h2 id="toc_15">变量</h2>
+
+<h3 id="toc_16">变量声明和赋值</h3>
+
+<pre><code class="language-go">const limit = 512         // 常量，其类型兼容任何数字
+const top uint16 = 1421   // 常量，类型：uint16
+
+var last float64              // 声明，此时last 为零值
+var last float64 = 1.5      // 标准声明+初始化
+last:= float64(1.5)         // 简化标准声明+初始化
+var last = 1.5          // 推断声明 float64
+last:=1.5                     // 简化推断声明+初始化
+
+var hash []bool            //数组声明
+var hash = []bool{}  //标准数组声明+初始化
+hash := []bool{}      //简化数组声明+初始化
+
+var mm map[string]string    //集合声明
+mm:=map[int]bool{}          //简化集合声明+初始化
+mm:=map[int]bool{1:true,2:false,3:false} //简化集合声明+初始化
+
+
+//多变量设置法
+const（
+    Cyan = 0
+    Black = 1
+    White = 2
+）
+</code></pre>
+
+<h3 id="toc_17">类型转换</h3>
+
+<p>&lt;结果类型&gt; := &lt;目标类型&gt; ( &lt;表达式&gt; )</p>
+
+<pre><code class="language-go">var var1 int = 7
+var2 := float32(var1)
+</code></pre>
+
+<h3 id="toc_18">空标示符 &quot;_&quot;</h3>
+
+<ul>
+<li>是一个占位符，它用于在赋值操作的时候将某个值赋值给空标示符号，从而达到丢弃该值的目的</li>
+<li>全局变量必须含有 var，局部变量可以省略</li>
+</ul>
+
+<h3 id="toc_19">变量可见性</h3>
+
+<ul>
+<li>首字母大写的变量是可以导出，也就是可以被其他包读到，属于共有变量</li>
+<li>反之，首字母小写的变量不可导出，属于私有变量</li>
+</ul>
+
+<h3 id="toc_20">iota</h3>
+
+<ul>
+<li> 仅用于常量</li>
+<li> 每当遇到一个const 会重置为0</li>
+<li>常见用法</li>
+</ul>
+
+<pre><code class="language-go"> /*1. 跳值使用*/
+ const（ 
+    a=iota      // a=0
+    b=iota      // b=1
+    _
+    c           // c=3
+ ）
+
+/*2. 插队使用*/
+const（ 
+    a=iota      // a=0
+    b=3.14      // b=3.14
+    c           // c=2
+ ）
+
+/*3.  表达式隐式使用*/
+ const（ 
+    a=iota*2    // a=0
+    b           // b=2
+    c           // c=4
+ ）
+ 
+/*4. 单行使用*/
+const（ 
+    a,b=iota+1,iota+3   // a=1，b=3
+    c,d                 // c=2，d=4
+    e                   // e=2
+ ）
+ 
+</code></pre>
+
+<h2 id="toc_21">控制语句</h2>
+
+<h3 id="toc_22">选择语句</h3>
+
+<ul>
+<li>不必写break，可以简单地进行类型判断</li>
+</ul>
+
+<pre><code class="language-go">a:=3.14
+switch a.(type){
+    case int:
+        println(&quot;it&#39;s int&quot;)
+    case string:
+        println(&quot;it&#39;s string&quot;)
+    default:
+        println(&quot;no&quot;)
+}
+
+</code></pre>
+
+<h3 id="toc_23">循环语句</h3>
+
+<pre><code class="language-go">//死循环（true 可省略）
+for true{
+    xxx
+}
+
+//标准循环
+for i:=0;i&lt;n;i++{
+    xxx
+}
+
+//数组的遍历
+for key,value:=range nums{
+    xxx
+}
+</code></pre>
+
+<h3 id="toc_24">goto</h3>
+
+<ul>
+<li>要加标签</li>
+</ul>
+
+<pre><code class="language-go">package main
+
+func main(){
+    goto One
+    xxx
+    xxx
+One:{
+    xxx
+    }
+}
+</code></pre>
+
+<h3 id="toc_25">select 分支流程控制语句</h3>
+
+<ul>
+<li>select语句属于条件分支流程控制方法，不过它只能用于通道。它可以包含若干条case语句，并根据条件选择其中的一个执行</li>
+<li>如果一条select语句中不存在default case， 并且在被执行时其中的所有case都不满足执行条件，那么它的执行将会被阻塞</li>
+<li>- break语句也可以被包含在select语句中的case语句中。它的作用是立即结束当前的select语句</li>
+</ul>
+
+<pre><code class="language-go">ch1 := make(chan int, 1)
+ch2 := make(chan int, 1)
+// 省略若干条语句
+// 如果该select语句被执行时通道ch1和ch2中都没有任何数据，那么肯定只有default case会被执行
+// 若通道中存在数据，则执行对应case
+// 有数据的通道多于一个，那么Go语言会通过一种伪随机的算法来决定执行某个case
+select {
+case e1 := &lt;-ch1:
+    fmt.Printf(&quot;1th case is selected. e1=%v.\n&quot;, e1)
+case e2 := &lt;-ch2:
+    fmt.Printf(&quot;2th case is selected. e2=%v.\n&quot;, e2)
+default:
+    fmt.Println(&quot;No data!&quot;)
+} 
+
+</code></pre>
+
+<h3 id="toc_26">defer</h3>
+
+<ul>
+<li>defer 语句会确保之后的语句执行完毕之后再执行本语句</li>
+</ul>
+
+<pre><code class="language-go">func deferIt() {
+    defer func() {
+        fmt.Print(1)
+    }()
+    defer func() {
+        fmt.Print(2)
+    }()
+    defer func() {
+        fmt.Print(3)
+    }()
+    fmt.Print(4)
+}
+// output：4321
+
+
+
+func deferIt3() {
+    f := func(i int) int {
+        fmt.Printf(&quot;%d &quot;,i)
+        return i * 10
+    }
+    for i := 1; i &lt; 5; i++ {
+        defer fmt.Printf(&quot;%d &quot;, f(i))
+    }
+}
+// 标准输出上打印出 1 2 3 4 40 30 20 10
+
+
+func deferIt4() {
+    for i := 1; i &lt; 5; i++ {
+        defer func() {
+            fmt.Print(i)
+        }()
+    }
+}     
+// deferIt4函数在被执行之后标出输出上会出现5555
+// 因为匿名函数会直接进栈，等到出栈的时候i 就等于5 了
+
+</code></pre>
+
+<h2 id="toc_27">异常处理 error</h2>
+
+<ul>
+<li>Go语言的函数可以一次返回多个结果。这就为我们温和地报告错误提供了语言级别的支持</li>
+<li>对 err 进行判断，若不是nil 则把该错误（这里由err代表）返回给调用方</li>
+<li>对于<code>ioutil.ReadAll()</code>可以直接return，说明声明的结果的数量、类型和顺序都是相同的，因此才能够做这种返回结果上的“嫁接”</li>
+</ul>
+
+<pre><code class="language-go">func readFile(path string) ([]byte, error) {
+    file, err := os.Open(path)
+    if err != nil {
+        return nil, err
+    }
+    defer file.Close()
+    return ioutil.ReadAll(file)
+}
+
+
+// Error 信息的生成，跟 os.ErrPermission、io.EOF 进行比较，很容易发现异常并通过errors.New()加以创建
+if path == &quot;&quot; {
+    return nil, errors.New(&quot;The parameter is invalid!&quot;)
+}
+</code></pre>
+
+<h2 id="toc_28">运行时恐慌 panic</h2>
+
+<ul>
+<li>内建函数panic和recover是天生的一对。前者用于产生运行时恐慌，而后者用于“恢复”它</li>
+<li>同时recover()函数需要defer 调用才会生效</li>
+<li>通过<code>panic(errors.New(&quot;Occur a panic!&quot;))</code>即可生成一个恐慌</li>
+<li>合理处理panic，可以有效防止程序崩溃</li>
+</ul>
+
+<h2 id="toc_29">go 语句</h2>
+
+<ul>
+<li>go语句的执行与其携带的表达式语句的执行在时间上没有必然联系，即go 语句执行后会在某个随机时间执行</li>
+</ul>
+
+<pre><code class="language-go">// 时间协调语句
+time.Sleep()        //ms
+runtime.Gosched()   //让当前正在运行的Goroutine暂时“休息”一下
+
+// sync.WaitGroup类型有三个方法可用——Add、Done和Wait
+// Add会使其所属值的一个内置整数得到相应增加
+// Done会使那个整数减1
+// Wait方法会使当前Goroutine（这里是运行main函数的那个Goroutine）阻塞直到那个整数为0
+func main() {
+    var wg sync.WaitGroup
+    wg.Add(3)
+    go func() {
+        fmt.Println(&quot;Go!&quot;)
+        wg.Done()
+    }()
+    go func() {
+        fmt.Println(&quot;Go!&quot;)
+        wg.Done()
+    }()
+    go func() {
+        fmt.Println(&quot;Go!&quot;)
+        wg.Done()
+    }()
+    wg.Wait()
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/9/17 9:21 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='note.html'>笔记</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15370784310000.html">
+                    
+                    <h1>Linux（二）——Unix&Linux 基本概念</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <ul>
+<li><p>内核（kernel）</p>
+<ul>
+<li>当计算机启动时，计算机要经历一系列动作，这些动作构成了引导过程。引导过程的最后一个动作是启动一个非常复杂的程序，该程序就被称为内核（Kernel）</li>
+<li>内核的作用是控制计算机，提供基础服务，是操作系统的核心，主要分为单内核和微内核两种
+<ul>
+<li>单内核（monolithic kernel）：自身可以完成所有事情，大多数早期 Unix 使用单内核设计，现在流行的单内核为 Linux kernel</li>
+<li>微内核（micro kernel）：只能完成最基本的任务，例如 Minix、macOS</li>
+</ul></li>
+</ul></li>
+<li><p>实用工具</p>
+<ul>
+<li>编辑器、编译器等等等</li>
+<li>Shell：命令行解释器，包括了用来组合命令的流程控制结构。除了在交互式提示符下输入命令外，用户还可以编写脚本。大多数shell都有一套共同的语法（基于Bourne shell）。</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_0">终端 = 输入设备 + 输出设备</h3>
+
+<p>最初，终端（terminal）和控制台（Console）都不是个人电脑的概念，而是多人共用的小型、中型、大型计算机上的概念。在计算机早期时代，个人无法承担高昂的费用，多个人通过终端同时使用一台主机，而控制台是管理员管理系统时使用的机柜，一般会直接附着在主机旁边。</p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15370784310000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/9/16 14:13 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='os.html'>OS</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15360292100000.html">
+                    
+                    <h1>206 Reverse Linked List</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Reverse a singly linked list.<br/>
+Example:<br/>
+  Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br/>
+  Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-go">type ListNode struct {
+    Val  int
+    Next *ListNode
+ 
+&lt;!-- more --&gt;
+ 
+}
+
+// 题目分析：
+//  没事学了 Go 语言，所以就拿来玩玩，感觉还不错
+//  题目也很简单，就是链表的翻转，用学过数据结构的都知道头插法遍历一遍就行了
+// 运行时间：0ms / 100%（不知道是题目太简单，懒得给用例还是 没人用 Go 写，总之是 beat 100%）
+// 总结：无
+func reverseList(head *ListNode) *ListNode {
+    node :=new(ListNode)
+    for head!=nil{
+        temp:=ListNode{head.Val,node.Next}
+        node.Next=&amp;temp
+        head=head.Next
+    }
+    return node.Next
+}
+
+func main() {
+    node:=ListNode{1,&amp;ListNode{2,&amp;ListNode{3,nil}}}
+    result:=reverseList(&amp;node)
+    for result!=nil {
+        println(result.Val)
+        result=result.Next
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/9/4 10:46 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15357927890000.html">
+                    
+                    <h1>204 Count Primes</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Count the number of prime numbers less than a non-negative number, n.</p>
+</blockquote>
+
+<h2 id="toc_0">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">public class A204_CountPrimes {
+    /**
+     * 题目分析：
+     * 我没有想到什么判断质数的好办法，最初的想法是按照定义，依次去除，看是否有整数，但这种方法太慢了
+     * 后来参考了他人的方法，思路是把不是质数的部分标记出来，那么剩下的就都是质数了，同时因为偶数必然不是质数，可以进一步优化
+     *
+     * 运行时长：23ms / 42%
+ 
+&lt;!-- more --&gt;
+ 
+     *
+     * 总结：
+     * 做了很多小补丁，不是一个特别完美的方法
+     */
+    static int countPrimes(int n) {
+        if (n &lt; 3) return 0;
+        int count = 1;
+        boolean[] notPrime = new boolean[n];
+        for (int i = 3; i &lt; n; i += 2) {
+            if (notPrime[i] == false) count++;
+            for (int j = 3; i * j &lt; n; j += 2) {
+                notPrime[i * j] = true;
+            }
+        }
+        return count;
+    }
+
+    //运行时长：23ms / 54%， 小改动
+    static int countPrimes2(int n) {
+        if (n &lt; 3) return 0;
+        int count = 1;
+        boolean[] notPrime = new boolean[n];
+        for (int i = 3; i &lt; n; i += 2) {
+            if (notPrime[i] == false) count++;
+            for (long j = i; (long) (i * j) &lt; n; j += 2) {
+                notPrime[(int) (i * j)] = true;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(countPrimes(4));
+        System.out.println(countPrimes(10));
+        System.out.println(countPrimes(12));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/9/1 17:6 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15336552750000.html">
+                    
+                    <h1>119 Pascal s Triangle II</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p><a href="https://imzhizi.com/201806/201806-118-pascal-s-triangle.html">帕斯卡三角（一）</a><br/>
+Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal&#39;s triangle.</p>
+
+<p>Note that the row index starts from 0.<br/>
+In Pascal&#39;s triangle, each number is the sum of the two numbers directly above it.</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7x32xu.gif" alt="示例"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java"> 
+&lt;!-- more --&gt;
+ 
+/**
+ * created by zhizi on 2018/6/17
+ */
+public class A119_PascalTriangleII {
+    /**
+     * 题目分析：
+     * 跟上一题差别不大，不过因为结果只要求最后一行，所以节约了许多内存，使整个代码的书写也变得简洁了不少
+     *
+     * 运行时长：2 ms
+     *
+     * 总结：
+     * 但只达到了 14%，可见算法的优化空间很大，之后再处理吧
+     */
+    public List&lt;Integer&gt; getRow(int rowIndex) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;(rowIndex+1);
+        for (int i = 0; i &lt;= rowIndex; i++) {
+            for (int j = 1; j &lt; i; j++) {
+                result.add(result.get(0) + result.get(1));
+                result.remove(0);
+            }
+            result.add(1);
+        }
+        return result;
+    }
+}
+
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/8/7 23:21 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15334818570000.html">
+                    
+                    <h1>203 Remove Linked List Elements</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Remove all elements from a linked list of integers that have value val.</p>
+
+<p>Example:<br/>
+  Input:  1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6<br/>
+  Output: 1-&gt;2-&gt;3-&gt;4-&gt;5</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 8/5/18
+ 
+&lt;!-- more --&gt;
+ 
+ */
+public class A203_RemoveLinkedListElements {
+    /**
+     * 题目分析：
+     * 题目不难理解，主要就是链表的遍历，但如何能很好地遍历也不容易
+     * 我为空指针问题研究很久，终于行得通了，但运行时长不佳
+     *
+     * 运行时长：2 ms
+     *
+     * 总结：
+     * 应该有更好的实现的，但没有继续尝试，先这样吧
+     */
+    static ListNode removeElements(ListNode head, int val) {
+        while (head != null &amp;&amp; head.val == val) {
+            head = head.next;
+        }
+
+        ListNode copy = head;
+
+        while (copy != null &amp;&amp; copy.next != null) {
+            if (copy.next.val == val) copy.next = copy.next.next;
+            else copy = copy.next;
+        }
+        return head;
+    }
+
+        public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(6);
+        ListNode node4 = new ListNode(3);
+        ListNode node5 = new ListNode(4);
+        ListNode node6 = new ListNode(5);
+        ListNode node7 = new ListNode(6);
+
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+        node6.next = node7;
+
+        System.out.println(removeElements(node1, 6));
+        System.out.println(removeElements(node7, 6));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/8/5 23:10 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <p class="text-left" style="padding-top:25px;">
+                         <a href="all_2.html">&laquo; Prev Page</a> 
+                    </p>
+                </div>
+                <div class="large-6 columns">
+                    <p class="text-right" style="padding-top:25px;">
+                         <a href="all_4.html">&raquo; Next Page</a> 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div><!-- large 8 --> <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <div class="site-a-logo"><img src="asset/logo.png" /></div>
+            
+                <h1>难以想象的晴朗</h1>
+                <div class="site-des">马齿年年增, 牢影日日长</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/imzhizi" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:imzhizi@outlook.com" title="Email">Email</a>
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="week.html"><strong>Week</strong></a>
+        
+            <a href="memo.html"><strong>Memo</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="os.html"><strong>OS</strong></a>
+        
+            <a href="note.html"><strong>笔记</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="java.html"><strong>Java</strong></a>
+        
+            <a href="tool.html"><strong>工具</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15468721130000.html">Week 2019/1/6</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15459768320000.html">Week 2018/12/29</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458292480000.html">342 Power of Four</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458291380000.html">326 Power of Three</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15450538760000.html">Week 2018/12/22</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+    <div class="row">
+        <p class="copyright">Copyright &copy; 2019
+            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
+            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    </div>
+</div>
+
+</section>
+</div>
+</div>
+
+
+
+
+<script src="asset/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+
+    function fixSidebarHeight() {
+        var w1 = $('.markdown-body').height();
+        var w2 = $('#sidebar').height();
+        if (w1 > w2) {
+            $('#sidebar').height(w1);
+        }
+        ;
+    }
+    $(function () {
+        fixSidebarHeight();
+    })
+    $(window).load(function () {
+        fixSidebarHeight();
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>

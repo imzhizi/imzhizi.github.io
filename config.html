@@ -1,0 +1,443 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+        
+        Config - 难以想象的晴朗
+        
+    </title>
+    
+    
+    <link href="atom.xml" rel="alternate" title="难以想象的晴朗" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css"/>
+    <link rel="stylesheet" href="asset/css/docs.css"/>
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/docco.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+        function before_search() {
+            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            document.getElementById('search_q').value = searchVal;
+            return true;
+        }
+    </script>
+</head>
+<body class="antialiased hide-extras">
+
+<div class="marketing off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="top-bar docs-bar hide-for-small" data-topbar>
+            <section class="top-bar-section">
+                <div class="row">
+                    <div style="position: relative;width:100%;">
+                        <div style="position: absolute; width:100%;">
+                            <ul id="main-menu" class="left">
+                                
+                                <li id=""><a target="_self" href="index.html">Home</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                
+                                <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                            </ul>
+
+                            <ul class="right" id="search-wrap">
+                                <li>
+                                    <form target="_blank" onsubmit="return before_search();"
+                                          action="https://google.com/search" method="get">
+                                        <input type="hidden" id="search_q" name="q" value=""/>
+                                        <input tabindex="1" type="search" id="search_input" placeholder="Search"/>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </nav>
+
+        <nav class="tab-bar show-for-small">
+            <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon"><span> &nbsp; 难以想象的晴朗</span></a>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+
+                <li><label>Categories</label></li>
+
+                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+
+            </ul>
+        </aside>
+
+        <a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
+    $(function () {
+        $('#menu_item_index').addClass('is_active');
+    });
+</script>
+<div class="row">
+    <div class="large-8 medium-8 columns">
+        <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15446845600000.html">
+                    
+                    <h1>macOS 安装多个 Java 版本</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">安装说明</h2>
+
+<p>Homebrew 是 macOS 下的一个非常好用的包管理工具, caskroom 则是基于 Homebrew 构建的一个强大的应用程序管理器.</p>
+
+<pre><code class="language-bash">$ brew tap homebrew/cask-versions
+$ brew cask install java8
+# 需要输入 root 密码以完成安装
+# 输入 java -version 测试安装是否成功
+$ java -version
+java version &quot;1.8.0_192&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_192-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.192-b12, mixed mode)
+
+ 
+&lt;!-- more --&gt;
+ 
+# 旧版本的 Java 已经不再被维护, 安装 Java8 以前版本的 JDK 并不容易
+# 经过一番寻找, 可以使用 OpenJDK 的 zulu7
+# 需要先把 caskroom/versions 加入下载源
+brew cask install zulu7
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/12/13 15:2 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='config.html'>Config</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15403042690000.html">
+                    
+                    <h1>Win10 MySQL zip安装方法</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>1、下载，到MySQL官网：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+
+<p>2、解压安装包<br/>
+解压下载的安装包，放到你的电脑路径，我放置的是 <code>E:\mysql</code></p>
+
+<p>3、配置my.ini文件<br/>
+解压后，在根目录下创建配置文件my.ini，内容如下：</p>
+
+<pre><code class="language-ini">[mysql]
+; 设置MySQL客户端默认字符集
+default-character-set=utf8
+[mysqld]
+;设置3306端口
+ 
+&lt;!-- more --&gt;
+ 
+port = 3306
+; 设置MySQL的安装目录，应该与解压位置相匹配
+basedir=E:\mysql
+; 设置MySQL数据库的数据的存放目录
+datadir=E:\mysql\data
+; 允许最大连接数
+max_connections=200
+; 服务端使用的字符集默认为8比特编码的latin1字符集
+character-set-server=utf8
+; 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+</code></pre>
+
+<p>4、配置MySQL环境变量<br/>
+为了以后方便启动mysql，在环境变量Path追加：<code>E:\mysql\bin</code></p>
+
+<p>5、安装MySQL<br/>
+以管理员身份打开cmd窗口（开始菜单下输入cmd，右键管理员方式运行）</p>
+
+<ul>
+<li>输入：<code>mysqld --initialize-insecure</code>，安装需要等待一会<br/>
+这一步用于初始化MySQL的data文件夹，官方的压缩包解压后并没有data文件夹，运行命令后，按照my.ini中配置的位置生成data文件；</li>
+<li>输入：<code>mysqld install</code> 会提示安装成功；</li>
+<li>输入：<code>net start mysql</code> 启动服务，若显示启动成功则安装成功；</li>
+<li>最后输入：<code>net stop mysql</code>，停止服务，以便进行以下操作。</li>
+</ul>
+
+<p>6、设置root管理员密码</p>
+
+<ul>
+<li>在cmd中输入 <code>mysql -u root -p</code></li>
+<li><p>此时cmd显示 <code>Enter password：</code> 不必理会，直接回车即可成功进入MySQL，进入后使用以下方法修改密码</p>
+<ul>
+<li><code>SET PASSWORD for root@localhost = PASSWORD(&quot;root&quot;);</code> (5.7版本修改密码）</li>
+<li><code>ALTER USER root@localhost IDENTIFIED BY &quot;root&quot;;</code> (8.0版本修改密码）</li>
+</ul></li>
+<li><p>以后就可以通过在cmd中输入 <code>mysql -u root -p</code> 进入MySQL</p></li>
+</ul>
+
+<p>至此，MySQL就安装完成并可以使用了。</p>
+
+<h2 id="toc_0">忘记密码</h2>
+
+<ul>
+<li>以系统管理员身份运行cmd</li>
+<li>查看mysql是否已经启动，如果已经启动，就使用 <code>net stop mysql</code> 停止服务</li>
+<li>在命令行输入 <code>mysqld -nt --skip-grant-tables</code></li>
+<li>此时通过 <code>mysql -u root -p</code> 就可以直接进入MySQL</li>
+<li>进入后需要设置密码，因为mysql会仍以为你是第一次进入MySQL</li>
+<li>输入之前设定重新确定密码</li>
+</ul>
+
+<p>PS：大部分SQL语句需要加分号，可以使用quit或者exit来退出MySQL<br/>
+但是，在日常使用中，建议使用权限更低的用户来操作具体的数据库，SQL语句如下：</p>
+
+<pre><code class="language-sql">create database xxx;
+CREATE USER zhizi IDENTIFIED BY &#39;111&#39;;
+grant all privileges on xxx.* to zhizi@&#39;localhost&#39; identified by &#39;111&#39;;
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/10/23 22:17 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='config.html'>Config</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <p class="text-left" style="padding-top:25px;">
+                        
+                    </p>
+                </div>
+                <div class="large-6 columns">
+                    <p class="text-right" style="padding-top:25px;">
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div><!-- large 8 --> <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <div class="site-a-logo"><img src="asset/logo.png" /></div>
+            
+                <h1>难以想象的晴朗</h1>
+                <div class="site-des">马齿年年增, 牢影日日长</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/imzhizi" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:imzhizi@outlook.com" title="Email">Email</a>
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="week.html"><strong>Week</strong></a>
+        
+            <a href="memo.html"><strong>Memo</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="os.html"><strong>OS</strong></a>
+        
+            <a href="note.html"><strong>笔记</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="java.html"><strong>Java</strong></a>
+        
+            <a href="tool.html"><strong>工具</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15468721130000.html">Week 2019/1/6</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15459768320000.html">Week 2018/12/29</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458292480000.html">342 Power of Four</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15458291380000.html">326 Power of Three</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15450538760000.html">Week 2018/12/22</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+    <div class="row">
+        <p class="copyright">Copyright &copy; 2019
+            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
+            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    </div>
+</div>
+
+</section>
+</div>
+</div>
+
+
+
+
+<script src="asset/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+
+    function fixSidebarHeight() {
+        var w1 = $('.markdown-body').height();
+        var w2 = $('#sidebar').height();
+        if (w1 > w2) {
+            $('#sidebar').height(w1);
+        }
+        ;
+    }
+    $(function () {
+        fixSidebarHeight();
+    })
+    $(window).load(function () {
+        fixSidebarHeight();
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>
