@@ -20,7 +20,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
         function before_search() {
-            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            var searchVal = 'site:imzhizi.com ' + document.getElementById('search_input').value;
             document.getElementById('search_q').value = searchVal;
             return true;
         }
@@ -39,9 +39,11 @@
                                 
                                 <li id=""><a target="_self" href="index.html">Home</a></li>
                                 
-                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                <li id=""><a target="_self" href="about.html">About</a></li>
                                 
                                 <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
                                 
                             </ul>
 
@@ -67,7 +69,7 @@
 
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
-                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="about.html">About</a></li><li><a target="_self" href="links.html">Links</a></li><li><a target="_self" href="archives.html">Archives</a></li>
 
                 <li><label>Categories</label></li>
 
@@ -87,6 +89,91 @@
 <div class="row">
     <div class="large-8 medium-8 columns">
         <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15289911450000.html">
+                    
+                    <h1>141 Linked List Cycle</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a linked list, determine if it has a cycle in it.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/7/9
+ */
+public class A141_LinkedListCycle {
+    /**
+     * 题目分析：
+ 
+&lt;!-- more --&gt;
+ 
+     * 判断循环链表，很容易想到的就是把每个 node 存起来，如果新加的 node 已存在，则说明成环
+     *
+     * 运行时长：16ms
+     *
+     * 总结：
+     * 这个方法不算好，实现为先，之后再优化。
+     */
+    public static boolean hasCycle(ListNode head) {
+        HashSet&lt;ListNode&gt; nodes=new HashSet&lt;&gt;();
+        while(head!=null){
+            if (nodes.contains(head))
+                return true;
+            nodes.add(head);
+            head=head.next;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        ListNode node1=new ListNode(1);
+        ListNode node2=new ListNode(2);
+        ListNode node3=new ListNode(3);
+        ListNode node4=new ListNode(4);
+        ListNode node5=new ListNode(3);
+        node1.next=node2;
+        node2.next=node3;
+        node3.next=node4;
+        node4.next=node5;
+        System.out.println(hasCycle(node1));
+    }
+}
+
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/6/14 23:45 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
             
             <div class="article">
                 <a class="clearlink" href="15287322560000.html">
@@ -641,102 +728,6 @@ public class A108_ConvertSortedArrayToBinarySearchTree {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15259410380000.html">
-                    
-                    <h1>107 Binary Tree Level Order Traversal II</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a binary tree, return the bottom-up level order traversal of its nodes&#39; values.<br/>
-(ie, from left to right, level by level from leaf to root).</p>
-</blockquote>
-
-<p><img src="https://s1.imgsha.com/2018/10/01/7x3rty.png" alt="107BinaryTree"/></p>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/10
- */
- 
-&lt;!-- more --&gt;
- 
-public class A107_BinaryTreeLevelOrderTraversalII {
-    /**
-     * 题目分析：层次遍历，经典的做法就是用一个队来进行结点输入输出的控制
-     *          看到有用递归实现的更好的方法，之后再去研究
-     * 运行时长：3 ms
-     * 总结：连同之前的树的遍历、树的深度和今天的树的层次遍历，都是二叉树的基本操作
-     */
-    public static List&lt;List&lt;Integer&gt;&gt; levelOrderBottom(TreeNode root) {
-        List&lt;List&lt;Integer&gt;&gt; levelList = new ArrayList&lt;&gt;();
-        if (root == null) return levelList;
-
-        List&lt;TreeNode&gt; treeNodes=new ArrayList&lt;&gt;();
-        treeNodes.add(root);
-
-        while(!treeNodes.isEmpty()){
-            List&lt;Integer&gt; integers=new ArrayList&lt;&gt;();
-            int size=treeNodes.size();
-            for (int i = 0; i &lt; size; i++) {
-                TreeNode temp=treeNodes.remove(0);
-                integers.add(temp.val);
-                if(temp.left!=null) treeNodes.add(temp.left);
-                if(temp.right!=null) treeNodes.add(temp.right);
-            }
-            levelList.add(0,integers);
-        }
-        return levelList;
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(3);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(20);
-        TreeNode t4 = new TreeNode(5);
-        TreeNode t5 = new TreeNode(7);
-
-        t1.left = t2;
-        t1.right = t3;
-        t3.left = t4;
-        t3.right = t5;
-
-        System.out.println(levelOrderBottom(null).toString());
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/10 16:30 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -819,6 +810,12 @@ public class A107_BinaryTreeLevelOrderTraversalII {
 	      
 		      
 			      <li class="post">
+			        <a href="15473879569169.html">Week - 2019/1/12</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15468721130000.html">Week 2019/1/6</a>
 			      </li>
 		     
@@ -838,12 +835,6 @@ public class A107_BinaryTreeLevelOrderTraversalII {
 		      
 			      <li class="post">
 			        <a href="15458291380000.html">326 Power of Three</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week 2018/12/22</a>
 			      </li>
 		     
 		  
@@ -888,15 +879,18 @@ public class A107_BinaryTreeLevelOrderTraversalII {
 
  <div class="page-bottom clearfix">
     <div class="row">
-        <p class="copyright">Copyright &copy; 2019
-            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
-            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    <p class="copyright">Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>&nbsp;
+        <span id="busuanzi_container_site_uv">访问<span id="busuanzi_value_site_uv"></span>人</span>/
+        <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次</span>
+    </p>
     </div>
 </div>
 
 </section>
 </div>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

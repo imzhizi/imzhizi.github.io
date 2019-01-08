@@ -20,7 +20,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
         function before_search() {
-            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            var searchVal = 'site:imzhizi.com ' + document.getElementById('search_input').value;
             document.getElementById('search_q').value = searchVal;
             return true;
         }
@@ -39,9 +39,11 @@
                                 
                                 <li id=""><a target="_self" href="index.html">Home</a></li>
                                 
-                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                <li id=""><a target="_self" href="about.html">About</a></li>
                                 
                                 <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
                                 
                             </ul>
 
@@ -67,7 +69,7 @@
 
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
-                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="about.html">About</a></li><li><a target="_self" href="links.html">Links</a></li><li><a target="_self" href="archives.html">Archives</a></li>
 
                 <li><label>Categories</label></li>
 
@@ -87,6 +89,58 @@
 <div class="row">
     <div class="large-8 medium-8 columns">
         <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15448890260000.html">
+                    
+                    <h1>Git 笔记</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">基本配置</h2>
+
+<p><a href="https://segmentfault.com/a/1190000002533334">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p>
+
+<h2 id="toc_1">合并多个commit</h2>
+
+<ul>
+<li><p>方法一<br/>
+在网上找到一种通过 git rebase 合并的方法<br/>
+<a href="https://segmentfault.com/a/1190000007748862">(Git)合并多个commit - nihao - SegmentFault 思否</a></p></li>
+<li><p>方法二<br/>
+通过 git reset 合并(暂略)</p></li>
+</ul>
+
+<pre><code class="language-bash">git reset --soft HEAD~n  # (~n means ~1, ~2,...)
+ 
+git commit --amend
+</code></pre>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15448890260000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/12/15 23:50 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='note.html'>笔记</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
             
             <div class="article">
                 <a class="clearlink" href="15448822410000.html">
@@ -321,22 +375,13 @@ brew cask install zulu7
                         
                         <div class="a-content-text">
                             
-                            <h1 id="toc_0">项目反思</h1>
-
-<h2 id="toc_1">一个小项目</h2>
+                            <h2 id="toc_0">一个小项目</h2>
 
 <p>实验室接了一个小项目, 是一个网站, 急着要用, 要求两周做完. <br/>
 师兄找了我和另一个同学来做, 我做后端, 她做前端.<br/>
 用什么写呢? 我在这个项目开始之前刚好学了一些 Python Web( Flask ), 看到了一些感觉很不错的特性, 所以我就想用 Python 写. 我是唯一的后端, 我说用 Python, 大家都不反对, 其实也无所谓吧.<br/>
 Python 写起来比 Java 确实要舒服一些, 语法更简洁, 很快就部署了起来. <br/>
 Flask 框架本身就非常小巧, 在 Java 上都属于框架的在 Python 通过几个很小的插件, 加几行代码就解决可以一个问题.</p>
-
-<p>这是个比较简单的项目, 但我完成的并不好, 甚至在项目上线的第三天, 我在半夜 1 点左右改了一个非常明显的 bug, 或许可以说出现 bug 很正常, 但那个 bug, 是因为那部分功能没测试.<br/>
-我也不想再回顾, 先写下反思吧, 其他的以后有机会再说.</p>
-
-<h2 id="toc_2">出现的问题</h2>
-
-<h3 id="toc_3">写测试</h3>
 
 
                             
@@ -511,87 +556,6 @@ Output: 8</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15432073320000.html">
-                    
-                    <h1>263 Ugly Number</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Write a program to check whether a given number is an ugly number.</p>
-
-<p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.</p>
-
-<p>Example 1:<br/>
-Input: 6<br/>
-Output: true<br/>
-Explanation: 6 = 2 × 3</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java"> 
-&lt;!-- more --&gt;
- 
-/**
- * created by zhizi on 2018-11-23
- */
-class A258_AddDigits {
-    /**
-     * 题目分析：
-     * 每次计算出一个 sum 是一个循环，直到 sum 是个位数也就是大于9就循环
-     * 内部假如 num 大于 0 就继续计算 sum，然后 num 除以 10 去掉个位数
-     *
-     * 运行时长：1ms /100%
-     *
-     * 总结：
-     * 无
-     */
-    public int addDigits(int num) {
-        int sum = num;
-        while (sum &gt; 9) {
-            num = sum;
-            sum = 0;
-            while (num &gt; 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-        }
-        return sum;
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/11/26 12:42 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -674,6 +638,12 @@ class A258_AddDigits {
 	      
 		      
 			      <li class="post">
+			        <a href="15473879569169.html">Week - 2019/1/12</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15468721130000.html">Week 2019/1/6</a>
 			      </li>
 		     
@@ -693,12 +663,6 @@ class A258_AddDigits {
 		      
 			      <li class="post">
 			        <a href="15458291380000.html">326 Power of Three</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week 2018/12/22</a>
 			      </li>
 		     
 		  
@@ -743,15 +707,18 @@ class A258_AddDigits {
 
  <div class="page-bottom clearfix">
     <div class="row">
-        <p class="copyright">Copyright &copy; 2019
-            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
-            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    <p class="copyright">Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>&nbsp;
+        <span id="busuanzi_container_site_uv">访问<span id="busuanzi_value_site_uv"></span>人</span>/
+        <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次</span>
+    </p>
     </div>
 </div>
 
 </section>
 </div>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

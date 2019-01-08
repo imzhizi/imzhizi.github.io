@@ -20,7 +20,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
         function before_search() {
-            var searchVal = 'site:imzhizi.com/rss ' + document.getElementById('search_input').value;
+            var searchVal = 'site:imzhizi.com ' + document.getElementById('search_input').value;
             document.getElementById('search_q').value = searchVal;
             return true;
         }
@@ -39,9 +39,11 @@
                                 
                                 <li id=""><a target="_self" href="index.html">Home</a></li>
                                 
-                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
+                                <li id=""><a target="_self" href="about.html">About</a></li>
                                 
                                 <li id=""><a target="_self" href="links.html">Links</a></li>
+                                
+                                <li id=""><a target="_self" href="archives.html">Archives</a></li>
                                 
                             </ul>
 
@@ -67,7 +69,7 @@
 
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
-                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="archives.html">Archives</a></li><li><a target="_self" href="links.html">Links</a></li>
+                <li><a target="_self" href="index.html">Home</a></li><li><a target="_self" href="about.html">About</a></li><li><a target="_self" href="links.html">Links</a></li><li><a target="_self" href="archives.html">Archives</a></li>
 
                 <li><label>Categories</label></li>
 
@@ -87,6 +89,87 @@
 <div class="row">
     <div class="large-8 medium-8 columns">
         <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15432073320000.html">
+                    
+                    <h1>263 Ugly Number</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Write a program to check whether a given number is an ugly number.</p>
+
+<p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.</p>
+
+<p>Example 1:<br/>
+Input: 6<br/>
+Output: true<br/>
+Explanation: 6 = 2 × 3</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java"> 
+&lt;!-- more --&gt;
+ 
+/**
+ * created by zhizi on 2018-11-23
+ */
+class A258_AddDigits {
+    /**
+     * 题目分析：
+     * 每次计算出一个 sum 是一个循环，直到 sum 是个位数也就是大于9就循环
+     * 内部假如 num 大于 0 就继续计算 sum，然后 num 除以 10 去掉个位数
+     *
+     * 运行时长：1ms /100%
+     *
+     * 总结：
+     * 无
+     */
+    public int addDigits(int num) {
+        int sum = num;
+        while (sum &gt; 9) {
+            num = sum;
+            sum = 0;
+            while (num &gt; 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+        }
+        return sum;
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/11/26 12:42 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
             
             <div class="article">
                 <a class="clearlink" href="15432072050000.html">
@@ -691,55 +774,6 @@ class MyStack {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15413357220000.html">
-                    
-                    <h1>205 Isomorphic Strings</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given two strings s and t, determine if they are isomorphic.<br/>
-Two strings are isomorphic if the characters in s can be replaced to get t.<br/>
-All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
-
-<p>Example 1:<br/>
-Input: s = &quot;egg&quot;, t = &quot;add&quot;<br/>
-Output: true</p>
-
-<p>Example 2:<br/>
-Input: s = &quot;foo&quot;, t = &quot;bar&quot;<br/>
-Output: false</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15413357220000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/11/4 20:48 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -822,6 +856,12 @@ Output: false</p>
 	      
 		      
 			      <li class="post">
+			        <a href="15473879569169.html">Week - 2019/1/12</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15468721130000.html">Week 2019/1/6</a>
 			      </li>
 		     
@@ -841,12 +881,6 @@ Output: false</p>
 		      
 			      <li class="post">
 			        <a href="15458291380000.html">326 Power of Three</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week 2018/12/22</a>
 			      </li>
 		     
 		  
@@ -891,15 +925,18 @@ Output: false</p>
 
  <div class="page-bottom clearfix">
     <div class="row">
-        <p class="copyright">Copyright &copy; 2019
-            Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp;
-            Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+    <p class="copyright">Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>&nbsp;
+        <span id="busuanzi_container_site_uv">访问<span id="busuanzi_value_site_uv"></span>人</span>/
+        <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次</span>
+    </p>
     </div>
 </div>
 
 </section>
 </div>
 </div>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
