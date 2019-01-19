@@ -73,7 +73,7 @@
 
                 <li><label>Categories</label></li>
 
-                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+                <li><a href="memo.html">Memo</a></li><li><a href="week.html">Week</a></li><li><a href="mac.html">Mac</a></li><li><a href="tool.html">Tool</a></li><li><a href="lang.html">语言</a></li><li><a href="java.html">Java</a></li><li><a href="web.html">Web</a></li><li><a href="config.html">Config</a></li><li><a href="algs.html">算法</a></li><li><a href="linux.html">Linux</a></li>
 
             </ul>
         </aside>
@@ -89,6 +89,211 @@
 <div class="row">
     <div class="large-8 medium-8 columns">
         <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15239531380000.html">
+                    
+                    <h1>String 的字面量、常量池、构造函数和intern()函数</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">一、内存中的 String 对象</h2>
+
+<h3 id="toc_1">Java 的堆和栈</h3>
+
+<ul>
+<li>对于基本数据类型变量和对象的引用，也就是局部变量表属于<strong>栈内存</strong>；</li>
+<li>而通过 new 关键字和 constructor 创建的对象存放在<strong>堆内存</strong>；</li>
+<li><p>直接的 &quot;hello&quot; 被称为字面量形式，在JDK1.7之后存放在位于<strong>堆内存</strong>的独立的<strong>常量池</strong>中；</p>
+<pre><code class="language-java">// 比如说：
+String s1=&quot;hello&quot;;<br/>
+Scanner input = new Scanner();<br/>
+// 上面的语句中变量名 s1、input 存放在栈内存中，&quot;hello&quot; 为字面量，所以放在常量池，而用构造函数创建的对象放在堆内存中。
+</code></pre></li>
+</ul>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15239531380000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/17 16:18 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='java.html'>Java</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15236988620000.html">
+                    
+                    <h1>13 Roman to Integer</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Given a roman numeral, convert it to an integer.<br/>
+Input is guaranteed to be within the range from 1 to 3999.</p>
+</blockquote>
+
+<h2 id="toc_0">关于罗马数字</h2>
+
+<p>十几以内的罗马数字数学里用过，VI、VII、IX、之类的，但是成百上千就完全不知道了。所以我先去搜索了一下罗马数字的表示方法，具体算法如下：<br/>
+I: 1    V: 5    X: 10   L: 50   C: 100  D: 500  M: 1000<br/>
+表示方法和低位的并没有区别，所以<br/>
+MMMDLXXXVI 就是 3586<br/>
+MCMXCVI 就是 1996<br/>
+MMMCCCXXXIII 就是 3333<br/>
+M 就是 1000<br/>
+XCIX 就是 99</p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15236988620000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/14 17:41 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15234537500000.html">
+                    
+                    <h1>9 Palindrome Number</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>判断一个整数是否是回文数。不能使用辅助空间。<br/>
+如：2147447412</p>
+</blockquote>
+
+<h2 id="toc_0">两种实现</h2>
+
+<p>具体介绍见方法注释</p>
+
+<pre><code class="language-java">public class A9_isPalindrome {
+    /**
+     * 函数描述：
+     * 使用StringBuilder的reverse函数进行翻转，然后使用equals函数进行比较
+     *
+     * 运行时长：102ms / 52%
+ 
+&lt;!-- more --&gt;
+ 
+     *
+     * 总结：
+     * 使用 JavaAPI 函数，非常简单
+     */
+    public static boolean isPalindrome(int x) {
+        if (x &lt; 0) return false;
+        String reverse=new StringBuilder(x + &quot;&quot;).reverse().toString();
+        return reverse.equals(x + &quot;&quot;);
+    }
+
+    /**
+     * 题目分析：
+     * 手动使用char[]进行对称检查，若对称则回文
+     *
+     * 运行时长：100ms / 70%
+     *
+     * 总结：
+     * 手动做总是能获得更好的效果
+     */
+    public static boolean isPalindrome1(int x) {
+        if (x &lt; 0) return false;
+        char[] chars = String.valueOf(x).toCharArray();
+        for (int i = 0; i &lt; chars.length / 2; i++) {
+            if (chars[i] != chars[chars.length - 1 - i]) return false;
+        }
+        return true;
+    }
+
+    /**
+     * 题目分析：
+     * 根据上一道题，可以把数字先进行翻转，然后再将翻转结果和原数字对比，相等即为回文数
+     *
+     * 运行时长：96ms /94%
+     *
+     * 总结：
+     * 数字方法总是能获得更好的效率
+     */
+    public static boolean isPalindrome2(int x) {
+        if (x &lt; 0) return false;
+        int reverse = 0;
+        int origin=x;
+
+        while (x != 0) {
+            reverse = reverse * 10 + x % 10;
+            x /= 10;
+        }
+
+        return reverse==origin?true:false;
+    }
+
+        public static void main(String[] args) {
+//        System.out.println(A9_isPalindrome.isPalindrome2(10));//isPalindrome2
+//        System.out.println(A9_isPalindrome.isPalindrome(121));//isPalindrome2
+        System.out.println(A9_isPalindrome.isPalindrome2(121));//isPalindrome2
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/4/11 21:35 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
             
             <div class="article">
                 <a class="clearlink" href="15232628950000.html">
@@ -239,21 +444,25 @@ Eg.<br/>
 
       	<p class="cat-list">
         
-            <a href="week.html"><strong>Week</strong></a>
-        
             <a href="memo.html"><strong>Memo</strong></a>
         
-            <a href="config.html"><strong>Config</strong></a>
+            <a href="week.html"><strong>Week</strong></a>
         
-            <a href="os.html"><strong>OS</strong></a>
+            <a href="mac.html"><strong>Mac</strong></a>
         
-            <a href="note.html"><strong>笔记</strong></a>
+            <a href="tool.html"><strong>Tool</strong></a>
         
-            <a href="algs.html"><strong>算法</strong></a>
+            <a href="lang.html"><strong>语言</strong></a>
         
             <a href="java.html"><strong>Java</strong></a>
         
-            <a href="tool.html"><strong>工具</strong></a>
+            <a href="web.html"><strong>Web</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="linux.html"><strong>Linux</strong></a>
          
         </p>
 
@@ -270,31 +479,31 @@ Eg.<br/>
 	      
 		      
 			      <li class="post">
+			        <a href="15478744498403.html">Linux 命令笔记</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15473879569169.html">Week - 2019/1/12</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week 2019/1/6</a>
+			        <a href="15468721130000.html">Week - 2019/1/6</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week 2018/12/29</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458292480000.html">342 Power of Four</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458291380000.html">326 Power of Three</a>
+			        <a href="15459768320000.html">Week - 2018/12/29</a>
 			      </li>
 		     
 		  

@@ -2,7 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>imzhizi.com/</loc>
-  <lastmod>2019-01-14T20:29:40+08:00</lastmod>
+  <lastmod>2019-01-19T18:42:39+08:00</lastmod>
+</url>
+
+<url>
+  <loc>imzhizi.com/15478744498403.html</loc>
+  <lastmod>2019-01-19T13:07:29+08:00</lastmod>
+</url>
+
+<url>
+  <loc>imzhizi.com/15478740192982.html</loc>
+  <lastmod>2019-01-19T13:00:19+08:00</lastmod>
 </url>
 
 <url>
@@ -133,6 +143,11 @@
 <url>
   <loc>imzhizi.com/15403042690000.html</loc>
   <lastmod>2018-10-23T22:17:49+08:00</lastmod>
+</url>
+
+<url>
+  <loc>imzhizi.com/15395667887152.html</loc>
+  <lastmod>2018-10-15T09:26:28+08:00</lastmod>
 </url>
 
 <url>
@@ -418,7 +433,7 @@
 
 <url>
   <loc>imzhizi.com/links.html</loc>
-  <lastmod>2019-01-08T20:40:13+08:00</lastmod>
+  <lastmod>2019-01-19T13:28:19+08:00</lastmod>
 </url>
 
 <url>
@@ -428,27 +443,23 @@
 
 
 <url>
-  <loc>imzhizi.com/week.html</loc>
-</url>
-
-<url>
   <loc>imzhizi.com/memo.html</loc>
 </url>
 
 <url>
-  <loc>imzhizi.com/config.html</loc>
+  <loc>imzhizi.com/week.html</loc>
 </url>
 
 <url>
-  <loc>imzhizi.com/os.html</loc>
+  <loc>imzhizi.com/mac.html</loc>
 </url>
 
 <url>
-  <loc>imzhizi.com/note.html</loc>
+  <loc>imzhizi.com/tool.html</loc>
 </url>
 
 <url>
-  <loc>imzhizi.com/algs.html</loc>
+  <loc>imzhizi.com/lang.html</loc>
 </url>
 
 <url>
@@ -456,7 +467,19 @@
 </url>
 
 <url>
-  <loc>imzhizi.com/tool.html</loc>
+  <loc>imzhizi.com/web.html</loc>
+</url>
+
+<url>
+  <loc>imzhizi.com/config.html</loc>
+</url>
+
+<url>
+  <loc>imzhizi.com/algs.html</loc>
+</url>
+
+<url>
+  <loc>imzhizi.com/linux.html</loc>
 </url>
 
 

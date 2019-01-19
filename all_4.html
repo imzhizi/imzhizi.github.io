@@ -73,7 +73,7 @@
 
                 <li><label>Categories</label></li>
 
-                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+                <li><a href="memo.html">Memo</a></li><li><a href="week.html">Week</a></li><li><a href="mac.html">Mac</a></li><li><a href="tool.html">Tool</a></li><li><a href="lang.html">语言</a></li><li><a href="java.html">Java</a></li><li><a href="web.html">Web</a></li><li><a href="config.html">Config</a></li><li><a href="algs.html">算法</a></li><li><a href="linux.html">Linux</a></li>
 
             </ul>
         </aside>
@@ -89,6 +89,252 @@
 <div class="row">
     <div class="large-8 medium-8 columns">
         <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15360292100000.html">
+                    
+                    <h1>206 Reverse Linked List</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Reverse a singly linked list.<br/>
+Example:<br/>
+  Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br/>
+  Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-go">type ListNode struct {
+    Val  int
+    Next *ListNode
+ 
+&lt;!-- more --&gt;
+ 
+}
+
+// 题目分析：
+//  没事学了 Go 语言，所以就拿来玩玩，感觉还不错
+//  题目也很简单，就是链表的翻转，用学过数据结构的都知道头插法遍历一遍就行了
+// 运行时间：0ms / 100%（不知道是题目太简单，懒得给用例还是 没人用 Go 写，总之是 beat 100%）
+// 总结：无
+func reverseList(head *ListNode) *ListNode {
+    node :=new(ListNode)
+    for head!=nil{
+        temp:=ListNode{head.Val,node.Next}
+        node.Next=&amp;temp
+        head=head.Next
+    }
+    return node.Next
+}
+
+func main() {
+    node:=ListNode{1,&amp;ListNode{2,&amp;ListNode{3,nil}}}
+    result:=reverseList(&amp;node)
+    for result!=nil {
+        println(result.Val)
+        result=result.Next
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/9/4 10:46 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15357927890000.html">
+                    
+                    <h1>204 Count Primes</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Count the number of prime numbers less than a non-negative number, n.</p>
+</blockquote>
+
+<h2 id="toc_0">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">public class A204_CountPrimes {
+    /**
+     * 题目分析：
+     * 我没有想到什么判断质数的好办法，最初的想法是按照定义，依次去除，看是否有整数，但这种方法太慢了
+     * 后来参考了他人的方法，思路是把不是质数的部分标记出来，那么剩下的就都是质数了，同时因为偶数必然不是质数，可以进一步优化
+     *
+     * 运行时长：23ms / 42%
+ 
+&lt;!-- more --&gt;
+ 
+     *
+     * 总结：
+     * 做了很多小补丁，不是一个特别完美的方法
+     */
+    static int countPrimes(int n) {
+        if (n &lt; 3) return 0;
+        int count = 1;
+        boolean[] notPrime = new boolean[n];
+        for (int i = 3; i &lt; n; i += 2) {
+            if (notPrime[i] == false) count++;
+            for (int j = 3; i * j &lt; n; j += 2) {
+                notPrime[i * j] = true;
+            }
+        }
+        return count;
+    }
+
+    //运行时长：23ms / 54%， 小改动
+    static int countPrimes2(int n) {
+        if (n &lt; 3) return 0;
+        int count = 1;
+        boolean[] notPrime = new boolean[n];
+        for (int i = 3; i &lt; n; i += 2) {
+            if (notPrime[i] == false) count++;
+            for (long j = i; (long) (i * j) &lt; n; j += 2) {
+                notPrime[(int) (i * j)] = true;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(countPrimes(4));
+        System.out.println(countPrimes(10));
+        System.out.println(countPrimes(12));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/9/1 17:6 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15336552750000.html">
+                    
+                    <h1>119 Pascal s Triangle II</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p><a href="https://imzhizi.com/201806/201806-118-pascal-s-triangle.html">帕斯卡三角（一）</a><br/>
+Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal&#39;s triangle.</p>
+
+<p>Note that the row index starts from 0.<br/>
+In Pascal&#39;s triangle, each number is the sum of the two numbers directly above it.</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7x32xu.gif" alt="示例"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java"> 
+&lt;!-- more --&gt;
+ 
+/**
+ * created by zhizi on 2018/6/17
+ */
+public class A119_PascalTriangleII {
+    /**
+     * 题目分析：
+     * 跟上一题差别不大，不过因为结果只要求最后一行，所以节约了许多内存，使整个代码的书写也变得简洁了不少
+     *
+     * 运行时长：2 ms
+     *
+     * 总结：
+     * 但只达到了 14%，可见算法的优化空间很大，之后再处理吧
+     */
+    public List&lt;Integer&gt; getRow(int rowIndex) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;(rowIndex+1);
+        for (int i = 0; i &lt;= rowIndex; i++) {
+            for (int j = 1; j &lt; i; j++) {
+                result.add(result.get(0) + result.get(1));
+                result.remove(0);
+            }
+            result.add(1);
+        }
+        return result;
+    }
+}
+
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/8/7 23:21 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
             
             <div class="article">
                 <a class="clearlink" href="15334818570000.html">
@@ -464,181 +710,6 @@ Java 不存在无符号类型，int 由0、1～2<sup>31-1、-1～(-2)<sup>31</su
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15325965980000.html">
-                    
-                    <h1>190 Reverse Bits</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Reverse bits of a given 32 bits unsigned integer.</p>
-
-<p>Example:<br/>
- Input: 43261596<br/>
- Output: 964176192<br/>
-Explanation:<br/>
- 43261596 represented in binary as 00000010100101000001111010011100,<br/>
- return 964176192 represented in binary as 00111001011110000010100101000000.</p>
-</blockquote>
-
-<h2 id="toc_1">背景知识</h2>
-
-<p><a href="201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html">Java 位运算符和 Java int 的实现</a></p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15325965980000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/26 17:16 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15325152280000.html">
-                    
-                    <h1>189 Rotate Array</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given an array, rotate the array to the right by k steps, where k is non-negative.</p>
-
-<p>Example 1:<br/>
-  Input: [1,2,3,4,5,6,7] and k = 3<br/>
-  Output: [5,6,7,1,2,3,4]</p>
-
-<p>Explanation:<br/>
-rotate 1 steps to the right: [7,1,2,3,4,5,6]<br/>
-rotate 2 steps to the right: [6,7,1,2,3,4,5]<br/>
-rotate 3 steps to the right: [5,6,7,1,2,3,4]</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15325152280000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/25 18:40 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15324415540000.html">
-                    
-                    <h1>172 Factorial Trailing Zeroes</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given an integer n, return the number of trailing zeroes in n!.<br/>
-Example 1:<br/>
-   Input: 3<br/>
-   Output: 0</p>
-
-<p>Explanation: 3! = 6, no trailing zero.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 2018/7/24
- */
-public class A172_FactorialTrailingZeroes {
-    /**
-     * 题目分析：
-     * 一开始并没搞明白题目是什么意思，搜索之后才明白是数末位的0，想也不想就暴力一波，先写个递归求阶乘，再数后面几个0
-     * 然后我就轻轻松松收获 stack over error，然后就看到 Your solution should be in logarithmic time complexity.
-     * 重新构想时，我想，只要出现了阶乘中出现了一个0，那么最终结果里面一定有0，更深的想，其实有5的倍数和偶数就会多一个0，所以猜测可能跟5有关
-     * 算了之后发现，30以前都是有几个5就有几个0，到30就不是了，多一个，进而想到了连续除以 5。
-     *
-     * 运行时长：16 ms
-     *
-     * 总结：
-     * 多思考吧c
-     */
-    int trailingZeroes(int n) {
-        int ret=0;
-        while(n&gt;0){
-            n/=5;
-            ret+=n;
-        }
-        return ret;
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/24 22:12 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -690,21 +761,25 @@ public class A172_FactorialTrailingZeroes {
 
       	<p class="cat-list">
         
-            <a href="week.html"><strong>Week</strong></a>
-        
             <a href="memo.html"><strong>Memo</strong></a>
         
-            <a href="config.html"><strong>Config</strong></a>
+            <a href="week.html"><strong>Week</strong></a>
         
-            <a href="os.html"><strong>OS</strong></a>
+            <a href="mac.html"><strong>Mac</strong></a>
         
-            <a href="note.html"><strong>笔记</strong></a>
+            <a href="tool.html"><strong>Tool</strong></a>
         
-            <a href="algs.html"><strong>算法</strong></a>
+            <a href="lang.html"><strong>语言</strong></a>
         
             <a href="java.html"><strong>Java</strong></a>
         
-            <a href="tool.html"><strong>工具</strong></a>
+            <a href="web.html"><strong>Web</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="linux.html"><strong>Linux</strong></a>
          
         </p>
 
@@ -721,31 +796,31 @@ public class A172_FactorialTrailingZeroes {
 	      
 		      
 			      <li class="post">
+			        <a href="15478744498403.html">Linux 命令笔记</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15473879569169.html">Week - 2019/1/12</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week 2019/1/6</a>
+			        <a href="15468721130000.html">Week - 2019/1/6</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week 2018/12/29</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458292480000.html">342 Power of Four</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458291380000.html">326 Power of Three</a>
+			        <a href="15459768320000.html">Week - 2018/12/29</a>
 			      </li>
 		     
 		  

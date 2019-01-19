@@ -73,7 +73,7 @@
 
                 <li><label>Categories</label></li>
 
-                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+                <li><a href="memo.html">Memo</a></li><li><a href="week.html">Week</a></li><li><a href="mac.html">Mac</a></li><li><a href="tool.html">Tool</a></li><li><a href="lang.html">语言</a></li><li><a href="java.html">Java</a></li><li><a href="web.html">Web</a></li><li><a href="config.html">Config</a></li><li><a href="algs.html">算法</a></li><li><a href="linux.html">Linux</a></li>
 
             </ul>
         </aside>
@@ -89,6 +89,181 @@
 <div class="row">
     <div class="large-8 medium-8 columns">
         <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15325965980000.html">
+                    
+                    <h1>190 Reverse Bits</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Reverse bits of a given 32 bits unsigned integer.</p>
+
+<p>Example:<br/>
+ Input: 43261596<br/>
+ Output: 964176192<br/>
+Explanation:<br/>
+ 43261596 represented in binary as 00000010100101000001111010011100,<br/>
+ return 964176192 represented in binary as 00111001011110000010100101000000.</p>
+</blockquote>
+
+<h2 id="toc_1">背景知识</h2>
+
+<p><a href="201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html">Java 位运算符和 Java int 的实现</a></p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15325965980000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/26 17:16 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15325152280000.html">
+                    
+                    <h1>189 Rotate Array</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given an array, rotate the array to the right by k steps, where k is non-negative.</p>
+
+<p>Example 1:<br/>
+  Input: [1,2,3,4,5,6,7] and k = 3<br/>
+  Output: [5,6,7,1,2,3,4]</p>
+
+<p>Explanation:<br/>
+rotate 1 steps to the right: [7,1,2,3,4,5,6]<br/>
+rotate 2 steps to the right: [6,7,1,2,3,4,5]<br/>
+rotate 3 steps to the right: [5,6,7,1,2,3,4]</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15325152280000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/25 18:40 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15324415540000.html">
+                    
+                    <h1>172 Factorial Trailing Zeroes</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given an integer n, return the number of trailing zeroes in n!.<br/>
+Example 1:<br/>
+   Input: 3<br/>
+   Output: 0</p>
+
+<p>Explanation: 3! = 6, no trailing zero.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 2018/7/24
+ */
+public class A172_FactorialTrailingZeroes {
+    /**
+     * 题目分析：
+     * 一开始并没搞明白题目是什么意思，搜索之后才明白是数末位的0，想也不想就暴力一波，先写个递归求阶乘，再数后面几个0
+     * 然后我就轻轻松松收获 stack over error，然后就看到 Your solution should be in logarithmic time complexity.
+     * 重新构想时，我想，只要出现了阶乘中出现了一个0，那么最终结果里面一定有0，更深的想，其实有5的倍数和偶数就会多一个0，所以猜测可能跟5有关
+     * 算了之后发现，30以前都是有几个5就有几个0，到30就不是了，多一个，进而想到了连续除以 5。
+     *
+     * 运行时长：16 ms
+     *
+     * 总结：
+     * 多思考吧c
+     */
+    int trailingZeroes(int n) {
+        int ret=0;
+        while(n&gt;0){
+            n/=5;
+            ret+=n;
+        }
+        return ret;
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/7/24 22:12 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
             
             <div class="article">
                 <a class="clearlink" href="15323442480000.html">
@@ -177,7 +352,7 @@
                         <span class="date">2018/7/20 23:41 下午</span>
                         <span>posted in&nbsp;</span> 
                         
-                        <span class="posted-in"><a href='os.html'>OS</a></span>
+                        <span class="posted-in"><a href='linux.html'>Linux</a></span>
                         
                     </div>
                     <div class="more-right right">
@@ -390,215 +565,6 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15310653380000.html">
-                    
-                    <h1>155 Min Stack</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-
-<p>push(x) -- Push element x onto stack.<br/>
-pop() -- Removes the element on top of the stack.<br/>
-top() -- Get the top element.<br/>
-getMin() -- Retrieve the minimum element in the stack.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 2018/7/8
- */
-public class MinStack {
-    /**
-     * 题目分析：
-     * 要求实现一个最小栈，即随时可以给出这个栈的最小值，栈很容易实现，一个 int[] 加一个 top 即可，但最小值就比较复杂了；
-     * 没什么很好的办法，只能追求外挂体系，使用的是 PriorityQueue，效果还行
-     *
-     * 运行时长：70ms
-     *
-     * 总结：
-     * 结果运行居然超过 98% 的用户，以为会有什么高级做法，想来数据结构的实现的优化都不容易。
-     */
-    private int[] elements;
-    private PriorityQueue&lt;Integer&gt; queue;
-    private int top;
-
-    public MinStack() {
-        elements = new int[100];
-        queue=new PriorityQueue&lt;&gt;();
-        top = -1;
-    }
-
-    public void push(int x) {
-        if(top+1==elements.length){
-            int[] copy=new int[elements.length+100];
-            System.arraycopy(elements,0,copy,0,elements.length);
-            elements=copy;
-        }
-        elements[++top]=x;
-        queue.add(x);
-    }
-
-    public void pop() {
-        if (elements[top]==queue.peek())
-            queue.poll();
-        elements[top--]=0;
-    }
-
-    public int top() {
-        return elements[top];
-    }
-
-    public int getMin() {
-        return queue.peek();
-    }
-
-    public static void main(String[] args) {
-        MinStack obj = new MinStack();
-        obj.push(-2);
-        obj.push(0);
-        obj.push(-3);
-        System.out.println(obj.getMin());
-        obj.pop();
-        System.out.println(obj.top());
-        System.out.println(obj.getMin());
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/8 23:55 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15304560170000.html">
-                    
-                    <h1>160 Intersection of Two Linked Lists</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
-
-<p>For example, the following two linked lists:<br/>
-A:          a1 → a2<br/>
-                   ↘<br/>
-                     c1 → c2 → c3<br/>
-                   ↗<br/>
-B:     b1 → b2 → b3<br/>
-begin to intersect at node c1.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15304560170000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/1 22:40 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15292225900000.html">
-                    
-                    <h1>118 Pascal s Triangle</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a non-negative integer numRows, generate the first numRows of Pascal&#39;s triangle.</p>
-
-<p>Example:<br/>
-Input: 5<br/>
-Output:<br/>
-[<br/>
-     [1],<br/>
-    [1,1],<br/>
-   [1,2,1],<br/>
-  [1,3,3,1],<br/>
- [1,4,6,4,1]</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15292225900000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/6/17 16:3 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -650,21 +616,25 @@ Output:<br/>
 
       	<p class="cat-list">
         
-            <a href="week.html"><strong>Week</strong></a>
-        
             <a href="memo.html"><strong>Memo</strong></a>
         
-            <a href="config.html"><strong>Config</strong></a>
+            <a href="week.html"><strong>Week</strong></a>
         
-            <a href="os.html"><strong>OS</strong></a>
+            <a href="mac.html"><strong>Mac</strong></a>
         
-            <a href="note.html"><strong>笔记</strong></a>
+            <a href="tool.html"><strong>Tool</strong></a>
         
-            <a href="algs.html"><strong>算法</strong></a>
+            <a href="lang.html"><strong>语言</strong></a>
         
             <a href="java.html"><strong>Java</strong></a>
         
-            <a href="tool.html"><strong>工具</strong></a>
+            <a href="web.html"><strong>Web</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="linux.html"><strong>Linux</strong></a>
          
         </p>
 
@@ -681,31 +651,31 @@ Output:<br/>
 	      
 		      
 			      <li class="post">
+			        <a href="15478744498403.html">Linux 命令笔记</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15473879569169.html">Week - 2019/1/12</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week 2019/1/6</a>
+			        <a href="15468721130000.html">Week - 2019/1/6</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week 2018/12/29</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458292480000.html">342 Power of Four</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458291380000.html">326 Power of Three</a>
+			        <a href="15459768320000.html">Week - 2018/12/29</a>
 			      </li>
 		     
 		  

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        Linux(三) — Unix Linux 的基础命令 - 难以想象的晴朗
+        Linux(三) - 文件操作相关命令 - 难以想象的晴朗
         
     </title>
     
@@ -73,7 +73,7 @@
 
                 <li><label>Categories</label></li>
 
-                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+                <li><a href="memo.html">Memo</a></li><li><a href="week.html">Week</a></li><li><a href="mac.html">Mac</a></li><li><a href="tool.html">Tool</a></li><li><a href="lang.html">语言</a></li><li><a href="java.html">Java</a></li><li><a href="web.html">Web</a></li><li><a href="config.html">Config</a></li><li><a href="algs.html">算法</a></li><li><a href="linux.html">Linux</a></li>
 
             </ul>
         </aside>
@@ -91,14 +91,14 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>Linux(三) — Unix Linux 的基础命令</h1>
+          <h1>Linux(三) - 文件操作相关命令</h1>
      
         <div class="read-more clearfix">
           <span class="date">2018/9/17 20:0 下午</span>
 
           <span>posted in&nbsp;</span> 
           
-              <span class="posted-in"><a href='os.html'>OS</a></span>
+              <span class="posted-in"><a href='linux.html'>Linux</a></span>
            
          
           <span class="comments">
@@ -111,23 +111,22 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <p>Ctl-A   光标移动到行首<br/>
-Ctl-C   终止命令<br/>
-Ctl-D   注销登录<br/>
-Ctl-E   光标移动到行尾<br/>
-Ctl-U   删除光标到行首的所有字符,在某些设置下,删除全行<br/>
-Ctl-W   删除当前光标到前边的最近一个空格之间的字符<br/>
-Ctl-H   删除光标前边的字符<br/>
-Ctl-R   匹配最相近的一个文件，然后输出<br/>
-Ctl-Z   将目前任务转为后台运行</p>
+      <pre><code class="language-text">Ctl-A   光标移动到行首
+Ctl-C   终止命令
+Ctl-D   注销登录
+Ctl-E   光标移动到行尾
+Ctl-U   删除光标到行首的所有字符,在某些设置下,删除全行
+Ctl-W   删除当前光标到前边的最近一个空格之间的字符
+Ctl-H   删除光标前边的字符
+Ctl-R   匹配最相近的一个文件，然后输出
+Ctl-Z   将目前任务转为后台运行
+</code></pre>
 
-<pre><code class="language-text">
-## Path 相关（cd、ls）
-```bash
- 
-&lt;!-- more --&gt;
- 
-pwd             #print working dir
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_0">Path 相关（cd、ls）</h2>
+
+<pre><code class="language-bash">pwd             #print working dir
 // 目录查看
 ls == ls -h     #list files under current directory
 ls -l           #list with block and property
@@ -145,7 +144,7 @@ cd ~/hexo       #switch by absolute path
 cd ./user/xx    #switch by relative path
 </code></pre>
 
-<h2 id="toc_0">帮助命令（help、man、info、type）</h2>
+<h2 id="toc_1">帮助命令（help、man、info、type）</h2>
 
 <pre><code class="language-bash">help            #仅适用于内置命令，效果不佳
 man ls          #查看命令手册
@@ -157,9 +156,9 @@ $ xxx is /usr/bin/xxx           #说明是外部命令
 $ xxx is an alias for xx        #说明该指令为命令别名所设定的名称
 </code></pre>
 
-<h2 id="toc_1">文件相关</h2>
+<h2 id="toc_2">文件相关</h2>
 
-<h3 id="toc_2">文件查看（cat、nl、head、tail、more、less、file）</h3>
+<h3 id="toc_3">文件查看（cat、nl、head、tail、more、less、file）</h3>
 
 <pre><code class="language-bash">//文件内容
 cat file            #preview file
@@ -178,7 +177,7 @@ cut -c 2-5 file     #每行第2到5之间的字节（包含第五个）
 file file           #查看文件类型
 </code></pre>
 
-<h3 id="toc_3">文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）</h3>
+<h3 id="toc_4">文件创建、复制、删除、重命名（touch、mkdir、rm、cp、mv）</h3>
 
 <pre><code class="language-bash">// 创建
 touch filename              #create empty file
@@ -195,7 +194,7 @@ mv oldfile xxx/newfile      #rename &amp; move a file
 mv dir  xxx/dir             #move dir to xxx/dir which is created
 </code></pre>
 
-<h3 id="toc_4">文件压缩和解压</h3>
+<h3 id="toc_5">文件压缩和解压</h3>
 
 <pre><code class="language-bash">// 压缩 zip
 zip -rqo file.zip ./filename        #普通压缩
@@ -244,7 +243,7 @@ tar -xzf file.tar.gz                #解压 tar.gz 打包文件
     # -z(--gzip) 通过gzip指令处理备份文件
 </code></pre>
 
-<h3 id="toc_5">文件软链接（ln）</h3>
+<h3 id="toc_6">文件软链接（ln）</h3>
 
 <p>软链接：</p>
 
@@ -259,7 +258,7 @@ tar -xzf file.tar.gz                #解压 tar.gz 打包文件
     # -s 软链接(符号链接)
 </code></pre>
 
-<h3 id="toc_6">文件查找（whereis、which、find）</h3>
+<h3 id="toc_7">文件查找（whereis、which、find）</h3>
 
 <pre><code class="language-bash">locate \*.jpg       #locate 会维护一个数据库，查找时不会真的去找
 which who           #查找安装的命令、程序可以用
@@ -288,7 +287,7 @@ find . -type f -perm 644 -exec ls -l {} \;
     #查找前目录中文件属主具有读、写权限，并且文件所属组的用户和其他用户具有读权限的文件
 </code></pre>
 
-<h3 id="toc_7">File Permission（chown、chmod）</h3>
+<h3 id="toc_8">File Permission（chown、chmod）</h3>
 
 <ul>
 <li>3 个权限组，每组 3 位</li>
@@ -307,7 +306,7 @@ chown xx:xx file        #grant file ownership to xx &amp; xx
 chown -R user:group dir #grant dir(-r) ownership to xx &amp; xx
 </code></pre>
 
-<h3 id="toc_8">文件合并（join、paste）</h3>
+<h3 id="toc_9">文件合并（join、paste）</h3>
 
 <pre><code class="language-bash">join file1 file2         #逐行合并，相同的部分仅保留一份
     #「1 hello」和「1 world」合并为「1 hello world」
@@ -316,87 +315,6 @@ paste f1 f2 [文件...]     #逐行合并
     # -d 自定义合并后的分割符（ &#39;\n&#39; 以回车为每行的分割符）
 paste -s file            #将一个文件中的多行数据合并为一行显示，但不修改原文件
 </code></pre>
-
-<h2 id="toc_9">软件安装</h2>
-
-<h3 id="toc_10">dpkg 和 apt-get</h3>
-
-<p><strong>主要应用于类 Debian 系统</strong><br/>
-dpkg 是 Debian 的软件包管理的底层系统（名称来源于 Debian Package），被用于安装、卸载和供给和 <code>.deb</code>软件包相关的信息。</p>
-
-<p>apt 是Advance Packaging Tool（高级包装工具）的缩写，APT最早被设计成dpkg的前端，用来处理deb格式的软件包，现在已经成为 Debian 及其派生发行版的软件包管理器。</p>
-
-<p>apt 主要解决了软件的安装源、依赖关系处理、软件更新和发行版升级的问题。</p>
-
-<h4 id="toc_11">apt-get 的使用</h4>
-
-<p>一般情况下，使用 apt 命令即可完成一般的安装操作。<br/>
-主要由三个功能组成</p>
-
-<ul>
-<li>apt-get</li>
-<li>apt-cache</li>
-<li>apt-file</li>
-</ul>
-
-<pre><code class="language-bash">// apt-get
-apt-get update          #更新软件源，软件源记录了软件和软件依赖，通过一并安装依赖保证软件能够正常运行
-apt-get install name    #安装软件
-apt-get remove name     #移除&lt;package&gt;以及任何依此存包的其它包 
-apt-get purge name      #与remove相同，同时移除配置等文件
-apt-get autoremove name #移除不再被依赖的软件包
-apt-get autoclean       #移除已安装的软件包
-    # -y 自动同意安装软件包的选项
-    # -q 静默安装方式
-    # -f 修复损坏的依赖关系
-    # -d 只下载不安装
-
-// apt-cache
-apt-cache search softname #搜索是否安装了该软件
-
-// apt-file
-</code></pre>
-
-<h4 id="toc_12">dpkg 的使用</h4>
-
-<pre><code class="language-bash">dpkg -l                 #列出系统中安装的所有程序
-sudo dpkg -i name.deb   #安装指定deb包
-sudo dpkg -r name       #移除指定的软件包
-dpkg -s name            #查看已安装软件的详细信息
-</code></pre>
-
-<h3 id="toc_13">RPM 和 yum</h3>
-
-<p><strong>具体使用方法还请自行搜索。</strong><br/>
-<a href="http://www.runoob.com/linux/linux-comm-rpm.html"> Linux rpm命令 | 菜鸟教程 </a></p>
-
-<p>RPM包管理器（简称RPM，全称为The RPM Package Manager），是由Red Hat推出的软件包管理系统，现在在各种发行版中普遍使用，被用于安装、卸载和供给和 <code>.rpm</code>软件包相关的信息。</p>
-
-<blockquote>
-<p>使用RPM的发行版<br/>
-Fedora 和 Red Hat Enterprise Linux<br/>
-CentOS、Oracle Linux<br/>
-openSUSE 和 SUSE Linux Enterprise</p>
-</blockquote>
-
-<p>rpm软件包形式管理软件虽然方便，但是rpm只是追踪软件包之间的依赖关系并没有进行解决。</p>
-
-<p>yum(yellowdog Updater,Modified)是一个rpm的前端程序，主要目的是用来解决rpm的依赖关系问题，其特点如下：</p>
-
-<ul>
-<li>自动解决依赖关系</li>
-<li>可以对rpm进行分组，并基于组进行安装操作</li>
-<li>引入仓库概念，支持多个仓库</li>
-<li>配置简单</li>
-</ul>
-
-<h3 id="toc_14">Homebrew</h3>
-
-<p>macOS 上使用的包管理器，功能强大，使用方便。</p>
-
-<p><em>主要是凑一下 Unix 系统包管理的数。</em></p>
-
-<p>详细介绍参看少数派文章 <a href="https://sspai.com/post/42924">像 Mac 高手一样管理应用，从 Homebrew 开始</a>。</p>
 
 
     
@@ -407,8 +325,8 @@ openSUSE 和 SUSE Linux Enterprise</p>
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15403042690000.html" 
-          title="Previous Post: Win10 MySQL zip安装方法">&laquo; Win10 MySQL zip安装方法</a>
+          <a href="15395667887152.html" 
+          title="Previous Post: Maven 笔记">&laquo; Maven 笔记</a>
       
         </p>
         </div>
@@ -491,21 +409,25 @@ s.setAttribute('data-timestamp', +new Date());
 
       	<p class="cat-list">
         
-            <a href="week.html"><strong>Week</strong></a>
-        
             <a href="memo.html"><strong>Memo</strong></a>
         
-            <a href="config.html"><strong>Config</strong></a>
+            <a href="week.html"><strong>Week</strong></a>
         
-            <a href="os.html"><strong>OS</strong></a>
+            <a href="mac.html"><strong>Mac</strong></a>
         
-            <a href="note.html"><strong>笔记</strong></a>
+            <a href="tool.html"><strong>Tool</strong></a>
         
-            <a href="algs.html"><strong>算法</strong></a>
+            <a href="lang.html"><strong>语言</strong></a>
         
             <a href="java.html"><strong>Java</strong></a>
         
-            <a href="tool.html"><strong>工具</strong></a>
+            <a href="web.html"><strong>Web</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="linux.html"><strong>Linux</strong></a>
          
         </p>
 
@@ -522,31 +444,31 @@ s.setAttribute('data-timestamp', +new Date());
 	      
 		      
 			      <li class="post">
+			        <a href="15478744498403.html">Linux 命令笔记</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15473879569169.html">Week - 2019/1/12</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week 2019/1/6</a>
+			        <a href="15468721130000.html">Week - 2019/1/6</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week 2018/12/29</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458292480000.html">342 Power of Four</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458291380000.html">326 Power of Three</a>
+			        <a href="15459768320000.html">Week - 2018/12/29</a>
 			      </li>
 		     
 		  

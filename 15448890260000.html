@@ -73,7 +73,7 @@
 
                 <li><label>Categories</label></li>
 
-                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+                <li><a href="memo.html">Memo</a></li><li><a href="week.html">Week</a></li><li><a href="mac.html">Mac</a></li><li><a href="tool.html">Tool</a></li><li><a href="lang.html">语言</a></li><li><a href="java.html">Java</a></li><li><a href="web.html">Web</a></li><li><a href="config.html">Config</a></li><li><a href="algs.html">算法</a></li><li><a href="linux.html">Linux</a></li>
 
             </ul>
         </aside>
@@ -98,7 +98,7 @@
 
           <span>posted in&nbsp;</span> 
           
-              <span class="posted-in"><a href='note.html'>笔记</a></span>
+              <span class="posted-in"><a href='tool.html'>Tool</a></span>
            
          
           <span class="comments">
@@ -115,50 +115,91 @@
 
 <p><a href="https://segmentfault.com/a/1190000002533334">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p>
 
-<h2 id="toc_1">合并多个commit</h2>
+<h2 id="toc_1">合并多个 commit</h2>
 
-<ul>
-<li><p>方法一<br/>
-在网上找到一种通过 git rebase 合并的方法<br/>
-<a href="https://segmentfault.com/a/1190000007748862">(Git)合并多个commit - nihao - SegmentFault 思否</a></p></li>
-<li><p>方法二<br/>
-通过 git reset 合并(暂略)</p></li>
-</ul>
-
-<pre><code class="language-bash">git reset --soft HEAD~n  # (~n means ~1, ~2,...)
- 
-git commit --amend
-</code></pre>
+<p>很多时候都以为这次一定没问题了, 但是提交了之后才发现其实并没有解决问题, 因此就再次提交, 为了提交信息清爽、有效, 可以合并一些commit.</p>
 
 <span id="more"></span><!-- more -->
+
+<ul>
+<li>方法一是通过 <code>git rebase</code> 合并的方法 <sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup></li>
+</ul>
+
+<pre><code class="language-bash"># 首先使用合并命令, 两种方法
+## 一种是合并最近n次 commit
+git rebase -i HEAD~3
+## 一种是合并到某个版本号
+git rebase -i 8fb7df
+
+# 合并
+## 命令执行以后, 会弹出一个窗口
+pick 3ca6ec3   &#39;注释**********&#39;
+pick 1b40566   &#39;注释*********&#39;
+pick 53f244a   &#39;注释**********&#39;
+
+## 将第一行之外的 pick 改为 squash 或 s, 然后 wq 保存
+pick 3ca6ec3   &#39;注释**********&#39;
+s 1b40566   &#39;注释*********&#39;
+s 53f244a   &#39;注释**********&#39;
+
+## 保存成功之后就会弹出第二个文件, 如果不想修改 commit messgae, 只要继续 wq 保存即可完成合并.
+
+# This is a combination of 4 commits.  
+#The first commit’s message is:  
+注释......
+# The 2nd commit’s message is:  
+注释......
+# The 3rd commit’s message is:  
+注释......
+</code></pre>
+
+<ul>
+<li>方法二<br/>
+通过 git reset 合并(暂略)</li>
+</ul>
+
+<pre><code class="language-bash"># 使用 git reset 命令回到两个 commit 之前的版本, 但并不撤销当前版本的代码
+git reset --soft HEAD~2  
+
+# 此时重新 commit 即可完成合并
+git commit --amend
+</code></pre>
 
 <h2 id="toc_2">Git User Config</h2>
 
 <p>使用不同的代码托管平台, 可能 username 和 email 也有所不同.</p>
 
-<p><strong>全局配置, 为项目提供默认配置</strong><br/>
-通过下面一条命令, 可以为电脑配置 git 默认的 name 和 email</p>
+<ul>
+<li>全局配置, 为项目提供默认配置<br/>
+通过下面一条命令, 可以为电脑配置 git 默认的 name 和 email</li>
+</ul>
 
 <pre><code class="language-bash">git config --global user.name &#39;name&#39;
 git config --global user.username &#39;username&#39;
 git config --global user.email &#39;address@mail.com&#39;
 </code></pre>
 
-<p>实际上, 执行该命令会在个人根目录下创建 .gitconfig 文件, 通过修改该文件能达到相同的效果</p>
+<ul>
+<li>实际上, 执行该命令会在个人根目录下创建 .gitconfig 文件, 通过修改该文件能达到相同的效果</li>
+</ul>
 
 <pre><code class="language-text">[user]
     name = name
     email = address@mail.com
 </code></pre>
 
-<p><strong>局部配置, 针对项目进行专有配置</strong></p>
+<ul>
+<li>局部配置, 针对项目进行专有配置</li>
+</ul>
 
 <pre><code class="language-bash">git config --local user.name &#39;name&#39;
 git config --local user.username &#39;username&#39;
 git config --local user.email &#39;address@mail.com&#39;
 </code></pre>
 
-<p>同样地, 执行该命令会在 .git文件夹下创建 config文件, 通过修改该文件能达到相同的效果</p>
+<ul>
+<li>同样地, 执行该命令会在 .git 文件夹下创建 config文件, 通过修改该文件能达到相同的效果</li>
+</ul>
 
 <pre><code class="language-text">[user]
     name = name
@@ -167,8 +208,27 @@ git config --local user.email &#39;address@mail.com&#39;
 
 <h2 id="toc_3">撤销 commit</h2>
 
-<pre><code class="language-text">git reset HEAD .
+<p>与合并 commit 是类似的需求, 如果某一次 commit 提交的代码仍然有问题, 更麻烦的, 如果上传了一些奇奇怪怪的文件, 如果不小心上传了配置文件, 就需要撤销 commit.</p>
+
+<p>总之都是回到上个版本, 但是代码仍然保留, 重新修改即可重新 commit.</p>
+
+<pre><code class="language-bash">git reset --soft HEAD^
+git reset commit-id 
+
+# 对于不小心 git add . 追踪的文件, 使用一下命令就可以取消追踪
+git checkout -- &lt;file&gt;
 </code></pre>
+
+<div class="footnotes">
+<hr/>
+<ol>
+
+<li id="fn1">
+<p><a href="https://segmentfault.com/a/1190000007748862"> Git 合并多个commit - nihao - SegmentFault 思否</a>&nbsp;<a href="#fnref1" rev="footnote">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
 
 
     
@@ -180,7 +240,7 @@ git config --local user.email &#39;address@mail.com&#39;
         <p class="text-left" style="padding:15px 0px;">
       
           <a href="15450518960000.html" 
-          title="Previous Post: Week 2018/12/15">&laquo; Week 2018/12/15</a>
+          title="Previous Post: Week - 2018/12/15">&laquo; Week - 2018/12/15</a>
       
         </p>
         </div>
@@ -263,21 +323,25 @@ s.setAttribute('data-timestamp', +new Date());
 
       	<p class="cat-list">
         
-            <a href="week.html"><strong>Week</strong></a>
-        
             <a href="memo.html"><strong>Memo</strong></a>
         
-            <a href="config.html"><strong>Config</strong></a>
+            <a href="week.html"><strong>Week</strong></a>
         
-            <a href="os.html"><strong>OS</strong></a>
+            <a href="mac.html"><strong>Mac</strong></a>
         
-            <a href="note.html"><strong>笔记</strong></a>
+            <a href="tool.html"><strong>Tool</strong></a>
         
-            <a href="algs.html"><strong>算法</strong></a>
+            <a href="lang.html"><strong>语言</strong></a>
         
             <a href="java.html"><strong>Java</strong></a>
         
-            <a href="tool.html"><strong>工具</strong></a>
+            <a href="web.html"><strong>Web</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="linux.html"><strong>Linux</strong></a>
          
         </p>
 
@@ -294,31 +358,31 @@ s.setAttribute('data-timestamp', +new Date());
 	      
 		      
 			      <li class="post">
+			        <a href="15478744498403.html">Linux 命令笔记</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15473879569169.html">Week - 2019/1/12</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week 2019/1/6</a>
+			        <a href="15468721130000.html">Week - 2019/1/6</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week 2018/12/29</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458292480000.html">342 Power of Four</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458291380000.html">326 Power of Three</a>
+			        <a href="15459768320000.html">Week - 2018/12/29</a>
 			      </li>
 		     
 		  

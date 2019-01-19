@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        工具 - 难以想象的晴朗
+        Tool - 难以想象的晴朗
         
     </title>
     
@@ -73,7 +73,7 @@
 
                 <li><label>Categories</label></li>
 
-                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+                <li><a href="memo.html">Memo</a></li><li><a href="week.html">Week</a></li><li><a href="mac.html">Mac</a></li><li><a href="tool.html">Tool</a></li><li><a href="lang.html">语言</a></li><li><a href="java.html">Java</a></li><li><a href="web.html">Web</a></li><li><a href="config.html">Config</a></li><li><a href="algs.html">算法</a></li><li><a href="linux.html">Linux</a></li>
 
             </ul>
         </aside>
@@ -91,98 +91,21 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
-                <a class="clearlink" href="15448822410000.html">
+                <a class="clearlink" href="15448890260000.html">
                     
-                    <h1>我在 Mac 上都用什么</h1>
+                    <h1>Git 笔记</h1>
                     <div class="a-content">
                         
                         <div class="a-content-text">
                             
-                            <p>Homebrew 是统一管理 macOS 中应用的最佳方法之一，而且大量优秀的应用都可以在 Homebrew 中找到。</p>
+                            <h2 id="toc_0">基本配置</h2>
 
-<p>就不做过多介绍了, 有兴趣可以看相关教程, <a href="https://sspai.com/post/42924">像 Mac 高手一样管理应用，从 Homebrew 开始 - 少数派</a></p>
+<p><a href="https://segmentfault.com/a/1190000002533334">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p>
 
-<h2 id="toc_0">终端和 Oh-My-ZSH</h2>
+<h2 id="toc_1">合并多个 commit</h2>
 
-<p>终端是很重要的一个工具, 我在 Linux 文章中介绍过, 系统拥有内核, 内核拥有外壳, 也就是和外界交流的接口 shell, 因为是接口, 用户自然无法直接交互, 终端就是帮助用户和 shell 交互, 进而来操纵系统. 更多还是看文章吧. <br/>
-<a href="https://sspai.com/post/45534">玩转 Terminal 终端：入门指南及进阶技巧 - 少数派</a></p>
+<p>很多时候都以为这次一定没问题了, 但是提交了之后才发现其实并没有解决问题, 因此就再次提交, 为了提交信息清爽、有效, 可以合并一些commit.</p>
 
-<p>如果使用终端, macOS自带的是 bash, 更多时候, 会使用 zsh, Oh-My-Zsh 是为了更方便使用 zsh 开发的插件, 具体可以到官网了解一下.<br/>
-<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Z-Shell</a></p>
-
-<pre><code class="language-bash"> 
-&lt;!-- more --&gt;
- 
-## Homebrew 的安装
-/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-
-## Oh-My-ZSH 的安装
-sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-</code></pre>
-
-<h2 id="toc_1">常用软件</h2>
-
-<pre><code class="language-bash">## GUI 软件
-brew tap v2ray/v2ray homebrew/cask homebrew/cask-versions
-
-brew cask install qq neteasemusic youdaodict thunder google-chrome ticktick typora sublime-text mweb iina snipaste the-unarchiver toggl
-
-brew install tree v2ray/v2ray/v2ray-core
-</code></pre>
-
-<ul>
-<li>QQ: 不解释</li>
-<li>neteasemusic: 网易云音乐, 不解释</li>
-<li>youdaodic: 有道词典, 不解释</li>
-<li>thunder: 迅雷, 不解释</li>
-<li>google-chrome: Chrome 浏览器, 不解释</li>
-<li>ticktick: 滴答清单, 国产很强大的 GTD 软件</li>
-<li>typora: 免费的 Markdown 编辑器, 特点是没有预览模式, 所见即所得</li>
-<li>sublime-text: 强大的编辑器, 主要是为了替代系统自带的 editor</li>
-<li>mweb: (付费) macOS 原生的 Markdown 笔记软件, 我的主力笔记软件</li>
-<li>iina: 开源的视频播放器, 简单好用</li>
-<li>snipaste: 很好用的截图软件, 有 Windows 版</li>
-<li>the-unarchiver: 免费的解压软件</li>
-<li>toggl: 一直在使用的全平台时间记录, 统计软件</li>
-<li>tree: 以某一目录为根树形输出文件列表</li>
-<li>v2ray/v2ray/v2ray-core: 神秘的射线软件</li>
-</ul>
-
-<h2 id="toc_2">开发软件</h2>
-
-<pre><code class="language-bash">brew install git python node@10 mysql@5.7
-brew cask install java8 intellij-idea pycharm postman
-
-## 其他未安装但可能遇到的
-brew install tomcat sqlite gcc
-</code></pre>
-
-<ul>
-<li>git: 版本管理软件, 不解释</li>
-<li>python: 不解释</li>
-<li>node.js: 不解释,这个博客就是基于 node.js 的</li>
-<li>mysql: 数据库, 不解释</li>
-<li>java: 不解释</li>
-<li>intellij-idea: 最强的 Java IDE, 没有之一</li>
-<li>pycharm: 工程相关的 Python 项目用它开发很舒服</li>
-<li>postman: 很棒的测试 API 的工具</li>
-</ul>
-
-<h2 id="toc_3">其他软件</h2>
-
-<ul>
-<li>PDF Expert: Mac 上最喜欢的软件之一</li>
-<li>Office 2019: 不解释</li>
-<li>Tuxera Disk Manager: 挂载 NTFS 格式用的软件</li>
-<li>MoneyWiz2: 全能型记账软件</li>
-<li>Numi: 一个顺手的计算器</li>
-<li>CleanMyMac X: Mac 清理软件</li>
-<li>Bear: 我的另一个一直在使用的笔记软件</li>
-<li>Telegram: </li>
-<li>微信</li>
-<li>Reeder: RSS 订阅软件</li>
-<li>坚果云: 云同步软件, 有了它我几乎不怎么担心数据会丢失</li>
-</ul>
 
                             
                         </div>
@@ -191,11 +114,46 @@ brew install tomcat sqlite gcc
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
-                        <span class="date">2018/12/15 21:57 下午</span>
+                        <a href="15448890260000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/12/15 23:50 下午</span>
                         <span>posted in&nbsp;</span> 
                         
-                        <span class="posted-in"><a href='tool.html'>工具</a></span>
+                        <span class="posted-in"><a href='tool.html'>Tool</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15395667887152.html">
+                    
+                    <h1>Maven 笔记</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>打算系统学习一下 Maven 的使用, 在此之前, 我打算先记下自己之前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.</p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15395667887152.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/10/15 9:26 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='tool.html'>Tool</a></span>
                         
                     </div>
                     <div class="more-right right">
@@ -259,21 +217,25 @@ brew install tomcat sqlite gcc
 
       	<p class="cat-list">
         
-            <a href="week.html"><strong>Week</strong></a>
-        
             <a href="memo.html"><strong>Memo</strong></a>
         
-            <a href="config.html"><strong>Config</strong></a>
+            <a href="week.html"><strong>Week</strong></a>
         
-            <a href="os.html"><strong>OS</strong></a>
+            <a href="mac.html"><strong>Mac</strong></a>
         
-            <a href="note.html"><strong>笔记</strong></a>
+            <a href="tool.html"><strong>Tool</strong></a>
         
-            <a href="algs.html"><strong>算法</strong></a>
+            <a href="lang.html"><strong>语言</strong></a>
         
             <a href="java.html"><strong>Java</strong></a>
         
-            <a href="tool.html"><strong>工具</strong></a>
+            <a href="web.html"><strong>Web</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="linux.html"><strong>Linux</strong></a>
          
         </p>
 
@@ -290,31 +252,31 @@ brew install tomcat sqlite gcc
 	      
 		      
 			      <li class="post">
+			        <a href="15478744498403.html">Linux 命令笔记</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15473879569169.html">Week - 2019/1/12</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week 2019/1/6</a>
+			        <a href="15468721130000.html">Week - 2019/1/6</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week 2018/12/29</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458292480000.html">342 Power of Four</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458291380000.html">326 Power of Three</a>
+			        <a href="15459768320000.html">Week - 2018/12/29</a>
 			      </li>
 		     
 		  

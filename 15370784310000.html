@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        Linux(二) — Unix&Linux 基本概念 - 难以想象的晴朗
+        Linux(二) - Unix&Linux 基本概念 - 难以想象的晴朗
         
     </title>
     
@@ -73,7 +73,7 @@
 
                 <li><label>Categories</label></li>
 
-                <li><a href="week.html">Week</a></li><li><a href="memo.html">Memo</a></li><li><a href="config.html">Config</a></li><li><a href="os.html">OS</a></li><li><a href="note.html">笔记</a></li><li><a href="algs.html">算法</a></li><li><a href="java.html">Java</a></li><li><a href="tool.html">工具</a></li>
+                <li><a href="memo.html">Memo</a></li><li><a href="week.html">Week</a></li><li><a href="mac.html">Mac</a></li><li><a href="tool.html">Tool</a></li><li><a href="lang.html">语言</a></li><li><a href="java.html">Java</a></li><li><a href="web.html">Web</a></li><li><a href="config.html">Config</a></li><li><a href="algs.html">算法</a></li><li><a href="linux.html">Linux</a></li>
 
             </ul>
         </aside>
@@ -91,14 +91,14 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>Linux(二) — Unix&Linux 基本概念</h1>
+          <h1>Linux(二) - Unix&Linux 基本概念</h1>
      
         <div class="read-more clearfix">
           <span class="date">2018/9/16 14:13 下午</span>
 
           <span>posted in&nbsp;</span> 
           
-              <span class="posted-in"><a href='os.html'>OS</a></span>
+              <span class="posted-in"><a href='linux.html'>Linux</a></span>
            
          
           <span class="comments">
@@ -111,30 +111,35 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <ul>
-<li><p>内核（kernel）</p>
+      <h2 id="toc_0">主机 = 内核 + 实用工具</h2>
+
+<h3 id="toc_1">内核（kernel）</h3>
+
 <ul>
-<li>当计算机启动时，计算机要经历一系列动作，这些动作构成了引导过程。引导过程的最后一个动作是启动一个非常复杂的程序，该程序就被称为内核（Kernel）</li>
-<li>内核的作用是控制计算机，提供基础服务，是操作系统的核心，主要分为单内核和微内核两种
+<li><p>当计算机启动时，计算机要经历一系列动作，这些动作构成了引导过程。引导过程的最后一个动作是启动一个非常复杂的程序，该程序就被称为内核（Kernel）</p></li>
+<li><p>内核的作用是控制计算机，提供基础服务，是操作系统的核心，主要分为单内核和微内核两种</p>
 <ul>
 <li>单内核（monolithic kernel）：自身可以完成所有事情，大多数早期 Unix 使用单内核设计，现在流行的单内核为 Linux kernel</li>
 <li>微内核（micro kernel）：只能完成最基本的任务，例如 Minix、macOS</li>
 </ul></li>
-</ul></li>
-<li><p>实用工具</p>
-<ul>
-<li>编辑器、编译器等等等</li>
-<li>Shell：命令行解释器，包括了用来组合命令的流程控制结构。除了在交互式提示符下输入命令外，用户还可以编写脚本。大多数shell都有一套共同的语法（基于Bourne shell）。</li>
-</ul></li>
 </ul>
-
-<h3 id="toc_0">终端 = 输入设备 + 输出设备</h3>
-
-<p>最初，终端（terminal）和控制台（Console）都不是个人电脑的概念，而是多人共用的小型、中型、大型计算机上的概念。在计算机早期时代，个人无法承担高昂的费用，多个人通过终端同时使用一台主机，而控制台是管理员管理系统时使用的机柜，一般会直接附着在主机旁边。</p>
 
 <span id="more"></span><!-- more -->
 
-<h4 id="toc_1">字符终端</h4>
+<h3 id="toc_2">实用工具</h3>
+
+<ul>
+<li>编辑器、编译器等等等</li>
+<li>Shell：命令行解释器，包括了用来组合命令的流程控制结构。除了在交互式提示符下输入命令外，用户还可以编写脚本。大多数 shell 都有一套共同的语法（基于Bourne shell）。</li>
+</ul>
+
+<h2 id="toc_3">终端 = 输入设备 + 输出设备</h2>
+
+<p>最初，终端（terminal）和控制台（Console）都不是个人电脑的概念，而是多人共用的小型、中型、大型计算机上的概念。在计算机早期时代，个人无法承担高昂的费用，多个人通过终端同时使用一台主机，而控制台是管理员管理系统时使用的机柜，一般会直接附着在主机旁边。</p>
+
+<!-- more -->
+
+<h3 id="toc_4">字符终端</h3>
 
 <p>字符终端 (Character Terminal) 也叫文本终端 (Text Terminal)，是只能接收和显示文本信息的终端。</p>
 
@@ -144,7 +149,7 @@
 
 <p>DEC 公司在 1978 年制造的VT100 终端，VT100 不仅是史上最流行的字符终端，更是成为了字符终端事实上的标准。</p>
 
-<h4 id="toc_2">终端仿真器(Terminal Emulator)</h4>
+<h3 id="toc_5">终端仿真器(Terminal Emulator)</h3>
 
 <blockquote>
 <p>模拟：Simulate，按照实现来实现，原理相同，行为相同<br/>
@@ -175,18 +180,18 @@
 <p><a href="https://www.pythontab.com/html/2014/linuxkaiyuan_0116/673.html">Linux基础之终端、控制台、tty、pty等概念简介</a><br/>
 <a href="https://segmentfault.com/a/1190000016129862">命令行界面 (CLI)、终端 (Terminal)、Shell、TTY，傻傻分不清楚？</a></p>
 
-<h2 id="toc_3">Linux</h2>
+<h2 id="toc_6">Linux</h2>
 
 <p>The name “Linux” refers to any Unix system that uses the Linux kernel。</p>
 
 <p>GNU/Linux 下的图形用户界面 GNOME 和 KDE，有时也被叫做「虚拟 shell」或「图形 shell」。</p>
 
-<h2 id="toc_4">Linux 学习路径</h2>
+<h2 id="toc_7">Linux 学习路径</h2>
 
 <p>[Linux 学习路径]<br/>
 <img src="https://s1.imgsha.com/2018/10/01/7x31uO.png" alt="Linux 学习路径"/></p>
 
-<h2 id="toc_5">Linux 目录结构</h2>
+<h2 id="toc_8">Linux 目录结构</h2>
 
 <blockquote>
 <p>FHS（英文：Filesystem Hierarchy Standard 中文：文件系统层次结构标准），多数 Linux 版本采用这种文件组织形式，FHS 定义了系统中每个区域的用途、所需要的最小构成的文件和目录同时还给出了例外处理与矛盾处理。</p>
@@ -291,21 +296,25 @@ s.setAttribute('data-timestamp', +new Date());
 
       	<p class="cat-list">
         
-            <a href="week.html"><strong>Week</strong></a>
-        
             <a href="memo.html"><strong>Memo</strong></a>
         
-            <a href="config.html"><strong>Config</strong></a>
+            <a href="week.html"><strong>Week</strong></a>
         
-            <a href="os.html"><strong>OS</strong></a>
+            <a href="mac.html"><strong>Mac</strong></a>
         
-            <a href="note.html"><strong>笔记</strong></a>
+            <a href="tool.html"><strong>Tool</strong></a>
         
-            <a href="algs.html"><strong>算法</strong></a>
+            <a href="lang.html"><strong>语言</strong></a>
         
             <a href="java.html"><strong>Java</strong></a>
         
-            <a href="tool.html"><strong>工具</strong></a>
+            <a href="web.html"><strong>Web</strong></a>
+        
+            <a href="config.html"><strong>Config</strong></a>
+        
+            <a href="algs.html"><strong>算法</strong></a>
+        
+            <a href="linux.html"><strong>Linux</strong></a>
          
         </p>
 
@@ -322,31 +331,31 @@ s.setAttribute('data-timestamp', +new Date());
 	      
 		      
 			      <li class="post">
+			        <a href="15478744498403.html">Linux 命令笔记</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15473879569169.html">Week - 2019/1/12</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week 2019/1/6</a>
+			        <a href="15468721130000.html">Week - 2019/1/6</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week 2018/12/29</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458292480000.html">342 Power of Four</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15458291380000.html">326 Power of Three</a>
+			        <a href="15459768320000.html">Week - 2018/12/29</a>
 			      </li>
 		     
 		  
