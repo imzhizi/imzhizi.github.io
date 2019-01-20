@@ -91,6 +91,57 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15432071040000.html">
+                    
+                    <h1>242 Valid Anagram</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given two strings s and t , write a function to determine if t is an anagram of s.</p>
+
+<p>Example 1:<br/>
+Input: s = &quot;anagram&quot;, t = &quot;nagaram&quot;<br/>
+Output: true</p>
+
+<p>Example 2:<br/>
+Input: s = &quot;rat&quot;, t = &quot;car&quot;<br/>
+Output: false</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15432071040000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/11/26 12:38 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15426958230000.html">
                     
                     <h1>235 Lowest Common Ancestor of a Binary Search Tree</h1>
@@ -656,95 +707,6 @@ func main() {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15357927890000.html">
-                    
-                    <h1>204 Count Primes</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <blockquote>
-<p>Count the number of prime numbers less than a non-negative number, n.</p>
-</blockquote>
-
-<h2 id="toc_0">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">public class A204_CountPrimes {
-    /**
-     * 题目分析：
-     * 我没有想到什么判断质数的好办法，最初的想法是按照定义，依次去除，看是否有整数，但这种方法太慢了
-     * 后来参考了他人的方法，思路是把不是质数的部分标记出来，那么剩下的就都是质数了，同时因为偶数必然不是质数，可以进一步优化
-     *
-     * 运行时长：23ms / 42%
- 
-&lt;!-- more --&gt;
- 
-     *
-     * 总结：
-     * 做了很多小补丁，不是一个特别完美的方法
-     */
-    static int countPrimes(int n) {
-        if (n &lt; 3) return 0;
-        int count = 1;
-        boolean[] notPrime = new boolean[n];
-        for (int i = 3; i &lt; n; i += 2) {
-            if (notPrime[i] == false) count++;
-            for (int j = 3; i * j &lt; n; j += 2) {
-                notPrime[i * j] = true;
-            }
-        }
-        return count;
-    }
-
-    //运行时长：23ms / 54%， 小改动
-    static int countPrimes2(int n) {
-        if (n &lt; 3) return 0;
-        int count = 1;
-        boolean[] notPrime = new boolean[n];
-        for (int i = 3; i &lt; n; i += 2) {
-            if (notPrime[i] == false) count++;
-            for (long j = i; (long) (i * j) &lt; n; j += 2) {
-                notPrime[(int) (i * j)] = true;
-            }
-        }
-        return count;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(countPrimes(4));
-        System.out.println(countPrimes(10));
-        System.out.println(countPrimes(12));
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/9/1 17:6 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -831,31 +793,31 @@ func main() {
 	      
 		      
 			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			        <a href="maven_note.html.html">Maven 笔记</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15473879569169.html">Week - 2019/1/12</a>
+			        <a href="15450518960000.html">Week - 2018/12/15</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week - 2019/1/6</a>
+			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week - 2018/12/29</a>
+			        <a href="15450538760000.html">Week - 2018/12/22</a>
 			      </li>
 		     
 		  

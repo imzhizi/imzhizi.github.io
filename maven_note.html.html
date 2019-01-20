@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        Git 笔记 - 难以想象的晴朗
+        Maven 笔记 - 难以想象的晴朗
         
     </title>
     
@@ -91,10 +91,10 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>Git 笔记</h1>
+          <h1>Maven 笔记</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2018/12/15 23:50 下午</span>
+          <span class="date">2019/1/19 23:2 下午</span>
 
           <span>posted in&nbsp;</span> 
           
@@ -111,124 +111,61 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">基本配置</h2>
-
-<p><a href="https://segmentfault.com/a/1190000002533334">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p>
-
-<h2 id="toc_1">合并多个 commit</h2>
-
-<p>很多时候都以为这次一定没问题了, 但是提交了之后才发现其实并没有解决问题, 因此就再次提交, 为了提交信息清爽、有效, 可以合并一些commit.</p>
+      <p>打算系统学习一下 Maven 的使用, 在此之前, 我打算先记下自己之前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.</p>
 
 <span id="more"></span><!-- more -->
 
-<ul>
-<li>方法一是通过 <code>git rebase</code> 合并的方法 <sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup></li>
-</ul>
+<h2 id="toc_0">个人的 Maven 理解</h2>
 
-<pre><code class="language-bash"># 首先使用合并命令, 两种方法
-## 一种是合并最近n次 commit
-git rebase -i HEAD~3
-## 一种是合并到某个版本号
-git rebase -i 8fb7df
+<p>最直观的, Maven 使用 pom.xml 文件来管理项目中所使用的依赖, 这跟 Python 的 requirement.txt、JS 的 package.json 或者是 Ruby 的 Gemfile 都类似. 不过, 其他语言的依赖文件规定的往往是某个包的最低版本, 在实际安装的时候, 很可能会安装最新版, 这个时候实际版本会形成另外一个 lock 文件, 像 package.json.lock. 但是 Maven 不会, 因为在 Maven 的一个依赖节点中, 会要求声明具体的版本.</p>
 
-# 合并
-## 命令执行以后, 会弹出一个窗口
-pick 3ca6ec3   &#39;注释**********&#39;
-pick 1b40566   &#39;注释*********&#39;
-pick 53f244a   &#39;注释**********&#39;
+<p>其次, 因为和构建相关, 所以 pom.xml 中需要声明项目所属的组织、项目的名称、版本, 同时还要在 <code>properties</code> 节点中声明使用的 Java 版本、编码等信息, <code>build</code> 也是经常见到的一个节点, 但我不是很理解它的作用.</p>
 
-## 将第一行之外的 pick 改为 squash 或 s, 然后 wq 保存
-pick 3ca6ec3   &#39;注释**********&#39;
-s 1b40566   &#39;注释*********&#39;
-s 53f244a   &#39;注释**********&#39;
+<pre><code class="language-markup">&lt;!--项目信息--&gt;
+&lt;groupId&gt;域名/项目名&lt;/groupId&gt;
+&lt;artifactId&gt;项目名/组件&lt;/artifactId&gt;
+&lt;version&gt;版本&lt;/version&gt;
 
-## 保存成功之后就会弹出第二个文件, 如果不想修改 commit messgae, 只要继续 wq 保存即可完成合并.
+&lt;properties&gt;
+    &lt;!-- 可以声明编码 --&gt;    
+    &lt;!-- 声明 jdk 版本--&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;!-- 可以自定义一些版本值 --&gt;
+&lt;/properties&gt;
 
-# This is a combination of 4 commits.  
-#The first commit’s message is:  
-注释......
-# The 2nd commit’s message is:  
-注释......
-# The 3rd commit’s message is:  
-注释......
+&lt;!-- 一些构建相关的信息 --&gt;
+&lt;build&gt;
+    ……
+&lt;/build&gt;
+
+&lt;!-- 最重要的部分, 列出所依赖的包 --&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;域名/项目名&lt;/groupId&gt;
+        &lt;artifactId&gt;项目名/组件&lt;/artifactId&gt;
+        &lt;version&gt;版本&lt;/version&gt;
+    &lt;/dependency&gt;
+    ……
+&lt;/dependencies&gt;
 </code></pre>
 
-<ul>
-<li>方法二<br/>
-通过 git reset 合并(暂略)</li>
-</ul>
+<p>但 Maven 不能像 pip、npm、Gem 一样使用 <code>install xxxx</code> 命令安装依赖, 而是需要自己添加 <code>&lt;dependency&gt;……&lt;/dependency&gt;</code> 节点来添加依赖, 然后再使用 <code>mvn install</code> 才能安装, 所以必须借助一些工具, 比如说 Maven 依赖搜索引擎 <a href="https://mvnrepository.com/">Maven Repository Search </a> 才能找到自己想要使用的包. 不过好在日常开发中使用到的包都是配套使用的, 所以自行搜索依赖的场景并不是很多.</p>
 
-<pre><code class="language-bash"># 使用 git reset 命令回到两个 commit 之前的版本, 但并不撤销当前版本的代码
-git reset --soft HEAD~2  
+<p>但在包管理之外, Maven 还可以进编译和打包, 之前我只会在 Spring Boot 项目中使用 Maven, 因为很简单: 运行是 <code>mvn run</code>、打包是 <code>mvn package</code>, 打包之后就可以通过 <code>java -jar xx.jar</code> 来运行. <code>mvn clean</code> 命令可以删除掉项目中的 <code>target</code> 文件夹, 也就是清除掉所有的编译后的内容.</p>
 
-# 此时重新 commit 即可完成合并
-git commit --amend
-</code></pre>
+<h3 id="toc_1">JSP 项目</h3>
 
-<h2 id="toc_2">Git User Config</h2>
+<p>而对于传统的项目, 我以前并不太会使用 Maven 处理, 最近有需求之后有这些经验.<br/>
+一个JSP 项目的 Maven 的典型目录是 <code>java</code>、<code>resources</code>、<code>webapp</code>.<br/>
+在编译时, webapp 文件夹会成为根文件夹, <code>java</code> 文件夹中代码会被编译成 <code>.class</code> 文件放到 <code>webapp/WEB-INF/lib</code> 中, <code>resources</code> 文件夹和 <code>java</code> 文件夹去的地方一样, 但因为是配置文件, 所以不会被编译.<br/>
+<mark>最最重要的一点</mark>, 就是 Maven 如何把这个项目识别成一个传统项目呢, 就是在项目信息下方添加 packaging 信息, 也就是 —— <code>&lt;packaging&gt;war&lt;/packaging&gt;</code>, 这样, Maven 就会识别 <code>java</code>、<code>resources</code>、<code>webapp</code> 的结构了.</p>
 
-<p>使用不同的代码托管平台, 可能 username 和 email 也有所不同.</p>
+<p>在拿到这样一个 xx.war 包之后, 把它拷贝到服务器 Tomcat 的 webapps文件夹下面, 重启 Tomcat 就可以成功部署.</p>
 
-<ul>
-<li>全局配置, 为项目提供默认配置<br/>
-通过下面一条命令, 可以为电脑配置 git 默认的 name 和 email</li>
-</ul>
+<h3 id="toc_2">Spring Boot 项目</h3>
 
-<pre><code class="language-bash">git config --global user.name &#39;name&#39;
-git config --global user.username &#39;username&#39;
-git config --global user.email &#39;address@mail.com&#39;
-</code></pre>
-
-<ul>
-<li>实际上, 执行该命令会在个人根目录下创建 .gitconfig 文件, 通过修改该文件能达到相同的效果</li>
-</ul>
-
-<pre><code class="language-text">[user]
-    name = name
-    email = address@mail.com
-</code></pre>
-
-<ul>
-<li>局部配置, 针对项目进行专有配置</li>
-</ul>
-
-<pre><code class="language-bash">git config --local user.name &#39;name&#39;
-git config --local user.username &#39;username&#39;
-git config --local user.email &#39;address@mail.com&#39;
-</code></pre>
-
-<ul>
-<li>同样地, 执行该命令会在 .git 文件夹下创建 config文件, 通过修改该文件能达到相同的效果</li>
-</ul>
-
-<pre><code class="language-text">[user]
-    name = name
-    email = address@mail.com
-</code></pre>
-
-<h2 id="toc_3">撤销 commit</h2>
-
-<p>与合并 commit 是类似的需求, 如果某一次 commit 提交的代码仍然有问题, 更麻烦的, 如果上传了一些奇奇怪怪的文件, 如果不小心上传了配置文件, 就需要撤销 commit.</p>
-
-<p>总之都是回到上个版本, 但是代码仍然保留, 重新修改即可重新 commit.</p>
-
-<pre><code class="language-bash">git reset --soft HEAD^
-git reset commit-id 
-
-# 对于不小心 git add . 追踪的文件, 使用一下命令就可以取消追踪
-git checkout -- &lt;file&gt;
-</code></pre>
-
-<div class="footnotes">
-<hr/>
-<ol>
-
-<li id="fn1">
-<p><a href="https://segmentfault.com/a/1190000007748862"> Git 合并多个commit - nihao - SegmentFault 思否</a>&nbsp;<a href="#fnref1" rev="footnote">&#8617;</a></p>
-</li>
-
-</ol>
-</div>
+<p>我 Spring Boot 相关的项目经验并不多, 仅有的经验是 Spring Boot 项目会在根目录产生 mvnw 脚本, 通过该脚本, 可以使用 <code>mvn spring-boot:run</code> 命令运行项目, 在使用 <code>mvn package</code> 时会要求数据库必须有连通性.</p>
 
 
     
@@ -239,16 +176,16 @@ git checkout -- &lt;file&gt;
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15450518960000.html" 
-          title="Previous Post: Week - 2018/12/15">&laquo; Week - 2018/12/15</a>
+          <a href="15478753789599.html" 
+          title="Previous Post: Week - 2019/1/19">&laquo; Week - 2019/1/19</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15448822410000.html" 
-          title="Next Post: 我在 Mac 上都用什么">我在 Mac 上都用什么 &raquo;</a>
+          <a  href="15450518960000.html" 
+          title="Next Post: Week - 2018/12/15">Week - 2018/12/15 &raquo;</a>
       
       </p>
         </div>
@@ -358,31 +295,31 @@ s.setAttribute('data-timestamp', +new Date());
 	      
 		      
 			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15478740192982.html">Linux(四) 软件包管理器</a>
+			        <a href="maven_note.html.html">Maven 笔记</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15473879569169.html">Week - 2019/1/12</a>
+			        <a href="15450518960000.html">Week - 2018/12/15</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15468721130000.html">Week - 2019/1/6</a>
+			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15459768320000.html">Week - 2018/12/29</a>
+			        <a href="15450538760000.html">Week - 2018/12/22</a>
 			      </li>
 		     
 		  
