@@ -91,6 +91,54 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15284708220000.html">
+                    
+                    <h1>125 Valid Palindrome</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br/>
+Note: For the purpose of this problem, we define empty string as valid palindrome.</p>
+
+<p>Example 1:<br/>
+Input: &quot;A man, a plan, a canal: Panama&quot;<br/>
+Output: true</p>
+
+<p>Example 2:<br/>
+Input: &quot;race a car&quot;<br/>
+Output: false</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15284708220000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/6/8 23:13 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15282133080000.html">
                     
                     <h1>121 Best Time to Buy and Sell Stock</h1>
@@ -679,94 +727,6 @@ public class A104_MaximumDepthOfBinaryTree {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15257457080000.html">
-                    
-                    <h1>101 Symmetric Tree</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
-</blockquote>
-
-<p><img src="https://s1.imgsha.com/2018/10/01/7x3YQE.png" alt="101SymmetricTree"/></p>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/8
- */
-public class A101_SymmetricTree {
- 
-&lt;!-- more --&gt;
- 
-    /**
-     * 题目分析：
-     * 跟上一题类似的做法，为了达到递归，我甚至新写了一个函数用来递归
-     * 可能层次遍历会有更好的效果，因为运行时长的distribution为48%，但暂时没心情了解了
-     * 运行时长：16 ms
-     *
-     * 总结：无
-     */
-    public static boolean isSymmetric(TreeNode root) {
-        if(root==null) return true;
-        else return isSymmetric(root.left,root.right);
-    }
-
-    public static boolean isSymmetric(TreeNode left,TreeNode right) {
-        if((left!=null&amp;&amp;right==null)||(left==null&amp;&amp;right!=null))return false;
-        if(left==null&amp;&amp;right==null)return true;
-        if(left.val!=right.val)return false;
-        return isSymmetric(left.left,right.right)&amp;&amp;isSymmetric(left.right,right.left);
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1=new TreeNode(1);
-        TreeNode t2=new TreeNode(1);
-        TreeNode t3=new TreeNode(1);
-        TreeNode t4=new TreeNode(2);
-        TreeNode t5=new TreeNode(2);
-
-        t1.left=t2;
-        t1.right = t3;
-        t2.right = t4;
-        t3.right = t5;
-
-        System.out.println(isSymmetric(t1));
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/8 10:15 上午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -853,7 +813,13 @@ public class A101_SymmetricTree {
 	      
 		      
 			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482996985553.html">876 Middle of the Linked List</a>
 			      </li>
 		     
 		  
@@ -865,19 +831,13 @@ public class A101_SymmetricTree {
 		  
 		      
 			      <li class="post">
-			        <a href="15450518960000.html">Week - 2018/12/15</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week - 2018/12/22</a>
+			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

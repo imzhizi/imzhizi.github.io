@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        168 Excel Sheet Column Title - 难以想象的晴朗
+        876 Middle of the Linked List - 难以想象的晴朗
         
     </title>
     
@@ -91,10 +91,10 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>168 Excel Sheet Column Title</h1>
+          <h1>876 Middle of the Linked List</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2018/7/13 21:38 下午</span>
+          <span class="date">2019/1/24 11:14 上午</span>
 
           <span>posted in&nbsp;</span> 
           
@@ -111,75 +111,53 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.<br/>
-For example:<br/>
- 1 -&gt; A<br/>
- 2 -&gt; B<br/>
- ...<br/>
- 26 -&gt; Z<br/>
- 27 -&gt; AA</p>
-
-<p>Example 1:<br/>
- Input: 1<br/>
- Output: &quot;A&quot;</p>
-</blockquote>
-
-<span id="more"></span><!-- more -->
-
-<blockquote>
-<p>Example 2:<br/>
- Input: 701<br/>
- Output: &quot;ZY&quot;</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
+      <p>题目: <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List - LeetCode</a></p>
 
 <pre><code class="language-java">/**
- * created by zhizi on 2018/7/16
+ * 分析
+ * 最近懈怠了许多，一直没刷题，新的一年也要加油啊～
+ * 题目就是很蠢的找一个链表的中间节点，没想到什么好办法，就老老实实遍历，时间复杂度为 O(n+n/2)
+ *
+ * 时长
+ * 1ms / 82%
+ *
+ * 总结
+ * 虽然搞了点小手段希望能优化（也就是判断链表长度，一次移动两个结点），但也没什么效果，就这样吧
  */
-public class A168_ExcelSheetColumnTitle {
-    /**
-     * 题目分析：
-     * 本来以为会是导入 Excel 文件什么的复杂题目，结果其实是一道进制转换题目，相当于是求 n 的26进制表示
-     * 仔细做了之后发现并不是简单地进制转换，因为不存在 0 的缘故，每次需要进位的时候都需要4下借一位，如 52 就不是 B0，而是 AZ
-     * 使用了 nums[] 保存每一位的结果，然后通过 char 得到结果
-     *
-     * 运行时长：0ms
-     *
-     * 总结：
-     * 遇到这种题还是要仔细地分析题目，找到根本点，如果不加思考地暴力解决，往往浪费很多时间
-     */
-    public static String convertToTitle(int n) {
-        int[] nums = new int[10];
-        int i=0;
-        while(n&gt;26){
-            nums[i]+=n%26;
-            if(nums[i]==0){
-                nums[i]=26;
-                nums[i+1]--;
-            }
-            i++;
-            n=n/26;
-        }
-        nums[i]+=n;
-        String title = &quot;&quot;;
-        for (int j = 0; nums[j] != 0; j++) {
-            title = (char) (nums[j] + 64) + title;
-        }
-        return title;
+public ListNode middleNode(ListNode head) {
+    ListNode node = head;
+    int num = 0;
+    while (node != null) {
+        node = node.next;
+        num++;
     }
 
-    public static void main(String[] args) {
-        System.out.println(convertToTitle(26));
-        System.out.println(convertToTitle(27));
-        System.out.println(convertToTitle(52));
-        System.out.println(convertToTitle(701));
+    int mid = num / 2;
+
+    for (int i = 0; i &lt; mid; i++) {
+        if (mid - i &gt; 2) {
+            head = head.next.next;
+            i++;
+        } else {
+            head = head.next;
+        }
     }
+    return head;
+}
+
+@Test
+public void test876() {
+    ListNode node1 = new ListNode(2);
+    ListNode node2 = new ListNode(3);
+    ListNode node3 = new ListNode(4);
+    ListNode node4 = new ListNode(5);
+    ListNode node5 = new ListNode(6);
+    node1.setNext(node2);
+    node2.setNext(node3);
+    node3.setNext(node4);
+    node4.setNext(node5);
+
+    Assert.assertEquals(node3, middleNode(node1));
 }
 </code></pre>
 
@@ -192,16 +170,16 @@ public class A168_ExcelSheetColumnTitle {
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15317100690000.html" 
-          title="Previous Post: 169 Majority Element">&laquo; 169 Majority Element</a>
+          <a href="15482998128871.html" 
+          title="Previous Post: 2 Add Two Numbers">&laquo; 2 Add Two Numbers</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15311511750000.html" 
-          title="Next Post: 167 Two Sum II">167 Two Sum II &raquo;</a>
+          <a  href="maven_note.html.html" 
+          title="Next Post: Maven 笔记">Maven 笔记 &raquo;</a>
       
       </p>
         </div>

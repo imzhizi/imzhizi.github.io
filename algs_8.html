@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        168 Excel Sheet Column Title - 难以想象的晴朗
+        算法 - 难以想象的晴朗
         
     </title>
     
@@ -82,165 +82,128 @@
 
 
         <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+    $(function () {
+        $('#menu_item_index').addClass('is_active');
+    });
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>168 Excel Sheet Column Title</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2018/7/13 21:38 下午</span>
-
-          <span>posted in&nbsp;</span> 
-          
-              <span class="posted-in"><a href='algs.html'>算法</a></span>
-           
-         
-          <span class="comments">
+    <div class="large-8 medium-8 columns">
+        <div class="markdown-body home-categories">
             
+            <div class="article">
+                <a class="clearlink" href="15232628950000.html">
+                    
+                    <h1>7 Reverse Integer</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Given a 32-bit signed integer, reverse digits of an integer.<br/>
+Example:<br/>
+  Input: 123<br/>
+  Output:  321</p>
 
-            
-          </span>
+<p>Input: -123<br/>
+  Output: -321</p>
 
-        </div>
-      </div><!-- article -->
-
-      <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.<br/>
-For example:<br/>
- 1 -&gt; A<br/>
- 2 -&gt; B<br/>
- ...<br/>
- 26 -&gt; Z<br/>
- 27 -&gt; AA</p>
-
-<p>Example 1:<br/>
- Input: 1<br/>
- Output: &quot;A&quot;</p>
+<p>Input: 120<br/>
+  Output: 21</p>
 </blockquote>
 
-<span id="more"></span><!-- more -->
+<h2 id="toc_0">两种实现</h2>
 
-<blockquote>
-<p>Example 2:<br/>
- Input: 701<br/>
- Output: &quot;ZY&quot;</p>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15232628950000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/9 16:34 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15230720470000.html">
+                    
+                    <h1>1 Two Sum</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br/>
+You may assume that each input would have exactly one solution, and you may not use the same element twice.<br/>
+Eg.<br/>
+  Given nums = [2, 7, 11, 15], target = 9,<br/>
+  Because nums[0] + nums[1] = 2 + 7 = 9,<br/>
+  return [0, 1].</p>
 </blockquote>
 
-<h2 id="toc_1">代码实现</h2>
+<h2 id="toc_0">系列说明</h2>
 
-<p>详解见注释</p>
+<p>这是LeetCode的第一道题，没什么难度，但可以通过这个来适应LeetCode的OJ，可以看到只要在LeetCode上提交一个函数即可，不需做额外的输出什么的，同时我发现将函数写成静态也是可以正常执行的，暂时还没发现效率上的影响，之后的题目为了方便都会写成静态的。</p>
 
-<pre><code class="language-java">/**
- * created by zhizi on 2018/7/16
- */
-public class A168_ExcelSheetColumnTitle {
-    /**
-     * 题目分析：
-     * 本来以为会是导入 Excel 文件什么的复杂题目，结果其实是一道进制转换题目，相当于是求 n 的26进制表示
-     * 仔细做了之后发现并不是简单地进制转换，因为不存在 0 的缘故，每次需要进位的时候都需要4下借一位，如 52 就不是 B0，而是 AZ
-     * 使用了 nums[] 保存每一位的结果，然后通过 char 得到结果
-     *
-     * 运行时长：0ms
-     *
-     * 总结：
-     * 遇到这种题还是要仔细地分析题目，找到根本点，如果不加思考地暴力解决，往往浪费很多时间
-     */
-    public static String convertToTitle(int n) {
-        int[] nums = new int[10];
-        int i=0;
-        while(n&gt;26){
-            nums[i]+=n%26;
-            if(nums[i]==0){
-                nums[i]=26;
-                nums[i+1]--;
-            }
-            i++;
-            n=n/26;
-        }
-        nums[i]+=n;
-        String title = &quot;&quot;;
-        for (int j = 0; nums[j] != 0; j++) {
-            title = (char) (nums[j] + 64) + title;
-        }
-        return title;
-    }
+<h2 id="toc_1">两种实现</h2>
 
-    public static void main(String[] args) {
-        System.out.println(convertToTitle(26));
-        System.out.println(convertToTitle(27));
-        System.out.println(convertToTitle(52));
-        System.out.println(convertToTitle(701));
-    }
-}
-</code></pre>
+<p>具体介绍见方法注释</p>
 
 
-    
+                            
+                        </div>
+                    </div>
+                </a>
 
-      </div>
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15230720470000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/7 11:34 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
 
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-          <a href="15317100690000.html" 
-          title="Previous Post: 169 Majority Element">&laquo; 169 Majority Element</a>
-      
-        </p>
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <p class="text-left" style="padding-top:25px;">
+                         <a href="algs_7.html">&laquo; Prev Page</a> 
+                    </p>
+                </div>
+                <div class="large-6 columns">
+                    <p class="text-right" style="padding-top:25px;">
+                        
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-          <a  href="15311511750000.html" 
-          title="Next Post: 167 Two Sum II">167 Two Sum II &raquo;</a>
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          <div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://imzhizi-com.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-          
-
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
-
-
-
-
- <div class="large-4 medium-4 columns">
+    </div><!-- large 8 --> <div class="large-4 medium-4 columns">
   <div class="hide-for-small">
     <div id="sidebar" class="sidebar">
           <div id="site-info" class="site-info">

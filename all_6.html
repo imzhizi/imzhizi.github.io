@@ -91,6 +91,107 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15317100690000.html">
+                    
+                    <h1>169 Majority Element</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.<br/>
+You may assume that the array is non-empty and the majority element always exist in the array.</p>
+
+<p>Example 1:<br/>
+Input: [3,2,3]<br/>
+Output: 3</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 2018/7/13
+ */
+public class A169_MajorityElement {
+    /**
+     * 题目分析：
+     * 看到题目，按照最暴力的解法，可以使用 HashMap 统计每个数字出现的次数，哪一个出现次数超过 2/n
+     *
+     * 运行时长：18ms
+     *
+     * 总结：
+     * 为了维持一个HashMap的成本太高了，一看就需要优化
+     */
+    public static int majorityElement(int[] nums) {
+        HashMap&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (!map.containsKey(nums[i]))
+                map.put(nums[i],1);
+            else map.put(nums[i],map.get(nums[i])+1);
+            if(map.get(nums[i])&gt;nums.length/2)
+                return nums[i];
+        }
+        return 0;
+    }
+
+    /**
+     * 题目分析：
+     * 学习到的一种非常好的做法，值得反复回味
+     *
+     * 运行时长：4ms
+     *
+     * 总结：
+     * 无
+     */
+    public static int majorityElement2(int[] nums) {
+        int majority =nums[0];
+        int count=0;
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (majority==nums[i]){
+                count++;
+            }else count--;
+            if(count==0){
+                majority=nums[i];
+                count++;
+            }
+        }
+        return 0;
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/7/16 11:1 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15314891170000.html">
                     
                     <h1>168 Excel Sheet Column Title</h1>
@@ -580,54 +681,6 @@ public class A136_SingleNumber {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15284708220000.html">
-                    
-                    <h1>125 Valid Palindrome</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br/>
-Note: For the purpose of this problem, we define empty string as valid palindrome.</p>
-
-<p>Example 1:<br/>
-Input: &quot;A man, a plan, a canal: Panama&quot;<br/>
-Output: true</p>
-
-<p>Example 2:<br/>
-Input: &quot;race a car&quot;<br/>
-Output: false</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15284708220000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/6/8 23:13 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -714,7 +767,13 @@ Output: false</p>
 	      
 		      
 			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482996985553.html">876 Middle of the Linked List</a>
 			      </li>
 		     
 		  
@@ -726,19 +785,13 @@ Output: false</p>
 		  
 		      
 			      <li class="post">
-			        <a href="15450518960000.html">Week - 2018/12/15</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week - 2018/12/22</a>
+			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

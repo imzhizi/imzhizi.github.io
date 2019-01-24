@@ -91,30 +91,97 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
-                <a class="clearlink" href="15230720470000.html">
+                <a class="clearlink" href="15482998128871.html">
                     
-                    <h1>1 Two Sum</h1>
+                    <h1>2 Add Two Numbers</h1>
                     <div class="a-content">
                         
                         <div class="a-content-text">
                             
-                            <blockquote>
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br/>
-You may assume that each input would have exactly one solution, and you may not use the same element twice.<br/>
-Eg.<br/>
-  Given nums = [2, 7, 11, 15], target = 9,<br/>
-  Because nums[0] + nums[1] = 2 + 7 = 9,<br/>
-  return [0, 1].</p>
-</blockquote>
+                            <p>题目: <a href="https://leetcode.com/problems/add-two-numbers/">Add Two Numbers - LeetCode</a></p>
 
-<h2 id="toc_0">系列说明</h2>
+<pre><code class="language-java">/**
+ * 分析
+ * 两个链表中的数字逐个相加，主要问题就是进位问题，如果选一个链表存储结果，当链表不够的时候需要新建结点
+ *
+ * 时长
+ * 23ms / 82%
+ *
+ * 总结
+ * 新建结点问题比预想中的要复杂，因为新建的结点需要有前置结点，因此需要总是用前置结点来操作
+ * 两链表长度可能会不同，因此在过程中要拼接链表形成最长的结果链表
+ * 进位判断使用  add = sum / 10; sum = sum % 10; 比最初使用 if(sum&gt;9) 效果好很多
+ */
+public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    ListNode head = new ListNode(0);
+    ListNode result = head;
+    head.next = l1;
+    int add = 0;
+    int sum = 0;
 
-<p>这是LeetCode的第一道题，没什么难度，但可以通过这个来适应LeetCode的OJ，可以看到只要在LeetCode上提交一个函数即可，不需做额外的输出什么的，同时我发现将函数写成静态也是可以正常执行的，暂时还没发现效率上的影响，之后的题目为了方便都会写成静态的。</p>
+    while (l1 != null || l2 != null) {
+        if (l1 == null) {
+            sum = l2.val + add;
+            head.next = l2;
+            l2 = l2.next;
+        } else if (l2 == null) {
+            sum = l1.val + add;
+            head.next = l1;
+            l1 = l1.next;
+        } else {
+            sum = l1.val + l2.val + add;
+            l1 = l1.next;
+            l2 = l2.next;
+        }
 
-<h2 id="toc_1">两种实现</h2>
+        add = sum / 10;
+        sum = sum % 10;
 
-<p>具体介绍见方法注释</p>
+        head.next.val = sum;
+        head = head.next;
+    }
 
+    if (add != 0) {
+        head.next = new ListNode(add);
+    }
+
+    return result.next;
+}
+
+@Test
+public void test2(){
+    ListNode node = new ListNode(0);
+    ListNode node1 = new ListNode(2);
+    ListNode node2 = new ListNode(4);
+    ListNode node3 = new ListNode(3);
+    node1.next=node2;
+    node2.next=node3;
+
+    ListNode node4 = new ListNode(5);
+    ListNode node5 = new ListNode(6);
+    ListNode node6 = new ListNode(4);
+    node4.next=node5;
+    node5.next=node6;
+
+
+    ListNode node7 = new ListNode(7);
+    ListNode node8 = new ListNode(0);
+    ListNode node9 = new ListNode(8);
+    node7.next=node8;
+    node8.next=node9;
+
+    Assert.assertEquals(node7, addTwoNumbers(node1,node4));
+
+    ListNode node10=new ListNode(2);
+    node10.next= new ListNode(1);
+
+    Assert.assertEquals(node10, addTwoNumbers(node6,node9));
+
+    Assert.assertEquals(node10, addTwoNumbers(node10,node));
+
+    Assert.assertEquals(node10, addTwoNumbers(node,node10));
+}
+</code></pre>
 
                             
                         </div>
@@ -123,8 +190,90 @@ Eg.<br/>
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        <a href="15230720470000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/4/7 11:34 上午</span>
+                        
+                        <span class="date">2019/1/24 11:16 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15482996985553.html">
+                    
+                    <h1>876 Middle of the Linked List</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>题目: <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List - LeetCode</a></p>
+
+<pre><code class="language-java">/**
+ * 分析
+ * 最近懈怠了许多，一直没刷题，新的一年也要加油啊～
+ * 题目就是很蠢的找一个链表的中间节点，没想到什么好办法，就老老实实遍历，时间复杂度为 O(n+n/2)
+ *
+ * 时长
+ * 1ms / 82%
+ *
+ * 总结
+ * 虽然搞了点小手段希望能优化（也就是判断链表长度，一次移动两个结点），但也没什么效果，就这样吧
+ */
+public ListNode middleNode(ListNode head) {
+    ListNode node = head;
+    int num = 0;
+    while (node != null) {
+        node = node.next;
+        num++;
+    }
+
+    int mid = num / 2;
+
+    for (int i = 0; i &lt; mid; i++) {
+        if (mid - i &gt; 2) {
+            head = head.next.next;
+            i++;
+        } else {
+            head = head.next;
+        }
+    }
+    return head;
+}
+
+@Test
+public void test876() {
+    ListNode node1 = new ListNode(2);
+    ListNode node2 = new ListNode(3);
+    ListNode node3 = new ListNode(4);
+    ListNode node4 = new ListNode(5);
+    ListNode node5 = new ListNode(6);
+    node1.setNext(node2);
+    node2.setNext(node3);
+    node3.setNext(node4);
+    node4.setNext(node5);
+
+    Assert.assertEquals(node3, middleNode(node1));
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2019/1/24 11:14 上午</span>
                         <span>posted in&nbsp;</span> 
                         
                         <span class="posted-in"><a href='algs.html'>算法</a></span>
@@ -158,45 +307,6 @@ Input: 16<br/>
 Output: true</p>
 </blockquote>
 
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018-12-26
- 
-&lt;!-- more --&gt;
- 
- */
-public class A342_PowerOfFour {
-    /**
-     * 题目分析：
-     * 这个比计算 3 的幂有想法，只要是 2 的幂，都是 1 开始，后面全是 0 的二进制
-     * 如果是 4 的幂，只要0的个数是2的倍数即可，所以产生了两种写法
-     *
-     * 运行时长：3ms / 6%
-     *
-     * 总结：
-     * 但没想到效率都很低，可能要使用到位运算才能降低时间复杂度。
-     */
-    static boolean isPowerOfFour0(int num) {
-        char[] chars=Integer.toBinaryString(num).toCharArray();
-        if (chars[0]!=&#39;1&#39;)return false;
-        if ((chars.length-1)%2!=0)return false;
-        for (int i = 1; i &lt; chars.length; i++) {
-            if (chars[i]!=&#39;0&#39;) return false;
-        }
-        return true;
-    }
-
-    static boolean isPowerOfFour1(int num) {
-        String nums = Integer.toBinaryString(num);
-        if ((nums.lastIndexOf(&quot;1&quot;) != 0)) return false;
-        if (nums.length() % 2 != 1) return false;
-        return true;
-    }
-}
-</code></pre>
 
                             
                         </div>
@@ -205,7 +315,7 @@ public class A342_PowerOfFour {
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15458292480000.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2018/12/26 21:0 下午</span>
                         <span>posted in&nbsp;</span> 
                         
@@ -244,8 +354,6 @@ Example 2:</p>
 <p>Input: 0<br/>
 Output: false</p>
 </blockquote>
-
-<h2 id="toc_1">代码实现</h2>
 
 
                             
@@ -292,10 +400,6 @@ Output: [1,3,12,0,0]</p>
 <p>You must do this in-place without making a copy of the array.<br/>
 Minimize the total number of operations.</p>
 </blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
 
 
                             
@@ -393,8 +497,6 @@ Input: [9,6,4,2,3,5,7,0,1]<br/>
 Output: 8</p>
 </blockquote>
 
-<h2 id="toc_1">代码实现</h2>
-
 
                             
                         </div>
@@ -441,41 +543,6 @@ Output: true<br/>
 Explanation: 6 = 2 × 3</p>
 </blockquote>
 
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java"> 
-&lt;!-- more --&gt;
- 
-/**
- * created by zhizi on 2018-11-23
- */
-class A258_AddDigits {
-    /**
-     * 题目分析：
-     * 每次计算出一个 sum 是一个循环，直到 sum 是个位数也就是大于9就循环
-     * 内部假如 num 大于 0 就继续计算 sum，然后 num 除以 10 去掉个位数
-     *
-     * 运行时长：1ms /100%
-     *
-     * 总结：
-     * 无
-     */
-    public int addDigits(int num) {
-        int sum = num;
-        while (sum &gt; 9) {
-            num = sum;
-            sum = 0;
-            while (num &gt; 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-        }
-        return sum;
-    }
-}
-</code></pre>
 
                             
                         </div>
@@ -484,121 +551,8 @@ class A258_AddDigits {
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15432073320000.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2018/11/26 12:42 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15432072050000.html">
-                    
-                    <h1>257 Binary Tree Paths</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Given a binary tree, return all root-to-leaf paths.
- *
- * Note: A leaf is a node with no children.
- *
- 
-&lt;!-- more --&gt;
- 
- * Example:
- *
- * Input:
- *
- *    1
- *  /   \
- * 2     3
- *  \
- *   5
- *
- * Output: [&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]
- *
- * Explanation: All root-to-leaf paths are: 1-&gt;2-&gt;5, 1-&gt;3
- * 
- * created by zhizi on 11/21/18
- */
-public class A257_BinaryTreePaths {
-    /**
-     * 题目分析：
-     * 递归、递归、递归
-     *
-     * 运行时长：7ms / 99%
-     *
-     * 总结：
-     *
-     */
-    static List&lt;String&gt; binaryTreePaths(TreeNode root) {
-        List&lt;String&gt; list = new ArrayList&lt;&gt;();
-        if (root == null) return list;
-        findLeaf(list, &quot;&quot;, root);
-        return list;
-    }
-
-    static void findLeaf(List&lt;String&gt; list, String path, TreeNode root) {
-        if (path.length() == 0)
-            path = path + root.val;
-        else
-            path += &quot;-&gt;&quot; + root.val;
-
-        if (root.left == null &amp;&amp; root.right == null) {
-            list.add(path);
-            return;
-        }
-        if (root.left != null) {
-            findLeaf(list, path, root.left);
-        }
-        if (root.right != null) {
-            findLeaf(list, path, root.right);
-        }
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(2);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(3);
-        t1.left = t2;
-        t1.right = t3;
-        List&lt;String&gt; list = binaryTreePaths(t1);
-        for (String s : list) {
-            System.out.println(s);
-        }
-    }
-}
-
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/11/26 12:40 下午</span>
                         <span>posted in&nbsp;</span> 
                         
                         <span class="posted-in"><a href='algs.html'>算法</a></span>
@@ -700,7 +654,13 @@ public class A257_BinaryTreePaths {
 	      
 		      
 			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482996985553.html">876 Middle of the Linked List</a>
 			      </li>
 		     
 		  
@@ -712,19 +672,13 @@ public class A257_BinaryTreePaths {
 		  
 		      
 			      <li class="post">
-			        <a href="15450518960000.html">Week - 2018/12/15</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week - 2018/12/22</a>
+			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

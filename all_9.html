@@ -91,6 +91,85 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15247221900000.html">
+                    
+                    <h1>58 Length of Last Word</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a string s consists of upper/lower-case alphabets and empty space characters &#39; &#39;, return the length of last word in the string.<br/>
+If the last word does not exist, return 0.<br/>
+Note: A word is defined as a character sequence consists of non-space characters only.</p>
+
+<p>Example:<br/>
+Input: &quot;Hello World&quot;<br/>
+Output: 5</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java"> 
+&lt;!-- more --&gt;
+ 
+/**
+ * created by zhizi on 2018/4/26
+ */
+public class A58_LengthOfLastWord {
+    /**
+     * 函数描述：
+     * 题目并不复杂，只要注意几个特殊的样例即可
+     * 其中有：&quot;a &quot;，&quot;    &quot;，
+     * 运行时长：5 ms
+     *
+     * 总结：
+     * 两种结束情况，一种是遇到最后一个单词之前的空格，一个是整个字符串直接遍历结束
+     */
+    public static int lengthOfLastWord(String s) {
+        int length = 0;
+        for (int i = s.length() - 1; i &gt;= 0; i--) {
+            if (s.charAt(i) != &#39; &#39;) length++;
+            if (s.charAt(i) == &#39; &#39; &amp;&amp; length != 0) break;
+        }
+        return length;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(lengthOfLastWord(&quot;Hello World&quot;));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/4/26 13:56 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15246632930000.html">
                     
                     <h1>53 Maximum Subarray</h1>
@@ -670,53 +749,6 @@ public class A21_MergeTwoSortedLists {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15240572790000.html">
-                    
-                    <h1>20 Valid Parentheses</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <blockquote>
-<p>Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input string is valid.</p>
-
-<p>An input string is valid if:<br/>
-Open brackets must be closed by the same type of brackets.<br/>
-Open brackets must be closed in the correct order.</p>
-
-<p>Note that an empty string is also considered valid.</p>
-
-<p>Example 1:<br/>
-Input: &quot;()&quot;<br/>
-Output: true</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15240572790000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/4/18 21:14 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -803,7 +835,13 @@ Output: true</p>
 	      
 		      
 			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482996985553.html">876 Middle of the Linked List</a>
 			      </li>
 		     
 		  
@@ -815,19 +853,13 @@ Output: true</p>
 		  
 		      
 			      <li class="post">
-			        <a href="15450518960000.html">Week - 2018/12/15</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week - 2018/12/22</a>
+			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

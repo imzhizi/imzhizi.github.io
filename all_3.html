@@ -91,249 +91,6 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
-                <a class="clearlink" href="15436582430000.html">
-                    
-                    <h1>268 Missing Number</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.</p>
-
-<p>Example 1:<br/>
-Input: [3,0,1]<br/>
-Output: 2</p>
-
-<p>Example 2:<br/>
-Input: [9,6,4,2,3,5,7,0,1]<br/>
-Output: 8</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15436582430000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/12/1 17:57 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15432073320000.html">
-                    
-                    <h1>263 Ugly Number</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Write a program to check whether a given number is an ugly number.</p>
-
-<p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.</p>
-
-<p>Example 1:<br/>
-Input: 6<br/>
-Output: true<br/>
-Explanation: 6 = 2 × 3</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java"> 
-&lt;!-- more --&gt;
- 
-/**
- * created by zhizi on 2018-11-23
- */
-class A258_AddDigits {
-    /**
-     * 题目分析：
-     * 每次计算出一个 sum 是一个循环，直到 sum 是个位数也就是大于9就循环
-     * 内部假如 num 大于 0 就继续计算 sum，然后 num 除以 10 去掉个位数
-     *
-     * 运行时长：1ms /100%
-     *
-     * 总结：
-     * 无
-     */
-    public int addDigits(int num) {
-        int sum = num;
-        while (sum &gt; 9) {
-            num = sum;
-            sum = 0;
-            while (num &gt; 0) {
-                sum += num % 10;
-                num /= 10;
-            }
-        }
-        return sum;
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/11/26 12:42 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15432072050000.html">
-                    
-                    <h1>257 Binary Tree Paths</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Given a binary tree, return all root-to-leaf paths.
- *
- * Note: A leaf is a node with no children.
- *
- 
-&lt;!-- more --&gt;
- 
- * Example:
- *
- * Input:
- *
- *    1
- *  /   \
- * 2     3
- *  \
- *   5
- *
- * Output: [&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]
- *
- * Explanation: All root-to-leaf paths are: 1-&gt;2-&gt;5, 1-&gt;3
- * 
- * created by zhizi on 11/21/18
- */
-public class A257_BinaryTreePaths {
-    /**
-     * 题目分析：
-     * 递归、递归、递归
-     *
-     * 运行时长：7ms / 99%
-     *
-     * 总结：
-     *
-     */
-    static List&lt;String&gt; binaryTreePaths(TreeNode root) {
-        List&lt;String&gt; list = new ArrayList&lt;&gt;();
-        if (root == null) return list;
-        findLeaf(list, &quot;&quot;, root);
-        return list;
-    }
-
-    static void findLeaf(List&lt;String&gt; list, String path, TreeNode root) {
-        if (path.length() == 0)
-            path = path + root.val;
-        else
-            path += &quot;-&gt;&quot; + root.val;
-
-        if (root.left == null &amp;&amp; root.right == null) {
-            list.add(path);
-            return;
-        }
-        if (root.left != null) {
-            findLeaf(list, path, root.left);
-        }
-        if (root.right != null) {
-            findLeaf(list, path, root.right);
-        }
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(2);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(3);
-        t1.left = t2;
-        t1.right = t3;
-        List&lt;String&gt; list = binaryTreePaths(t1);
-        for (String s : list) {
-            System.out.println(s);
-        }
-    }
-}
-
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/11/26 12:40 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
                 <a class="clearlink" href="15432071040000.html">
                     
                     <h1>242 Valid Anagram</h1>
@@ -354,10 +111,6 @@ Output: true</p>
 Input: s = &quot;rat&quot;, t = &quot;car&quot;<br/>
 Output: false</p>
 </blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
 
 
                             
@@ -402,67 +155,6 @@ Output: false</p>
 
 <p><img src="https://ws1.sinaimg.cn/large/0072Lfvtly1fxej43l94vj307603u0sk.jpg" alt="二叉搜索树"/></p>
 
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 11/20/18
- 
-&lt;!-- more --&gt;
- 
- */
-public class A235_LowestCommonAncestorOfaBinarySearchTree {
-    /**
-     * 题目分析：
-     * 最近公共祖先（LCA）是经典算法题
-     * 其实是三种情况，看小的是否比 root 还大，大的是否比 root 还小，这两种情况都要向下递归
-     * 若两种情况都不满足，则说明 root 位于中间（也可能其中一个等于 root），则 root 必然是最近公共祖先
-     *
-     * 运行时长：1 - 47% / 8ms
-     * 运行时长：2 - 100% / 4ms
-     *
-     * 总结：
-     * 但我的写法比较丑陋，代码读起来可能也相对费解，后来学习了一下简洁写法，通过使用 Math 的 max min 函数，提到代码可读性
-     */
-    static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (p.val&gt;q.val){
-            TreeNode tmp = p;
-            p = q;
-            q = tmp;
-        }
-        if (p.val &gt; root.val) {
-            return lowestCommonAncestor(root.right, p, q);
-        } else if (p.val &lt; root.val) {
-            if (q.val &lt; root.val) return lowestCommonAncestor(root.left, p, q);
-            else if (q.val == root.val) return q;
-            else return root;
-        } else {
-            return p;
-        }
-    }
-
-    static TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
-        if (root.val &gt; Math.max(p.val, q.val)) {
-            return lowestCommonAncestor(root.left, p, q);
-        } else if (root.val &lt; Math.min(p.val, q.val)) {
-            return lowestCommonAncestor(root.right, p, q);
-        } else {
-            return root;
-        }
-    }
-
-        public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(2);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(3);
-        t1.left = t2;
-        t1.right = t3;
-
-        System.out.println(lowestCommonAncestor(t1, t1, t3).val);
-    }
-}
-</code></pre>
 
                             
                         </div>
@@ -471,7 +163,7 @@ public class A235_LowestCommonAncestorOfaBinarySearchTree {
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15426958230000.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2018/11/20 14:37 下午</span>
                         <span>posted in&nbsp;</span> 
                         
@@ -507,93 +199,6 @@ peek() -- Get the front element.<br/>
 empty() -- Return whether the queue is empty.</p>
 </blockquote>
 
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 11/17/18
- */
-class MyQueue {
-    /**
-     * 题目分析：
-     * 栈、队列是什么大家都很清楚，上一道题刚让用队列实现了栈，这立刻又让用栈来实现队列
-     * 用栈实现队列是个苦差事，我也不明白为什么这样，但既然这样要求了，我就用上一题的栈实现了队列
-     *
-     * 运行时长：99% / 54ms
-     *
-     * 总结：
-     * 本来我的运行时很长，然后我就把栈的初始化长度调到了20，直接就上了，反正就非常基础，没什么意思的题目
-     */
-    MyStack queue;
-    int front = -1;
-    int end = -1;
-
-
-    /** Initialize your data structure here.*/
-    public MyQueue() {
-        queue = new MyStack();
-    }
-
-    /** Push element x to the back of queue.*/
-    public void push(int x) {
-        queue.push(x);
-        this.end++;
-    }
-
-    /** Removes the element from in front of queue and returns that element.*/
-    public int pop() {
-        int l = end - front;
-
-        int[] tmp = new int[l - 1];
-        for (int i = 0; i &lt; l - 1; i++) {
-            tmp[i] = queue.pop();
-        }
-        int pop = queue.pop();
-        for (int i = 0; i &lt; l - 1; i++) {
-            queue.push(tmp[l-i-2]);
-        }
-        end--;
-        return pop;
-    }
-
-    /** Get the front element.*/
-    public int peek() {
-        int l = end - front;
-
-        int[] tmp = new int[l - 1];
-        for (int i = 0; i &lt; l - 1; i++) {
-            tmp[i] = queue.pop();
-        }
-        int pop = queue.top();
-        for (int i = 0; i &lt; l - 1; i++) {
-            queue.push(tmp[l-i-2]);
-        }
-        return pop;
-    }
-
-    /** Returns whether the queue is empty. */
-    public boolean empty() {
-        if (end == -1)
-            return true;
-        else
-            return false;
-    }
-
-    public static void main(String[] args) {
-        MyQueue obj = new MyQueue();
-        obj.push(1);
-        System.out.println(obj.pop());
-        obj.push(2);
-        System.out.println(obj.peek());
-        System.out.println(obj.empty());
-
-    }
-}
-</code></pre>
 
                             
                         </div>
@@ -602,7 +207,7 @@ class MyQueue {
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15425320020000.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2018/11/18 17:6 下午</span>
                         <span>posted in&nbsp;</span> 
                         
@@ -640,8 +245,6 @@ Output: false</p>
 Input: 1-&gt;2-&gt;2-&gt;1<br/>
 Output: true</p>
 </blockquote>
-
-<h2 id="toc_1">代码实现</h2>
 
 
                             
@@ -705,6 +308,269 @@ Explanation: 24 = 16</p>
                         <span>posted in&nbsp;</span> 
                         
                         <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15422723290000.html">
+                    
+                    <h1>225 Implement Stack using Queues</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Implement the following operations of a stack using queues.</p>
+
+<p>push(x) -- Push element x onto stack.<br/>
+pop() -- Removes the element on top of the stack.<br/>
+top() -- Get the top element.<br/>
+empty() -- Return whether the stack is empty.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 11/13/18
+ */
+class MyStack {
+    /**
+     * 题目分析：
+     * 栈是一种非常基本的数据结构，特点就是先进后出之类的
+     * 用一个数组加一个指针可以轻松模拟栈的基本操作
+     *
+     * 运行时长：
+     *
+     * 总结：
+     * 基础
+     */
+    int[] stack;
+    int top=-1;
+
+    /** Initialize your data structure here. */
+    public MyStack() {
+        stack = new int[100];
+    }
+
+    /** Push element x onto stack. */
+    public void push(int x) {
+        stack[++top] = x;
+    }
+
+    /** Removes the element on top of the stack and returns that element. */
+    public int pop() {
+        return stack[top--];
+    }
+
+    /** Get the top element. */
+    public int top() {
+        return stack[top];
+    }
+
+    /** Returns whether the stack is empty. */
+    public boolean empty() {
+        if (top==-1) return true;
+        else return false;
+    }
+
+
+    public static void main(String[] args) {
+        MyStack stack = new MyStack();
+
+        stack.push(1);
+        stack.push(2);
+        System.out.println(stack.top());   // returns 2
+        System.out.println(stack.pop());   // returns 2
+        System.out.println(stack.empty()); // returns false
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/11/15 16:58 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15413357220000.html">
+                    
+                    <h1>205 Isomorphic Strings</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given two strings s and t, determine if they are isomorphic.<br/>
+Two strings are isomorphic if the characters in s can be replaced to get t.<br/>
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
+
+<p>Example 1:<br/>
+Input: s = &quot;egg&quot;, t = &quot;add&quot;<br/>
+Output: true</p>
+
+<p>Example 2:<br/>
+Input: s = &quot;foo&quot;, t = &quot;bar&quot;<br/>
+Output: false</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15413357220000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/11/4 20:48 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15403042690000.html">
+                    
+                    <h1>Win10 MySQL zip安装方法</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>1、下载，到MySQL官网：<a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+
+<p>2、解压安装包<br/>
+解压下载的安装包，放到你的电脑路径，我放置的是 <code>E:\mysql</code></p>
+
+<p>3、配置my.ini文件<br/>
+解压后，在根目录下创建配置文件my.ini，内容如下：</p>
+
+<pre><code class="language-ini">[mysql]
+; 设置MySQL客户端默认字符集
+default-character-set=utf8
+[mysqld]
+;设置3306端口
+ 
+&lt;!-- more --&gt;
+ 
+port = 3306
+; 设置MySQL的安装目录，应该与解压位置相匹配
+basedir=E:\mysql
+; 设置MySQL数据库的数据的存放目录
+datadir=E:\mysql\data
+; 允许最大连接数
+max_connections=200
+; 服务端使用的字符集默认为8比特编码的latin1字符集
+character-set-server=utf8
+; 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+</code></pre>
+
+<p>4、配置MySQL环境变量<br/>
+为了以后方便启动mysql，在环境变量Path追加：<code>E:\mysql\bin</code></p>
+
+<p>5、安装MySQL<br/>
+以管理员身份打开cmd窗口（开始菜单下输入cmd，右键管理员方式运行）</p>
+
+<ul>
+<li>输入：<code>mysqld --initialize-insecure</code>，安装需要等待一会<br/>
+这一步用于初始化MySQL的data文件夹，官方的压缩包解压后并没有data文件夹，运行命令后，按照my.ini中配置的位置生成data文件；</li>
+<li>输入：<code>mysqld install</code> 会提示安装成功；</li>
+<li>输入：<code>net start mysql</code> 启动服务，若显示启动成功则安装成功；</li>
+<li>最后输入：<code>net stop mysql</code>，停止服务，以便进行以下操作。</li>
+</ul>
+
+<p>6、设置root管理员密码</p>
+
+<ul>
+<li>在cmd中输入 <code>mysql -u root -p</code></li>
+<li><p>此时cmd显示 <code>Enter password：</code> 不必理会，直接回车即可成功进入MySQL，进入后使用以下方法修改密码</p>
+<ul>
+<li><code>SET PASSWORD for root@localhost = PASSWORD(&quot;root&quot;);</code> (5.7版本修改密码）</li>
+<li><code>ALTER USER root@localhost IDENTIFIED BY &quot;root&quot;;</code> (8.0版本修改密码）</li>
+</ul></li>
+<li><p>以后就可以通过在cmd中输入 <code>mysql -u root -p</code> 进入MySQL</p></li>
+</ul>
+
+<p>至此，MySQL就安装完成并可以使用了。</p>
+
+<h2 id="toc_0">忘记密码</h2>
+
+<ul>
+<li>以系统管理员身份运行cmd</li>
+<li>查看mysql是否已经启动，如果已经启动，就使用 <code>net stop mysql</code> 停止服务</li>
+<li>在命令行输入 <code>mysqld -nt --skip-grant-tables</code></li>
+<li>此时通过 <code>mysql -u root -p</code> 就可以直接进入MySQL</li>
+<li>进入后需要设置密码，因为mysql会仍以为你是第一次进入MySQL</li>
+<li>输入之前设定重新确定密码</li>
+</ul>
+
+<p>PS：大部分SQL语句需要加分号，可以使用quit或者exit来退出MySQL<br/>
+但是，在日常使用中，建议使用权限更低的用户来操作具体的数据库，SQL语句如下：</p>
+
+<pre><code class="language-sql">create database xxx;
+CREATE USER zhizi IDENTIFIED BY &#39;111&#39;;
+grant all privileges on xxx.* to zhizi@&#39;localhost&#39; identified by &#39;111&#39;;
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/10/23 22:17 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='config.html'>Config</a></span>
                         
                     </div>
                     <div class="more-right right">
@@ -803,7 +669,13 @@ Explanation: 24 = 16</p>
 	      
 		      
 			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482996985553.html">876 Middle of the Linked List</a>
 			      </li>
 		     
 		  
@@ -815,19 +687,13 @@ Explanation: 24 = 16</p>
 		  
 		      
 			      <li class="post">
-			        <a href="15450518960000.html">Week - 2018/12/15</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week - 2018/12/22</a>
+			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

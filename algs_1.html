@@ -91,6 +91,59 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15432072050000.html">
+                    
+                    <h1>257 Binary Tree Paths</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Given a binary tree, return all root-to-leaf paths.</p>
+
+<p>Note: A leaf is a node with no children.</p>
+
+<p>Example:</p>
+
+<p>Input:</p>
+
+<p>1<br/>
+ /   \<br/>
+2     3<br/>
+ \<br/>
+  5</p>
+
+<p>Output: [&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]</p>
+
+<p>Explanation: All root-to-leaf paths are: 1-&gt;2-&gt;5, 1-&gt;3</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15432072050000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/11/26 12:40 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15432071040000.html">
                     
                     <h1>242 Valid Anagram</h1>
@@ -111,10 +164,6 @@ Output: true</p>
 Input: s = &quot;rat&quot;, t = &quot;car&quot;<br/>
 Output: false</p>
 </blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
 
 
                             
@@ -159,67 +208,6 @@ Output: false</p>
 
 <p><img src="https://ws1.sinaimg.cn/large/0072Lfvtly1fxej43l94vj307603u0sk.jpg" alt="二叉搜索树"/></p>
 
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 11/20/18
- 
-&lt;!-- more --&gt;
- 
- */
-public class A235_LowestCommonAncestorOfaBinarySearchTree {
-    /**
-     * 题目分析：
-     * 最近公共祖先（LCA）是经典算法题
-     * 其实是三种情况，看小的是否比 root 还大，大的是否比 root 还小，这两种情况都要向下递归
-     * 若两种情况都不满足，则说明 root 位于中间（也可能其中一个等于 root），则 root 必然是最近公共祖先
-     *
-     * 运行时长：1 - 47% / 8ms
-     * 运行时长：2 - 100% / 4ms
-     *
-     * 总结：
-     * 但我的写法比较丑陋，代码读起来可能也相对费解，后来学习了一下简洁写法，通过使用 Math 的 max min 函数，提到代码可读性
-     */
-    static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (p.val&gt;q.val){
-            TreeNode tmp = p;
-            p = q;
-            q = tmp;
-        }
-        if (p.val &gt; root.val) {
-            return lowestCommonAncestor(root.right, p, q);
-        } else if (p.val &lt; root.val) {
-            if (q.val &lt; root.val) return lowestCommonAncestor(root.left, p, q);
-            else if (q.val == root.val) return q;
-            else return root;
-        } else {
-            return p;
-        }
-    }
-
-    static TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
-        if (root.val &gt; Math.max(p.val, q.val)) {
-            return lowestCommonAncestor(root.left, p, q);
-        } else if (root.val &lt; Math.min(p.val, q.val)) {
-            return lowestCommonAncestor(root.right, p, q);
-        } else {
-            return root;
-        }
-    }
-
-        public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(2);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(3);
-        t1.left = t2;
-        t1.right = t3;
-
-        System.out.println(lowestCommonAncestor(t1, t1, t3).val);
-    }
-}
-</code></pre>
 
                             
                         </div>
@@ -228,7 +216,7 @@ public class A235_LowestCommonAncestorOfaBinarySearchTree {
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15426958230000.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2018/11/20 14:37 下午</span>
                         <span>posted in&nbsp;</span> 
                         
@@ -264,93 +252,6 @@ peek() -- Get the front element.<br/>
 empty() -- Return whether the queue is empty.</p>
 </blockquote>
 
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 11/17/18
- */
-class MyQueue {
-    /**
-     * 题目分析：
-     * 栈、队列是什么大家都很清楚，上一道题刚让用队列实现了栈，这立刻又让用栈来实现队列
-     * 用栈实现队列是个苦差事，我也不明白为什么这样，但既然这样要求了，我就用上一题的栈实现了队列
-     *
-     * 运行时长：99% / 54ms
-     *
-     * 总结：
-     * 本来我的运行时很长，然后我就把栈的初始化长度调到了20，直接就上了，反正就非常基础，没什么意思的题目
-     */
-    MyStack queue;
-    int front = -1;
-    int end = -1;
-
-
-    /** Initialize your data structure here.*/
-    public MyQueue() {
-        queue = new MyStack();
-    }
-
-    /** Push element x to the back of queue.*/
-    public void push(int x) {
-        queue.push(x);
-        this.end++;
-    }
-
-    /** Removes the element from in front of queue and returns that element.*/
-    public int pop() {
-        int l = end - front;
-
-        int[] tmp = new int[l - 1];
-        for (int i = 0; i &lt; l - 1; i++) {
-            tmp[i] = queue.pop();
-        }
-        int pop = queue.pop();
-        for (int i = 0; i &lt; l - 1; i++) {
-            queue.push(tmp[l-i-2]);
-        }
-        end--;
-        return pop;
-    }
-
-    /** Get the front element.*/
-    public int peek() {
-        int l = end - front;
-
-        int[] tmp = new int[l - 1];
-        for (int i = 0; i &lt; l - 1; i++) {
-            tmp[i] = queue.pop();
-        }
-        int pop = queue.top();
-        for (int i = 0; i &lt; l - 1; i++) {
-            queue.push(tmp[l-i-2]);
-        }
-        return pop;
-    }
-
-    /** Returns whether the queue is empty. */
-    public boolean empty() {
-        if (end == -1)
-            return true;
-        else
-            return false;
-    }
-
-    public static void main(String[] args) {
-        MyQueue obj = new MyQueue();
-        obj.push(1);
-        System.out.println(obj.pop());
-        obj.push(2);
-        System.out.println(obj.peek());
-        System.out.println(obj.empty());
-
-    }
-}
-</code></pre>
 
                             
                         </div>
@@ -359,7 +260,7 @@ class MyQueue {
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15425320020000.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2018/11/18 17:6 下午</span>
                         <span>posted in&nbsp;</span> 
                         
@@ -397,8 +298,6 @@ Output: false</p>
 Input: 1-&gt;2-&gt;2-&gt;1<br/>
 Output: true</p>
 </blockquote>
-
-<h2 id="toc_1">代码实现</h2>
 
 
                             
@@ -629,84 +528,6 @@ Output: false</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15360292100000.html">
-                    
-                    <h1>206 Reverse Linked List</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Reverse a singly linked list.<br/>
-Example:<br/>
-  Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br/>
-  Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-go">type ListNode struct {
-    Val  int
-    Next *ListNode
- 
-&lt;!-- more --&gt;
- 
-}
-
-// 题目分析：
-//  没事学了 Go 语言，所以就拿来玩玩，感觉还不错
-//  题目也很简单，就是链表的翻转，用学过数据结构的都知道头插法遍历一遍就行了
-// 运行时间：0ms / 100%（不知道是题目太简单，懒得给用例还是 没人用 Go 写，总之是 beat 100%）
-// 总结：无
-func reverseList(head *ListNode) *ListNode {
-    node :=new(ListNode)
-    for head!=nil{
-        temp:=ListNode{head.Val,node.Next}
-        node.Next=&amp;temp
-        head=head.Next
-    }
-    return node.Next
-}
-
-func main() {
-    node:=ListNode{1,&amp;ListNode{2,&amp;ListNode{3,nil}}}
-    result:=reverseList(&amp;node)
-    for result!=nil {
-        println(result.Val)
-        result=result.Next
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/9/4 10:46 上午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -793,7 +614,13 @@ func main() {
 	      
 		      
 			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482996985553.html">876 Middle of the Linked List</a>
 			      </li>
 		     
 		  
@@ -805,19 +632,13 @@ func main() {
 		  
 		      
 			      <li class="post">
-			        <a href="15450518960000.html">Week - 2018/12/15</a>
+			        <a href="15478753789599.html">Week - 2019/1/19</a>
 			      </li>
 		     
 		  
 		      
 			      <li class="post">
-			        <a href="15448822410000.html">我在 Mac 上都用什么</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15450538760000.html">Week - 2018/12/22</a>
+			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

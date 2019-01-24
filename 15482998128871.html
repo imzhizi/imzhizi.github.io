@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        168 Excel Sheet Column Title - 难以想象的晴朗
+        2 Add Two Numbers - 难以想象的晴朗
         
     </title>
     
@@ -91,10 +91,10 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>168 Excel Sheet Column Title</h1>
+          <h1>2 Add Two Numbers</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2018/7/13 21:38 下午</span>
+          <span class="date">2019/1/24 11:16 上午</span>
 
           <span>posted in&nbsp;</span> 
           
@@ -111,75 +111,88 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.<br/>
-For example:<br/>
- 1 -&gt; A<br/>
- 2 -&gt; B<br/>
- ...<br/>
- 26 -&gt; Z<br/>
- 27 -&gt; AA</p>
-
-<p>Example 1:<br/>
- Input: 1<br/>
- Output: &quot;A&quot;</p>
-</blockquote>
-
-<span id="more"></span><!-- more -->
-
-<blockquote>
-<p>Example 2:<br/>
- Input: 701<br/>
- Output: &quot;ZY&quot;</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
+      <p>题目: <a href="https://leetcode.com/problems/add-two-numbers/">Add Two Numbers - LeetCode</a></p>
 
 <pre><code class="language-java">/**
- * created by zhizi on 2018/7/16
+ * 分析
+ * 两个链表中的数字逐个相加，主要问题就是进位问题，如果选一个链表存储结果，当链表不够的时候需要新建结点
+ *
+ * 时长
+ * 23ms / 82%
+ *
+ * 总结
+ * 新建结点问题比预想中的要复杂，因为新建的结点需要有前置结点，因此需要总是用前置结点来操作
+ * 两链表长度可能会不同，因此在过程中要拼接链表形成最长的结果链表
+ * 进位判断使用  add = sum / 10; sum = sum % 10; 比最初使用 if(sum&gt;9) 效果好很多
  */
-public class A168_ExcelSheetColumnTitle {
-    /**
-     * 题目分析：
-     * 本来以为会是导入 Excel 文件什么的复杂题目，结果其实是一道进制转换题目，相当于是求 n 的26进制表示
-     * 仔细做了之后发现并不是简单地进制转换，因为不存在 0 的缘故，每次需要进位的时候都需要4下借一位，如 52 就不是 B0，而是 AZ
-     * 使用了 nums[] 保存每一位的结果，然后通过 char 得到结果
-     *
-     * 运行时长：0ms
-     *
-     * 总结：
-     * 遇到这种题还是要仔细地分析题目，找到根本点，如果不加思考地暴力解决，往往浪费很多时间
-     */
-    public static String convertToTitle(int n) {
-        int[] nums = new int[10];
-        int i=0;
-        while(n&gt;26){
-            nums[i]+=n%26;
-            if(nums[i]==0){
-                nums[i]=26;
-                nums[i+1]--;
-            }
-            i++;
-            n=n/26;
+public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    ListNode head = new ListNode(0);
+    ListNode result = head;
+    head.next = l1;
+    int add = 0;
+    int sum = 0;
+
+    while (l1 != null || l2 != null) {
+        if (l1 == null) {
+            sum = l2.val + add;
+            head.next = l2;
+            l2 = l2.next;
+        } else if (l2 == null) {
+            sum = l1.val + add;
+            head.next = l1;
+            l1 = l1.next;
+        } else {
+            sum = l1.val + l2.val + add;
+            l1 = l1.next;
+            l2 = l2.next;
         }
-        nums[i]+=n;
-        String title = &quot;&quot;;
-        for (int j = 0; nums[j] != 0; j++) {
-            title = (char) (nums[j] + 64) + title;
-        }
-        return title;
+
+        add = sum / 10;
+        sum = sum % 10;
+
+        head.next.val = sum;
+        head = head.next;
     }
 
-    public static void main(String[] args) {
-        System.out.println(convertToTitle(26));
-        System.out.println(convertToTitle(27));
-        System.out.println(convertToTitle(52));
-        System.out.println(convertToTitle(701));
+    if (add != 0) {
+        head.next = new ListNode(add);
     }
+
+    return result.next;
+}
+
+@Test
+public void test2(){
+    ListNode node = new ListNode(0);
+    ListNode node1 = new ListNode(2);
+    ListNode node2 = new ListNode(4);
+    ListNode node3 = new ListNode(3);
+    node1.next=node2;
+    node2.next=node3;
+
+    ListNode node4 = new ListNode(5);
+    ListNode node5 = new ListNode(6);
+    ListNode node6 = new ListNode(4);
+    node4.next=node5;
+    node5.next=node6;
+
+
+    ListNode node7 = new ListNode(7);
+    ListNode node8 = new ListNode(0);
+    ListNode node9 = new ListNode(8);
+    node7.next=node8;
+    node8.next=node9;
+
+    Assert.assertEquals(node7, addTwoNumbers(node1,node4));
+
+    ListNode node10=new ListNode(2);
+    node10.next= new ListNode(1);
+
+    Assert.assertEquals(node10, addTwoNumbers(node6,node9));
+
+    Assert.assertEquals(node10, addTwoNumbers(node10,node));
+
+    Assert.assertEquals(node10, addTwoNumbers(node,node10));
 }
 </code></pre>
 
@@ -192,16 +205,13 @@ public class A168_ExcelSheetColumnTitle {
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15317100690000.html" 
-          title="Previous Post: 169 Majority Element">&laquo; 169 Majority Element</a>
-      
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15311511750000.html" 
-          title="Next Post: 167 Two Sum II">167 Two Sum II &raquo;</a>
+          <a  href="15482996985553.html" 
+          title="Next Post: 876 Middle of the Linked List">876 Middle of the Linked List &raquo;</a>
       
       </p>
         </div>
