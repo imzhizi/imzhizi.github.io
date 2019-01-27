@@ -91,6 +91,161 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15422723290000.html">
+                    
+                    <h1>225 Implement Stack using Queues</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Implement the following operations of a stack using queues.</p>
+
+<p>push(x) -- Push element x onto stack.<br/>
+pop() -- Removes the element on top of the stack.<br/>
+top() -- Get the top element.<br/>
+empty() -- Return whether the stack is empty.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 11/13/18
+ */
+class MyStack {
+    /**
+     * 题目分析：
+     * 栈是一种非常基本的数据结构，特点就是先进后出之类的
+     * 用一个数组加一个指针可以轻松模拟栈的基本操作
+     *
+     * 运行时长：
+     *
+     * 总结：
+     * 基础
+     */
+    int[] stack;
+    int top=-1;
+
+    /** Initialize your data structure here. */
+    public MyStack() {
+        stack = new int[100];
+    }
+
+    /** Push element x onto stack. */
+    public void push(int x) {
+        stack[++top] = x;
+    }
+
+    /** Removes the element on top of the stack and returns that element. */
+    public int pop() {
+        return stack[top--];
+    }
+
+    /** Get the top element. */
+    public int top() {
+        return stack[top];
+    }
+
+    /** Returns whether the stack is empty. */
+    public boolean empty() {
+        if (top==-1) return true;
+        else return false;
+    }
+
+
+    public static void main(String[] args) {
+        MyStack stack = new MyStack();
+
+        stack.push(1);
+        stack.push(2);
+        System.out.println(stack.top());   // returns 2
+        System.out.println(stack.pop());   // returns 2
+        System.out.println(stack.empty()); // returns false
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/11/15 16:58 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15413357220000.html">
+                    
+                    <h1>205 Isomorphic Strings</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given two strings s and t, determine if they are isomorphic.<br/>
+Two strings are isomorphic if the characters in s can be replaced to get t.<br/>
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
+
+<p>Example 1:<br/>
+Input: s = &quot;egg&quot;, t = &quot;add&quot;<br/>
+Output: true</p>
+
+<p>Example 2:<br/>
+Input: s = &quot;foo&quot;, t = &quot;bar&quot;<br/>
+Output: false</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15413357220000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/11/4 20:48 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15360292100000.html">
                     
                     <h1>206 Reverse Linked List</h1>
@@ -533,144 +688,6 @@ Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).<br/>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15326594430000.html">
-                    
-                    <h1>191 Number of 1 Bits</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Write a function that takes an unsigned integer and returns the number of &#39;1&#39; bits it has (also known as the Hamming weight).</p>
-
-<p>Example 1:<br/>
- Input: 11<br/>
- Output: 3<br/>
-Explanation: Integer 11 has binary representation 00000000000000000000000000001011</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 7/27/18
- */
-public class A191_NumberOf1Bits {
-    /**
-     * 题目分析：
-     * 计算一个数字的二进制表示中有几个1，做了昨天的第 190 题之后，感觉非常简单
-     * 所以我故伎重施，很容就写出两个做法，还是昨天的两个做法
-     *
-     * 运行时长：1 ms
-     *
-     * 总结：
-     * 感觉不太合理，这道题应该跟190换一换，梯度就会合理许多
-     */
-    static int hammingWeight2(int n) {
-        int result = 0;
-        for (int i = 0; i &lt; 32 &amp;&amp; n != 0; i++) {
-            if (n % 2 != 0) result++;//判断最后一位是0是1
-            n &gt;&gt;= 1;
-        }
-        return result;
-    }
-    static int hammingWeight(int n) {
-        int nums=0;
-        for (int i = 0; i &lt; 32 &amp;&amp; n != 0; i++) {
-            int temp=(n&gt;&gt;i)&amp;1;
-            nums+=temp;
-        }
-        return nums;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(hammingWeight(11));
-        System.out.println(hammingWeight2(11));
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/27 10:44 上午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15325965980000.html">
-                    
-                    <h1>190 Reverse Bits</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Reverse bits of a given 32 bits unsigned integer.</p>
-
-<p>Example:<br/>
- Input: 43261596<br/>
- Output: 964176192<br/>
-Explanation:<br/>
- 43261596 represented in binary as 00000010100101000001111010011100,<br/>
- return 964176192 represented in binary as 00111001011110000010100101000000.</p>
-</blockquote>
-
-<h2 id="toc_1">背景知识</h2>
-
-<p><a href="201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html">Java 位运算符和 Java int 的实现</a></p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15325965980000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/26 17:16 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -757,6 +774,24 @@ Explanation:<br/>
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -764,24 +799,6 @@ Explanation:<br/>
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

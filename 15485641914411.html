@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        100 Same Tree - 难以想象的晴朗
+        237 Delete Node in a Linked List (垃圾题) - 难以想象的晴朗
         
     </title>
     
@@ -91,10 +91,10 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>100 Same Tree</h1>
+          <h1>237 Delete Node in a Linked List (垃圾题)</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2018/5/7 16:6 下午</span>
+          <span class="date">2019/1/27 12:43 下午</span>
 
           <span>posted in&nbsp;</span> 
           
@@ -111,56 +111,45 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
+      <p>题目 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list/">Delete Node in a Linked List - LeetCode</a></p>
 
-<blockquote>
-<p>Given two binary trees, write a function to check if they are the same or not.<br/>
-Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
-</blockquote>
+<span id="more"></span><!-- more -->
 
-<p><img src="https://s1.imgsha.com/2018/10/01/7xtXHa.png" alt="100SameTree"/></p>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/7
- */
- 
-&lt;!-- more --&gt;
- 
-public class A100_SameTree {
-    /**
-     * 题目分析：
-     * 比较两个树是否完全相同，显然要用递归，否则就是复杂的层次遍历了
-     * 假如能够一次遍历，中间任何一处不同都直接结束遍历应该是效率比较高的
-     * 于是就有了下面的代码
-     * 运行时长：5 ms
+<pre><code class="language-java">    /**
+     * 分析
+     * 其实没太看懂这道题的意思，个人理解是为 ListNode 编写一个成员函数，功能是删除一个特定的 node
      *
-     * 总结：无，一次草率的实现
+     * 时长
+     * N/A
+     *
+     * 总结
+     * 并没有弄明白这道题的点，但对于链表的操作，学到新的一招
+     * 对于 head，如果想要删除自身，那么可以把 next 的 val 复制过来，然后把 next 给删掉
      */
-    public static boolean isSameTree(TreeNode p,TreeNode q) {
-        if((p!=null&amp;&amp;q==null)||(p==null&amp;&amp;q!=null)) return false;
-        else if(p==null&amp;&amp;q==null)return true;
-        else if(p.val!=q.val) return false;
-        else return isSameTree(p.left,q.left)&amp;&amp;isSameTree(p.right,q.right);
+    
+    // ListNode 的成员函数
+    public void deleteNode(ListNode node) {
+        ListNode head=this;
+        while (head.val!=node.val){
+            head=head.next;
+        }
+        head.val=head.next.val;
+        head.next=head.next.next;
+    }
+    
+    @Test
+    public void test237(){
+        ListNode node1 = new ListNode(4);
+        ListNode node2 = new ListNode(5);
+        ListNode node3 = new ListNode(1);
+        ListNode node4 = new ListNode(9);
+        node1.setNext(node2);
+        node2.setNext(node3);
+        node3.setNext(node4);
+
+        node1.deleteNode(node2);
     }
 
-    public static void main(String[] args) {
-        TreeNode t1=new TreeNode(1);
-        TreeNode t2=new TreeNode(1);
-        TreeNode t3=new TreeNode(2);
-        TreeNode t4=new TreeNode(2);
-
-        t1.left=t3;
-        t1.right = t4;
-        t2.right = t4;
-        t2.left = t3;
-
-        System.out.println(isSameTree(t1,t2));
-    }
-}
 </code></pre>
 
 
@@ -172,16 +161,16 @@ public class A100_SameTree {
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15257457080000.html" 
-          title="Previous Post: 101 Symmetric Tree">&laquo; 101 Symmetric Tree</a>
+          <a href="15485784665963.html" 
+          title="Previous Post: Week - 2019/1/26">&laquo; Week - 2019/1/26</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15255706560000.html" 
-          title="Next Post: 88 Merge Sorted Array">88 Merge Sorted Array &raquo;</a>
+          <a  href="15485640818554.html" 
+          title="Next Post: 61 Rotate List - LeetCode">61 Rotate List - LeetCode &raquo;</a>
       
       </p>
         </div>

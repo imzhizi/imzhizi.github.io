@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        100 Same Tree - 难以想象的晴朗
+        难以想象的晴朗
         
     </title>
     
@@ -82,145 +82,236 @@
 
 
         <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+    $(function () {
+        $('#menu_item_index').addClass('is_active');
+    });
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>100 Same Tree</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2018/5/7 16:6 下午</span>
-
-          <span>posted in&nbsp;</span> 
-          
-              <span class="posted-in"><a href='algs.html'>算法</a></span>
-           
-         
-          <span class="comments">
+    <div class="large-8 medium-8 columns">
+        <div class="markdown-body home-categories">
             
-
-            
-          </span>
-
-        </div>
-      </div><!-- article -->
-
-      <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given two binary trees, write a function to check if they are the same or not.<br/>
-Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
+            <div class="article">
+                <a class="clearlink" href="15234537500000.html">
+                    
+                    <h1>9 Palindrome Number</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>判断一个整数是否是回文数。不能使用辅助空间。<br/>
+如：2147447412</p>
 </blockquote>
 
-<p><img src="https://s1.imgsha.com/2018/10/01/7xtXHa.png" alt="100SameTree"/></p>
+<h2 id="toc_0">两种实现</h2>
 
-<h2 id="toc_1">代码实现</h2>
+<p>具体介绍见方法注释</p>
 
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/7
- */
+<pre><code class="language-java">public class A9_isPalindrome {
+    /**
+     * 函数描述：
+     * 使用StringBuilder的reverse函数进行翻转，然后使用equals函数进行比较
+     *
+     * 运行时长：102ms / 52%
  
 &lt;!-- more --&gt;
  
-public class A100_SameTree {
-    /**
-     * 题目分析：
-     * 比较两个树是否完全相同，显然要用递归，否则就是复杂的层次遍历了
-     * 假如能够一次遍历，中间任何一处不同都直接结束遍历应该是效率比较高的
-     * 于是就有了下面的代码
-     * 运行时长：5 ms
      *
-     * 总结：无，一次草率的实现
+     * 总结：
+     * 使用 JavaAPI 函数，非常简单
      */
-    public static boolean isSameTree(TreeNode p,TreeNode q) {
-        if((p!=null&amp;&amp;q==null)||(p==null&amp;&amp;q!=null)) return false;
-        else if(p==null&amp;&amp;q==null)return true;
-        else if(p.val!=q.val) return false;
-        else return isSameTree(p.left,q.left)&amp;&amp;isSameTree(p.right,q.right);
+    public static boolean isPalindrome(int x) {
+        if (x &lt; 0) return false;
+        String reverse=new StringBuilder(x + &quot;&quot;).reverse().toString();
+        return reverse.equals(x + &quot;&quot;);
     }
 
-    public static void main(String[] args) {
-        TreeNode t1=new TreeNode(1);
-        TreeNode t2=new TreeNode(1);
-        TreeNode t3=new TreeNode(2);
-        TreeNode t4=new TreeNode(2);
+    /**
+     * 题目分析：
+     * 手动使用char[]进行对称检查，若对称则回文
+     *
+     * 运行时长：100ms / 70%
+     *
+     * 总结：
+     * 手动做总是能获得更好的效果
+     */
+    public static boolean isPalindrome1(int x) {
+        if (x &lt; 0) return false;
+        char[] chars = String.valueOf(x).toCharArray();
+        for (int i = 0; i &lt; chars.length / 2; i++) {
+            if (chars[i] != chars[chars.length - 1 - i]) return false;
+        }
+        return true;
+    }
 
-        t1.left=t3;
-        t1.right = t4;
-        t2.right = t4;
-        t2.left = t3;
+    /**
+     * 题目分析：
+     * 根据上一道题，可以把数字先进行翻转，然后再将翻转结果和原数字对比，相等即为回文数
+     *
+     * 运行时长：96ms /94%
+     *
+     * 总结：
+     * 数字方法总是能获得更好的效率
+     */
+    public static boolean isPalindrome2(int x) {
+        if (x &lt; 0) return false;
+        int reverse = 0;
+        int origin=x;
 
-        System.out.println(isSameTree(t1,t2));
+        while (x != 0) {
+            reverse = reverse * 10 + x % 10;
+            x /= 10;
+        }
+
+        return reverse==origin?true:false;
+    }
+
+        public static void main(String[] args) {
+//        System.out.println(A9_isPalindrome.isPalindrome2(10));//isPalindrome2
+//        System.out.println(A9_isPalindrome.isPalindrome(121));//isPalindrome2
+        System.out.println(A9_isPalindrome.isPalindrome2(121));//isPalindrome2
     }
 }
 </code></pre>
 
+                            
+                        </div>
+                    </div>
+                </a>
 
-    
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/4/11 21:35 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
 
-      </div>
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15232628950000.html">
+                    
+                    <h1>7 Reverse Integer</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Given a 32-bit signed integer, reverse digits of an integer.<br/>
+Example:<br/>
+  Input: 123<br/>
+  Output:  321</p>
 
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-          <a href="15257457080000.html" 
-          title="Previous Post: 101 Symmetric Tree">&laquo; 101 Symmetric Tree</a>
-      
-        </p>
+<p>Input: -123<br/>
+  Output: -321</p>
+
+<p>Input: 120<br/>
+  Output: 21</p>
+</blockquote>
+
+<h2 id="toc_0">两种实现</h2>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15232628950000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/9 16:34 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15230720470000.html">
+                    
+                    <h1>1 Two Sum</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br/>
+You may assume that each input would have exactly one solution, and you may not use the same element twice.<br/>
+Eg.<br/>
+  Given nums = [2, 7, 11, 15], target = 9,<br/>
+  Because nums[0] + nums[1] = 2 + 7 = 9,<br/>
+  return [0, 1].</p>
+</blockquote>
+
+<h2 id="toc_0">系列说明</h2>
+
+<p>这是LeetCode的第一道题，没什么难度，但可以通过这个来适应LeetCode的OJ，可以看到只要在LeetCode上提交一个函数即可，不需做额外的输出什么的，同时我发现将函数写成静态也是可以正常执行的，暂时还没发现效率上的影响，之后的题目为了方便都会写成静态的。</p>
+
+<h2 id="toc_1">两种实现</h2>
+
+<p>具体介绍见方法注释</p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15230720470000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/7 11:34 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <p class="text-left" style="padding-top:25px;">
+                         <a href="all_10.html">&laquo; Prev Page</a> 
+                    </p>
+                </div>
+                <div class="large-6 columns">
+                    <p class="text-right" style="padding-top:25px;">
+                        
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-          <a  href="15255706560000.html" 
-          title="Next Post: 88 Merge Sorted Array">88 Merge Sorted Array &raquo;</a>
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          <div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://imzhizi-com.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-          
-
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
-
-
-
-
- <div class="large-4 medium-4 columns">
+    </div><!-- large 8 --> <div class="large-4 medium-4 columns">
   <div class="hide-for-small">
     <div id="sidebar" class="sidebar">
           <div id="site-info" class="site-info">

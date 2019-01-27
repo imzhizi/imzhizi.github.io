@@ -91,6 +91,279 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15260024120000.html">
+                    
+                    <h1>108 Convert Sorted Array to Binary Search Tree</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST. For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7xteWR.png" alt="108ConvertToTree"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/** 
+ * created by zhizi on 2018/5/11
+ */
+public class A108_ConvertSortedArrayToBinarySearchTree {
+ 
+&lt;!-- more --&gt;
+ 
+    /**
+     * 题目分析：
+     * 有序序列转化为平衡树，那么两侧的结点一定是相同或者仅相差1，所以只要依次取中间值，两侧重新递归即可
+     * 结束体直接分了三种情况，单一结点、两个结点和三个结点
+     * 运行时长：1 ms
+     *
+     * 总结：
+     * 需要注意，每个结点都需要new出来，然后nums中数字不便移动，所以直接传输头尾坐标
+     */
+    public static TreeNode sortedArrayToBST(int[] nums) {
+        if(nums.length==0)return null;
+        return toTree(nums, 0, nums.length - 1);
+    }
+
+    public static TreeNode toTree(int[] nums, int begin, int end) {
+        TreeNode root=null;
+        if (begin == end) {
+            root= new TreeNode(nums[begin]);
+        } else if (begin + 1 == end) {
+            root = new TreeNode(nums[end]);
+            root.left = new TreeNode(nums[begin]);
+        } else if (begin + 2 == end) {
+            int mid = (end + begin) / 2;
+            root = new TreeNode(nums[mid]);
+            root.left = new TreeNode(nums[begin]);
+            root.right = new TreeNode(nums[end]);
+        } else{
+            int mid = (end + begin) / 2;
+            root = new TreeNode(nums[mid]);
+            root.left = toTree(nums, begin, mid - 1);
+            root.right = toTree(nums, mid + 1, end);
+        }
+        return root;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(sortedArrayToBST(new int[]{0,1,2,3,4,5,6,7}));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/5/11 9:33 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15259410380000.html">
+                    
+                    <h1>107 Binary Tree Level Order Traversal II</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a binary tree, return the bottom-up level order traversal of its nodes&#39; values.<br/>
+(ie, from left to right, level by level from leaf to root).</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7x3rty.png" alt="107BinaryTree"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/5/10
+ */
+ 
+&lt;!-- more --&gt;
+ 
+public class A107_BinaryTreeLevelOrderTraversalII {
+    /**
+     * 题目分析：层次遍历，经典的做法就是用一个队来进行结点输入输出的控制
+     *          看到有用递归实现的更好的方法，之后再去研究
+     * 运行时长：3 ms
+     * 总结：连同之前的树的遍历、树的深度和今天的树的层次遍历，都是二叉树的基本操作
+     */
+    public static List&lt;List&lt;Integer&gt;&gt; levelOrderBottom(TreeNode root) {
+        List&lt;List&lt;Integer&gt;&gt; levelList = new ArrayList&lt;&gt;();
+        if (root == null) return levelList;
+
+        List&lt;TreeNode&gt; treeNodes=new ArrayList&lt;&gt;();
+        treeNodes.add(root);
+
+        while(!treeNodes.isEmpty()){
+            List&lt;Integer&gt; integers=new ArrayList&lt;&gt;();
+            int size=treeNodes.size();
+            for (int i = 0; i &lt; size; i++) {
+                TreeNode temp=treeNodes.remove(0);
+                integers.add(temp.val);
+                if(temp.left!=null) treeNodes.add(temp.left);
+                if(temp.right!=null) treeNodes.add(temp.right);
+            }
+            levelList.add(0,integers);
+        }
+        return levelList;
+    }
+
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(3);
+        TreeNode t2 = new TreeNode(9);
+        TreeNode t3 = new TreeNode(20);
+        TreeNode t4 = new TreeNode(5);
+        TreeNode t5 = new TreeNode(7);
+
+        t1.left = t2;
+        t1.right = t3;
+        t3.left = t4;
+        t3.right = t5;
+
+        System.out.println(levelOrderBottom(null).toString());
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/5/10 16:30 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15258444640000.html">
+                    
+                    <h1>104 Maximum Depth of Binary Tree</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a binary tree, find its maximum depth.<br/>
+The maximumw depth is the number of nodes along the longest path from the root node down to the farthest leaf node.<br/>
+Note: A leaf is a node with no children.</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7xtqr9.png" alt="104MaximumDepth"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 2018/5/9
+ */
+public class A104_MaximumDepthOfBinaryTree {
+    /**
+     * 题目分析：
+     * 求树的最大深度，不复杂，也很容易想出递归体
+     * 运行时长：0 ms??
+     *
+     * 总结：
+     * 似乎还是用例太少的缘故，运行时长居然是0ms？
+     * 不过在这道题遇到一个别的问题，那就是如果我使用三目表达式就会超时，可见三目不是好东西，以后再也不用了
+     */
+    public static int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+        return 1+Math.max(maxDepth(root.left), maxDepth(root.right));
+    }
+
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(3);
+        TreeNode t2 = new TreeNode(9);
+        TreeNode t3 = new TreeNode(20);
+        TreeNode t4 = new TreeNode(5);
+        TreeNode t5 = new TreeNode(7);
+
+        t1.left = t2;
+        t1.right = t3;
+        t3.left = t4;
+        t3.right = t5;
+
+        System.out.println(maxDepth(t1));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/5/9 13:41 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15257457080000.html">
                     
                     <h1>101 Symmetric Tree</h1>
@@ -411,152 +684,6 @@ In:2 Ou:2    In:5 OU:8</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15252323370000.html">
-                    
-                    <h1>69 Sqrt x</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Implement int sqrt(int x).<br/>
-Compute and return the square root of x, where x is guaranteed to be a non-negative integer.<br/>
-Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.</p>
-
-<p>Example 1:<br/>
-Input: 4<br/>
-Output: 2</p>
-
-<p>Example 2:<br/>
-Input: 8<br/>
-Output: 2</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15252323370000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/5/2 11:38 上午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15249712130000.html">
-                    
-                    <h1>67 Add Binary</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given two binary strings, return their sum (also a binary string).<br/>
-The input strings are both non-empty and contains only characters 1 or 0.</p>
-
-<p>Example 1:<br/>
-Input: a = &quot;11&quot;, b = &quot;1&quot;<br/>
-Output: &quot;100&quot;</p>
-
-<p>Example 2:<br/>
-Input: a = &quot;1010&quot;, b = &quot;1011&quot;<br/>
-Output: &quot;10101&quot;</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15249712130000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/4/29 11:6 上午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15249325270000.html">
-                    
-                    <h1>66 Plus One</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a non-empty array of digits representing a non-negative integer, plus one to the integer.<br/>
-The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.<br/>
-You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
-
-<p>Example 1:<br/>
-Input: [1,2,3]<br/>
-Output: [1,2,4]<br/>
-Explanation: The array represents the integer 123.</p>
-
-<p>Example 2:<br/>
-Input: [4,3,2,9]</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15249325270000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/4/29 0:22 上午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -643,6 +770,24 @@ Input: [4,3,2,9]</p>
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -650,24 +795,6 @@ Input: [4,3,2,9]</p>
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

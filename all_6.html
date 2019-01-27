@@ -91,6 +91,183 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15324415540000.html">
+                    
+                    <h1>172 Factorial Trailing Zeroes</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given an integer n, return the number of trailing zeroes in n!.<br/>
+Example 1:<br/>
+   Input: 3<br/>
+   Output: 0</p>
+
+<p>Explanation: 3! = 6, no trailing zero.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 2018/7/24
+ */
+public class A172_FactorialTrailingZeroes {
+    /**
+     * 题目分析：
+     * 一开始并没搞明白题目是什么意思，搜索之后才明白是数末位的0，想也不想就暴力一波，先写个递归求阶乘，再数后面几个0
+     * 然后我就轻轻松松收获 stack over error，然后就看到 Your solution should be in logarithmic time complexity.
+     * 重新构想时，我想，只要出现了阶乘中出现了一个0，那么最终结果里面一定有0，更深的想，其实有5的倍数和偶数就会多一个0，所以猜测可能跟5有关
+     * 算了之后发现，30以前都是有几个5就有几个0，到30就不是了，多一个，进而想到了连续除以 5。
+     *
+     * 运行时长：16 ms
+     *
+     * 总结：
+     * 多思考吧c
+     */
+    int trailingZeroes(int n) {
+        int ret=0;
+        while(n&gt;0){
+            n/=5;
+            ret+=n;
+        }
+        return ret;
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/7/24 22:12 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15323442480000.html">
+                    
+                    <h1>171 Excel Sheet Column Number</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
+
+<p>For example:<br/>
+    A -&gt; 1<br/>
+    ...<br/>
+    AA -&gt; 27<br/>
+    ...</p>
+
+<p>Example 1:<br/>
+     Input: &quot;A&quot;<br/>
+     Output: 1</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15323442480000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/23 19:10 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15321013100000.html">
+                    
+                    <h1>Linux(一) - Unix&Linux 历史</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">Unix</h2>
+
+<h3 id="toc_1">Unix 的诞生</h3>
+
+<ul>
+<li>Unix的历史可以追溯到20世纪60年代中期，当时麻省理工学院，AT&amp;T，贝尔实验室和通用电气公司联合开发了一种名为Multics的操作系统，Multics 中存在许多创新，但也有很多问题</li>
+<li>1969年，贝尔实验室的 Ken Thompson 开发了Unix系统的原型（分层文件系统、计算机过程概念、命令行解释器等）</li>
+<li>1969 年～1973 年，Dennis Ritchie 发明了 C 语言</li>
+<li>1973 年，使用C 重新编写 UNIX 内核</li>
+<li>1974 年，Unix 正式对外发布</li>
+<li>1976年，Bill Joy 开发了 Vi 编辑器</li>
+<li>1977年，Bill Joy 装配了第一版带有伯克利软件套件（Berkley Software Distribution，BSD ）的 Unix 系统</li>
+<li>1978年，Bill Joy 开发了 C-Shell、2BSD</li>
+<li>1979年，AT&amp;T 公司发布了商业版的 Unix —— System III</li>
+<li>1982年，Bill Joy  联合创立了 Sun 公司</li>
+<li>1983年，AT&amp;T 公司为了结束各个版本间的混淆，发布了System V Release 1</li>
+</ul>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15321013100000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/20 23:41 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='linux.html'>Linux</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15317100690000.html">
                     
                     <h1>169 Majority Element</h1>
@@ -450,237 +627,6 @@ begin to intersect at node c1.</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15292225900000.html">
-                    
-                    <h1>118 Pascal s Triangle</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a non-negative integer numRows, generate the first numRows of Pascal&#39;s triangle.</p>
-
-<p>Example:<br/>
-Input: 5<br/>
-Output:<br/>
-[<br/>
-     [1],<br/>
-    [1,1],<br/>
-   [1,2,1],<br/>
-  [1,3,3,1],<br/>
- [1,4,6,4,1]</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15292225900000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/6/17 16:3 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15289911450000.html">
-                    
-                    <h1>141 Linked List Cycle</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a linked list, determine if it has a cycle in it.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/7/9
- */
-public class A141_LinkedListCycle {
-    /**
-     * 题目分析：
- 
-&lt;!-- more --&gt;
- 
-     * 判断循环链表，很容易想到的就是把每个 node 存起来，如果新加的 node 已存在，则说明成环
-     *
-     * 运行时长：16ms
-     *
-     * 总结：
-     * 这个方法不算好，实现为先，之后再优化。
-     */
-    public static boolean hasCycle(ListNode head) {
-        HashSet&lt;ListNode&gt; nodes=new HashSet&lt;&gt;();
-        while(head!=null){
-            if (nodes.contains(head))
-                return true;
-            nodes.add(head);
-            head=head.next;
-        }
-        return false;
-    }
-
-    public static void main(String[] args) {
-        ListNode node1=new ListNode(1);
-        ListNode node2=new ListNode(2);
-        ListNode node3=new ListNode(3);
-        ListNode node4=new ListNode(4);
-        ListNode node5=new ListNode(3);
-        node1.next=node2;
-        node2.next=node3;
-        node3.next=node4;
-        node4.next=node5;
-        System.out.println(hasCycle(node1));
-    }
-}
-
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/6/14 23:45 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15287322560000.html">
-                    
-                    <h1>136 Single Number</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a non-empty array of integers, every element appears twice except for one. Find that single one.<br/>
-Note:<br/>
-Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">import java.util.HashSet;
-
-/**
-
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 2018/6/11
- */
-public class A136_SingleNumber {
-    /**
-     * 题目分析：
-     * 感觉上利用Set应该挺容易的，就实现了一个，没什么难度，但效果很差，改天再改进一下
-     *
-     * 运行时长：15 ms
-     *
-     * 总结：
-     *
-     */
-    public int singleNumber(int[] nums) {
-        HashSet&lt;Integer&gt; set=new HashSet&lt;&gt;();
-        for (int i = 0; i &lt; nums.length; i++) {
-            if(set.contains(nums[i])){
-                set.remove(nums[i]);
-            }else {
-                set.add(nums[i]);
-            }
-        }
-        int j=0;
-        for(int i:set){
-            j=i;
-        }
-        return j;
-    }
-
-    /**
-     * 题目分析：
-     * 又学到一个高级用法，异或！，如果连续异或一个数字两次，就会像没异或一样
-     * 让题目在O(n)内就解决问题了，简单的三行代码，十分强大
-     *
-     * 运行时长：1ms
-     *
-     * 总结：高级，高级
-     *
-     */
-    public int singleNumber2(int[] nums) {
-        int ans=0;
-        for (int i = 0; i &lt; nums.length; i++) ans=ans^nums[i];
-        return ans;
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/6/11 23:50 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -767,6 +713,24 @@ public class A136_SingleNumber {
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -774,24 +738,6 @@ public class A136_SingleNumber {
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

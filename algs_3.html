@@ -91,6 +91,144 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15326594430000.html">
+                    
+                    <h1>191 Number of 1 Bits</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Write a function that takes an unsigned integer and returns the number of &#39;1&#39; bits it has (also known as the Hamming weight).</p>
+
+<p>Example 1:<br/>
+ Input: 11<br/>
+ Output: 3<br/>
+Explanation: Integer 11 has binary representation 00000000000000000000000000001011</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 7/27/18
+ */
+public class A191_NumberOf1Bits {
+    /**
+     * 题目分析：
+     * 计算一个数字的二进制表示中有几个1，做了昨天的第 190 题之后，感觉非常简单
+     * 所以我故伎重施，很容就写出两个做法，还是昨天的两个做法
+     *
+     * 运行时长：1 ms
+     *
+     * 总结：
+     * 感觉不太合理，这道题应该跟190换一换，梯度就会合理许多
+     */
+    static int hammingWeight2(int n) {
+        int result = 0;
+        for (int i = 0; i &lt; 32 &amp;&amp; n != 0; i++) {
+            if (n % 2 != 0) result++;//判断最后一位是0是1
+            n &gt;&gt;= 1;
+        }
+        return result;
+    }
+    static int hammingWeight(int n) {
+        int nums=0;
+        for (int i = 0; i &lt; 32 &amp;&amp; n != 0; i++) {
+            int temp=(n&gt;&gt;i)&amp;1;
+            nums+=temp;
+        }
+        return nums;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(hammingWeight(11));
+        System.out.println(hammingWeight2(11));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/7/27 10:44 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15325965980000.html">
+                    
+                    <h1>190 Reverse Bits</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Reverse bits of a given 32 bits unsigned integer.</p>
+
+<p>Example:<br/>
+ Input: 43261596<br/>
+ Output: 964176192<br/>
+Explanation:<br/>
+ 43261596 represented in binary as 00000010100101000001111010011100,<br/>
+ return 964176192 represented in binary as 00111001011110000010100101000000.</p>
+</blockquote>
+
+<h2 id="toc_1">背景知识</h2>
+
+<p><a href="201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html">Java 位运算符和 Java int 的实现</a></p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15325965980000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/26 17:16 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15325152280000.html">
                     
                     <h1>189 Rotate Array</h1>
@@ -464,166 +602,6 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15310653380000.html">
-                    
-                    <h1>155 Min Stack</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-
-<p>push(x) -- Push element x onto stack.<br/>
-pop() -- Removes the element on top of the stack.<br/>
-top() -- Get the top element.<br/>
-getMin() -- Retrieve the minimum element in the stack.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 2018/7/8
- */
-public class MinStack {
-    /**
-     * 题目分析：
-     * 要求实现一个最小栈，即随时可以给出这个栈的最小值，栈很容易实现，一个 int[] 加一个 top 即可，但最小值就比较复杂了；
-     * 没什么很好的办法，只能追求外挂体系，使用的是 PriorityQueue，效果还行
-     *
-     * 运行时长：70ms
-     *
-     * 总结：
-     * 结果运行居然超过 98% 的用户，以为会有什么高级做法，想来数据结构的实现的优化都不容易。
-     */
-    private int[] elements;
-    private PriorityQueue&lt;Integer&gt; queue;
-    private int top;
-
-    public MinStack() {
-        elements = new int[100];
-        queue=new PriorityQueue&lt;&gt;();
-        top = -1;
-    }
-
-    public void push(int x) {
-        if(top+1==elements.length){
-            int[] copy=new int[elements.length+100];
-            System.arraycopy(elements,0,copy,0,elements.length);
-            elements=copy;
-        }
-        elements[++top]=x;
-        queue.add(x);
-    }
-
-    public void pop() {
-        if (elements[top]==queue.peek())
-            queue.poll();
-        elements[top--]=0;
-    }
-
-    public int top() {
-        return elements[top];
-    }
-
-    public int getMin() {
-        return queue.peek();
-    }
-
-    public static void main(String[] args) {
-        MinStack obj = new MinStack();
-        obj.push(-2);
-        obj.push(0);
-        obj.push(-3);
-        System.out.println(obj.getMin());
-        obj.pop();
-        System.out.println(obj.top());
-        System.out.println(obj.getMin());
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/8 23:55 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15304560170000.html">
-                    
-                    <h1>160 Intersection of Two Linked Lists</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
-
-<p>For example, the following two linked lists:<br/>
-A:          a1 → a2<br/>
-                   ↘<br/>
-                     c1 → c2 → c3<br/>
-                   ↗<br/>
-B:     b1 → b2 → b3<br/>
-begin to intersect at node c1.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15304560170000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/1 22:40 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -710,6 +688,24 @@ begin to intersect at node c1.</p>
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -717,24 +713,6 @@ begin to intersect at node c1.</p>
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

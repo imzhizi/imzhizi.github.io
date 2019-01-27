@@ -91,6 +91,157 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15242496110000.html">
+                    
+                    <h1>35 Search Insert Position</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.<br/>
+You may assume no duplicates in the array.</p>
+
+<p>Example 1:<br/>
+Input: [1,3,5,6], 5<br/>
+Output: 2</p>
+</blockquote>
+
+<h2 id="toc_1">两种实现</h2>
+
+<p>一种是简单的顺序查找，一种是二分查找</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 2018/4/22
+ */
+public class A35_SearchInsertPosition {
+    /**
+     * 函数描述：
+     * 一次遍历，如果大于前面，小于等于后面即可插入，否则说明比所有都大，插入数组末尾
+     * 运行时长：6 ms
+     *
+     * 总结：总是要考虑取左边等于还是右边等于，使得总是有一位被忽略考虑，需要额外处理
+     */
+    public static int searchInsert(int[] nums, int target) {
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (target&lt;=nums[i])
+                return i;
+        }
+        return nums.length;
+    }
+
+     /**
+     * 函数描述：
+     * 参考二分查找思想便编写的查找算法，可能因为数据较少，时间效率差别不大
+     * 运行时长：5 ms
+     *
+     * 总结：本来也是用的二分查找，但写的不太好，之后看了下书中的讲解，写了一个经典版本的二分查找，效果不错
+     */
+    public static int searchInsert2(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length - 1;
+        int mid;
+        while (low&lt;=high) {
+            mid = (high + low) / 2;
+            if (target == nums[mid]) {
+                return mid;
+            } else if (target &lt; nums[mid]) {
+                high = mid-1;
+            } else {
+                low = mid+1;
+            }
+        }
+        return low;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(searchInsert2(new int[]{1}, 1));
+        System.out.println(searchInsert2(new int[]{1, 3, 5, 6}, 2));
+        System.out.println(searchInsert2(new int[]{1, 3, 5, 6}, 7));
+        System.out.println(searchInsert2(new int[]{1, 3, 5, 6}, 0));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/4/21 2:40 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15242483250000.html">
+                    
+                    <h1>28 Implement strStr</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
+
+<p>Example 1:<br/>
+Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;<br/>
+Output: 2</p>
+
+<p>Example 2:<br/>
+Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;<br/>
+Output: -1</p>
+
+<p>return 0 when needle is an empty string.</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15242483250000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/21 2:18 上午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15242449860000.html">
                     
                     <h1>27 Remove Element</h1>
@@ -624,163 +775,6 @@ public class A14_LongestCommonPrefix {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15236988620000.html">
-                    
-                    <h1>13 Roman to Integer</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <blockquote>
-<p>Given a roman numeral, convert it to an integer.<br/>
-Input is guaranteed to be within the range from 1 to 3999.</p>
-</blockquote>
-
-<h2 id="toc_0">关于罗马数字</h2>
-
-<p>十几以内的罗马数字数学里用过，VI、VII、IX、之类的，但是成百上千就完全不知道了。所以我先去搜索了一下罗马数字的表示方法，具体算法如下：<br/>
-I: 1    V: 5    X: 10   L: 50   C: 100  D: 500  M: 1000<br/>
-表示方法和低位的并没有区别，所以<br/>
-MMMDLXXXVI 就是 3586<br/>
-MCMXCVI 就是 1996<br/>
-MMMCCCXXXIII 就是 3333<br/>
-M 就是 1000<br/>
-XCIX 就是 99</p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15236988620000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/4/14 17:41 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15234537500000.html">
-                    
-                    <h1>9 Palindrome Number</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <blockquote>
-<p>判断一个整数是否是回文数。不能使用辅助空间。<br/>
-如：2147447412</p>
-</blockquote>
-
-<h2 id="toc_0">两种实现</h2>
-
-<p>具体介绍见方法注释</p>
-
-<pre><code class="language-java">public class A9_isPalindrome {
-    /**
-     * 函数描述：
-     * 使用StringBuilder的reverse函数进行翻转，然后使用equals函数进行比较
-     *
-     * 运行时长：102ms / 52%
- 
-&lt;!-- more --&gt;
- 
-     *
-     * 总结：
-     * 使用 JavaAPI 函数，非常简单
-     */
-    public static boolean isPalindrome(int x) {
-        if (x &lt; 0) return false;
-        String reverse=new StringBuilder(x + &quot;&quot;).reverse().toString();
-        return reverse.equals(x + &quot;&quot;);
-    }
-
-    /**
-     * 题目分析：
-     * 手动使用char[]进行对称检查，若对称则回文
-     *
-     * 运行时长：100ms / 70%
-     *
-     * 总结：
-     * 手动做总是能获得更好的效果
-     */
-    public static boolean isPalindrome1(int x) {
-        if (x &lt; 0) return false;
-        char[] chars = String.valueOf(x).toCharArray();
-        for (int i = 0; i &lt; chars.length / 2; i++) {
-            if (chars[i] != chars[chars.length - 1 - i]) return false;
-        }
-        return true;
-    }
-
-    /**
-     * 题目分析：
-     * 根据上一道题，可以把数字先进行翻转，然后再将翻转结果和原数字对比，相等即为回文数
-     *
-     * 运行时长：96ms /94%
-     *
-     * 总结：
-     * 数字方法总是能获得更好的效率
-     */
-    public static boolean isPalindrome2(int x) {
-        if (x &lt; 0) return false;
-        int reverse = 0;
-        int origin=x;
-
-        while (x != 0) {
-            reverse = reverse * 10 + x % 10;
-            x /= 10;
-        }
-
-        return reverse==origin?true:false;
-    }
-
-        public static void main(String[] args) {
-//        System.out.println(A9_isPalindrome.isPalindrome2(10));//isPalindrome2
-//        System.out.println(A9_isPalindrome.isPalindrome(121));//isPalindrome2
-        System.out.println(A9_isPalindrome.isPalindrome2(121));//isPalindrome2
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/4/11 21:35 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -867,6 +861,24 @@ XCIX 就是 99</p>
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -874,24 +886,6 @@ XCIX 就是 99</p>
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

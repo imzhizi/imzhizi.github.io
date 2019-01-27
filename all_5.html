@@ -91,6 +91,232 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15336552750000.html">
+                    
+                    <h1>119 Pascal s Triangle II</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p><a href="https://imzhizi.com/201806/201806-118-pascal-s-triangle.html">帕斯卡三角（一）</a><br/>
+Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal&#39;s triangle.</p>
+
+<p>Note that the row index starts from 0.<br/>
+In Pascal&#39;s triangle, each number is the sum of the two numbers directly above it.</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7x32xu.gif" alt="示例"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java"> 
+&lt;!-- more --&gt;
+ 
+/**
+ * created by zhizi on 2018/6/17
+ */
+public class A119_PascalTriangleII {
+    /**
+     * 题目分析：
+     * 跟上一题差别不大，不过因为结果只要求最后一行，所以节约了许多内存，使整个代码的书写也变得简洁了不少
+     *
+     * 运行时长：2 ms
+     *
+     * 总结：
+     * 但只达到了 14%，可见算法的优化空间很大，之后再处理吧
+     */
+    public List&lt;Integer&gt; getRow(int rowIndex) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;(rowIndex+1);
+        for (int i = 0; i &lt;= rowIndex; i++) {
+            for (int j = 1; j &lt; i; j++) {
+                result.add(result.get(0) + result.get(1));
+                result.remove(0);
+            }
+            result.add(1);
+        }
+        return result;
+    }
+}
+
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/8/7 23:21 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15334818570000.html">
+                    
+                    <h1>203 Remove Linked List Elements</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Remove all elements from a linked list of integers that have value val.</p>
+
+<p>Example:<br/>
+  Input:  1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6<br/>
+  Output: 1-&gt;2-&gt;3-&gt;4-&gt;5</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 8/5/18
+ 
+&lt;!-- more --&gt;
+ 
+ */
+public class A203_RemoveLinkedListElements {
+    /**
+     * 题目分析：
+     * 题目不难理解，主要就是链表的遍历，但如何能很好地遍历也不容易
+     * 我为空指针问题研究很久，终于行得通了，但运行时长不佳
+     *
+     * 运行时长：2 ms
+     *
+     * 总结：
+     * 应该有更好的实现的，但没有继续尝试，先这样吧
+     */
+    static ListNode removeElements(ListNode head, int val) {
+        while (head != null &amp;&amp; head.val == val) {
+            head = head.next;
+        }
+
+        ListNode copy = head;
+
+        while (copy != null &amp;&amp; copy.next != null) {
+            if (copy.next.val == val) copy.next = copy.next.next;
+            else copy = copy.next;
+        }
+        return head;
+    }
+
+        public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(6);
+        ListNode node4 = new ListNode(3);
+        ListNode node5 = new ListNode(4);
+        ListNode node6 = new ListNode(5);
+        ListNode node7 = new ListNode(6);
+
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+        node6.next = node7;
+
+        System.out.println(removeElements(node1, 6));
+        System.out.println(removeElements(node7, 6));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/8/5 23:10 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15333025780000.html">
+                    
+                    <h1>202 Happy Number</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p><strong>快乐数字</strong><br/>
+Write an algorithm to determine if a number is &quot;happy&quot;.<br/>
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
+
+<p>Example:<br/>
+ Input: 19<br/>
+ Output: true<br/>
+Explanation:<br/>
+ 1<sup>2</sup> + 9<sup>2</sup> = 82<br/>
+ 8<sup>2</sup> + 2<sup>2</sup> = 68<br/>
+ 6<sup>2</sup> + 8<sup>2</sup> = 100<br/>
+ 1<sup>2</sup> + 0<sup>2</sup> + 0<sup>2</sup> = 1</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15333025780000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/8/3 21:22 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15329573400000.html">
                     
                     <h1>198 House Robber</h1>
@@ -415,183 +641,6 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15324415540000.html">
-                    
-                    <h1>172 Factorial Trailing Zeroes</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given an integer n, return the number of trailing zeroes in n!.<br/>
-Example 1:<br/>
-   Input: 3<br/>
-   Output: 0</p>
-
-<p>Explanation: 3! = 6, no trailing zero.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 2018/7/24
- */
-public class A172_FactorialTrailingZeroes {
-    /**
-     * 题目分析：
-     * 一开始并没搞明白题目是什么意思，搜索之后才明白是数末位的0，想也不想就暴力一波，先写个递归求阶乘，再数后面几个0
-     * 然后我就轻轻松松收获 stack over error，然后就看到 Your solution should be in logarithmic time complexity.
-     * 重新构想时，我想，只要出现了阶乘中出现了一个0，那么最终结果里面一定有0，更深的想，其实有5的倍数和偶数就会多一个0，所以猜测可能跟5有关
-     * 算了之后发现，30以前都是有几个5就有几个0，到30就不是了，多一个，进而想到了连续除以 5。
-     *
-     * 运行时长：16 ms
-     *
-     * 总结：
-     * 多思考吧c
-     */
-    int trailingZeroes(int n) {
-        int ret=0;
-        while(n&gt;0){
-            n/=5;
-            ret+=n;
-        }
-        return ret;
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/24 22:12 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15323442480000.html">
-                    
-                    <h1>171 Excel Sheet Column Number</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
-
-<p>For example:<br/>
-    A -&gt; 1<br/>
-    ...<br/>
-    AA -&gt; 27<br/>
-    ...</p>
-
-<p>Example 1:<br/>
-     Input: &quot;A&quot;<br/>
-     Output: 1</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15323442480000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/23 19:10 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15321013100000.html">
-                    
-                    <h1>Linux(一) - Unix&Linux 历史</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">Unix</h2>
-
-<h3 id="toc_1">Unix 的诞生</h3>
-
-<ul>
-<li>Unix的历史可以追溯到20世纪60年代中期，当时麻省理工学院，AT&amp;T，贝尔实验室和通用电气公司联合开发了一种名为Multics的操作系统，Multics 中存在许多创新，但也有很多问题</li>
-<li>1969年，贝尔实验室的 Ken Thompson 开发了Unix系统的原型（分层文件系统、计算机过程概念、命令行解释器等）</li>
-<li>1969 年～1973 年，Dennis Ritchie 发明了 C 语言</li>
-<li>1973 年，使用C 重新编写 UNIX 内核</li>
-<li>1974 年，Unix 正式对外发布</li>
-<li>1976年，Bill Joy 开发了 Vi 编辑器</li>
-<li>1977年，Bill Joy 装配了第一版带有伯克利软件套件（Berkley Software Distribution，BSD ）的 Unix 系统</li>
-<li>1978年，Bill Joy 开发了 C-Shell、2BSD</li>
-<li>1979年，AT&amp;T 公司发布了商业版的 Unix —— System III</li>
-<li>1982年，Bill Joy  联合创立了 Sun 公司</li>
-<li>1983年，AT&amp;T 公司为了结束各个版本间的混淆，发布了System V Release 1</li>
-</ul>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15321013100000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/20 23:41 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='linux.html'>Linux</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -678,6 +727,24 @@ public class A172_FactorialTrailingZeroes {
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -685,24 +752,6 @@ public class A172_FactorialTrailingZeroes {
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

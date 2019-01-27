@@ -91,6 +91,99 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15436582430000.html">
+                    
+                    <h1>268 Missing Number</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.</p>
+
+<p>Example 1:<br/>
+Input: [3,0,1]<br/>
+Output: 2</p>
+
+<p>Example 2:<br/>
+Input: [9,6,4,2,3,5,7,0,1]<br/>
+Output: 8</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15436582430000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/12/1 17:57 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15432073320000.html">
+                    
+                    <h1>263 Ugly Number</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Write a program to check whether a given number is an ugly number.</p>
+
+<p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.</p>
+
+<p>Example 1:<br/>
+Input: 6<br/>
+Output: true<br/>
+Explanation: 6 = 2 × 3</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15432073320000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/11/26 12:42 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15432072050000.html">
                     
                     <h1>257 Binary Tree Paths</h1>
@@ -373,161 +466,6 @@ Explanation: 24 = 16</p>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15422723290000.html">
-                    
-                    <h1>225 Implement Stack using Queues</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Implement the following operations of a stack using queues.</p>
-
-<p>push(x) -- Push element x onto stack.<br/>
-pop() -- Removes the element on top of the stack.<br/>
-top() -- Get the top element.<br/>
-empty() -- Return whether the stack is empty.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 11/13/18
- */
-class MyStack {
-    /**
-     * 题目分析：
-     * 栈是一种非常基本的数据结构，特点就是先进后出之类的
-     * 用一个数组加一个指针可以轻松模拟栈的基本操作
-     *
-     * 运行时长：
-     *
-     * 总结：
-     * 基础
-     */
-    int[] stack;
-    int top=-1;
-
-    /** Initialize your data structure here. */
-    public MyStack() {
-        stack = new int[100];
-    }
-
-    /** Push element x onto stack. */
-    public void push(int x) {
-        stack[++top] = x;
-    }
-
-    /** Removes the element on top of the stack and returns that element. */
-    public int pop() {
-        return stack[top--];
-    }
-
-    /** Get the top element. */
-    public int top() {
-        return stack[top];
-    }
-
-    /** Returns whether the stack is empty. */
-    public boolean empty() {
-        if (top==-1) return true;
-        else return false;
-    }
-
-
-    public static void main(String[] args) {
-        MyStack stack = new MyStack();
-
-        stack.push(1);
-        stack.push(2);
-        System.out.println(stack.top());   // returns 2
-        System.out.println(stack.pop());   // returns 2
-        System.out.println(stack.empty()); // returns false
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/11/15 16:58 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15413357220000.html">
-                    
-                    <h1>205 Isomorphic Strings</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given two strings s and t, determine if they are isomorphic.<br/>
-Two strings are isomorphic if the characters in s can be replaced to get t.<br/>
-All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
-
-<p>Example 1:<br/>
-Input: s = &quot;egg&quot;, t = &quot;add&quot;<br/>
-Output: true</p>
-
-<p>Example 2:<br/>
-Input: s = &quot;foo&quot;, t = &quot;bar&quot;<br/>
-Output: false</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15413357220000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/11/4 20:48 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -614,6 +552,24 @@ Output: false</p>
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -621,24 +577,6 @@ Output: false</p>
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

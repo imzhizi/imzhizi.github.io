@@ -91,6 +91,115 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15485784665963.html">
+                    
+                    <h1>Week - 2019/1/26</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">Me</h2>
+
+<p>家里睡上一觉之后, 再回想发现上周的经历已经变得面目模糊起来. 可能有什么想说的, 也可能没有, 总之什么都记不起了. 那么多笔记软件, 一时的灵感还是常常没有及时记下来而忘得干干净净.</p>
+
+<p>又一次去开家长会, 先是全年级统一开, 家长们面目僵硬的坐在台下, 某位知名教育者在上面讲到「我们家长要温柔而坚决, 孩子吵、孩子闹, 总之错误的事情坚决不能做, 孩子玩手机就把网停掉、把充电器收走······」、「孩子正处于叛逆期, 打骂是不可取的, 但无论如何叛逆是不正确的、是错误的, 我们要尽可能确保叛逆期迅速、平稳地度过·······」、「家长首先要学会做人, 一些家长委员会为同学们服务, 既出钱、又出力, 有些家长只需要交钱还磨磨蹭蹭······」. 总之就是像作战动员会一样, 家长们必须和学校联合起来, 不能有任何的疏漏, 想尽办法, 一定能榨干孩子们的所有精力.</p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15485784665963.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2019/1/27 16:41 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='week.html'>Week</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15485641914411.html">
+                    
+                    <h1>237 Delete Node in a Linked List (垃圾题)</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>题目 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list/">Delete Node in a Linked List - LeetCode</a></p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15485641914411.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2019/1/27 12:43 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15485640818554.html">
+                    
+                    <h1>61 Rotate List - LeetCode</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <p>题目 <a href="https://leetcode.com/problems/rotate-list/">Rotate List - LeetCode</a></p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15485640818554.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2019/1/27 12:41 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15482998128871.html">
                     
                     <h1>2 Add Two Numbers</h1>
@@ -100,88 +209,6 @@
                             
                             <p>题目: <a href="https://leetcode.com/problems/add-two-numbers/">Add Two Numbers - LeetCode</a></p>
 
-<pre><code class="language-java">/**
- * 分析
- * 两个链表中的数字逐个相加，主要问题就是进位问题，如果选一个链表存储结果，当链表不够的时候需要新建结点
- *
- * 时长
- * 23ms / 82%
- *
- * 总结
- * 新建结点问题比预想中的要复杂，因为新建的结点需要有前置结点，因此需要总是用前置结点来操作
- * 两链表长度可能会不同，因此在过程中要拼接链表形成最长的结果链表
- * 进位判断使用  add = sum / 10; sum = sum % 10; 比最初使用 if(sum&gt;9) 效果好很多
- */
-public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-    ListNode head = new ListNode(0);
-    ListNode result = head;
-    head.next = l1;
-    int add = 0;
-    int sum = 0;
-
-    while (l1 != null || l2 != null) {
-        if (l1 == null) {
-            sum = l2.val + add;
-            head.next = l2;
-            l2 = l2.next;
-        } else if (l2 == null) {
-            sum = l1.val + add;
-            head.next = l1;
-            l1 = l1.next;
-        } else {
-            sum = l1.val + l2.val + add;
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-
-        add = sum / 10;
-        sum = sum % 10;
-
-        head.next.val = sum;
-        head = head.next;
-    }
-
-    if (add != 0) {
-        head.next = new ListNode(add);
-    }
-
-    return result.next;
-}
-
-@Test
-public void test2(){
-    ListNode node = new ListNode(0);
-    ListNode node1 = new ListNode(2);
-    ListNode node2 = new ListNode(4);
-    ListNode node3 = new ListNode(3);
-    node1.next=node2;
-    node2.next=node3;
-
-    ListNode node4 = new ListNode(5);
-    ListNode node5 = new ListNode(6);
-    ListNode node6 = new ListNode(4);
-    node4.next=node5;
-    node5.next=node6;
-
-
-    ListNode node7 = new ListNode(7);
-    ListNode node8 = new ListNode(0);
-    ListNode node9 = new ListNode(8);
-    node7.next=node8;
-    node8.next=node9;
-
-    Assert.assertEquals(node7, addTwoNumbers(node1,node4));
-
-    ListNode node10=new ListNode(2);
-    node10.next= new ListNode(1);
-
-    Assert.assertEquals(node10, addTwoNumbers(node6,node9));
-
-    Assert.assertEquals(node10, addTwoNumbers(node10,node));
-
-    Assert.assertEquals(node10, addTwoNumbers(node,node10));
-}
-</code></pre>
 
                             
                         </div>
@@ -190,7 +217,7 @@ public void test2(){
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15482998128871.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2019/1/24 11:16 上午</span>
                         <span>posted in&nbsp;</span> 
                         
@@ -217,53 +244,6 @@ public void test2(){
                             
                             <p>题目: <a href="https://leetcode.com/problems/middle-of-the-linked-list/">Middle of the Linked List - LeetCode</a></p>
 
-<pre><code class="language-java">/**
- * 分析
- * 最近懈怠了许多，一直没刷题，新的一年也要加油啊～
- * 题目就是很蠢的找一个链表的中间节点，没想到什么好办法，就老老实实遍历，时间复杂度为 O(n+n/2)
- *
- * 时长
- * 1ms / 82%
- *
- * 总结
- * 虽然搞了点小手段希望能优化（也就是判断链表长度，一次移动两个结点），但也没什么效果，就这样吧
- */
-public ListNode middleNode(ListNode head) {
-    ListNode node = head;
-    int num = 0;
-    while (node != null) {
-        node = node.next;
-        num++;
-    }
-
-    int mid = num / 2;
-
-    for (int i = 0; i &lt; mid; i++) {
-        if (mid - i &gt; 2) {
-            head = head.next.next;
-            i++;
-        } else {
-            head = head.next;
-        }
-    }
-    return head;
-}
-
-@Test
-public void test876() {
-    ListNode node1 = new ListNode(2);
-    ListNode node2 = new ListNode(3);
-    ListNode node3 = new ListNode(4);
-    ListNode node4 = new ListNode(5);
-    ListNode node5 = new ListNode(6);
-    node1.setNext(node2);
-    node2.setNext(node3);
-    node3.setNext(node4);
-    node4.setNext(node5);
-
-    Assert.assertEquals(node3, middleNode(node1));
-}
-</code></pre>
 
                             
                         </div>
@@ -272,7 +252,7 @@ public void test876() {
 
                 <div class="read-more clearfix">
                     <div class="more-left left">
-                        
+                        <a href="15482996985553.html">Read more</a>&nbsp;&nbsp; 
                         <span class="date">2019/1/24 11:14 上午</span>
                         <span>posted in&nbsp;</span> 
                         
@@ -403,126 +383,6 @@ public void test876() {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15478740192982.html">
-                    
-                    <h1>Linux(四) 软件包管理器</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">dpkg 和 apt-get</h2>
-
-<p><strong>主要应用于类 Debian 系统</strong><br/>
-dpkg 是 Debian 的软件包管理的底层系统（名称来源于 Debian Package），被用于安装、卸载和供给和 <code>.deb</code>软件包相关的信息。</p>
-
-<p>apt 是Advance Packaging Tool（高级包装工具）的缩写，APT最早被设计成dpkg的前端，用来处理deb格式的软件包，现在已经成为 Debian 及其派生发行版的软件包管理器。</p>
-
-<p>apt 主要解决了软件的安装源、依赖关系处理、软件更新和发行版升级的问题。</p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15478740192982.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2019/1/19 13:0 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='linux.html'>Linux</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="git_note.html.html">
-                    
-                    <h1>Git 笔记</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">基本配置</h2>
-
-<p><a href="https://segmentfault.com/a/1190000002533334">如何在本地环境配置github - trigkit4 - SegmentFault 思否</a></p>
-
-<h2 id="toc_1">合并多个 commit</h2>
-
-<p>很多时候都以为这次一定没问题了, 但是提交了之后才发现其实并没有解决问题, 因此就再次提交, 为了提交信息清爽、有效, 可以合并一些commit.</p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="git_note.html.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2019/1/18 23:50 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='tool.html'>Tool</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15473879569169.html">
-                    
-                    <h1>Week - 2019/1/12</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">Me</h2>
-
-<p>虽然我的 2019 计划没有写清楚, 但是好奇心日报这篇文章写得确实很棒, 推荐给大家, 2019 年, 希望大家都成为更好的人. <a href="http://www.qdaily.com/articles/60182.html?source=feed">2019 年，如何成为一个更好的人？我们给出 100 条真诚建议 | 100 个生活大问题 - 好奇心日报</a></p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15473879569169.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2019/1/13 21:59 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='week.html'>Week</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -609,6 +469,24 @@ dpkg 是 Debian 的软件包管理的底层系统（名称来源于 Debian Packa
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -616,24 +494,6 @@ dpkg 是 Debian 的软件包管理的底层系统（名称来源于 Debian Packa
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  

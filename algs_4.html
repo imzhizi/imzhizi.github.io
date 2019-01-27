@@ -91,6 +91,166 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15310653380000.html">
+                    
+                    <h1>155 Min Stack</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+
+<p>push(x) -- Push element x onto stack.<br/>
+pop() -- Removes the element on top of the stack.<br/>
+top() -- Get the top element.<br/>
+getMin() -- Retrieve the minimum element in the stack.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 2018/7/8
+ */
+public class MinStack {
+    /**
+     * 题目分析：
+     * 要求实现一个最小栈，即随时可以给出这个栈的最小值，栈很容易实现，一个 int[] 加一个 top 即可，但最小值就比较复杂了；
+     * 没什么很好的办法，只能追求外挂体系，使用的是 PriorityQueue，效果还行
+     *
+     * 运行时长：70ms
+     *
+     * 总结：
+     * 结果运行居然超过 98% 的用户，以为会有什么高级做法，想来数据结构的实现的优化都不容易。
+     */
+    private int[] elements;
+    private PriorityQueue&lt;Integer&gt; queue;
+    private int top;
+
+    public MinStack() {
+        elements = new int[100];
+        queue=new PriorityQueue&lt;&gt;();
+        top = -1;
+    }
+
+    public void push(int x) {
+        if(top+1==elements.length){
+            int[] copy=new int[elements.length+100];
+            System.arraycopy(elements,0,copy,0,elements.length);
+            elements=copy;
+        }
+        elements[++top]=x;
+        queue.add(x);
+    }
+
+    public void pop() {
+        if (elements[top]==queue.peek())
+            queue.poll();
+        elements[top--]=0;
+    }
+
+    public int top() {
+        return elements[top];
+    }
+
+    public int getMin() {
+        return queue.peek();
+    }
+
+    public static void main(String[] args) {
+        MinStack obj = new MinStack();
+        obj.push(-2);
+        obj.push(0);
+        obj.push(-3);
+        System.out.println(obj.getMin());
+        obj.pop();
+        System.out.println(obj.top());
+        System.out.println(obj.getMin());
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/7/8 23:55 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15304560170000.html">
+                    
+                    <h1>160 Intersection of Two Linked Lists</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
+
+<p>For example, the following two linked lists:<br/>
+A:          a1 → a2<br/>
+                   ↘<br/>
+                     c1 → c2 → c3<br/>
+                   ↗<br/>
+B:     b1 → b2 → b3<br/>
+begin to intersect at node c1.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15304560170000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/1 22:40 下午</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15292225900000.html">
                     
                     <h1>118 Pascal s Triangle</h1>
@@ -489,202 +649,6 @@ public class A112_PathSum {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15275565280000.html">
-                    
-                    <h1>111 Minimum Depth of Binary Tree</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a binary tree, find its minimum depth.<br/>
-The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.<br/>
-Note: A leaf is a node with no children.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/29
- */
-public class A111_MinimumDepthOfBinaryTree {
- 
-&lt;!-- more --&gt;
- 
-    /**
-     * 题目分析：
-     * 求一个二叉树的最小深度，题中定义说到叶子结点的最小距离才算是最小深度
-     * 显然又要用递归，问题就在于怎么把递归用的好看
-     * 我用一个愚蠢的做法实现了一个优雅的代码
-     *     这个深度计算中，必须保证深度值是来自一个叶子结点，而不是一个空着的左子女或右子女
-     *     所以一旦遇到左（右）子女为空的时候，我就把它对应的值设为Integer.MAX_VALUE
-     *     这样很有效，可以轻松进行递归，过滤掉无效值
-     * 但我没解决好root为null的问题，所以只好建了一个helper方法
-     *
-     * 运行时长：1 ms
-     *
-     * 总结：
-     * helper方法就helper方法，其实也还行
-     */
-    public static int minDepth(TreeNode root) {
-        if(root==null)return 0;
-        else return helper(root);
-    }
-
-    public static int helper(TreeNode root) {
-        if (root == null) return Integer.MAX_VALUE;
-        if (root.left == null &amp;&amp; root.right == null) return 1;
-        return Math.min(helper(root.left), helper(root.right)) + 1;
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(3);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(20);
-        TreeNode t4 = new TreeNode(5);
-
-        t1.left = t2;
-        t1.right = t3;
-        t3.left = t4;
-
-        System.out.println(minDepth(t1));
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/29 9:15 上午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15274948350000.html">
-                    
-                    <h1>110 Balanced Binary Tree</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a binary tree, determine if it is height-balanced.<br/>
-For this problem, a height-balanced binary tree is defined as:<br/>
-a binary tree in which the depth of the two subtrees of every node never differ by more than 1.</p>
-</blockquote>
-
-<p><img src="https://s1.imgsha.com/2018/10/01/7xthh3.png" alt="110BalancedBinaryTree"/></p>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/28
- 
-&lt;!-- more --&gt;
- 
- */
-public class A110_BalancedBinaryTree {
-   /**
-     * 题目分析：
-     * 平衡二叉树的判定，假如你了解什么是平衡二叉树的话，题目很容易理解。
-     * 但并不好写，至少我写了很久，问题主要出在一个矛盾的地方，返回值只能有一个，但是既要计算树的深度，又要判断树是否不平衡了
-     * 最终思路是选择一个特殊值作为标志位，一旦出现不平衡就直接传递不平衡标志，如果平衡的话就继续传递深度
-     *
-     * 运行时长：2 ms
-     *
-     * 总结：
-     * 这种基本概念的实现，如果不熟悉的话，并不容易实现，但面试可能还挺容易出现的。
-     */
-    public static boolean isBalanced(TreeNode root) {
-        if (root == null) return true;
-        return height(root)!=-1;
-    }
-
-    public static int height(TreeNode root) {
-        if (root == null) return 0;
-        int l = height(root.left);
-        int r = height(root.right);
-        if (l == -1 || r == -1||Math.abs(l - r) &gt; 1) return -1;
-        return Math.max(l, r) + 1;
-    }
-
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(3);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(20);
-        TreeNode t4 = new TreeNode(5);
-        TreeNode t5 = new TreeNode(7);
-        TreeNode t6 = new TreeNode(7);
-        TreeNode t7 = new TreeNode(7);
-
-        t1.left = t2;
-        System.out.println(isBalanced(t1));
-        t2.left = t3;
-        System.out.println(isBalanced(t1));
-        t3.left = t4;
-        System.out.println(isBalanced(t1));
-        t1.right = t5;
-        t2.right = t6;
-        t3.right = t7;
-        System.out.println(isBalanced(t1));
-
-    }
-}
-
-
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/28 16:7 下午</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -771,6 +735,24 @@ public class A110_BalancedBinaryTree {
 	      
 		      
 			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
@@ -778,24 +760,6 @@ public class A110_BalancedBinaryTree {
 		      
 			      <li class="post">
 			        <a href="15482996985553.html">876 Middle of the Linked List</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="maven_note.html.html">Maven 笔记</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478753789599.html">Week - 2019/1/19</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15478744498403.html">Linux 命令笔记</a>
 			      </li>
 		     
 		  
