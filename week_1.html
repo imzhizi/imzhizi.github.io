@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        167 Two Sum II - 难以想象的晴朗
+        Week - 难以想象的晴朗
         
     </title>
     
@@ -82,143 +82,69 @@
 
 
         <section id="main-content" role="main" class="scroll-container"> <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+    $(function () {
+        $('#menu_item_index').addClass('is_active');
+    });
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>167 Two Sum II</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2018/7/9 23:46 PM</span>
+    <div class="large-8 medium-8 columns">
+        <div class="markdown-body home-categories">
+            
+            <div class="article">
+                <a class="clearlink" href="15450518960000.html">
+                    
+                    <h1>Week - 2018/12/15</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">Me</h2>
 
-          <span>posted in&nbsp;</span> 
-          
-              <span class="posted-in"><a href='algs.html'>算法</a></span>
-           
-         
-          <span class="comments">
+<p>我之前买了一些基金, 很少的一点点, 纯粹是买来玩, 学一学整个是如何运作的. 或许基金是通过长期持有来获得收益的, 我也不太清楚, 但目前来看, 我买的大部分都处于亏损状态.<br/>
+其中的一个教训是: 由于基金和股票有很强的相关性, 如果是国内的交易, 应该在下午三点闭市之前, 根据股票的走势来决定买或者卖.<br/>
+另外我常常优柔寡断, 不及时做决策, 导致错过了很多好时机, 可能是对市场不切实际的幻想.</p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15450518960000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/12/17 21:4 PM</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='week.html'>Week</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
             
 
-            
-          </span>
 
+            <div class="row">
+                <div class="large-6 columns">
+                    <p class="text-left" style="padding-top:25px;">
+                         <a href="week.html">&laquo; Prev Page</a> 
+                    </p>
+                </div>
+                <div class="large-6 columns">
+                    <p class="text-right" style="padding-top:25px;">
+                        
+                    </p>
+                </div>
+            </div>
         </div>
-      </div><!-- article -->
-
-      <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p><a href="https://imzhizi.com/201804/201804-1-twosum.html">两数之和（一）</a></p>
-
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br/>
-You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-
-<p>Example:<br/>
-Given nums = [2, 7, 11, 15], target = 9,<br/>
-Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释 </p>
-
-<span id="more"></span><!-- more -->
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/6/14
- */
-public class A167_TwoSumII {
-    /**
-     * 题目分析：
-     * 居然是第一道题的升级版，唯一的变化就是输入的数列变成有序的了
-     * 通过两侧辗转向中间逼近，来找到target
-     *
-     * 运行时长：2 ms
-     *
-     * 总结：
-     * 同时我在想是否可以通过这个去改造  第一题 呢，但我失败了，因为第一题要求返回的是数字原来的位置
-     */
-    public static int[] twoSum(int[] numbers, int target) {
-        int right=numbers.length-1;
-        int left=0;
-        while (numbers[left]+numbers[right]!=target){
-            if(numbers[left]+numbers[right]&gt;target)right--;
-            else left++;
-        }
-        return new int[]{left+1,right+1};
-    }
-
-    public static void main(String[] args) {
-        int[] nums = twoSum(new int[]{-1, 0,}, -1);
-        System.out.println(nums[0] + &quot; &quot; + nums[1]);
-    }
-}
-</code></pre>
-
-
-    
-
-      </div>
-
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-          <a href="15314891170000.html" 
-          title="Previous Post: 168 Excel Sheet Column Title">&laquo; 168 Excel Sheet Column Title</a>
-      
-        </p>
-        </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-          <a  href="15310653380000.html" 
-          title="Next Post: 155 Min Stack">155 Min Stack &raquo;</a>
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          <div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://imzhizi-com.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-          
-
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
-
-
-
-
- <div class="large-4 medium-4 columns">
+    </div><!-- large 8 --> <div class="large-4 medium-4 columns">
   <div class="hide-for-small">
     <div id="sidebar" class="sidebar">
           <div id="site-info" class="site-info">
