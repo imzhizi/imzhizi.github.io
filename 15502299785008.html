@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        206 Reverse Linked List - 难以想象的晴朗
+        121 & 122 Best Time to Buy and Sell Stock I & II - 难以想象的晴朗
         
     </title>
     
@@ -91,10 +91,10 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>206 Reverse Linked List</h1>
+          <h1>121 & 122 Best Time to Buy and Sell Stock I & II</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2018/9/4 10:46 am</span>
+          <span class="date">2019/2/15 19:26 pm</span>
 
           <span>posted in&nbsp;</span> 
           
@@ -111,50 +111,95 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
+      <h2 id="toc_0">Best Time to Buy and Sell Stock I</h2>
+
+<h3 id="toc_1">题目描述</h3>
 
 <blockquote>
-<p>Reverse a singly linked list.<br/>
-Example:<br/>
-  Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br/>
-  Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.<br/>
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.<br/>
+Note that you cannot sell a stock before you buy one.</p>
+
+<p>Example 1:<br/>
+Input: [7,1,5,3,6,4]<br/>
+Output: 5<br/>
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.<br/>
+             Not 7-1 = 6, as selling price needs to be larger than buying price.</p>
 </blockquote>
 
-<h2 id="toc_1">代码实现</h2>
+<span id="more"></span><!-- more -->
+
+<h3 id="toc_2">代码实现</h3>
 
 <p>详解见注释</p>
 
-<pre><code class="language-go">type ListNode struct {
-    Val  int
-    Next *ListNode
- 
-&lt;!-- more --&gt;
- 
-}
-
-// 题目分析：
-//  没事学了 Go 语言，所以就拿来玩玩，感觉还不错
-//  题目也很简单，就是链表的翻转，用学过数据结构的都知道头插法遍历一遍就行了
-// 运行时间：0ms / 100%（不知道是题目太简单，懒得给用例还是 没人用 Go 写，总之是 beat 100%）
-// 总结：无
-func reverseList(head *ListNode) *ListNode {
-    node :=new(ListNode)
-    for head!=nil{
-        temp:=ListNode{head.Val,node.Next}
-        node.Next=&amp;temp
-        head=head.Next
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/6/6
+ */
+public class A121_BestTimeToBuyAndSellStock {
+    /**
+     * 题目分析：
+     * 说是买卖股票的最佳时机，翻译出来，其实是寻找一个最大差值，这个差值必须是后出现的数字减去之前出现的
+     * 思路也很朴实，就是找出数组已被遍历部分中最小的值，然后不断与下一个值计算差值，若比之前大，则保留
+     *
+     * 运行时长：2ms
+     *
+     * 总结：
+     * 任何需要保存结果数组，之后再对结果进行排序都需要考虑这样是否是必要的，一般可以优化
+     */
+    public static int maxProfit(int[] prices) {
+        if (prices.length == 0) return 0;
+        int min = prices[0];
+        int profit = 0;
+        for (int i = 1; i &lt; prices.length; i++) {
+            int m = prices[i] - min;
+            if (m &gt; 0) {
+                if (profit &lt; m) profit = m;
+            } else {
+                min = prices[i];
+            }
+        }
+        return profit;
     }
-    return node.Next
-}
 
-func main() {
-    node:=ListNode{1,&amp;ListNode{2,&amp;ListNode{3,nil}}}
-    result:=reverseList(&amp;node)
-    for result!=nil {
-        println(result.Val)
-        result=result.Next
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{2, 1, 4}));
     }
 }
+</code></pre>
+
+<h2 id="toc_3">题目：<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/">Best Time to Buy and Sell Stock II - LeetCode</a></h2>
+
+<p>能感觉到这是一道比较需要算法思想的题目，但我并没有系统地学过算法，尝试一下吧. 应该是属于贪心算法.</p>
+
+<pre><code class="language-java">    /*
+     思路一：1ms - 99%
+     我猜测这道题可能需要所谓的贪心算法，个人理解是
+     1、有得赚就买，这很容易理解，只要今天的比明天价格低，买了就能赚
+     2、比明天赚得多就卖，已经买了如何决定卖不卖呢？只要比明天多，即便后面有赚得更多的，但明天可以买
+     */
+    public int maxProfit(int[] prices) {
+        int profit = 0;
+        int hold = -1;
+
+        for (int i = 0; i &lt; prices.length - 1; i++) {
+            if (hold != -1 &amp;&amp; prices[i] &gt; prices[i + 1]) {// 要不要卖
+                profit += prices[i] - hold;
+                hold = -1;
+            } else if (hold == -1 &amp;&amp; prices[i] &lt; prices[i + 1]) { //要不要买
+                hold = prices[i];
+            }
+        }
+        if (hold != -1) profit += prices[prices.length - 1] - hold;
+
+        return profit;
+    }
+
+    @Test
+    public void test122() {
+        Assert.assertEquals(7, maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
+        Assert.assertEquals(4, maxProfit(new int[]{1, 2, 3, 4, 5}));
+    }
 </code></pre>
 
 
@@ -166,16 +211,13 @@ func main() {
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15370784310000.html" 
-          title="Previous Post: Linux(二) - Unix&Linux 基本概念">&laquo; Linux(二) - Unix&Linux 基本概念</a>
-      
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15357927890000.html" 
-          title="Next Post: 204 Count Primes">204 Count Primes &raquo;</a>
+          <a  href="15502297004252.html" 
+          title="Next Post: 643. Maximum Average Subarray I">643. Maximum Average Subarray I &raquo;</a>
       
       </p>
         </div>

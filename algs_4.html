@@ -91,6 +91,206 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15317100690000.html">
+                    
+                    <h1>169 Majority Element</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.<br/>
+You may assume that the array is non-empty and the majority element always exist in the array.</p>
+
+<p>Example 1:<br/>
+Input: [3,2,3]<br/>
+Output: 3</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ 
+&lt;!-- more --&gt;
+ 
+ * created by zhizi on 2018/7/13
+ */
+public class A169_MajorityElement {
+    /**
+     * 题目分析：
+     * 看到题目，按照最暴力的解法，可以使用 HashMap 统计每个数字出现的次数，哪一个出现次数超过 2/n
+     *
+     * 运行时长：18ms
+     *
+     * 总结：
+     * 为了维持一个HashMap的成本太高了，一看就需要优化
+     */
+    public static int majorityElement(int[] nums) {
+        HashMap&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (!map.containsKey(nums[i]))
+                map.put(nums[i],1);
+            else map.put(nums[i],map.get(nums[i])+1);
+            if(map.get(nums[i])&gt;nums.length/2)
+                return nums[i];
+        }
+        return 0;
+    }
+
+    /**
+     * 题目分析：
+     * 学习到的一种非常好的做法，值得反复回味
+     *
+     * 运行时长：4ms
+     *
+     * 总结：
+     * 无
+     */
+    public static int majorityElement2(int[] nums) {
+        int majority =nums[0];
+        int count=0;
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (majority==nums[i]){
+                count++;
+            }else count--;
+            if(count==0){
+                majority=nums[i];
+                count++;
+            }
+        }
+        return 0;
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/7/16 11:1 am</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15314891170000.html">
+                    
+                    <h1>168 Excel Sheet Column Title</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.<br/>
+For example:<br/>
+ 1 -&gt; A<br/>
+ 2 -&gt; B<br/>
+ ...<br/>
+ 26 -&gt; Z<br/>
+ 27 -&gt; AA</p>
+
+<p>Example 1:<br/>
+ Input: 1<br/>
+ Output: &quot;A&quot;</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15314891170000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/13 21:38 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15311511750000.html">
+                    
+                    <h1>167 Two Sum II</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p><a href="https://imzhizi.com/201804/201804-1-twosum.html">两数之和（一）</a></p>
+
+<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br/>
+You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+
+<p>Example:<br/>
+Given nums = [2, 7, 11, 15], target = 9,<br/>
+Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释 </p>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15311511750000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/7/9 23:46 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15310653380000.html">
                     
                     <h1>155 Min Stack</h1>
@@ -481,174 +681,6 @@ public class A136_SingleNumber {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15284708220000.html">
-                    
-                    <h1>125 Valid Palindrome</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br/>
-Note: For the purpose of this problem, we define empty string as valid palindrome.</p>
-
-<p>Example 1:<br/>
-Input: &quot;A man, a plan, a canal: Panama&quot;<br/>
-Output: true</p>
-
-<p>Example 2:<br/>
-Input: &quot;race a car&quot;<br/>
-Output: false</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15284708220000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/6/8 23:13 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15282133080000.html">
-                    
-                    <h1>121 Best Time to Buy and Sell Stock</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Say you have an array for which the ith element is the price of a given stock on day i.<br/>
-If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.<br/>
-Note that you cannot sell a stock before you buy one.</p>
-
-<p>Example 1:<br/>
-Input: [7,1,5,3,6,4]<br/>
-Output: 5<br/>
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.<br/>
-             Not 7-1 = 6, as selling price needs to be larger than buying price.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15282133080000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/6/5 23:41 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15276445920000.html">
-                    
-                    <h1>112 Path Sum</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br/>
-Note: A leaf is a node with no children.</p>
-</blockquote>
-
-<p><img src="https://s1.imgsha.com/2018/10/01/7xtUM8.png" alt="112PathSum"/></p>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/30
- */
- 
-&lt;!-- more --&gt;
- 
-public class A112_PathSum {
-    /**
-     * 题目分析：
-     * 这道题事实上在寻找一个路径，这个路径和等于给定值，依然是递归题
-     * 思路嘛，还是要判定是否是叶子，但比上一道题容易处理，因为通过自身即可验证是否已经找到（root.val == sum）
-     * 关键思路在于一旦出现true，那么就要把true一路传上去
-     *
-     * 运行时长：1 ms
-     *
-     * 总结：
-     * 很快写出来的一个很优雅的递归，很满意。
-     */
-    public boolean hasPathSum(TreeNode root, int sum) {
-        if (root == null) return false;
-        if (root.left==null&amp;&amp;root.right==null &amp;&amp; root.val == sum) return true;
-        else return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/30 9:43 am</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -735,31 +767,31 @@ public class A112_PathSum {
 	      
 		      
 			      <li class="post">
+			        <a href="15502299785008.html">121 & 122 Best Time to Buy and Sell Stock I & II</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502297004252.html">643. Maximum Average Subarray I</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502295025561.html">665. Non-decreasing Array & 697. Degree of an Array</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502276229026.html">414. Third Maximum Number & 628. Maximum Product of Three Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15491780545461.html">Week - 2019/2/2</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485784665963.html">Week - 2019/1/26</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
 		  

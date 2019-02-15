@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
         
-        206 Reverse Linked List - 难以想象的晴朗
+        643. Maximum Average Subarray I - 难以想象的晴朗
         
     </title>
     
@@ -91,10 +91,10 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>206 Reverse Linked List</h1>
+          <h1>643. Maximum Average Subarray I</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2018/9/4 10:46 am</span>
+          <span class="date">2019/2/15 19:21 pm</span>
 
           <span>posted in&nbsp;</span> 
           
@@ -111,50 +111,60 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">题目描述</h2>
+      <p>题目：<a href="https://leetcode.com/problems/maximum-average-subarray-i/">Maximum Average Subarray I - LeetCode</a></p>
 
-<blockquote>
-<p>Reverse a singly linked list.<br/>
-Example:<br/>
-  Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br/>
-  Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
-</blockquote>
+<p>动态规划思路的借鉴 <a href="/15246632930000.html">53. Maximum Subarray</a>, 算法真奇妙, 提升非常明显.</p>
 
-<h2 id="toc_1">代码实现</h2>
+<span id="more"></span><!-- more -->
 
-<p>详解见注释</p>
+<pre><code class="language-java">    /**
+     * 分析：平均值最大的子串，因为长度是确定的，很容易想得的一种思路是一次遍历，逐个求平均值比较得出
+     *      进而可以想到不必每次都求平均值，其实相当于固定长度的最大子串和，那求最大子串和的方法是什么？或许可以参考并加以利用
+     *
+     * 总结：算法真奇妙，确实利用到了之前求最大子串中保留上一步计算结果降低计算次数的方法，效果也十分明显
+     */
 
-<pre><code class="language-go">type ListNode struct {
-    Val  int
-    Next *ListNode
- 
-&lt;!-- more --&gt;
- 
-}
+    /* 思路一：412ms - 7% - 逐个计算来做，每次都要计算和，所以复杂度为 O(k*n) */
+    public double findMaxAverage(int[] nums, int k) {
+        int maxSum = Integer.MIN_VALUE;
 
-// 题目分析：
-//  没事学了 Go 语言，所以就拿来玩玩，感觉还不错
-//  题目也很简单，就是链表的翻转，用学过数据结构的都知道头插法遍历一遍就行了
-// 运行时间：0ms / 100%（不知道是题目太简单，懒得给用例还是 没人用 Go 写，总之是 beat 100%）
-// 总结：无
-func reverseList(head *ListNode) *ListNode {
-    node :=new(ListNode)
-    for head!=nil{
-        temp:=ListNode{head.Val,node.Next}
-        node.Next=&amp;temp
-        head=head.Next
+        for (int i = 0; i &lt;= nums.length - k; i++) {
+            int sum = 0;
+            for (int j = i; j &lt; i + k; j++) {
+                sum += nums[j];
+            }
+            maxSum = Math.max(maxSum, sum);
+        }
+
+        return ((double) maxSum) / k;
     }
-    return node.Next
-}
 
-func main() {
-    node:=ListNode{1,&amp;ListNode{2,&amp;ListNode{3,nil}}}
-    result:=reverseList(&amp;node)
-    for result!=nil {
-        println(result.Val)
-        result=result.Next
+    /*
+     思路二：8ms - 99%
+     没想到思路一这么慢，所以必须要想其他办法，突然意识到，其实我也可以仿照以前的做法
+     事实上每次不必重新求一个sum，对于现有的sum，只要减去第一个，加上新的一个即可，不过第一个sum要逐个相加得出
+     这样时间复杂度降低到 O(k+n) 应该是一个有效的优化
+     */
+    public double findMaxAverage1(int[] nums, int k) {
+        int sum=0;
+        for (int i = 0; i &lt; k; i++) sum += nums[i];
+        int maxSum = sum;
+
+        for (int i = 1; i &lt;= nums.length - k; i++) {
+            sum-=nums[i-1];
+            sum+=nums[i+k-1];
+            maxSum = Math.max(maxSum, sum);
+        }
+
+        return ((double) maxSum) / k;
     }
-}
+
+
+    @Test
+    public void test643() {
+        Assert.assertEquals(12.75,findMaxAverage(new int[]{1,12,-5,-6,50,3},4),0);
+        Assert.assertEquals(5,findMaxAverage(new int[]{5},1),0);
+    }
 </code></pre>
 
 
@@ -166,16 +176,16 @@ func main() {
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15370784310000.html" 
-          title="Previous Post: Linux(二) - Unix&Linux 基本概念">&laquo; Linux(二) - Unix&Linux 基本概念</a>
+          <a href="15502299785008.html" 
+          title="Previous Post: 121 & 122 Best Time to Buy and Sell Stock I & II">&laquo; 121 & 122 Best Time to Buy and Sell Stock I & II</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15357927890000.html" 
-          title="Next Post: 204 Count Primes">204 Count Primes &raquo;</a>
+          <a  href="15502295025561.html" 
+          title="Next Post: 665. Non-decreasing Array & 697. Degree of an Array">665. Non-decreasing Array & 697. Degree of an Array &raquo;</a>
       
       </p>
         </div>

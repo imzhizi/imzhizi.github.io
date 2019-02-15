@@ -4,13 +4,417 @@
   <title><![CDATA[难以想象的晴朗]]></title>
   <link href="imzhizi.com/atom.xml" rel="self"/>
   <link href="imzhizi.com/"/>
-  <updated>2019-02-09T23:04:29+08:00</updated>
+  <updated>2019-02-15T19:30:23+08:00</updated>
   <id>imzhizi.com/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[121 & 122 Best Time to Buy and Sell Stock I & II]]></title>
+    <link href="imzhizi.com/15502299785008.html"/>
+    <updated>2019-02-15T19:26:18+08:00</updated>
+    <id>imzhizi.com/15502299785008.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">Best Time to Buy and Sell Stock I</h2>
+
+<h3 id="toc_1">题目描述</h3>
+
+<blockquote>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.<br/>
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.<br/>
+Note that you cannot sell a stock before you buy one.</p>
+
+<p>Example 1:<br/>
+Input: [7,1,5,3,6,4]<br/>
+Output: 5<br/>
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.<br/>
+             Not 7-1 = 6, as selling price needs to be larger than buying price.</p>
+</blockquote>
+
+<span id="more"></span><!-- more -->
+
+<h3 id="toc_2">代码实现</h3>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/6/6
+ */
+public class A121_BestTimeToBuyAndSellStock {
+    /**
+     * 题目分析：
+     * 说是买卖股票的最佳时机，翻译出来，其实是寻找一个最大差值，这个差值必须是后出现的数字减去之前出现的
+     * 思路也很朴实，就是找出数组已被遍历部分中最小的值，然后不断与下一个值计算差值，若比之前大，则保留
+     *
+     * 运行时长：2ms
+     *
+     * 总结：
+     * 任何需要保存结果数组，之后再对结果进行排序都需要考虑这样是否是必要的，一般可以优化
+     */
+    public static int maxProfit(int[] prices) {
+        if (prices.length == 0) return 0;
+        int min = prices[0];
+        int profit = 0;
+        for (int i = 1; i &lt; prices.length; i++) {
+            int m = prices[i] - min;
+            if (m &gt; 0) {
+                if (profit &lt; m) profit = m;
+            } else {
+                min = prices[i];
+            }
+        }
+        return profit;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{2, 1, 4}));
+    }
+}
+</code></pre>
+
+<h2 id="toc_3">题目：<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/">Best Time to Buy and Sell Stock II - LeetCode</a></h2>
+
+<p>能感觉到这是一道比较需要算法思想的题目，但我并没有系统地学过算法，尝试一下吧. 应该是属于贪心算法.</p>
+
+<pre><code class="language-java">    /*
+     思路一：1ms - 99%
+     我猜测这道题可能需要所谓的贪心算法，个人理解是
+     1、有得赚就买，这很容易理解，只要今天的比明天价格低，买了就能赚
+     2、比明天赚得多就卖，已经买了如何决定卖不卖呢？只要比明天多，即便后面有赚得更多的，但明天可以买
+     */
+    public int maxProfit(int[] prices) {
+        int profit = 0;
+        int hold = -1;
+
+        for (int i = 0; i &lt; prices.length - 1; i++) {
+            if (hold != -1 &amp;&amp; prices[i] &gt; prices[i + 1]) {// 要不要卖
+                profit += prices[i] - hold;
+                hold = -1;
+            } else if (hold == -1 &amp;&amp; prices[i] &lt; prices[i + 1]) { //要不要买
+                hold = prices[i];
+            }
+        }
+        if (hold != -1) profit += prices[prices.length - 1] - hold;
+
+        return profit;
+    }
+
+    @Test
+    public void test122() {
+        Assert.assertEquals(7, maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
+        Assert.assertEquals(4, maxProfit(new int[]{1, 2, 3, 4, 5}));
+    }
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[643. Maximum Average Subarray I]]></title>
+    <link href="imzhizi.com/15502297004252.html"/>
+    <updated>2019-02-15T19:21:40+08:00</updated>
+    <id>imzhizi.com/15502297004252.html</id>
+    <content type="html"><![CDATA[
+<p>题目：<a href="https://leetcode.com/problems/maximum-average-subarray-i/">Maximum Average Subarray I - LeetCode</a></p>
+
+<p>动态规划思路的借鉴 <a href="/15246632930000.html">53. Maximum Subarray</a>, 算法真奇妙, 提升非常明显.</p>
+
+<span id="more"></span><!-- more -->
+
+<pre><code class="language-java">    /**
+     * 分析：平均值最大的子串，因为长度是确定的，很容易想得的一种思路是一次遍历，逐个求平均值比较得出
+     *      进而可以想到不必每次都求平均值，其实相当于固定长度的最大子串和，那求最大子串和的方法是什么？或许可以参考并加以利用
+     *
+     * 总结：算法真奇妙，确实利用到了之前求最大子串中保留上一步计算结果降低计算次数的方法，效果也十分明显
+     */
+
+    /* 思路一：412ms - 7% - 逐个计算来做，每次都要计算和，所以复杂度为 O(k*n) */
+    public double findMaxAverage(int[] nums, int k) {
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i &lt;= nums.length - k; i++) {
+            int sum = 0;
+            for (int j = i; j &lt; i + k; j++) {
+                sum += nums[j];
+            }
+            maxSum = Math.max(maxSum, sum);
+        }
+
+        return ((double) maxSum) / k;
+    }
+
+    /*
+     思路二：8ms - 99%
+     没想到思路一这么慢，所以必须要想其他办法，突然意识到，其实我也可以仿照以前的做法
+     事实上每次不必重新求一个sum，对于现有的sum，只要减去第一个，加上新的一个即可，不过第一个sum要逐个相加得出
+     这样时间复杂度降低到 O(k+n) 应该是一个有效的优化
+     */
+    public double findMaxAverage1(int[] nums, int k) {
+        int sum=0;
+        for (int i = 0; i &lt; k; i++) sum += nums[i];
+        int maxSum = sum;
+
+        for (int i = 1; i &lt;= nums.length - k; i++) {
+            sum-=nums[i-1];
+            sum+=nums[i+k-1];
+            maxSum = Math.max(maxSum, sum);
+        }
+
+        return ((double) maxSum) / k;
+    }
+
+
+    @Test
+    public void test643() {
+        Assert.assertEquals(12.75,findMaxAverage(new int[]{1,12,-5,-6,50,3},4),0);
+        Assert.assertEquals(5,findMaxAverage(new int[]{5},1),0);
+    }
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[665. Non-decreasing Array & 697. Degree of an Array]]></title>
+    <link href="imzhizi.com/15502295025561.html"/>
+    <updated>2019-02-15T19:18:22+08:00</updated>
+    <id>imzhizi.com/15502295025561.html</id>
+    <content type="html"><![CDATA[
+<p>两道题目都是需要考虑的比较仔细的数组计算题, 把问题想明白, 重点在于把情况考虑清楚, 认真做可以做出来</p>
+
+<span id="more"></span><!-- more -->
+
+<h3 id="toc_0">题目：<a href="https://leetcode.com/problems/non-decreasing-array/">Non-decreasing Array - LeetCode</a></h3>
+
+<pre><code class="language-java">    /**
+     * 分析：至多修改一个数字，能否变成递增不减数列，搞个计数器，遍历一次就可以了吧
+     *
+     * 总结：其实远没有想象得简单，做了很久，脑中的逻辑比较混乱，所以在正确思路附近徘徊了许久
+     */
+
+    /* 思路一：9ms - 100% - 发现异常时直接填入进行修改，记录修改次数，若接下来再次修改则 false，反之 true */
+    public boolean checkPossibility(int[] nums) {
+        int count = 0; // 表示出现异常的次数
+
+        for (int i = 0; i &lt; nums.length - 1; i++) {
+            // 假如说当前的数字为B，当B大于C的时候不满足不减数列，即出现异常，此时有两种情况
+            if (nums[i] &gt; nums[i + 1]) {
+                count++;
+                if (i &gt; 0 &amp;&amp; nums[i + 1] &lt; nums[i - 1]) //B大于C，A也大于C，说明C自身有问题，要修改C
+                    nums[i + 1] = nums[i];
+                else    // A小于C，说明是自己B的问题，B改为A/C都万事大吉
+                    nums[i] = nums[i + 1];
+            } else if (count &gt; 1) { // 这个判断是一个很重要的优化
+                return false;
+            }
+        }
+
+        return count &lt;= 1; // 异常带来的修改不超过一次即可
+    }
+
+    @Test
+    public void test665() {
+        Assert.assertTrue(checkPossibility(new int[]{4, 2, 3}));
+        Assert.assertTrue(checkPossibility(new int[]{-1, 4, 2, 3}));
+        Assert.assertTrue(checkPossibility(new int[]{2, 4, 4, 2, 5}));
+        Assert.assertTrue(checkPossibility(new int[]{1, 3, 4, 2}));
+
+        Assert.assertFalse(checkPossibility(new int[]{3, 4, 2, 3}));
+    }
+</code></pre>
+
+<h3 id="toc_1">题目：<a href="https://leetcode.com/problems/degree-of-an-array/">Degree of an Array - LeetCode</a></h3>
+
+<pre><code class="language-java">    /**
+     * 分析：数列的度就是一个数列中出现次数最多数字出现的次数，求这个子串的长度，也就是以此数开始，以此数结束的子串长度
+     *
+     * 总结：复杂的问题还是要理清楚，想清楚之后才又解决的可能
+     */
+
+    /* 思路一：24ms - 78% - 非常的朴实的思路 */
+    public int findShortestSubArray(int[] nums) {
+        HashMap&lt;Integer, Integer&gt; countMap = new HashMap&lt;&gt;(); // countmap 用来保存数字出现的次数
+        HashMap&lt;Integer, Integer&gt; indexMap = new HashMap&lt;&gt;(); //indexmap 用来保存数字第一次出现的位置
+
+        int length = 1; //用 length 表示含有出现最多数字的子串
+        int count = 1;  // 使用 count 表示当前出现次数最多的数字
+
+        for (int i = 0; i &lt; nums.length; i++) {
+            //如何更新count和length，遍历中一旦发现map中含有某一数字，就使count加一：countMap.put(nums[i], v)
+            // length 则通过当前数字的下标减去第一次出现的坐标来计算
+            if (countMap.containsKey(nums[i])) {
+                int v = countMap.get(nums[i]) + 1;
+                if (v &gt; count) {
+                    count = v;
+                    length = i - indexMap.get(nums[i]) + 1;
+                } else if (v == count) {
+                    length = Math.min(length, i - indexMap.get(nums[i]) + 1);
+                }
+                countMap.put(nums[i], v);
+            } else {
+                countMap.put(nums[i], 1); // 第一次出现时出现次数为1
+                indexMap.put(nums[i], i); // 第一次出现的坐标
+            }
+        }
+
+        return length;
+    }
+
+    /* 思路二：9ms - 99%
+    其实和思路一是相同的做法，只不过从 Hashmap 换成了数组，难道是 contains() 函数比较慢吗 */
+    public int findShortestSubArray1(int[] nums) {
+        int[] countMap = new int[50000];
+        int[] indexMap = new int[50000];
+        int length = 1;
+        int count = 1;
+
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (countMap[nums[i]] != 0) {
+                int v = countMap[nums[i]] + 1;
+                if (v &gt; count) {
+                    count = v;
+                    length = i - indexMap[nums[i]] + 1;
+                } else if (v == count) {
+                    length = Math.min(length, i - indexMap[nums[i]] + 1);
+                }
+                countMap[nums[i]]++;
+            } else {
+                countMap[nums[i]]++;
+                indexMap[nums[i]] = i;
+            }
+        }
+
+        return length;
+    }
+
+
+    @Test
+    public void test697() {
+        Assert.assertEquals(2, findShortestSubArray(new int[]{1, 2, 2, 3, 1}));
+        Assert.assertEquals(7, findShortestSubArray(new int[]{2, 1, 1, 2, 1, 3, 3, 3, 1, 3, 1, 3, 2}));
+    }
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[414. Third Maximum Number & 628. Maximum Product of Three Numbers]]></title>
+    <link href="imzhizi.com/15502276229026.html"/>
+    <updated>2019-02-15T18:47:02+08:00</updated>
+    <id>imzhizi.com/15502276229026.html</id>
+    <content type="html"><![CDATA[
+<h3 id="toc_0">题目：<a href="https://leetcode.com/problems/third-maximum-number/">Third Maximum Number - LeetCode</a></h3>
+
+<p>题目可以这样理解: 现在要寻找成绩第三名的同学, 不是简单的分数排行榜上的第三个同学, 还要考虑并列的情况. 如果排名不足三名, 那就找第一名.</p>
+
+<span id="more"></span><!-- more -->
+
+<pre><code class="language-java">    /* 思路一：4ms - 70% - 很容易想到的蠢方法, 先直接排序，然后返回倒数找到第三名 */
+    public int thirdMax(int[] nums) {
+        Arrays.sort(nums);
+        int loc = 1;
+        for (int i = nums.length - 2; i &gt;= 0; i--) {
+            if (nums[i + 1] &gt; nums[i])
+                loc++; // 只有真的低于前一名的成绩, 才增加名次
+            if (loc == 3)
+                return nums[i];
+        }
+
+        return nums[nums.length - 1];
+    }
+
+    /*
+    思路二：2ms - 98%
+    思路是遍历数列，设 min、mid、max 三个数字作为最大的三个数字
+    在遇到较大的数字时, 逐个比较, 依次传递, 但因为数列中存在等于 Integer.MIN_VALUE 的数字，所以只有当三个数字初值比 Integer.MIN_VALUE 还小才能识别究竟是初始值还是最小值
+     */
+    public int thirdMax2(int[] nums) {
+        long min = Long.MIN_VALUE;
+        long mid = Long.MIN_VALUE;
+        long max = Long.MIN_VALUE;
+
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (nums[i] &gt; max) {
+                min = mid;
+                mid = max;
+                max = nums[i];
+            } else if (nums[i] &lt; max) {
+                if (nums[i] &gt; mid) {
+                    min = mid;
+                    mid = nums[i];
+                } else if (nums[i] &lt; mid) {
+                    min = Math.max(min, nums[i]);
+                }
+            }
+        }
+
+        if (min &lt; Integer.MIN_VALUE)
+            return (int) max;
+        else
+            return (int) min;
+    }
+
+
+    @Test
+    public void test414() {
+        Assert.assertEquals(3, thirdMax2(new int[]{3, 1, 1}));
+        Assert.assertEquals(2, thirdMax2(new int[]{2, 1}));
+        Assert.assertEquals(1, thirdMax2(new int[]{2, 3, 2, 1}));
+    }
+</code></pre>
+
+<h3 id="toc_1">题目：<a href="https://leetcode.com/problems/maximum-product-of-three-numbers/">Maximum Product of Three Numbers - LeetCode</a></h3>
+
+<p>这道题是要计算一个数列中三个数能得到的最大乘积, 如果存在负数，那么最大的就是最大的正数乘以最小的两个负数，如果不存在, 就是找最大的前三名. 两道题有一定的相似之处, 再一次遍历中同时寻找多个最值.</p>
+
+<pre><code class="language-java">    /* 思路一：8ms - 75% - */
+    public int maximumProduct(int[] nums) {
+        int max1 = Integer.MIN_VALUE;
+
+        int max2 = Integer.MIN_VALUE;
+        int max3 = Integer.MIN_VALUE;
+
+        int min1 = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+
+        for (int l = 0; l &lt; nums.length; l++) {
+            if (min1 &lt;= nums[l]) {
+                min2 = Math.min(min2, nums[l]);
+            } else {
+                min2 = min1;
+                min1 = nums[l];
+            }
+
+            if (max1 &gt;= nums[l]) {
+                if (max2 &gt;= nums[l]) {
+                    max3 = Math.max(max3, nums[l]);
+                } else {
+                    max3 = max2;
+                    max2 = nums[l];
+                }
+            } else {
+                max3 = max2;
+                max2 = max1;
+                max1 = nums[l];
+            }
+        }
+
+        return max1 * Math.max(min1 * min2, max2 * max3);
+    }
+
+    @Test
+    public void test628() {
+        Assert.assertEquals(24, maximumProduct(new int[]{1, 2, 3, 4}));
+        Assert.assertEquals(720, maximumProduct(new int[]{-4, -2, -3, -1, 60}));
+    }
+</code></pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Week - 2019/2/2]]></title>
@@ -83,9 +487,11 @@
     <updated>2019-01-27T16:41:06+08:00</updated>
     <id>imzhizi.com/15485784665963.html</id>
     <content type="html"><![CDATA[
-<h2 id="toc_0">Me</h2>
+<h2 id="toc_0">Memo</h2>
 
 <p>家里睡上一觉之后, 再回想发现上周的经历已经变得面目模糊起来. 可能有什么想说的, 也可能没有, 总之什么都记不起了. 那么多笔记软件, 一时的灵感还是常常没有及时记下来而忘得干干净净.</p>
+
+<h4 id="toc_1">我的弟弟</h4>
 
 <p>又一次去开家长会, 先是全年级统一开, 家长们面目僵硬的坐在台下, 某位知名教育者在上面讲到「我们家长要温柔而坚决, 孩子吵、孩子闹, 总之错误的事情坚决不能做, 孩子玩手机就把网停掉、把充电器收走······」、「孩子正处于叛逆期, 打骂是不可取的, 但无论如何叛逆是不正确的、是错误的, 我们要尽可能确保叛逆期迅速、平稳地度过·······」、「家长首先要学会做人, 一些家长委员会为同学们服务, 既出钱、又出力, 有些家长只需要交钱还磨磨蹭蹭······」. 总之就是像作战动员会一样, 家长们必须和学校联合起来, 不能有任何的疏漏, 想尽办法, 一定能榨干孩子们的所有精力.</p>
 
@@ -97,15 +503,15 @@
 
 <p>但可能有监督, 总是需要学习对他来说也是常态吧, 他也不会觉得多么不正常. 回家路上他也会和我聊起最近在看《天赋异禀》, 我在学校有没有看《蜘蛛侠》、《毒液》之类的······</p>
 
-<hr/>
+<h4 id="toc_2">狗十三</h4>
 
 <p>很多人都给了《狗十三》很高的评价, 我也看了然后觉得不太好, 至少不像很多人说的那么好. 有豆瓣评论大意说「假如你觉得不真实, 那说明你很幸运」, 那或许是我很幸运吧, 很多情节在我看来设计的非常拧巴, 真实世界并不是那样运转的. 我能感受到一些导演想表达的东西, 但很多事件只能让人觉得是为了表达而编造出来, 毫无说服力. 同样的还有《无名之辈》, 我看了开头就有点坚持不下去了, 一方面是我确实没什么耐心, 另一方面是两个贼太蠢了, 在这样一个风格如此写实的电影中, 两个毫无逻辑的喜剧式人物让我完全不能接受.</p>
 
-<hr/>
+<h4 id="toc_3">如果对现实世界感到失望, 不妨去找些科幻电影试试看吧</h4>
 
-<p>我不知道《流浪地球》会是怎么样的一部电影, 但是科幻电影的兴起总是让人兴奋的. 如果对现实世界感到失望, 不妨去找些科幻电影试试看吧.</p>
+<p>我不知道《流浪地球》会是怎么样的一部电影, 但是科幻电影的兴起总是让人兴奋的. 如果对现实世界感到失望, 不妨去找些科幻电影试试看吧. 比如说《黑客帝国》、《银翼杀手2049》、《攻壳机动队》1995版、《她》等片子看.</p>
 
-<h2 id="toc_1">News</h2>
+<h2 id="toc_4">News</h2>
 
 <p>本周的新闻, 大家也都知道的差不多吧.</p>
 
@@ -118,31 +524,28 @@
 <li>1月21日是马丁·路德·金纪念日<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>, 知道这个是因为我发现美股这天没更新, 原来是因为纪念日所以放假了.</li>
 </ul>
 
-<h2 id="toc_2">Posts</h2>
+<h2 id="toc_5">Posts</h2>
 
-<ul>
-<li><a href="https://terminus2049.github.io/archive/2019/01/13/chentianyong.html">陈天庸：我为什么离开？ – 端点星 – 离银河中心最远的行星</a></li>
-</ul>
+<h4 id="toc_6"><a href="https://terminus2049.github.io/archive/2019/01/13/chentianyong.html">陈天庸：我为什么离开？ – 端点星 – 离银河中心最远的行星</a></h4>
 
-<h2 id="toc_3">Words</h2>
+<h4 id="toc_7">僭越</h4>
 
-<ul>
-<li><p>僭越 [jiàn yuè]</p>
-<blockquote>
-<p>僭越是一个词汇，指超越本分，古时指地位低下的冒用在上的名义或器物等等，尤指用皇家专用的。出自《三国演义》。例句《魏书·清河王怿传》：“谅以天尊地卑，君臣道别，宜杜渐防萌，无相僭越。”  </p>
-</blockquote></li>
-<li><p>兴趣广泛又优柔寡断的人，总归是要这世上吃点苦头的。</p>
-<blockquote>
-<p>douban@Infini  </p>
-</blockquote></li>
-</ul>
+<p>僭越 [jiàn yuè]，指超越本分，古时指地位低下的冒用在上的名义或器物等等，尤指用皇家专用的。出自《三国演义》。例句《魏书·清河王怿传》：“谅以天尊地卑，君臣道别，宜杜渐防萌，无相僭越。”  </p>
 
-<h2 id="toc_4">New</h2>
+<h4 id="toc_8">兴趣广泛又优柔寡断的人，总归是要这世上吃点苦头的。</h4>
 
-<ul>
-<li><a href="https://beakerbrowser.com/">Beaker Browser</a>: Github 推荐里面看到一个叫做 Brave 的浏览器, 号称下一个时代的现代浏览器, 看了一下, 大致就是屏蔽广告、防止第三方 cookie 之类的功能, 还加了一个莫名其妙的区块链相关的功能. 然后突然就对浏览器产生了一些好奇, 除了大家都知道的主流浏览器, 像 Chrome、Firefox 之类的外, 有什么真的有趣一点的呢? 这个 Beaker 就是我发现的一个比较特别的浏览器, 它基于一个叫做 dat 的 p2p 协议,  大家通过互相 seeding 来保证站点的访问, 大概是这样子.</li>
-<li>VLC: 一款很有年代的播放器, 之前 Mac 上我一直用开源的 iina, 但看一些视频的时候, 总有一些莫名其妙的卡顿, 所以还是换了 VLC, 感觉用起来也非常舒服, 没发现什么问题.</li>
-</ul>
+<p>-- douban@Infini  </p>
+
+<h2 id="toc_9">New</h2>
+
+<h4 id="toc_10"><a href="https://beakerbrowser.com/">Beaker Browser</a></h4>
+
+<p>Github 推荐里面看到一个叫做 Brave 的浏览器, 号称下一个时代的现代浏览器, 看了一下, 大致就是屏蔽广告、防止第三方 cookie 之类的功能, 还加了一个莫名其妙的区块链相关的功能. 然后突然就对浏览器产生了一些好奇, 除了大家都知道的主流浏览器, 像 Chrome、Firefox 之类的外, 有什么真的有趣一点的呢? 这个 Beaker 就是我发现的一个比较特别的浏览器, 它基于一个叫做 dat 的 p2p 协议,  大家通过互相 seeding 来保证站点的访问, 大概是这样子.</p>
+
+<h4 id="toc_11">VLC</h4>
+
+<p><code>brew install vlc</code><br/>
+一款很有年代的播放器, 之前 Mac 上我一直用一款优秀的开源视频软件 iina, 但看一些视频的时候, 发现有一些莫名其妙的卡顿, 所以就另装了 VLC, 用起来也挺舒服的, 出了快捷键似乎不太方便, 其他都还不错.</p>
 
 <div class="footnotes">
 <hr/>
@@ -159,73 +562,19 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[237 Delete Node in a Linked List (垃圾题)]]></title>
-    <link href="imzhizi.com/15485641914411.html"/>
-    <updated>2019-01-27T12:43:11+08:00</updated>
-    <id>imzhizi.com/15485641914411.html</id>
-    <content type="html"><![CDATA[
-<p>题目 <a href="https://leetcode.com/problems/delete-node-in-a-linked-list/">Delete Node in a Linked List - LeetCode</a></p>
-
-<span id="more"></span><!-- more -->
-
-<pre><code class="language-java">    /**
-     * 分析
-     * 其实没太看懂这道题的意思，个人理解是为 ListNode 编写一个成员函数，功能是删除一个特定的 node
-     *
-     * 时长
-     * N/A
-     *
-     * 总结
-     * 并没有弄明白这道题的点，但对于链表的操作，学到新的一招
-     * 对于 head，如果想要删除自身，那么可以把 next 的 val 复制过来，然后把 next 给删掉
-     */
-    
-    // ListNode 的成员函数
-    public void deleteNode(ListNode node) {
-        ListNode head=this;
-        while (head.val!=node.val){
-            head=head.next;
-        }
-        head.val=head.next.val;
-        head.next=head.next.next;
-    }
-    
-    @Test
-    public void test237(){
-        ListNode node1 = new ListNode(4);
-        ListNode node2 = new ListNode(5);
-        ListNode node3 = new ListNode(1);
-        ListNode node4 = new ListNode(9);
-        node1.setNext(node2);
-        node2.setNext(node3);
-        node3.setNext(node4);
-
-        node1.deleteNode(node2);
-    }
-
-</code></pre>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[61 Rotate List - LeetCode]]></title>
+    <title type="html"><![CDATA[61. Rotate List - LeetCode]]></title>
     <link href="imzhizi.com/15485640818554.html"/>
     <updated>2019-01-27T12:41:21+08:00</updated>
     <id>imzhizi.com/15485640818554.html</id>
     <content type="html"><![CDATA[
 <p>题目 <a href="https://leetcode.com/problems/rotate-list/">Rotate List - LeetCode</a></p>
 
+<p>旋转链表，两种思路，一种是实现一个链表旋转函数，然后根据输入的 k 的不同执行不同的次数，根据长度直接找到旋转的位置，直接找到旋转的最终状态，打算试试这种思路</p>
+
 <span id="more"></span><!-- more -->
 
 <pre><code class="language-java">    /**
-     *
-     * 分析
-     * 旋转链表，两种思路，一种是实现一个链表旋转函数，然后根据输入的 k 的不同执行不同的次数
-     * 根据长度直接找到旋转的位置，直接找到旋转的最终状态，打算试试这种思路
-     *
-     * 时长
-     * 7ms / 97%
+     * 时长: 7ms / 97%
      *
      * 总结
      * 执行了第二种方法，过滤掉了不需要旋转的可能（k%n为0），直接找到最终循转状态
@@ -289,12 +638,11 @@
     <content type="html"><![CDATA[
 <p>题目: <a href="https://leetcode.com/problems/add-two-numbers/">Add Two Numbers - LeetCode</a></p>
 
+<p>两个链表中的数字逐个相加，主要问题就是进位问题，如果选一个链表存储结果，当链表不够的时候需要新建结点.</p>
+
 <span id="more"></span><!-- more -->
 
 <pre><code class="language-java">/**
- * 分析
- * 两个链表中的数字逐个相加，主要问题就是进位问题，如果选一个链表存储结果，当链表不够的时候需要新建结点
- *
  * 时长
  * 23ms / 82%
  *
@@ -509,7 +857,7 @@ public void test876() {
     <updated>2019-01-19T13:22:58+08:00</updated>
     <id>imzhizi.com/15478753789599.html</id>
     <content type="html"><![CDATA[
-<h2 id="toc_0">Me</h2>
+<h2 id="toc_0">Memo</h2>
 
 <p>先分享一个资本主义的阴谋, 在一篇文章的中看到, 一点点的「无糖」其实糖分浓度为 11%, 而「全糖」的浓度为17%, 所以其实「全糖」也没有多喝多少糖, 而无糖也减少不了什么罪恶感. </p>
 
@@ -519,34 +867,35 @@ public void test876() {
 
 <span id="more"></span><!-- more -->
 
-<hr/>
-
 <p>昨天 (1/19) 就想动手写这周的总结, 但思来想去似乎没什么好写的. 年底了, 这周大家都非常忙, 前两天忙的是一个比赛的答辩, 后几天一直在做实验室布置的一些工作, 工作没什么技术难度, 都是一些文本上的、体力活, 所以这周非常疲惫. 虽然说还是会继续在各种媒体、资讯中浪费时间, 但确实没什么分享欲望. 但我还是想到了一些.</p>
 
-<p>第一点是对华为的看法, 我个人很不喜欢华为, 朋友寻求推荐时这也从来不是我考虑的对象. 但我在一个外国媒体评选的「年度十大推荐购买的笔记本」的榜单中看到华为的一款笔记本排名第一(也不恶意揣测可能是华为的PR在发挥作用), 我想说说我为什么不喜欢华为.</p>
+<h4 id="toc_1">我对华为的看法</h4>
+
+<p>我个人很不喜欢华为, 朋友寻求推荐时这也从来不是我考虑的对象. 但我在一个外国媒体评选的「年度十大推荐购买的笔记本」的榜单中看到华为的一款笔记本排名第一(也不恶意揣测可能是华为的PR在发挥作用), 我想说说我为什么不喜欢华为.</p>
 
 <p>其实我不喜欢华为最大的原因很简单, 就是它「爱国」, 也就是说, 华为利用民族主义思想来宣传、售卖自己的产品. 经济全球化的今天, 无论是苹果、小米还是其他品牌, 都不可能全靠自有技术去制造一款产品, 华为肯定也做不到, 它的产品中必然使用了大量国外的配件、技术. 但华为选择强调自己国产性, 而且还提高自己的价格, 呼唤大家支持国产, 配合大量营销号 (还有海军?) 揭露美帝公司的狼子野心, 进一步激发用户的民族主义, 使「爱国」=「买华为」, 就完全令人不可接受了, 因为这种「支持国产」背后隐含的是: 即便我们国产的东西没那么国外的好, 但我们要买它, 即便它不值这个价格, 但这个钱我是为国家花的, 这值得. 这让我怎么可能喜欢华为呢?</p>
 
 <p>同时, 我认为华为手机工业设计非常丑, 尤其是前些年的产品. 系统 UI 就更差了, 我有十分的理由相信, 这个企业并不是那么尊重设计这件事情.</p>
 
-<p>最后一点, 也是我想聊华为的一个原因, 就是华为以民族主义的方式崛起, 怎么可能不被国外抵制呢? 不以商业的方式做事情, 也很难被他国以商业的方式所接受.</p>
+<p>最近新闻中常常提及华为在国外的一些遭遇, 也是我想聊华为的一个原因, 我认为这些现象是正常的. 就是华为以民族主义的方式崛起, 怎么可能不被国外抵制呢? 不以商业的方式做事情, 也很难被他国以商业的方式所接受.</p>
 
-<hr/>
+<h4 id="toc_2">日本麻将</h4>
 
-<p>另外, 昨天听 <a href="https://www.gcores.com/">机核</a> 的播客节目时, 他们提到了一款日本麻将游戏, 据说做的非常精良, 而且日本麻将的规则相对来说比较公平、运气成分降低、竞技性增强. 最重要的是这是一款网页游戏, 手机电脑都可以通过浏览器来玩, 在他们办公室非常火爆. 这让我这个 <del>玩过麻将但不知道怎么赢</del> 程序员对这个游戏的技术产生了巨大的兴趣, 这个游戏做的确实不错, 使用了 PWA 技术, 可以像小程序一样随玩随用, 游戏运行也非常流畅, 虽然说电脑发热有点厉害. </p>
+<p>另外, 昨天听 <a href="https://www.gcores.com/">机核</a> 的播客节目时, 他们提到了一款日本麻将游戏, 据说制作非常精良. 同时我又听闻日本麻将的规则相对来说比较公平, 在降低了运气成分同时又提高了竞技性, 听起来就很有吸引力. 最重要的是这是一款网页游戏, 手机电脑都可以通过浏览器来玩, 在他们办公室非常火爆. 这让我这个 <del>玩过麻将但不知道怎么赢</del> 程序员对这个游戏的技术产生了巨大的兴趣, 这个游戏做的确实不错, 使用了 PWA 技术, 可以像小程序一样随玩随用, 游戏运行也非常流畅, 虽然说电脑发热有点厉害. </p>
 
 <p>在我认真阅读了新手教程并且前往 B站 接受了教育教学之后, 我已经掌握了基本技巧, 可以跟人机大杀四方了, 嗯就是这样.<br/>
 <img src="media/15478753789599/15479598401374.jpg" alt="" style="width:3258px;"/></p>
 
 <p>并且, 我还在自己打之余, 观看了动漫《天才麻将少女》, 欣赏神抽少女们的精彩表现.</p>
 
-<hr/>
+<h4 id="toc_3">豆瓣轶事</h4>
 
-<p>另外, 前几天豆瓣还闹了一个事情, 挺好玩的, 无聊的话可以去吃点瓜 <a href="https://www.douban.com/group/topic/131489921/">豆红水军群被爆，某剧请水军结果转账多按了一个0，...</a></p>
+<p>另外, 前几天豆瓣还闹了一个事情, 挺好玩的, 无聊的话可以去吃点瓜. <br/>
+<a href="https://www.douban.com/group/topic/131489921/">豆红水军群被爆，某剧请水军结果转账多按了一个0，...</a></p>
 
-<h2 id="toc_1">New</h2>
+<h2 id="toc_4">New</h2>
 
-<p>都放在 <a href="maven_note.html">Maven 笔记</a>、<a href="git_note.html">Git 笔记</a> 了</p>
+<p>这周重新整理了 Git 笔记和 Maven 笔记, 都放在各自文章中了 ( <a href="maven_note.html">Maven 笔记</a>、<a href="git_note.html">Git 笔记</a> ).</p>
 
 <p>这次, 就这样吧, 大家再见.</p>
 
@@ -1147,208 +1496,6 @@ public class A326_PowerOfThree {
 
 </ol>
 </div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Week - 2018/11/25]]></title>
-    <link href="imzhizi.com/15450524310000.html"/>
-    <updated>2018-12-17T21:13:51+08:00</updated>
-    <id>imzhizi.com/15450524310000.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">Memo</h2>
-
-<h4 id="toc_1">「塞尔达后遗症」</h4>
-
-<p>虽然玩塞尔达已经是一个多月前的事情, 但我梦中偶尔还是会出现我在滑翔的情节, 其实也不是像塞尔达里面一样撑着滑翔伞飞, 而是像怪盗基德那样, 从高空跳下, 展开双臂就可以顺着气流滑翔. 有时候在教室里, 我甚至也会有跳起来向下滑翔的冲动.<br/>
-<img src="https://s1.ax1x.com/2018/12/17/F0RjgI.md.png" alt="F0RjgI.md.png"/></p>
-
-<span id="more"></span><!-- more -->
-
-<h4 id="toc_2">京东售后</h4>
-
-<p>我突然发现一直在用的数据线居然又两处破皮了, 我一直都放在寝室没有带出去用, 这是继 iPad 自带数据线破了以后第二根破的线. 我记得我是去年双十一在京东买的, 因为想用得久一些所以买的 Anker, 所以我决定尝试一下售后. 售后确实成功了, 以换代修发一根新的.<br/>
-但是过了半个月左右也没发货, 我去找客服问这件事情, 据说是订单状况异常, 立刻委派特级专员来对我的订单负责, 来回有三四个人给我打电话确认此事, 第二天货就到了, 早知今日, 为什么不定期处理一下状况异常的订单呢.</p>
-
-<h4 id="toc_3">闲鱼小法官</h4>
-
-<p>因为在闲鱼上卖了几次东西, 闲鱼最近常常喊我去做小法官. 大概就是有人的案件有纠纷了, 然后系统无法决断, 于是就推送给(信用比较高?)用户来投票看谁应该负责. 看了几次, 但都没有投票, 因为都是一些很难判断的事情, 双方都无法提供比较有力的证据, 所以我看了几次都没投票, 然后就把闲鱼的通知权限给关掉了, 所以, 如果在闲鱼买卖东西记得做好备份, 留好材料. </p>
-
-<h2 id="toc_4">News</h2>
-
-<h4 id="toc_5">轻颜相机与今日头条</h4>
-
-<p>今年 5 月上线的轻颜相机为今日头条收购 Faceu 后的一款延续产品，仍处在用户积累阶段，还未开始商业化。<br/>
-因为不是目标用户, 所以从来没有用过这两款产品, 但没想到这也是「字节跳动」家的, 再联想到最近谣传的「聊天IM」. 这家没什么好感的公司在产品领域倒是让人有些期待.  </p>
-
-<h4 id="toc_6"><a href="https://mp.weixin.qq.com/s/2Ymb5f4cORKBf2JMy0utgA">当下的形势 - 微信</a></h4>
-
-<p>最近各方面都开始有消息显示没那么乐观了, 就像打针前要揉揉屁股一样, 大家被一再灌输要做好心理准备, 形势在变差, 行业在过冬, 这对于互联网从业者的工资影响应该挺大的.  </p>
-
-<p>我在更早的时候, 对此也很不乐观, 有些担忧未来会怎样, 但最近似乎又好了一些, 大概是觉得, 既然这些自媒体之类的都意识到了这一点, 那么国家想必也知道的, 他们应该会做各种措施防止惨剧发生的吧. 这挺讽刺的, 不相信国家的人, 这时候反而要靠国家了.  </p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Week - 2018/12/15]]></title>
-    <link href="imzhizi.com/15450518960000.html"/>
-    <updated>2018-12-17T21:04:56+08:00</updated>
-    <id>imzhizi.com/15450518960000.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">Memo</h2>
-
-<h4 id="toc_1">基金</h4>
-
-<p>前些日子买了一些基金, 很少的一点, 纯粹是玩一玩, 了解一下基金是什么, 具体是怎么赚到钱的. 虽然说基金是通过长期持有来获得收益的, 但到目前为止, 我买的基金大部分都处于亏损状态 😢.</p>
-
-<p>在这过程中我确实翻了一些很基础的错误, 其中的一个就是由于基金和股票的相关性, 所以对于国内的基金交易, 下午三点就会闭市, 闭市之前的交易都算做当天的, 也就是会按照当天的价格计算, 而过了三点, 价格就会按照第二天三点的价格计算, 所以一般的交易都发生在三点前的几分钟, 这时候可以根据股票的走势来决定买入或者卖出.</p>
-
-<p>另外一方面, 我总是对市场抱有一些幻想, 或者说挺贪的, 不能果断地做出决断, 所以一些还不错的卖出机会我都没有抓住, 才迎来了最近持续了很久时间的亏损.</p>
-
-<span id="more"></span><!-- more -->
-
-<h4 id="toc_2">小米手环</h4>
-
-<p>特爱丢东西, 之前一直在用的小米手环2在我洗澡的时候忘记带回来, 结果就找不到了. 丢了差不多半个月, 还是像有一只手环来记录睡眠状况、运动状况, 所以最近在拼多多上买了小米手环3. 很多人听到拼多多肯定会笑, 但我觉得还不错, 价格便宜, 因为是品牌店也不担心有太多质量问题. </p>
-
-<p>另外让我对拼多多产生信心的是之前双十一有看到过人讲 —— 拼多多是双十一期间唯一一家明码标价, 不搞那些虚头巴脑的东西的电商. 怎么说, 这一点让这样一家挺讨厌的品牌渐渐有了让人喜欢的样子. 不过, 话又说回来, 拼多多的 UI 设计是真的无法接受, 一打开 APP 甚至都不知道应该往哪放指头.</p>
-
-<h2 id="toc_3">Posts</h2>
-
-<h4 id="toc_4">「虽然寿命的长度会受到一定的遗传因素影响，但是我们的研究表明，生命中还有其他很多种力量起到了重大的作用。」</h4>
-
-<p>🔗 <a href="https://zhuanlan.zhihu.com/p/50992742">遗传对寿命的影响还不如你的伴侣：4亿人大数据揭示长寿规律 - 知乎</a></p>
-
-<h4 id="toc_5">「对人类健康至关重要的抗生素中 43% 都被用于养牛；相比之下，只有 6% 会影响人类健康的抗生素用到了鸡类养殖中。」</h4>
-
-<p>🔗 <a href="https://www.qdaily.com/articles/59252.html">麦当劳将减少牛肉用的抗生素，将影响整个行业_商业_好奇心日报</a></p>
-
-<h4 id="toc_6">「有什么样的国家，就有什么样的企业。」</h4>
-
-<p>🔗 好奇心日报</p>
-
-<h4 id="toc_7">「赚钱是一种艺术、工作也是一种艺术、最赚钱的买卖是最佳的艺术。 」</h4>
-
-<p>🔗《沃霍尔的哲学》</p>
-
-<h4 id="toc_8">苏宁的边界</h4>
-
-<p>苏宁近年一直在追潮流，电商、线下门店、便利店、无人店、生鲜、视频网站、拼购，都做了，但赚钱的业务是卖阿里巴巴的股票。</p>
-
-<h4 id="toc_9">今日头条与谣言</h4>
-
-<p>「谣零零」意指「让谣言归零」，同时也是「100」的谐音。「谣零零」计划的核心是，平台依据内容质量，筛选出 100 篇优质辟谣内容，予以现金奖励，以激发优质创作者热情，进一步净化网络空间。<br/>
-🔗今日头条  </p>
-
-<h2 id="toc_10">New</h2>
-
-<h4 id="toc_11">macOS 更新后支持了新的双拼方案</h4>
-
-<p>macOS 和 iOS都更新了新版本, 支持了新的双拼输入法方案-「小鹤双拼」, 如果有兴趣, 可以在手机上尝试一下.</p>
-
-<h4 id="toc_12"><a href="https://chrome.google.com/webstore/detail/tabcopy/micdllihgoppmejpecmkilggmaagfdmb">TabCopy - Chrome 网上应用店</a></h4>
-
-<p>可以直接复制网站的标题和链接, 可以选择复制 Markdown 格式, 设置快捷键之后非常方便</p>
-
-<h4 id="toc_13"><a href="https://chrome.google.com/webstore/detail/faster-search-for-googley/mkpejojlockjoldbdbbgbibeogmemjfk">搜索直达 - Chrome 网上应用店</a></h4>
-
-<p>许多网站在网址跳转的时候都会进行重定向而不是直接访问该网站, 使用这个插件可以取出很多网站的重定向(百度, 谷歌, 知乎等)</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[我在 Mac 上都用什么]]></title>
-    <link href="imzhizi.com/15448822410000.html"/>
-    <updated>2018-12-15T21:57:21+08:00</updated>
-    <id>imzhizi.com/15448822410000.html</id>
-    <content type="html"><![CDATA[
-<p>Homebrew 是统一管理 macOS 中应用的最佳方法之一，而且大量优秀的应用都可以在 Homebrew 中找到。</p>
-
-<p>就不做过多介绍了, 有兴趣可以看相关教程, <a href="https://sspai.com/post/42924">像 Mac 高手一样管理应用，从 Homebrew 开始 - 少数派</a></p>
-
-<span id="more"></span><!-- more -->
-
-<h2 id="toc_0">终端和 Oh-My-ZSH</h2>
-
-<p>终端是很重要的一个工具, 我在 Linux 文章中介绍过, 系统拥有内核, 内核拥有外壳, 也就是和外界交流的接口 shell, 因为是接口, 用户自然无法直接交互, 终端就是帮助用户和 shell 交互, 进而来操纵系统. 更多还是看文章吧. <br/>
-<a href="https://sspai.com/post/45534">玩转 Terminal 终端：入门指南及进阶技巧 - 少数派</a></p>
-
-<p>如果使用终端, macOS自带的是 bash, 更多时候, 会使用 zsh, Oh-My-Zsh 是为了更方便使用 zsh 开发的插件, 具体可以到官网了解一下.<br/>
-<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Z-Shell</a></p>
-
-<pre><code class="language-bash">## Homebrew 的安装
-/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-
-## Oh-My-ZSH 的安装
-sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-</code></pre>
-
-<h2 id="toc_1">常用软件</h2>
-
-<pre><code class="language-bash">## GUI 软件
-brew tap v2ray/v2ray homebrew/cask homebrew/cask-versions
-
-brew cask install qq neteasemusic youdaodict thunder google-chrome ticktick typora sublime-text mweb iina snipaste the-unarchiver toggl
-
-brew install tree v2ray/v2ray/v2ray-core
-</code></pre>
-
-<ul>
-<li>QQ: 不解释</li>
-<li>neteasemusic: 网易云音乐, 不解释</li>
-<li>youdaodic: 有道词典, 不解释</li>
-<li>thunder: 迅雷, 不解释</li>
-<li>google-chrome: Chrome 浏览器, 不解释</li>
-<li>ticktick: 滴答清单, 国产很强大的 GTD 软件</li>
-<li>typora: 免费的 Markdown 编辑器, 特点是没有预览模式, 所见即所得</li>
-<li>sublime-text: 强大的编辑器, 主要是为了替代系统自带的 editor</li>
-<li>mweb: (付费) macOS 原生的 Markdown 笔记软件, 我的主力笔记软件</li>
-<li>iina: 开源的视频播放器, 简单好用</li>
-<li>snipaste: 很好用的截图软件, 有 Windows 版</li>
-<li>the-unarchiver: 免费的解压软件</li>
-<li>toggl: 一直在使用的全平台时间记录, 统计软件</li>
-<li>tree: 以某一目录为根树形输出文件列表</li>
-<li>v2ray/v2ray/v2ray-core: 神秘的射线软件</li>
-</ul>
-
-<h2 id="toc_2">开发软件</h2>
-
-<pre><code class="language-bash">brew install git python node@10 mysql@5.7
-brew cask install java8 intellij-idea pycharm postman
-
-## 其他未安装但可能遇到的
-brew install tomcat sqlite gcc
-</code></pre>
-
-<ul>
-<li>git: 版本管理软件, 不解释</li>
-<li>python: 不解释</li>
-<li>node.js: 不解释,这个博客就是基于 node.js 的</li>
-<li>mysql: 数据库, 不解释</li>
-<li>java: 不解释</li>
-<li>intellij-idea: 最强的 Java IDE, 没有之一</li>
-<li>pycharm: 工程相关的 Python 项目用它开发很舒服</li>
-<li>postman: 很棒的测试 API 的工具</li>
-</ul>
-
-<h2 id="toc_3">其他软件</h2>
-
-<ul>
-<li>PDF Expert: Mac 上最喜欢的软件之一</li>
-<li>Office 2019: 不解释</li>
-<li>Tuxera Disk Manager: 挂载 NTFS 格式用的软件</li>
-<li>MoneyWiz2: 全能型记账软件</li>
-<li>Numi: 一个顺手的计算器</li>
-<li>CleanMyMac X: Mac 清理软件</li>
-<li>Bear: 我的另一个一直在使用的笔记软件</li>
-<li>Telegram: </li>
-<li>微信</li>
-<li>Reeder: RSS 订阅软件</li>
-<li>坚果云: 云同步软件, 有了它我几乎不怎么担心数据会丢失</li>
-</ul>
 
 ]]></content>
   </entry>

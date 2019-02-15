@@ -91,6 +91,125 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15284708220000.html">
+                    
+                    <h1>125 Valid Palindrome</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.<br/>
+Note: For the purpose of this problem, we define empty string as valid palindrome.</p>
+
+<p>Example 1:<br/>
+Input: &quot;A man, a plan, a canal: Panama&quot;<br/>
+Output: true</p>
+
+<p>Example 2:<br/>
+Input: &quot;race a car&quot;<br/>
+Output: false</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15284708220000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/6/8 23:13 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15276445920000.html">
+                    
+                    <h1>112 Path Sum</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br/>
+Note: A leaf is a node with no children.</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7xtUM8.png" alt="112PathSum"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/5/30
+ */
+ 
+&lt;!-- more --&gt;
+ 
+public class A112_PathSum {
+    /**
+     * 题目分析：
+     * 这道题事实上在寻找一个路径，这个路径和等于给定值，依然是递归题
+     * 思路嘛，还是要判定是否是叶子，但比上一道题容易处理，因为通过自身即可验证是否已经找到（root.val == sum）
+     * 关键思路在于一旦出现true，那么就要把true一路传上去
+     *
+     * 运行时长：1 ms
+     *
+     * 总结：
+     * 很快写出来的一个很优雅的递归，很满意。
+     */
+    public boolean hasPathSum(TreeNode root, int sum) {
+        if (root == null) return false;
+        if (root.left==null&amp;&amp;root.right==null &amp;&amp; root.val == sum) return true;
+        else return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/5/30 9:43 am</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15275565280000.html">
                     
                     <h1>111 Minimum Depth of Binary Tree</h1>
@@ -647,139 +766,6 @@ public class A101_SymmetricTree {
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15256803990000.html">
-                    
-                    <h1>100 Same Tree</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given two binary trees, write a function to check if they are the same or not.<br/>
-Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
-</blockquote>
-
-<p><img src="https://s1.imgsha.com/2018/10/01/7xtXHa.png" alt="100SameTree"/></p>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/7
- */
- 
-&lt;!-- more --&gt;
- 
-public class A100_SameTree {
-    /**
-     * 题目分析：
-     * 比较两个树是否完全相同，显然要用递归，否则就是复杂的层次遍历了
-     * 假如能够一次遍历，中间任何一处不同都直接结束遍历应该是效率比较高的
-     * 于是就有了下面的代码
-     * 运行时长：5 ms
-     *
-     * 总结：无，一次草率的实现
-     */
-    public static boolean isSameTree(TreeNode p,TreeNode q) {
-        if((p!=null&amp;&amp;q==null)||(p==null&amp;&amp;q!=null)) return false;
-        else if(p==null&amp;&amp;q==null)return true;
-        else if(p.val!=q.val) return false;
-        else return isSameTree(p.left,q.left)&amp;&amp;isSameTree(p.right,q.right);
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1=new TreeNode(1);
-        TreeNode t2=new TreeNode(1);
-        TreeNode t3=new TreeNode(2);
-        TreeNode t4=new TreeNode(2);
-
-        t1.left=t3;
-        t1.right = t4;
-        t2.right = t4;
-        t2.left = t3;
-
-        System.out.println(isSameTree(t1,t2));
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/7 16:6 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15255706560000.html">
-                    
-                    <h1>88 Merge Sorted Array</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
-
-<p>Note:<br/>
-The number of elements initialized in nums1 and nums2 are m and n respectively.<br/>
-You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.<br/>
-Example:</p>
-
-<p>Input:<br/>
-nums1 = [1,2,3,0,0,0], m = 3<br/>
-nums2 = [2,5,6],       n = 3<br/>
-Output: [1,2,2,3,5,6]</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15255706560000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/5/6 9:37 am</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -866,31 +852,31 @@ Output: [1,2,2,3,5,6]</p>
 	      
 		      
 			      <li class="post">
+			        <a href="15502299785008.html">121 & 122 Best Time to Buy and Sell Stock I & II</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502297004252.html">643. Maximum Average Subarray I</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502295025561.html">665. Non-decreasing Array & 697. Degree of an Array</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502276229026.html">414. Third Maximum Number & 628. Maximum Product of Three Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15491780545461.html">Week - 2019/2/2</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485784665963.html">Week - 2019/1/26</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
 		  

@@ -91,6 +91,163 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15239724270000.html">
+                    
+                    <h1>14 Longest Common Prefix</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <blockquote>
+<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+</blockquote>
+
+<h2 id="toc_0">代码实现</h2>
+
+<p>具体思路见方法注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/4/15
+ */
+public class A14_LongestCommonPrefix {
+    /**
+     * 函数描述：
+     * 要找出一个String数组的公共前缀，首先想到的依然是暴力解法
+ 
+&lt;!-- more --&gt;
+ 
+     *
+     * 时长：9ms / 20%
+     *
+     * 总结：
+     * 要考虑三点，字符串数组为空、字符串数组中字符串为null、字符串数组中字符串为空
+     * 另外是每次循环的次数取决于当下的公共前缀序列的长度和将要前缀比较的序列长度
+     */
+    public static String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0 || strs[0] == null || strs[0].length() == 0) return &quot;&quot;;//字符串数组为空、字符串数组中字符串为null、字符串数组中字符串为空
+        String common = strs[0];
+        for (int i = 1; i &lt; strs.length; i++) {
+            if (strs[i] == null || strs[i].isEmpty()) return &quot;&quot;;
+            int length = Math.min(common.length() ,strs[i].length());
+            int j;
+            for (j = 0; j &lt; length; j++) {
+                if (common.charAt(j) != strs[i].charAt(j)) {
+                    if(j==0)return &quot;&quot;;
+                    break;
+                }
+            }
+            common = common.substring(0, j);
+        }
+        return common;
+    }
+
+    /**
+     * 函数描述：
+     * 取巧利用 JavaAPI 中 Arrays 的排序函数，得到结果后直接处理第一个和最后一个
+     *
+     * 时长：8ms / 35%
+     *
+     * 总结：
+     * 稍微快了一丢丢，这个方法易于实现也主要是依赖于 JavaAPI 中排序函数的优化了
+     */
+    public static String longestCommonPrefix2(String[] strs) {
+        if (strs.length == 0 || strs[0] == null) return &quot;&quot;;
+        if (strs[0].length() == 0 || strs.length == 1) return strs[0];
+        Arrays.sort(strs);
+        String start = strs[0];
+        String end = strs[strs.length-1];
+        int minLen = Math.min(start.length(), end.length());
+
+        for (int i=0; i&lt;minLen; i++) {
+            if (start.charAt(i) != end.charAt(i)) return start.substring(0,i);
+        }
+        return start;
+    }
+
+        public static void main(String[] args) {
+        String[] strs = {&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;};
+        System.out.println(longestCommonPrefix2(strs));
+        String[] strs1 = {&quot;&quot;,&quot;&quot;,&quot;&quot;};
+        System.out.println(longestCommonPrefix2(strs1));
+        String[] strs2 = {&quot;c&quot;,&quot;c&quot;};
+        System.out.println(longestCommonPrefix2(strs2));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/4/17 21:40 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15239531380000.html">
+                    
+                    <h1>String 的字面量、常量池、构造函数和intern()函数</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">一、内存中的 String 对象</h2>
+
+<h3 id="toc_1">Java 的堆和栈</h3>
+
+<ul>
+<li>对于基本数据类型变量和对象的引用，也就是局部变量表属于<strong>栈内存</strong>；</li>
+<li>而通过 new 关键字和 constructor 创建的对象存放在<strong>堆内存</strong>；</li>
+<li><p>直接的 &quot;hello&quot; 被称为字面量形式，在JDK1.7之后存放在位于<strong>堆内存</strong>的独立的<strong>常量池</strong>中；</p>
+<pre><code class="language-java">// 比如说：
+String s1=&quot;hello&quot;;<br/>
+Scanner input = new Scanner();<br/>
+// 上面的语句中变量名 s1、input 存放在栈内存中，&quot;hello&quot; 为字面量，所以放在常量池，而用构造函数创建的对象放在堆内存中。
+</code></pre></li>
+</ul>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15239531380000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/4/17 16:18 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='java.html'>Java</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15236988620000.html">
                     
                     <h1>13 Roman to Integer</h1>
@@ -431,31 +588,31 @@ Eg.<br/>
 	      
 		      
 			      <li class="post">
+			        <a href="15502299785008.html">121 & 122 Best Time to Buy and Sell Stock I & II</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502297004252.html">643. Maximum Average Subarray I</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502295025561.html">665. Non-decreasing Array & 697. Degree of an Array</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502276229026.html">414. Third Maximum Number & 628. Maximum Product of Three Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15491780545461.html">Week - 2019/2/2</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485784665963.html">Week - 2019/1/26</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
 		  

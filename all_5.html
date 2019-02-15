@@ -91,6 +91,174 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
+                <a class="clearlink" href="15371472710000.html">
+                    
+                    <h1>Go 笔记</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">基本概念</h2>
+
+<h3 id="toc_1">综述</h3>
+
+<ul>
+<li>Go 语言将静态语言的安全性和高效性与动态语言的易开发性进行有机结合，达到完美平衡。</li>
+<li>设计者通过 goroutine 这种轻量级线程的概念来实现这个目标，然后通过 channel 来实现各个 goroutine 之间的通信，这个特性是 Go 语言最强有力的部分。</li>
+<li>Go 语言像其它静态语言一样执行本地代码，但它依旧运行在某种意义上的虚拟机，以此来实现高效快速的垃圾回收。</li>
+<li>「切片」是 go 中的重要概念。</li>
+</ul>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15371472710000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/9/17 9:21 am</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='lang.html'>语言</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15370784310000.html">
+                    
+                    <h1>Linux(二) - Unix&Linux 基本概念</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">主机 = 内核 + 实用工具</h2>
+
+<h3 id="toc_1">内核（kernel）</h3>
+
+<ul>
+<li><p>当计算机启动时，计算机要经历一系列动作，这些动作构成了引导过程。引导过程的最后一个动作是启动一个非常复杂的程序，该程序就被称为内核（Kernel）</p></li>
+<li><p>内核的作用是控制计算机，提供基础服务，是操作系统的核心，主要分为单内核和微内核两种</p>
+<ul>
+<li>单内核（monolithic kernel）：自身可以完成所有事情，大多数早期 Unix 使用单内核设计，现在流行的单内核为 Linux kernel</li>
+<li>微内核（micro kernel）：只能完成最基本的任务，例如 Minix、macOS</li>
+</ul></li>
+</ul>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15370784310000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/9/16 14:13 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='linux.html'>Linux</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15360292100000.html">
+                    
+                    <h1>206 Reverse Linked List</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Reverse a singly linked list.<br/>
+Example:<br/>
+  Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br/>
+  Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-go">type ListNode struct {
+    Val  int
+    Next *ListNode
+ 
+&lt;!-- more --&gt;
+ 
+}
+
+// 题目分析：
+//  没事学了 Go 语言，所以就拿来玩玩，感觉还不错
+//  题目也很简单，就是链表的翻转，用学过数据结构的都知道头插法遍历一遍就行了
+// 运行时间：0ms / 100%（不知道是题目太简单，懒得给用例还是 没人用 Go 写，总之是 beat 100%）
+// 总结：无
+func reverseList(head *ListNode) *ListNode {
+    node :=new(ListNode)
+    for head!=nil{
+        temp:=ListNode{head.Val,node.Next}
+        node.Next=&amp;temp
+        head=head.Next
+    }
+    return node.Next
+}
+
+func main() {
+    node:=ListNode{1,&amp;ListNode{2,&amp;ListNode{3,nil}}}
+    result:=reverseList(&amp;node)
+    for result!=nil {
+        println(result.Val)
+        result=result.Next
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/9/4 10:46 am</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
                 <a class="clearlink" href="15357927890000.html">
                     
                     <h1>204 Count Primes</h1>
@@ -455,233 +623,6 @@ Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).<br/>
                 </div>
             </div><!-- article -->
             
-            <div class="article">
-                <a class="clearlink" href="15326594430000.html">
-                    
-                    <h1>191 Number of 1 Bits</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Write a function that takes an unsigned integer and returns the number of &#39;1&#39; bits it has (also known as the Hamming weight).</p>
-
-<p>Example 1:<br/>
- Input: 11<br/>
- Output: 3<br/>
-Explanation: Integer 11 has binary representation 00000000000000000000000000001011</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 7/27/18
- */
-public class A191_NumberOf1Bits {
-    /**
-     * 题目分析：
-     * 计算一个数字的二进制表示中有几个1，做了昨天的第 190 题之后，感觉非常简单
-     * 所以我故伎重施，很容就写出两个做法，还是昨天的两个做法
-     *
-     * 运行时长：1 ms
-     *
-     * 总结：
-     * 感觉不太合理，这道题应该跟190换一换，梯度就会合理许多
-     */
-    static int hammingWeight2(int n) {
-        int result = 0;
-        for (int i = 0; i &lt; 32 &amp;&amp; n != 0; i++) {
-            if (n % 2 != 0) result++;//判断最后一位是0是1
-            n &gt;&gt;= 1;
-        }
-        return result;
-    }
-    static int hammingWeight(int n) {
-        int nums=0;
-        for (int i = 0; i &lt; 32 &amp;&amp; n != 0; i++) {
-            int temp=(n&gt;&gt;i)&amp;1;
-            nums+=temp;
-        }
-        return nums;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(hammingWeight(11));
-        System.out.println(hammingWeight2(11));
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/27 10:44 am</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15325968780000.html">
-                    
-                    <h1>Java 位运算符和 int 类型的实现</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">其他运算符</h2>
-
-<pre><code class="language-text"># 算术运算符
-+、-、*、/、++i、i++、--i、i--
-
-# 关系运算符
-==、!=、&gt;、&lt;、&gt;=、&lt;=
-
-# 逻辑运算符
-&amp;&amp;、||、!
-
-# 赋值运算符
-=、运算符=
- 
-&lt;!-- more --&gt;
- 
-
-# 其他运算符
-## 三元运算符
-bool表达式 ? x : y
-## instanceof 运算符
-boolean result = var instanceof classname;
-</code></pre>
-
-<h2 id="toc_1">位运算符</h2>
-
-<ul>
-<li><code>&amp;</code> 且</li>
-<li><code>|</code> 或</li>
-<li><code>^</code> 异或</li>
-<li><code>～</code> 按位取反</li>
-<li><code>&lt;&lt;</code> 左移运算符，向左移动指定位数，一般情况下每移动一位都会乘以2</li>
-<li><code>&gt;&gt;</code> 右移运算符，向右移动指定位数，一般情况下每移动一位都是除以2</li>
-<li><code>&gt;&gt;&gt;</code> 按位右移补零操作符</li>
-</ul>
-
-<h2 id="toc_2">Java int 的实现</h2>
-
-<ul>
-<li><p>int 基本信息<br/>
-Java 中 int 为32 位，是基本类型的一种，对应包装类为Integer<br/>
-Java 不存在无符号类型，int 由0、1～2<sup>31-1、-1～(-2)<sup>31</sup></sup> 三部分组成</p></li>
-<li><p>负数如何表示？ <br/>
-负数部分使用补码表示<br/>
-补码：原码按位取反得到反码，反码加一得到补码</p></li>
-<li><p>正整数部分少一个数<br/>
-因为 1····0 的补码为其本身，这是一个负数，一个二进制数总能表示偶数个数字，使用了0之后负数能比正数多表示一个，就是 1····0。</p></li>
-</ul>
-
-<h2 id="toc_3">重点，Java 中int 位移的特殊情况</h2>
-
-<p>根据 int 实现的原理，int 移位会产生一些特殊情况，如：</p>
-
-<p>2147483647&lt;&lt;1 的结果为 -2，为什么呢？因为 2147483647 为 2<sup>31-1（2的31</sup> 次方减1），即：0111,1111,1111,1111,1111,1111,1111,1111，当它向右移位得到的结果是 1111,1111,1111,1111,1111,1111,1111,1110，此时对于 Java 来讲，这已经是一个负数了</p>
-
-<p>要先减去1 得到 1111,1111,1111,1111,1111,1111,1111,1101，再取反得到 0000,0000,0000,0000,0000,0000,0000,0010 也就是 2，所以结果是-2</p>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/26 17:21 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='java.html'>Java</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15325965980000.html">
-                    
-                    <h1>190 Reverse Bits</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Reverse bits of a given 32 bits unsigned integer.</p>
-
-<p>Example:<br/>
- Input: 43261596<br/>
- Output: 964176192<br/>
-Explanation:<br/>
- 43261596 represented in binary as 00000010100101000001111010011100,<br/>
- return 964176192 represented in binary as 00111001011110000010100101000000.</p>
-</blockquote>
-
-<h2 id="toc_1">背景知识</h2>
-
-<p><a href="201807-java-wei-yun-suan-fu-he-int-lei-xing-de-shi-xian.html">Java 位运算符和 Java int 的实现</a></p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15325965980000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/26 17:16 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
 
 
             <div class="row">
@@ -768,31 +709,31 @@ Explanation:<br/>
 	      
 		      
 			      <li class="post">
+			        <a href="15502299785008.html">121 & 122 Best Time to Buy and Sell Stock I & II</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502297004252.html">643. Maximum Average Subarray I</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502295025561.html">665. Non-decreasing Array & 697. Degree of an Array</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15502276229026.html">414. Third Maximum Number & 628. Maximum Product of Three Numbers</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15491780545461.html">Week - 2019/2/2</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485784665963.html">Week - 2019/1/26</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
 		  
