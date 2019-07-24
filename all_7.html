@@ -91,216 +91,6 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
-                <a class="clearlink" href="15314891170000.html">
-                    
-                    <h1>168 Excel Sheet Column Title</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.<br/>
-For example:<br/>
- 1 -&gt; A<br/>
- 2 -&gt; B<br/>
- ...<br/>
- 26 -&gt; Z<br/>
- 27 -&gt; AA</p>
-
-<p>Example 1:<br/>
- Input: 1<br/>
- Output: &quot;A&quot;</p>
-</blockquote>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15314891170000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/13 21:38 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15311511750000.html">
-                    
-                    <h1>167 Two Sum II</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p><a href="https://imzhizi.com/201804/201804-1-twosum.html">两数之和（一）</a></p>
-
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br/>
-You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
-
-<p>Example:<br/>
-Given nums = [2, 7, 11, 15], target = 9,<br/>
-Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释 </p>
-
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        <a href="15311511750000.html">Read more</a>&nbsp;&nbsp; 
-                        <span class="date">2018/7/9 23:46 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15310653380000.html">
-                    
-                    <h1>155 Min Stack</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-
-<p>push(x) -- Push element x onto stack.<br/>
-pop() -- Removes the element on top of the stack.<br/>
-top() -- Get the top element.<br/>
-getMin() -- Retrieve the minimum element in the stack.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- 
-&lt;!-- more --&gt;
- 
- * created by zhizi on 2018/7/8
- */
-public class MinStack {
-    /**
-     * 题目分析：
-     * 要求实现一个最小栈，即随时可以给出这个栈的最小值，栈很容易实现，一个 int[] 加一个 top 即可，但最小值就比较复杂了；
-     * 没什么很好的办法，只能追求外挂体系，使用的是 PriorityQueue，效果还行
-     *
-     * 运行时长：70ms
-     *
-     * 总结：
-     * 结果运行居然超过 98% 的用户，以为会有什么高级做法，想来数据结构的实现的优化都不容易。
-     */
-    private int[] elements;
-    private PriorityQueue&lt;Integer&gt; queue;
-    private int top;
-
-    public MinStack() {
-        elements = new int[100];
-        queue=new PriorityQueue&lt;&gt;();
-        top = -1;
-    }
-
-    public void push(int x) {
-        if(top+1==elements.length){
-            int[] copy=new int[elements.length+100];
-            System.arraycopy(elements,0,copy,0,elements.length);
-            elements=copy;
-        }
-        elements[++top]=x;
-        queue.add(x);
-    }
-
-    public void pop() {
-        if (elements[top]==queue.peek())
-            queue.poll();
-        elements[top--]=0;
-    }
-
-    public int top() {
-        return elements[top];
-    }
-
-    public int getMin() {
-        return queue.peek();
-    }
-
-    public static void main(String[] args) {
-        MinStack obj = new MinStack();
-        obj.push(-2);
-        obj.push(0);
-        obj.push(-3);
-        System.out.println(obj.getMin());
-        obj.pop();
-        System.out.println(obj.top());
-        System.out.println(obj.getMin());
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/7/8 23:55 pm</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
                 <a class="clearlink" href="15304560170000.html">
                     
                     <h1>160 Intersection of Two Linked Lists</h1>
@@ -628,6 +418,218 @@ Output: false</p>
                 </div>
             </div><!-- article -->
             
+            <div class="article">
+                <a class="clearlink" href="15282133080000.html">
+                    
+                    <h1>121 Best Time to Buy and Sell Stock</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.<br/>
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.<br/>
+Note that you cannot sell a stock before you buy one.</p>
+
+<p>Example 1:<br/>
+Input: [7,1,5,3,6,4]<br/>
+Output: 5<br/>
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.<br/>
+             Not 7-1 = 6, as selling price needs to be larger than buying price.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15282133080000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/6/5 23:41 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15276445920000.html">
+                    
+                    <h1>112 Path Sum</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br/>
+Note: A leaf is a node with no children.</p>
+</blockquote>
+
+<p><img src="https://s1.imgsha.com/2018/10/01/7xtUM8.png" alt="112PathSum"/></p>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/5/30
+ */
+ 
+&lt;!-- more --&gt;
+ 
+public class A112_PathSum {
+    /**
+     * 题目分析：
+     * 这道题事实上在寻找一个路径，这个路径和等于给定值，依然是递归题
+     * 思路嘛，还是要判定是否是叶子，但比上一道题容易处理，因为通过自身即可验证是否已经找到（root.val == sum）
+     * 关键思路在于一旦出现true，那么就要把true一路传上去
+     *
+     * 运行时长：1 ms
+     *
+     * 总结：
+     * 很快写出来的一个很优雅的递归，很满意。
+     */
+    public boolean hasPathSum(TreeNode root, int sum) {
+        if (root == null) return false;
+        if (root.left==null&amp;&amp;root.right==null &amp;&amp; root.val == sum) return true;
+        else return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/5/30 9:43 am</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15275565280000.html">
+                    
+                    <h1>111 Minimum Depth of Binary Tree</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a binary tree, find its minimum depth.<br/>
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.<br/>
+Note: A leaf is a node with no children.</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+<p>详解见注释</p>
+
+<pre><code class="language-java">/**
+ * created by zhizi on 2018/5/29
+ */
+public class A111_MinimumDepthOfBinaryTree {
+ 
+&lt;!-- more --&gt;
+ 
+    /**
+     * 题目分析：
+     * 求一个二叉树的最小深度，题中定义说到叶子结点的最小距离才算是最小深度
+     * 显然又要用递归，问题就在于怎么把递归用的好看
+     * 我用一个愚蠢的做法实现了一个优雅的代码
+     *     这个深度计算中，必须保证深度值是来自一个叶子结点，而不是一个空着的左子女或右子女
+     *     所以一旦遇到左（右）子女为空的时候，我就把它对应的值设为Integer.MAX_VALUE
+     *     这样很有效，可以轻松进行递归，过滤掉无效值
+     * 但我没解决好root为null的问题，所以只好建了一个helper方法
+     *
+     * 运行时长：1 ms
+     *
+     * 总结：
+     * helper方法就helper方法，其实也还行
+     */
+    public static int minDepth(TreeNode root) {
+        if(root==null)return 0;
+        else return helper(root);
+    }
+
+    public static int helper(TreeNode root) {
+        if (root == null) return Integer.MAX_VALUE;
+        if (root.left == null &amp;&amp; root.right == null) return 1;
+        return Math.min(helper(root.left), helper(root.right)) + 1;
+    }
+
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(3);
+        TreeNode t2 = new TreeNode(9);
+        TreeNode t3 = new TreeNode(20);
+        TreeNode t4 = new TreeNode(5);
+
+        t1.left = t2;
+        t1.right = t3;
+        t3.left = t4;
+
+        System.out.println(minDepth(t1));
+    }
+}
+</code></pre>
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        
+                        <span class="date">2018/5/29 9:15 am</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
 
 
             <div class="row">
@@ -714,31 +716,31 @@ Output: false</p>
 	      
 		      
 			      <li class="post">
-			        <a href="15502299785008.html">121 & 122 Best Time to Buy and Sell Stock I & II</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15502297004252.html">643. Maximum Average Subarray I</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15502295025561.html">665. Non-decreasing Array & 697. Degree of an Array</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15502276229026.html">414. Third Maximum Number & 628. Maximum Product of Three Numbers</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
 			        <a href="15491780545461.html">Week - 2019/2/2</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
 		  

@@ -91,169 +91,6 @@
         <div class="markdown-body home-categories">
             
             <div class="article">
-                <a class="clearlink" href="15276445920000.html">
-                    
-                    <h1>112 Path Sum</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.<br/>
-Note: A leaf is a node with no children.</p>
-</blockquote>
-
-<p><img src="https://s1.imgsha.com/2018/10/01/7xtUM8.png" alt="112PathSum"/></p>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/30
- */
- 
-&lt;!-- more --&gt;
- 
-public class A112_PathSum {
-    /**
-     * 题目分析：
-     * 这道题事实上在寻找一个路径，这个路径和等于给定值，依然是递归题
-     * 思路嘛，还是要判定是否是叶子，但比上一道题容易处理，因为通过自身即可验证是否已经找到（root.val == sum）
-     * 关键思路在于一旦出现true，那么就要把true一路传上去
-     *
-     * 运行时长：1 ms
-     *
-     * 总结：
-     * 很快写出来的一个很优雅的递归，很满意。
-     */
-    public boolean hasPathSum(TreeNode root, int sum) {
-        if (root == null) return false;
-        if (root.left==null&amp;&amp;root.right==null &amp;&amp; root.val == sum) return true;
-        else return hasPathSum(root.left,sum-root.val)||hasPathSum(root.right,sum-root.val);
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/30 9:43 am</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
-                <a class="clearlink" href="15275565280000.html">
-                    
-                    <h1>111 Minimum Depth of Binary Tree</h1>
-                    <div class="a-content">
-                        
-                        <div class="a-content-text">
-                            
-                            <h2 id="toc_0">题目描述</h2>
-
-<blockquote>
-<p>Given a binary tree, find its minimum depth.<br/>
-The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.<br/>
-Note: A leaf is a node with no children.</p>
-</blockquote>
-
-<h2 id="toc_1">代码实现</h2>
-
-<p>详解见注释</p>
-
-<pre><code class="language-java">/**
- * created by zhizi on 2018/5/29
- */
-public class A111_MinimumDepthOfBinaryTree {
- 
-&lt;!-- more --&gt;
- 
-    /**
-     * 题目分析：
-     * 求一个二叉树的最小深度，题中定义说到叶子结点的最小距离才算是最小深度
-     * 显然又要用递归，问题就在于怎么把递归用的好看
-     * 我用一个愚蠢的做法实现了一个优雅的代码
-     *     这个深度计算中，必须保证深度值是来自一个叶子结点，而不是一个空着的左子女或右子女
-     *     所以一旦遇到左（右）子女为空的时候，我就把它对应的值设为Integer.MAX_VALUE
-     *     这样很有效，可以轻松进行递归，过滤掉无效值
-     * 但我没解决好root为null的问题，所以只好建了一个helper方法
-     *
-     * 运行时长：1 ms
-     *
-     * 总结：
-     * helper方法就helper方法，其实也还行
-     */
-    public static int minDepth(TreeNode root) {
-        if(root==null)return 0;
-        else return helper(root);
-    }
-
-    public static int helper(TreeNode root) {
-        if (root == null) return Integer.MAX_VALUE;
-        if (root.left == null &amp;&amp; root.right == null) return 1;
-        return Math.min(helper(root.left), helper(root.right)) + 1;
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(3);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(20);
-        TreeNode t4 = new TreeNode(5);
-
-        t1.left = t2;
-        t1.right = t3;
-        t3.left = t4;
-
-        System.out.println(minDepth(t1));
-    }
-}
-</code></pre>
-
-                            
-                        </div>
-                    </div>
-                </a>
-
-                <div class="read-more clearfix">
-                    <div class="more-left left">
-                        
-                        <span class="date">2018/5/29 9:15 am</span>
-                        <span>posted in&nbsp;</span> 
-                        
-                        <span class="posted-in"><a href='algs.html'>算法</a></span>
-                        
-                    </div>
-                    <div class="more-right right">
-                        <span class="comments">
-                      
-
-                      
-                        </span>
-                    </div>
-                </div>
-            </div><!-- article -->
-            
-            <div class="article">
                 <a class="clearlink" href="15274948350000.html">
                     
                     <h1>110 Balanced Binary Tree</h1>
@@ -802,6 +639,104 @@ public class A100_SameTree {
                 </div>
             </div><!-- article -->
             
+            <div class="article">
+                <a class="clearlink" href="15255706560000.html">
+                    
+                    <h1>88 Merge Sorted Array</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
+
+<p>Note:<br/>
+The number of elements initialized in nums1 and nums2 are m and n respectively.<br/>
+You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.<br/>
+Example:</p>
+
+<p>Input:<br/>
+nums1 = [1,2,3,0,0,0], m = 3<br/>
+nums2 = [2,5,6],       n = 3<br/>
+Output: [1,2,2,3,5,6]</p>
+</blockquote>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15255706560000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/5/6 9:37 am</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
+            <div class="article">
+                <a class="clearlink" href="15255262350000.html">
+                    
+                    <h1>83 Remove Duplicates from Sorted List</h1>
+                    <div class="a-content">
+                        
+                        <div class="a-content-text">
+                            
+                            <h2 id="toc_0">题目描述</h2>
+
+<blockquote>
+<p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p>
+
+<p>Example 1:<br/>
+Input: 1-&gt;1-&gt;2<br/>
+Output: 1-&gt;2</p>
+
+<p>Example 2:<br/>
+Input: 1-&gt;1-&gt;2-&gt;3-&gt;3<br/>
+Output: 1-&gt;2-&gt;3</p>
+</blockquote>
+
+<h2 id="toc_1">代码实现</h2>
+
+
+                            
+                        </div>
+                    </div>
+                </a>
+
+                <div class="read-more clearfix">
+                    <div class="more-left left">
+                        <a href="15255262350000.html">Read more</a>&nbsp;&nbsp; 
+                        <span class="date">2018/5/5 21:17 pm</span>
+                        <span>posted in&nbsp;</span> 
+                        
+                        <span class="posted-in"><a href='algs.html'>算法</a></span>
+                        
+                    </div>
+                    <div class="more-right right">
+                        <span class="comments">
+                      
+
+                      
+                        </span>
+                    </div>
+                </div>
+            </div><!-- article -->
+            
 
 
             <div class="row">
@@ -888,31 +823,31 @@ public class A100_SameTree {
 	      
 		      
 			      <li class="post">
-			        <a href="15502299785008.html">121 & 122 Best Time to Buy and Sell Stock I & II</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15502297004252.html">643. Maximum Average Subarray I</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15502295025561.html">665. Non-decreasing Array & 697. Degree of an Array</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15502276229026.html">414. Third Maximum Number & 628. Maximum Product of Three Numbers</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
 			        <a href="15491780545461.html">Week - 2019/2/2</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485784665963.html">Week - 2019/1/26</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485641914411.html">237 Delete Node in a Linked List (垃圾题)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15485640818554.html">61 Rotate List - LeetCode</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15482998128871.html">2 Add Two Numbers</a>
 			      </li>
 		     
 		  
