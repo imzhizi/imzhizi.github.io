@@ -142,14 +142,8 @@ template {
 [hidden] {
   display: none;
 }
-@font-face {
-  font-family: 'lanting';
-  src: url("../fonts/lanting/lanting.eot"); /* IE9 */
-  src: url("../fonts/lanting/lanting.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */ url("../fonts/lanting/lanting.woff2") format('woff2'), url("../fonts/lanting/lanting.woff") format('woff'), url("../fonts/lanting/lanting.ttf") format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  font-weight: 300;
-}
 html {
-  font-family: 'Microsoft Jhenghei', Lantinghei SC, 'lanting', PingFang SC, Seguo UI, Microsoft Yahei, Arial;
+  font-family:'PingFang SC Thin', 'Microsoft Jhenghei Light',  Seguo UI, 'Microsoft Yahei Light', Arial;
 }
 html::-webkit-scrollbar {
   width: 8px;
@@ -197,8 +191,9 @@ a:hover {
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
+  margin-bottom: 2rem;
 }
 .navbar {
   height: 4rem;
@@ -223,11 +218,11 @@ a:hover {
   padding-right: 1em;
 }
 .footer {
+  position: absolute;
   height: 4rem;
   width: 100%;
   text-align: center;
   line-height: 4rem;
-  padding-top: 2em;
 }
 @charset "utf-8";
 
@@ -472,11 +467,11 @@ header label {
     overflow-x: auto;
   }
   .footer {
+    position: absolute
     height: 3rem;
     width: 100%;
     text-align: center;
     line-height: 1.5rem;
-    padding-top: 2em;
   }
 }
 @media only screen and (min-device-width: 768px) {
