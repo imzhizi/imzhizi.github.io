@@ -8,7 +8,7 @@ tags:
 - productivity
 categories: 
 - mist
-image: 
+image: /images/email-from-notion.png
 ---
 
 ## Notion 是什么
