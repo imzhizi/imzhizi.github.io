@@ -19,11 +19,13 @@ params:
 
     rssFullContent: true
 
-    favicon: /static/favicon.ico
+    favicon: 
+      local: false
+      src: /static/favicon.ico
 
     footer:
         since: 2018
-        customText: 
+        customText: May Breeze Bless U
 
     dateFormat:
         published: 2006/01/02
@@ -31,10 +33,10 @@ params:
 
     sidebar:
         emoji: 🤯
-        subtitle: 大家好，这里是质子
+        subtitle: "大家好，这里是质子"
         avatar:
-            local: true
-            src: /img/avatar.png
+          local: false 
+          src: /static/avatar.png
 
     article:
         math: false
@@ -72,12 +74,12 @@ params:
     defaultImage:
         opengraph:
             enabled: true
-            local: true
-            src: /img/avatar.png
+            # local: true
+            # src: /img/avatar.png
 
     colorScheme:
         toggle: false
-        default: dark
+        default: auto
 
     imageProcessing:
         cover:
@@ -104,6 +106,12 @@ menu:
           url: index.xml
           weight: -80
           pre: rss
+
+        - identifier: twitter
+          name: Twitter
+          url: "http://twitter.com/imzhizi"
+          weight: -70
+          pre: twitter
 
         - identifier: archives
           name: Archives

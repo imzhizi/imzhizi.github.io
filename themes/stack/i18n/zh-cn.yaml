@@ -4,22 +4,6 @@ toggleMenu:
 darkMode:
     other: 暗色模式
 
-list:
-    page:
-        one: "{{ .Count }} 页"
-        other: "{{ .Count }} 页"
-
-    section:
-        other: 节
-
-    subsection:
-        one: 子节
-        other: 子节
-
-archives:
-    categories:
-        other: 分类
-
 article:
     relatedContents:
         other: 相关文章
@@ -40,7 +24,7 @@ widget:
             other: 更多
     tagCloud:
         title:
-            other: 标签
+            other: 标签云
 
 search:
     title:
@@ -49,10 +33,3 @@ search:
         other: 输入关键词...
     resultTitle:
         other: "#PAGES_COUNT 个结果 （用时 #TIME_SECONDS 秒）"
-
-
-footer:
-    builtWith:
-        other: "Built with {{ .Generator }}"
-    designedBy:
-        other: "Theme {{ .Theme }} designed by {{ .DesignedBy }}"

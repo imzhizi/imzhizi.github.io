@@ -1,0 +1,93 @@
+{
+  "main": {
+    "id": "4d3ebc01bbc63862",
+    "type": "split",
+    "children": [
+      {
+        "id": "ccc90b99f09f1f39",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "2021/关于.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "69f847bb40244ace",
+    "type": "split",
+    "children": [
+      {
+        "id": "63f62fb1358899c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2102642fcda951ba",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a996e91ef5fadad1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "560279250790e0cc",
+    "type": "split",
+    "children": [
+      {
+        "id": "f51d27a088bca949",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f4dd49e73221b370",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2021/关于.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "2021/关于.md",
+    "2020年度总结.md",
+    "关于.md"
+  ]
+}
