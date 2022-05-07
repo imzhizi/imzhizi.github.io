@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>productivity on 难以想象的晴朗</title><link>https://imzhizi.com/tags/productivity/</link><description>Recent content in productivity on 难以想象的晴朗</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 15 May 2020 19:28:36 +0800</lastBuildDate><atom:link href="https://imzhizi.com/tags/productivity/index.xml" rel="self" type="application/rss+xml"/><item><title>从 Notion 说开去</title><link>https://imzhizi.com/2020/05/%E4%BB%8E-notion-%E8%AF%B4%E5%BC%80%E5%8E%BB/</link><pubDate>Fri, 15 May 2020 19:28:36 +0800</pubDate><guid>https://imzhizi.com/2020/05/%E4%BB%8E-notion-%E8%AF%B4%E5%BC%80%E5%8E%BB/</guid><description>Notion 是什么 如果你知道 Notion 是什么可以跳过这部分。如果你不知道 Notion 是什么? 一句话来说，Notion 是一个功能丰富、形式美观的笔记应用，是科技、数码圈中非常网红的一款产品，如果还没有概念的话，可以把它想像成功能更强大、样式更好看的「印象笔记」。
+为了后面的展开，我得再展开说一下 Notion 中的一些概念（即便这样没用过的用户大概率也理解不了接下来我想讨论的内容）。
+一般的笔记应用，用户首先需要建一个新笔记，然后在打开的笔记页面中输入自己想要记录的内容即可。类似地，在 Notion 中可以创建一个 Page 来记录内容，但和其他应用不同的是，Page 并不是直接的文本框，而像是一个容器，用户可以在其中添加不同类型的 block，如果添加了一个文本 block，那么就可以在其中输入文字，而如果是其他类型比如说todo block，那么就可以在其中添加待办事项。
+如果你对这款应用产生了兴趣，可以从这篇文章开始上手。
+想要玩转 Notion？你需要这份快速上手指南 - 少数派
+尝试搜索一下，就能发现在网络上已经有很多关于这款应用的介绍、安利和用法分享，感兴趣可以自行了解。
+notion - 搜索结果 - 知乎
+notion 的相关文章 - 少数派
+为什么聊 Notion 最为直接的原因是我收到了 Notion 的 newsletter，简单来说，就是这个应用它针对个人用户免费了!!!
+在此之前，免费计划下的用户只能创建 1000 个 block，如果想创建更多 block 就需要使用付费计划(还挺贵的)，而现在免费计划可以创建无限个 block。
+看到这儿大家可能会觉得我想要通过这篇文章安利这款应用，可惜并不是，虽然之前简单体验过 Notion，但我并没有选它作为我的笔记应用，之后可能会再次尝试使用，但应该不会用作主力笔记应用（万一就真香了呢 。那我写这篇文章是要做什么呢? 我试图讨论这样几点: 1。Notion 和传统笔记应用的区别 2。Notion 的哲学 3。Notion 给我的启示 4。为什么免费使用很重要
+Notion 有什么特别的 虚拟与现实 不知道大家是否发现，软件发展之初往往是对现实的模拟，比如说 Word 就大致为我们模拟了 1~n 张纸; 再比如便笺(Sticky Note)，就在桌面模拟了便利贴; 在后来的发展中，不断有现实中的事物在计算机中被模拟，比如说表格、地图、日历、邮箱等等，不一而足。</description></item><item><title>关于 Todo 应用的一些感想</title><link>https://imzhizi.com/2019/07/%E5%85%B3%E4%BA%8E-todo-%E5%BA%94%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/</link><pubDate>Sun, 21 Jul 2019 20:15:21 +0800</pubDate><guid>https://imzhizi.com/2019/07/%E5%85%B3%E4%BA%8E-todo-%E5%BA%94%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/</guid><description>无休止的拖延, 给我带来的是周期性对 todo 类应用的怀疑, 开始又一次思考自己到底需要一款什么样的应用.
+我倾向于把能达到 todo 目的的应用分为三种.
+第一种是大而全的笔记应用：印象笔记、OneNote、Notion ，甚至是Notability 或 Goodnotes 代表的手写笔记，手机自带的备忘录也可以包含其中. 这种特点是可以把所有的内容都放在这里, 图片、链接, 记笔记的时候顺手写在这里, 方便、简单. 但核心缺点是不能提醒, 如果想区分今天、明天只能依赖文本; 另一个可能的缺点是在接下来这件事情的进行过程中, 会不断地在笔记上增加各种细节, 最终它不再像一份备忘, 而更像一次事务记录.
+第二种是子弹笔记应用，例如：幕布 、Dynalist. 它们最大的特点就是可以折起来, 即便增加再多的细节, 也可以折起来, 让它保持清爽、直观的视觉体验. 但这种软件往往也缺少提醒.
+第三种就是纯 GTD 软件, 这种软件很多，滴答清单（TickTick）、iPhone 自带的提醒事项以及等等XX清单, 也包括我正在使用的一款软件 Things，这种软件往往包含类别、标签、时间日期、优先级等一系列 GTD 软件惯有的概念. 做得已经相当完备. 如果说缺点, 就是很难包含细节, 无法把大量的文字放在其中.
+虽然 Things 已经相当不错, 性能很好, 颜值很高, 但其他它完全没办法做到在一个地方把事情从头到尾完全处理掉. 举例说, 开会时 Things 并不能做笔记软件, 我需要使用笔记应用来做简单的会议记录. 之后再把他们分门别类的转移到 Things 上, 而在事情的推进过程中, 我常常需要临时保存一些事情相关的内容, 这时我可以选择原来的笔记应用, 也可以选择 Things, 但其实体验都非常一般, Things 的体量容不下太多文字, 笔记应用又需要翻找, 启动速度也不尽如人意.
+总的来看, Notion 已经足够好了, 如果执行力足够, 每天早上打开电脑首先检查一下笔记中的日程, 那么提醒倒显的没那么重要, 而 Notion 的模块化体验也非常不错.</description></item></channel></rss>

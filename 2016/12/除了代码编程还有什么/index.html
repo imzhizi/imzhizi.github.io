@@ -1,0 +1,260 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="还有的是思想 前面说到，代码不是编程的全部，只是砌墙的砖头，那么除了代码，编程还有什么呢，答案，是思想。 究竟是什么东西指导着代码一行行写出来呢，我打算说两种编程里面最广为人知的思想，一种名为面向过程的编程思想，一种名为面向对象的编程思想。我这样抛出来两个名词大家肯定心存疑惑，不要着急，且听我慢慢道来。
+面向过程 面向过程的编程思想其实是比较容易理解的，因为它所遵守的就是我们解决问题时候的基本思路，只不过更加精确和具体。 就像它的名字一样，面向过程的编程思想就是以过程为导向的，一堆数据，该怎么处理就怎么处理，一项一项来，有先有后。就像那个搞笑的问题——如何把大象放到冰箱里一样，面向过程就是那样思考并解决问题的，所以这里我们也可以给出我们很细化的一个答案的版本
+ 先打开冰箱门 选择一个可以放下大象的格子 然后托起大象 把大象放到之前确定的格子内 关上冰箱 这种思想指导下的代码相对来说是比较容易读的，因为它完全依照了人思考问题的方法，按照逻辑一步一步地执行下去即可，所以这种编程思想比较适合编程的初学者，同时也比较适合解决一些数学和简单的控制问题。  但在这里也可以提一些其他的一些编程本身的特性，也可以算作面向过程的编程方法的特点。
+对于电脑而言，它最擅长的事情就是计算了，尤其是重复性计算，我们只要指定它重复的次数，它就可以一次又一次的重复运行我们让它运行的东西。这其实是计算的一种很基础的特性，那就是循环，循环就是让计算机把一段指令重复执行我们指定的次数，或许你听起来没什么，但是循环才是计算机强大的根源之一，正是因为计算机可以循环不断地一遍又一遍的执行程序，才极大地提高了计算效率、解放了人们的双手。
+再有就是条件判断，这也是编程中很基本的一部分，简单来说，就是让计算机对于运行的数据作判断，如果满足条件采取一种措施，不满足采取另一种措施，条件判断使得人们可以对数据作出筛选，是代码的重要组成部分。
+面向对象 相比之下，面向对象的编程可能大家会摸不着头脑了，但这是现今非常主流的一种编程思想，也是大型软件开发的主要指导思想。
+那到底何为面向对象呢，难道是着自己的男/女朋友编程？哈哈哈哈，肯定不是啦。要解释这个，首先要举一些例子，比如说，我们人，首先我们是动物，为什么说我们是动物，因为，我们可以动，我们具备一切动物都有的特征，同时，我们是哺乳动物，为什么，因为我们的繁殖需要哺乳，再往下，我们还可以继续把人类想更具体的方向划分，那这种划分是如何来的呢？可以说是对同一种事物的共有属性的抽象和概括，就像我们说的动物，这个词所指代的东西就是我们对所有会动的自然界的生物的共有属性的概况，其他的划分，像哺乳动物也是这样划分的。
+而在编程界也学习和继承了这种思想，面向对象的编程思想就认为，世界上的万事万物都可以被抽象成某一个类（class）——就像我们划分出动物一样，然后这个类就有着一切动物应当有的属性，会动，会吃…而当我们提到一些更具体的，比如说哺乳动物，它们的范围比动物更小，但是所有动物有的特点它们都有，所以我们便把哺乳动物叫做动物的继承，在拥有动物的所有属性的基础上，还拥有了自己独特的属性，同理，猫科动物也是哺乳动物的一个继承。
+这反映到了代码中，就是选择自己要用的一类事物，然后抽象出这类事物的共有特征，但其实并不需要把它所有的属性都列出来，只需要列出我们会用到的就行了，随便举个例子，比如钥匙类，每把钥匙都有自己的材质，大小，重量，对应的锁的类型，但我们现在是为一套房子设计钥匙，那材料、重量就没有那么重要，相比之下，一把钥匙对应于哪个门上的锁则更加重要，所以要再加个对应的门的位置的属性，这时候我们就可以设计出一个钥匙类了。
+这时我们就要讨论下一个问题了，那就是，我们设计出来的这个类是什么？为什么这样问，因为想想看，这样的一钥匙类，它是钥匙本身吗，不是，为什么不是，因为我们说它有这个属性时，其实是在说它应该有 xx 属性，我们是在制定一个规则，它规定了一个合乎我们要求的钥匙应该是什么样子的，就像我们向电脑这个工匠提出我们的要求，那我们怎样才能获得一把钥匙呢？
+可以想象，我们想要在计算机中获得一把“真实”的钥匙——这把钥匙满足我们制定的所有规则也就是拥有这个类的所有属性，在编程中，我们把这把钥匙称为由这个钥匙类所定义的对象，其实际过程就是在硬盘上开辟一块空间来存储这把所谓的钥匙，假如人是一个类的话，那么我质子就是这个人类下的一个对象，我在地球这个大硬盘里占据着属于我的物理空间，所以，这被称为面向对象的编程方法，而不是面向“对象”的编程。
+说到这里，我相信大家应该知道什么是类和对象了，但不知道你们是否有疑问——我在这里说了这么多，有什么用呢，我在这里再怎么造对象又造不出真的对象，假的对象在这里也没什么卵用啊，“对象”虽然是没有的，但是我们造出来的对象其实是很有用的，只是我没还没讲完。
+动物会动、会吃、可以看，这些都是动物可以做的事情，因此，当我们在编写一个动物类的时候，这个类不仅应该包括我们对它的限定——也就是其自身的属性，还应该包括它能做的事情，在编程中，我们把能做的事情成为方法或者说函数（method/function），一个方法就代表这个类所规定的对象可以做的一件事情。所以，假如我们写了人这样一个类，那我们就可以为其添加走（walk）、吃（eat）、睡觉（sleep）之类的方法，而如果我们写的是一个鸟类，那么它就可以有飞（fly）、啄（peck）之类的方法。
+不知道大家有没有感觉到，这种编程的感觉就像造物主在构建自己的世界一样，虽然说的有些夸张，但其实也近似，只不过，在实际的开发过程中，与其说造世界，其实不如说是在造一个结构复杂、精密的机器，为了造出这台机器，我们需要为它制作许多零件供使用，而无论是要造这些零件，要编写一个个的类，然后通过这些类去生成任意数量的你所想要的这些零件去拼装最终的那台机器，假如这台机器可以良好地运转，并解决了我们最初想要解决的问题，那就算功德圆满了。"><title>除了代码，编程还有什么？</title>
+<link rel=canonical href=https://imzhizi.com/2016/12/%E9%99%A4%E4%BA%86%E4%BB%A3%E7%A0%81%E7%BC%96%E7%A8%8B%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="除了代码，编程还有什么？">
+<meta property="og:description" content="还有的是思想 前面说到，代码不是编程的全部，只是砌墙的砖头，那么除了代码，编程还有什么呢，答案，是思想。 究竟是什么东西指导着代码一行行写出来呢，我打算说两种编程里面最广为人知的思想，一种名为面向过程的编程思想，一种名为面向对象的编程思想。我这样抛出来两个名词大家肯定心存疑惑，不要着急，且听我慢慢道来。
+面向过程 面向过程的编程思想其实是比较容易理解的，因为它所遵守的就是我们解决问题时候的基本思路，只不过更加精确和具体。 就像它的名字一样，面向过程的编程思想就是以过程为导向的，一堆数据，该怎么处理就怎么处理，一项一项来，有先有后。就像那个搞笑的问题——如何把大象放到冰箱里一样，面向过程就是那样思考并解决问题的，所以这里我们也可以给出我们很细化的一个答案的版本
+ 先打开冰箱门 选择一个可以放下大象的格子 然后托起大象 把大象放到之前确定的格子内 关上冰箱 这种思想指导下的代码相对来说是比较容易读的，因为它完全依照了人思考问题的方法，按照逻辑一步一步地执行下去即可，所以这种编程思想比较适合编程的初学者，同时也比较适合解决一些数学和简单的控制问题。  但在这里也可以提一些其他的一些编程本身的特性，也可以算作面向过程的编程方法的特点。
+对于电脑而言，它最擅长的事情就是计算了，尤其是重复性计算，我们只要指定它重复的次数，它就可以一次又一次的重复运行我们让它运行的东西。这其实是计算的一种很基础的特性，那就是循环，循环就是让计算机把一段指令重复执行我们指定的次数，或许你听起来没什么，但是循环才是计算机强大的根源之一，正是因为计算机可以循环不断地一遍又一遍的执行程序，才极大地提高了计算效率、解放了人们的双手。
+再有就是条件判断，这也是编程中很基本的一部分，简单来说，就是让计算机对于运行的数据作判断，如果满足条件采取一种措施，不满足采取另一种措施，条件判断使得人们可以对数据作出筛选，是代码的重要组成部分。
+面向对象 相比之下，面向对象的编程可能大家会摸不着头脑了，但这是现今非常主流的一种编程思想，也是大型软件开发的主要指导思想。
+那到底何为面向对象呢，难道是着自己的男/女朋友编程？哈哈哈哈，肯定不是啦。要解释这个，首先要举一些例子，比如说，我们人，首先我们是动物，为什么说我们是动物，因为，我们可以动，我们具备一切动物都有的特征，同时，我们是哺乳动物，为什么，因为我们的繁殖需要哺乳，再往下，我们还可以继续把人类想更具体的方向划分，那这种划分是如何来的呢？可以说是对同一种事物的共有属性的抽象和概括，就像我们说的动物，这个词所指代的东西就是我们对所有会动的自然界的生物的共有属性的概况，其他的划分，像哺乳动物也是这样划分的。
+而在编程界也学习和继承了这种思想，面向对象的编程思想就认为，世界上的万事万物都可以被抽象成某一个类（class）——就像我们划分出动物一样，然后这个类就有着一切动物应当有的属性，会动，会吃…而当我们提到一些更具体的，比如说哺乳动物，它们的范围比动物更小，但是所有动物有的特点它们都有，所以我们便把哺乳动物叫做动物的继承，在拥有动物的所有属性的基础上，还拥有了自己独特的属性，同理，猫科动物也是哺乳动物的一个继承。
+这反映到了代码中，就是选择自己要用的一类事物，然后抽象出这类事物的共有特征，但其实并不需要把它所有的属性都列出来，只需要列出我们会用到的就行了，随便举个例子，比如钥匙类，每把钥匙都有自己的材质，大小，重量，对应的锁的类型，但我们现在是为一套房子设计钥匙，那材料、重量就没有那么重要，相比之下，一把钥匙对应于哪个门上的锁则更加重要，所以要再加个对应的门的位置的属性，这时候我们就可以设计出一个钥匙类了。
+这时我们就要讨论下一个问题了，那就是，我们设计出来的这个类是什么？为什么这样问，因为想想看，这样的一钥匙类，它是钥匙本身吗，不是，为什么不是，因为我们说它有这个属性时，其实是在说它应该有 xx 属性，我们是在制定一个规则，它规定了一个合乎我们要求的钥匙应该是什么样子的，就像我们向电脑这个工匠提出我们的要求，那我们怎样才能获得一把钥匙呢？
+可以想象，我们想要在计算机中获得一把“真实”的钥匙——这把钥匙满足我们制定的所有规则也就是拥有这个类的所有属性，在编程中，我们把这把钥匙称为由这个钥匙类所定义的对象，其实际过程就是在硬盘上开辟一块空间来存储这把所谓的钥匙，假如人是一个类的话，那么我质子就是这个人类下的一个对象，我在地球这个大硬盘里占据着属于我的物理空间，所以，这被称为面向对象的编程方法，而不是面向“对象”的编程。
+说到这里，我相信大家应该知道什么是类和对象了，但不知道你们是否有疑问——我在这里说了这么多，有什么用呢，我在这里再怎么造对象又造不出真的对象，假的对象在这里也没什么卵用啊，“对象”虽然是没有的，但是我们造出来的对象其实是很有用的，只是我没还没讲完。
+动物会动、会吃、可以看，这些都是动物可以做的事情，因此，当我们在编写一个动物类的时候，这个类不仅应该包括我们对它的限定——也就是其自身的属性，还应该包括它能做的事情，在编程中，我们把能做的事情成为方法或者说函数（method/function），一个方法就代表这个类所规定的对象可以做的一件事情。所以，假如我们写了人这样一个类，那我们就可以为其添加走（walk）、吃（eat）、睡觉（sleep）之类的方法，而如果我们写的是一个鸟类，那么它就可以有飞（fly）、啄（peck）之类的方法。
+不知道大家有没有感觉到，这种编程的感觉就像造物主在构建自己的世界一样，虽然说的有些夸张，但其实也近似，只不过，在实际的开发过程中，与其说造世界，其实不如说是在造一个结构复杂、精密的机器，为了造出这台机器，我们需要为它制作许多零件供使用，而无论是要造这些零件，要编写一个个的类，然后通过这些类去生成任意数量的你所想要的这些零件去拼装最终的那台机器，假如这台机器可以良好地运转，并解决了我们最初想要解决的问题，那就算功德圆满了。">
+<meta property="og:url" content="https://imzhizi.com/2016/12/%E9%99%A4%E4%BA%86%E4%BB%A3%E7%A0%81%E7%BC%96%E7%A8%8B%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88/">
+<meta property="og:site_name" content="难以想象的晴朗">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="random"><meta property="article:published_time" content="2016-12-26T23:15:23+08:00"><meta property="article:modified_time" content="2016-12-26T23:15:23+08:00"><meta property="og:image" content="https://imzhizi.com">
+<meta name=twitter:site content="imzhizi"><meta name=twitter:title content="除了代码，编程还有什么？">
+<meta name=twitter:description content="还有的是思想 前面说到，代码不是编程的全部，只是砌墙的砖头，那么除了代码，编程还有什么呢，答案，是思想。 究竟是什么东西指导着代码一行行写出来呢，我打算说两种编程里面最广为人知的思想，一种名为面向过程的编程思想，一种名为面向对象的编程思想。我这样抛出来两个名词大家肯定心存疑惑，不要着急，且听我慢慢道来。
+面向过程 面向过程的编程思想其实是比较容易理解的，因为它所遵守的就是我们解决问题时候的基本思路，只不过更加精确和具体。 就像它的名字一样，面向过程的编程思想就是以过程为导向的，一堆数据，该怎么处理就怎么处理，一项一项来，有先有后。就像那个搞笑的问题——如何把大象放到冰箱里一样，面向过程就是那样思考并解决问题的，所以这里我们也可以给出我们很细化的一个答案的版本
+ 先打开冰箱门 选择一个可以放下大象的格子 然后托起大象 把大象放到之前确定的格子内 关上冰箱 这种思想指导下的代码相对来说是比较容易读的，因为它完全依照了人思考问题的方法，按照逻辑一步一步地执行下去即可，所以这种编程思想比较适合编程的初学者，同时也比较适合解决一些数学和简单的控制问题。  但在这里也可以提一些其他的一些编程本身的特性，也可以算作面向过程的编程方法的特点。
+对于电脑而言，它最擅长的事情就是计算了，尤其是重复性计算，我们只要指定它重复的次数，它就可以一次又一次的重复运行我们让它运行的东西。这其实是计算的一种很基础的特性，那就是循环，循环就是让计算机把一段指令重复执行我们指定的次数，或许你听起来没什么，但是循环才是计算机强大的根源之一，正是因为计算机可以循环不断地一遍又一遍的执行程序，才极大地提高了计算效率、解放了人们的双手。
+再有就是条件判断，这也是编程中很基本的一部分，简单来说，就是让计算机对于运行的数据作判断，如果满足条件采取一种措施，不满足采取另一种措施，条件判断使得人们可以对数据作出筛选，是代码的重要组成部分。
+面向对象 相比之下，面向对象的编程可能大家会摸不着头脑了，但这是现今非常主流的一种编程思想，也是大型软件开发的主要指导思想。
+那到底何为面向对象呢，难道是着自己的男/女朋友编程？哈哈哈哈，肯定不是啦。要解释这个，首先要举一些例子，比如说，我们人，首先我们是动物，为什么说我们是动物，因为，我们可以动，我们具备一切动物都有的特征，同时，我们是哺乳动物，为什么，因为我们的繁殖需要哺乳，再往下，我们还可以继续把人类想更具体的方向划分，那这种划分是如何来的呢？可以说是对同一种事物的共有属性的抽象和概括，就像我们说的动物，这个词所指代的东西就是我们对所有会动的自然界的生物的共有属性的概况，其他的划分，像哺乳动物也是这样划分的。
+而在编程界也学习和继承了这种思想，面向对象的编程思想就认为，世界上的万事万物都可以被抽象成某一个类（class）——就像我们划分出动物一样，然后这个类就有着一切动物应当有的属性，会动，会吃…而当我们提到一些更具体的，比如说哺乳动物，它们的范围比动物更小，但是所有动物有的特点它们都有，所以我们便把哺乳动物叫做动物的继承，在拥有动物的所有属性的基础上，还拥有了自己独特的属性，同理，猫科动物也是哺乳动物的一个继承。
+这反映到了代码中，就是选择自己要用的一类事物，然后抽象出这类事物的共有特征，但其实并不需要把它所有的属性都列出来，只需要列出我们会用到的就行了，随便举个例子，比如钥匙类，每把钥匙都有自己的材质，大小，重量，对应的锁的类型，但我们现在是为一套房子设计钥匙，那材料、重量就没有那么重要，相比之下，一把钥匙对应于哪个门上的锁则更加重要，所以要再加个对应的门的位置的属性，这时候我们就可以设计出一个钥匙类了。
+这时我们就要讨论下一个问题了，那就是，我们设计出来的这个类是什么？为什么这样问，因为想想看，这样的一钥匙类，它是钥匙本身吗，不是，为什么不是，因为我们说它有这个属性时，其实是在说它应该有 xx 属性，我们是在制定一个规则，它规定了一个合乎我们要求的钥匙应该是什么样子的，就像我们向电脑这个工匠提出我们的要求，那我们怎样才能获得一把钥匙呢？
+可以想象，我们想要在计算机中获得一把“真实”的钥匙——这把钥匙满足我们制定的所有规则也就是拥有这个类的所有属性，在编程中，我们把这把钥匙称为由这个钥匙类所定义的对象，其实际过程就是在硬盘上开辟一块空间来存储这把所谓的钥匙，假如人是一个类的话，那么我质子就是这个人类下的一个对象，我在地球这个大硬盘里占据着属于我的物理空间，所以，这被称为面向对象的编程方法，而不是面向“对象”的编程。
+说到这里，我相信大家应该知道什么是类和对象了，但不知道你们是否有疑问——我在这里说了这么多，有什么用呢，我在这里再怎么造对象又造不出真的对象，假的对象在这里也没什么卵用啊，“对象”虽然是没有的，但是我们造出来的对象其实是很有用的，只是我没还没讲完。
+动物会动、会吃、可以看，这些都是动物可以做的事情，因此，当我们在编写一个动物类的时候，这个类不仅应该包括我们对它的限定——也就是其自身的属性，还应该包括它能做的事情，在编程中，我们把能做的事情成为方法或者说函数（method/function），一个方法就代表这个类所规定的对象可以做的一件事情。所以，假如我们写了人这样一个类，那我们就可以为其添加走（walk）、吃（eat）、睡觉（sleep）之类的方法，而如果我们写的是一个鸟类，那么它就可以有飞（fly）、啄（peck）之类的方法。
+不知道大家有没有感觉到，这种编程的感觉就像造物主在构建自己的世界一样，虽然说的有些夸张，但其实也近似，只不过，在实际的开发过程中，与其说造世界，其实不如说是在造一个结构复杂、精密的机器，为了造出这台机器，我们需要为它制作许多零件供使用，而无论是要造这些零件，要编写一个个的类，然后通过这些类去生成任意数量的你所想要的这些零件去拼装最终的那台机器，假如这台机器可以良好地运转，并解决了我们最初想要解决的问题，那就算功德圆满了。"><meta name=twitter:card content="summary">
+<meta name=twitter:image content="https://imzhizi.com">
+<link rel="shortcut icon" href=#ZgotmplZ>
+</head>
+<body>
+<script>(function(){const a='StackColorScheme';localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.body.dataset.scheme='dark':document.body.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+<aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header class=site-info>
+<figure class=site-avatar>
+<img src=/static/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+<span class=emoji>🤯</span>
+</figure>
+<h1 class=site-name><a href=https://imzhizi.com>难以想象的晴朗</a></h1>
+<h2 class=site-description>大家好，这里是质子</h2>
+</header>
+<ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=/index.xml><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg>
+<span>Feed</span>
+</a>
+</li>
+<li>
+<a href=http://twitter.com/imzhizi><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84.0 00.497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li>
+</ol>
+</aside>
+<main class="main full-width">
+<div id=article-toolbar>
+<a href=https://imzhizi.com class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/mist/ style=background-color:#2a9d8f;color:#fff>
+Mist
+</a>
+</header>
+<h2 class=article-title>
+<a href=/2016/12/%E9%99%A4%E4%BA%86%E4%BB%A3%E7%A0%81%E7%BC%96%E7%A8%8B%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88/>除了代码，编程还有什么？</a>
+</h2>
+<footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--published>2016/12/26</time>
+</footer></div>
+</header>
+<section class=article-content>
+<h2 id=还有的是思想>还有的是思想</h2>
+<p>前面说到，代码不是编程的全部，只是砌墙的砖头，那么除了代码，编程还有什么呢，答案，是思想。
+究竟是什么东西指导着代码一行行写出来呢，我打算说两种编程里面最广为人知的思想，一种名为<strong>面向过程</strong>的编程思想，一种名为<strong>面向对象</strong>的编程思想。我这样抛出来两个名词大家肯定心存疑惑，不要着急，且听我慢慢道来。</p>
+<h2 id=面向过程>面向过程</h2>
+<p>面向过程的编程思想其实是比较容易理解的，因为它所遵守的就是我们解决问题时候的基本思路，只不过更加精确和具体。
+就像它的名字一样，面向过程的编程思想就是以过程为导向的，一堆数据，该怎么处理就怎么处理，一项一项来，有先有后。就像那个搞笑的问题——如何把大象放到冰箱里一样，面向过程就是那样思考并解决问题的，所以这里我们也可以给出我们很细化的一个答案的版本</p>
+<ol>
+<li>先打开冰箱门</li>
+<li>选择一个可以放下大象的格子</li>
+<li>然后托起大象</li>
+<li>把大象放到之前确定的格子内</li>
+<li>关上冰箱
+这种思想指导下的代码相对来说是比较容易读的，因为它完全依照了人思考问题的方法，按照逻辑一步一步地执行下去即可，所以这种编程思想比较适合编程的初学者，同时也比较适合解决一些数学和简单的控制问题。</li>
+</ol>
+<p>但在这里也可以提一些其他的一些编程本身的特性，也可以算作面向过程的编程方法的特点。</p>
+<p>对于电脑而言，它最擅长的事情就是计算了，尤其是重复性计算，我们只要指定它重复的次数，它就可以一次又一次的重复运行我们让它运行的东西。这其实是计算的一种很基础的特性，那就是循环，循环就是让计算机把一段指令重复执行我们指定的次数，或许你听起来没什么，但是循环才是计算机强大的根源之一，正是因为计算机可以循环不断地一遍又一遍的执行程序，才极大地提高了计算效率、解放了人们的双手。</p>
+<p>再有就是条件判断，这也是编程中很基本的一部分，简单来说，就是让计算机对于运行的数据作判断，如果满足条件采取一种措施，不满足采取另一种措施，条件判断使得人们可以对数据作出筛选，是代码的重要组成部分。</p>
+<h2 id=面向对象>面向对象</h2>
+<p>相比之下，面向对象的编程可能大家会摸不着头脑了，但这是现今非常主流的一种编程思想，也是大型软件开发的主要指导思想。</p>
+<p>那到底何为面向对象呢，难道是着自己的男/女朋友编程？哈哈哈哈，肯定不是啦。要解释这个，首先要举一些例子，比如说，我们人，首先我们是动物，为什么说我们是动物，因为，我们可以动，我们具备一切动物都有的特征，同时，我们是哺乳动物，为什么，因为我们的繁殖需要哺乳，再往下，我们还可以继续把人类想更具体的方向划分，那这种划分是如何来的呢？可以说是对同一种事物的共有属性的抽象和概括，就像我们说的动物，这个词所指代的东西就是我们对所有会动的自然界的生物的共有属性的概况，其他的划分，像哺乳动物也是这样划分的。</p>
+<p>而在编程界也学习和继承了这种思想，面向对象的编程思想就认为，世界上的万事万物都可以被抽象成某一个类（class）——就像我们划分出动物一样，然后这个类就有着一切动物应当有的属性，会动，会吃…而当我们提到一些更具体的，比如说哺乳动物，它们的范围比动物更小，但是所有动物有的特点它们都有，所以我们便把哺乳动物叫做动物的继承，在拥有动物的所有属性的基础上，还拥有了自己独特的属性，同理，猫科动物也是哺乳动物的一个继承。</p>
+<p>这反映到了代码中，就是选择自己要用的一类事物，然后抽象出这类事物的共有特征，但其实并不需要把它所有的属性都列出来，只需要列出我们会用到的就行了，随便举个例子，比如钥匙类，每把钥匙都有自己的材质，大小，重量，对应的锁的类型，但我们现在是为一套房子设计钥匙，那材料、重量就没有那么重要，相比之下，一把钥匙对应于哪个门上的锁则更加重要，所以要再加个对应的门的位置的属性，这时候我们就可以设计出一个钥匙类了。</p>
+<p>这时我们就要讨论下一个问题了，那就是，我们设计出来的这个类是什么？为什么这样问，因为想想看，这样的一钥匙类，它是钥匙本身吗，不是，为什么不是，因为我们说它有这个属性时，其实是在说它应该有 xx 属性，我们是在制定一个规则，它规定了一个合乎我们要求的钥匙应该是什么样子的，就像我们向电脑这个工匠提出我们的要求，那我们怎样才能获得一把钥匙呢？</p>
+<p>可以想象，我们想要在计算机中获得一把“真实”的钥匙——这把钥匙满足我们制定的所有规则也就是拥有这个类的所有属性，在编程中，我们把这把钥匙称为由这个钥匙类所定义的对象，其实际过程就是在硬盘上开辟一块空间来存储这把所谓的钥匙，假如人是一个类的话，那么我质子就是这个人类下的一个对象，我在地球这个大硬盘里占据着属于我的物理空间，所以，这被称为面向对象的编程方法，而不是面向“对象”的编程。</p>
+<p>说到这里，我相信大家应该知道什么是类和对象了，但不知道你们是否有疑问——我在这里说了这么多，有什么用呢，我在这里再怎么造对象又造不出真的对象，假的对象在这里也没什么卵用啊，“对象”虽然是没有的，但是我们造出来的对象其实是很有用的，只是我没还没讲完。</p>
+<p>动物会动、会吃、可以看，这些都是动物可以做的事情，因此，当我们在编写一个动物类的时候，这个类不仅应该包括我们对它的限定——也就是其自身的属性，还应该包括它能做的事情，在编程中，我们把能做的事情成为方法或者说函数（method/function），一个方法就代表这个类所规定的对象可以做的一件事情。所以，假如我们写了人这样一个类，那我们就可以为其添加走（walk）、吃（eat）、睡觉（sleep）之类的方法，而如果我们写的是一个鸟类，那么它就可以有飞（fly）、啄（peck）之类的方法。</p>
+<p>不知道大家有没有感觉到，这种编程的感觉就像造物主在构建自己的世界一样，虽然说的有些夸张，但其实也近似，只不过，在实际的开发过程中，与其说造世界，其实不如说是在造一个结构复杂、精密的机器，为了造出这台机器，我们需要为它制作许多零件供使用，而无论是要造这些零件，要编写一个个的类，然后通过这些类去生成任意数量的你所想要的这些零件去拼装最终的那台机器，假如这台机器可以良好地运转，并解决了我们最初想要解决的问题，那就算功德圆满了。</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/random/>random</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article>
+<a href=/2019/11/%E5%85%B3%E4%BA%8E%E4%B9%90%E9%98%9F%E7%9A%84%E5%A4%8F%E5%A4%A9/>
+<div class=article-details>
+<h2 class=article-title>关于「乐队的夏天」</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/2018/04/%E8%AF%BB%E6%B9%BE%E5%8C%BA%E6%97%A5%E6%8A%A5/>
+<div class=article-details>
+<h2 class=article-title>读《湾区日报》</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/2017/12/%E5%85%B3%E4%BA%8E%E5%90%90%E6%A7%BD%E5%A4%A7%E4%BC%9A%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/>
+<div class=article-details>
+<h2 class=article-title>关于吐槽大会的一些想法</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/2017/03/%E5%AE%B6%E7%94%B5%E4%BA%A7%E5%93%81%E7%9A%84%E5%88%86%E7%B1%BB/>
+<div class=article-details>
+<h2 class=article-title>家电产品的分类</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/2015/08/%E5%85%B3%E4%BA%8E%E7%94%B5%E5%BD%B1%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/>
+<div class=article-details>
+<h2 class=article-title>关于电影的一些想法</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<div class=disqus-container>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//imzhizi-com.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style>
+<script>window.addEventListener('onColorSchemeChange',a=>{DISQUS&&DISQUS.reset({reload:!0})})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2018 -
+2022 难以想象的晴朗
+</section>
+<section class=powerby>
+May Breeze Bless U <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

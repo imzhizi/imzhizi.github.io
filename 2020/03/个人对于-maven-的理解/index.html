@@ -1,0 +1,237 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Maven 一直都在使用, 但如果说是不是真的懂 Maven, 很难谈得上. 或许什么时候系统地学习一下, 但在那之前, 打算先记下自己目前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.
+Maven 基础 最直观的, Maven 使用 pom.xml 文件来管理项目中所使用的依赖, 这跟 Python 的 requirement.txt、JS 的 package.json 或者是 Ruby 的 Gemfile 都类似.
+不过, 其他语言的依赖文件规定的往往是某个包的最低版本, 在实际安装的时候, 很可能会安装最新版, 这个时候实际版本会形成另外一个 lock 文件, 像 package.json.lock. 但是 Maven 不会, 因为在 Maven 的一个依赖节点中, 会要求声明具体的版本.
+其次, 因为和构建相关, 所以 pom.xml 中需要声明项目所属的组织、项目的名称、版本, 同时还要在 properties 节点中声明使用的 Java 版本、编码等信息, build 也是经常见到的一个节点, 但我不是很理解它的作用.
+&amp;lt;!--项目信息--&amp;gt; &amp;lt;groupId\&amp;gt;域名/项目名&amp;lt;/groupId\&amp;gt; &amp;lt;artifactId\&amp;gt;项目名/组件&amp;lt;/artifactId\&amp;gt; &amp;lt;version\&amp;gt;版本&amp;lt;/version\&amp;gt; ​ &amp;lt;properties\&amp;gt; &amp;lt;!-- 可以声明编码 --&amp;gt; &amp;lt;!-- 声明 jdk 版本--&amp;gt; &amp;lt;maven."><title>个人对于 Maven 的理解</title>
+<link rel=canonical href=https://imzhizi.com/2020/03/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E4%BA%8E-maven-%E7%9A%84%E7%90%86%E8%A7%A3/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="个人对于 Maven 的理解">
+<meta property="og:description" content="Maven 一直都在使用, 但如果说是不是真的懂 Maven, 很难谈得上. 或许什么时候系统地学习一下, 但在那之前, 打算先记下自己目前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.
+Maven 基础 最直观的, Maven 使用 pom.xml 文件来管理项目中所使用的依赖, 这跟 Python 的 requirement.txt、JS 的 package.json 或者是 Ruby 的 Gemfile 都类似.
+不过, 其他语言的依赖文件规定的往往是某个包的最低版本, 在实际安装的时候, 很可能会安装最新版, 这个时候实际版本会形成另外一个 lock 文件, 像 package.json.lock. 但是 Maven 不会, 因为在 Maven 的一个依赖节点中, 会要求声明具体的版本.
+其次, 因为和构建相关, 所以 pom.xml 中需要声明项目所属的组织、项目的名称、版本, 同时还要在 properties 节点中声明使用的 Java 版本、编码等信息, build 也是经常见到的一个节点, 但我不是很理解它的作用.
+&amp;lt;!--项目信息--&amp;gt; &amp;lt;groupId\&amp;gt;域名/项目名&amp;lt;/groupId\&amp;gt; &amp;lt;artifactId\&amp;gt;项目名/组件&amp;lt;/artifactId\&amp;gt; &amp;lt;version\&amp;gt;版本&amp;lt;/version\&amp;gt; ​ &amp;lt;properties\&amp;gt; &amp;lt;!-- 可以声明编码 --&amp;gt; &amp;lt;!-- 声明 jdk 版本--&amp;gt; &amp;lt;maven.">
+<meta property="og:url" content="https://imzhizi.com/2020/03/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E4%BA%8E-maven-%E7%9A%84%E7%90%86%E8%A7%A3/">
+<meta property="og:site_name" content="难以想象的晴朗">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="tool"><meta property="article:published_time" content="2020-03-07T01:10:48+08:00"><meta property="article:modified_time" content="2020-03-07T01:10:48+08:00"><meta property="og:image" content="https://imzhizi.com">
+<meta name=twitter:site content="imzhizi"><meta name=twitter:title content="个人对于 Maven 的理解">
+<meta name=twitter:description content="Maven 一直都在使用, 但如果说是不是真的懂 Maven, 很难谈得上. 或许什么时候系统地学习一下, 但在那之前, 打算先记下自己目前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.
+Maven 基础 最直观的, Maven 使用 pom.xml 文件来管理项目中所使用的依赖, 这跟 Python 的 requirement.txt、JS 的 package.json 或者是 Ruby 的 Gemfile 都类似.
+不过, 其他语言的依赖文件规定的往往是某个包的最低版本, 在实际安装的时候, 很可能会安装最新版, 这个时候实际版本会形成另外一个 lock 文件, 像 package.json.lock. 但是 Maven 不会, 因为在 Maven 的一个依赖节点中, 会要求声明具体的版本.
+其次, 因为和构建相关, 所以 pom.xml 中需要声明项目所属的组织、项目的名称、版本, 同时还要在 properties 节点中声明使用的 Java 版本、编码等信息, build 也是经常见到的一个节点, 但我不是很理解它的作用.
+&amp;lt;!--项目信息--&amp;gt; &amp;lt;groupId\&amp;gt;域名/项目名&amp;lt;/groupId\&amp;gt; &amp;lt;artifactId\&amp;gt;项目名/组件&amp;lt;/artifactId\&amp;gt; &amp;lt;version\&amp;gt;版本&amp;lt;/version\&amp;gt; ​ &amp;lt;properties\&amp;gt; &amp;lt;!-- 可以声明编码 --&amp;gt; &amp;lt;!-- 声明 jdk 版本--&amp;gt; &amp;lt;maven."><meta name=twitter:card content="summary">
+<meta name=twitter:image content="https://imzhizi.com">
+<link rel="shortcut icon" href=#ZgotmplZ>
+</head>
+<body>
+<script>(function(){const a='StackColorScheme';localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.body.dataset.scheme='dark':document.body.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+<aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header class=site-info>
+<figure class=site-avatar>
+<img src=/static/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+<span class=emoji>🤯</span>
+</figure>
+<h1 class=site-name><a href=https://imzhizi.com>难以想象的晴朗</a></h1>
+<h2 class=site-description>大家好，这里是质子</h2>
+</header>
+<ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=/index.xml><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg>
+<span>Feed</span>
+</a>
+</li>
+<li>
+<a href=http://twitter.com/imzhizi><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84.0 00.497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li>
+</ol>
+</aside>
+<main class="main full-width">
+<div id=article-toolbar>
+<a href=https://imzhizi.com class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/tycho/ style=background-color:#2a9d8f;color:#fff>
+Tycho
+</a>
+</header>
+<h2 class=article-title>
+<a href=/2020/03/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E4%BA%8E-maven-%E7%9A%84%E7%90%86%E8%A7%A3/>个人对于 Maven 的理解</a>
+</h2>
+<footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--published>2020/03/07</time>
+</footer></div>
+</header>
+<section class=article-content>
+<p>Maven 一直都在使用, 但如果说是不是真的懂 Maven, 很难谈得上. 或许什么时候系统地学习一下, 但在那之前, 打算先记下自己目前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.</p>
+<h3 id=maven-基础>Maven 基础</h3>
+<p>最直观的, Maven 使用 pom.xml 文件来管理项目中所使用的依赖, 这跟 Python 的 requirement.txt、JS 的 <code>package.json</code> 或者是 Ruby 的 <code>Gemfile</code> 都类似.</p>
+<p>不过, 其他语言的依赖文件规定的往往是某个包的最低版本, 在实际安装的时候, 很可能会安装最新版, 这个时候实际版本会形成另外一个 lock 文件, 像 <code>package.json.lock</code>. 但是 Maven 不会, 因为在 Maven 的一个依赖节点中, 会要求声明具体的版本.</p>
+<p>其次, 因为和构建相关, 所以 pom.xml 中需要声明项目所属的组织、项目的名称、版本, 同时还要在 <code>properties</code> 节点中声明使用的 Java 版本、编码等信息, <code>build</code> 也是经常见到的一个节点, 但我不是很理解它的作用.</p>
+<pre tabindex=0><code>&lt;!--项目信息--&gt;  
+&lt;groupId\&gt;域名/项目名&lt;/groupId\&gt;  
+&lt;artifactId\&gt;项目名/组件&lt;/artifactId\&gt;  
+&lt;version\&gt;版本&lt;/version\&gt;  
+​  
+&lt;properties\&gt;  
+ &lt;!-- 可以声明编码 --&gt;   
+ &lt;!-- 声明 jdk 版本--&gt;  
+ &lt;maven.compiler.source\&gt;1.8&lt;/maven.compiler.source\&gt;  
+ &lt;maven.compiler.target\&gt;1.8&lt;/maven.compiler.target\&gt;  
+ &lt;!-- 可以自定义一些版本值 --&gt;  
+&lt;/properties\&gt;  
+​  
+&lt;!-- 一些构建相关的信息 --&gt;  
+&lt;build\&gt;  
+ ……  
+&lt;/build\&gt;  
+​  
+&lt;!-- 最重要的部分, 列出所依赖的包 --&gt;  
+&lt;dependencies\&gt;  
+ &lt;dependency\&gt;  
+ &lt;groupId\&gt;域名/项目名&lt;/groupId\&gt;  
+ &lt;artifactId\&gt;项目名/组件&lt;/artifactId\&gt;  
+ &lt;version\&gt;版本&lt;/version\&gt;  
+ &lt;/dependency\&gt;  
+ ……  
+&lt;/dependencies\&gt;
+</code></pre><p>同时, 和其他包管理工具相比, Maven 不像 pip、npm、gem 一样可以使用 <code>install xxxx</code> 命令安装依赖, 而是需要自己向 <code>pom.xml</code> 中添加 <code>&lt;dependency>……&lt;/dependency></code> 节点来添加依赖, 然后执行 <code>mvn install</code> 命令才能安装.</p>
+<p>项目名, 包名, 版本号往往琐碎而难以记忆, 所以常常借用现有的 <code>pom.xml</code> 文件; 或者像 <code>Spring initializer</code> 一样生成 <code>pom.xml</code> 文件; 同时也可以依赖搜索引擎, 比如说 <a class=link href=https://mvnrepository.com/ target=_blank rel=noopener>Maven Repository Search</a> 就是一个很好用的 Maven 搜索工具.</p>
+<p>但在包管理之外, Maven 还可以进编译和打包, Maven 的使用大大简化了项目编译, 打包, 部署的工作量, 因为操作非常简单:</p>
+<ul>
+<li>
+<p>运行是 <code>mvn run</code>, 或者有一些特殊的项目可以定义特殊的启动方式, 如 <code>mvn spring-boot:run</code> 命令;</p>
+</li>
+<li>
+<p>打包是 <code>mvn package</code> , 打包之后产生的 <code>fat jar package</code> 就可以通过 <code>java -jar xx.jar</code> 来运行;</p>
+</li>
+<li>
+<p><code>mvn clean</code> 命令可以删除掉项目中的 <code>target</code> 文件夹, 也就是清除掉所有的编译后的内容.</p>
+</li>
+</ul>
+<h3 id=jsp-项目>JSP 项目</h3>
+<p>而对于传统的项目, 我以前并不太会使用 Maven 处理, 最近有需求之后有这些经验.</p>
+<p>一个JSP 项目的 Maven 的典型目录是 <code>java</code>、<code>resources</code>、<code>webapp</code>. 在编译时, webapp 文件夹会成为根文件夹, <code>java</code> 文件夹中代码会被编译成 <code>.class</code> 文件放到 <code>webapp/WEB-INF/lib</code> 中, <code>resources</code> 文件夹和 <code>java</code> 文件夹去的地方一样, 但因为是配置文件, 所以不会被编译.</p>
+<p>最最重要的一点, 就是 Maven 如何把这个项目识别成一个传统项目呢, 就是在项目信息下方添加 packaging 信息, 也就是 <code>&lt;packaging>war&lt;/packaging></code>, 这样, Maven 就会识别 <code>java</code>、<code>resources</code>、<code>webapp</code> 的结构了. 在拿到这样一个 xx.war 包之后, 把它拷贝到服务器 Tomcat 的 <code>webapps</code> 文件夹下面, 重启 Tomcat 就可以成功部署.</p>
+<h3 id=spring-boot-项目>Spring Boot 项目</h3>
+<p>我 Spring Boot 相关的项目经验并不多, 仅有的经验是 Spring Boot 项目会在根目录产生 <code>mvnw</code> 脚本, 通过该脚本, 可以使用 <code>mvn spring-boot:run</code> 命令运行项目.</p>
+<p>因为 Spring Boot 项目往往具有共享的版本号, 所以可以添加 <code>&lt;parent>...&lt;/parent></code> 节点来一次性指定 Spring Boot 的版本, 之后可以省</p>
+<pre tabindex=0><code>&lt;parent\&gt;  
+ &lt;groupId\&gt;org.springframework.boot&lt;/groupId\&gt;  
+ &lt;artifactId\&gt;spring-boot-starter-parent&lt;/artifactId\&gt;  
+ &lt;version\&gt;2.0.7.RELEASE&lt;/version\&gt;  
+&lt;/parent\&gt;
+</code></pre><p>略.</p>
+<p>PS: 在使用 <code>mvn package</code> 时会要求数据库必须有连通性, 所以应当是本地打包完成后再在服务器部署使用.</p>
+<p>PS: <code>mvn spring-boot:run</code> 命令为何可用, 是因为 添加以下插件带来的效果.</p>
+<pre tabindex=0><code>&lt;build\&gt;  
+ &lt;plugins\&gt;  
+ &lt;plugin\&gt;  
+ &lt;groupId\&gt;org.springframework.boot&lt;/groupId\&gt;  
+ &lt;artifactId\&gt;spring-boot-maven-plugin&lt;/artifactId\&gt;  
+ &lt;/plugin\&gt;  
+ &lt;/plugins\&gt;  
+&lt;/build\&gt;
+
+</code></pre>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/tool/>tool</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<div class=disqus-container>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//imzhizi-com.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style>
+<script>window.addEventListener('onColorSchemeChange',a=>{DISQUS&&DISQUS.reset({reload:!0})})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2018 -
+2022 难以想象的晴朗
+</section>
+<section class=powerby>
+May Breeze Bless U <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
