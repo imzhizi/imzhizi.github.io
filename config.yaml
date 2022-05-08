@@ -56,7 +56,7 @@ params:
             - type: search
             - type: archives
               params:
-                  limit: 5
+                  limit: 4
             - type: categories
               params:
                   limit: 10
