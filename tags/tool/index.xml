@@ -1,5 +1,71 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tool on Breeze Bless U</title><link>https://imzhizi.com/tags/tool/</link><description>Recent content in tool on Breeze Bless U</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Mar 2020 01:10:48 +0800</lastBuildDate><atom:link href="https://imzhizi.com/tags/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>个人对于 Maven 的理解</title><link>https://imzhizi.com/2020/03/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E4%BA%8E-maven-%E7%9A%84%E7%90%86%E8%A7%A3/</link><pubDate>Sat, 07 Mar 2020 01:10:48 +0800</pubDate><guid>https://imzhizi.com/2020/03/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E4%BA%8E-maven-%E7%9A%84%E7%90%86%E8%A7%A3/</guid><description>Maven 一直都在使用, 但如果说是不是真的懂 Maven, 很难谈得上. 或许什么时候系统地学习一下, 但在那之前, 打算先记下自己目前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.
-Maven 基础 最直观的, Maven 使用 pom.xml 文件来管理项目中所使用的依赖, 这跟 Python 的 requirement.txt、JS 的 package.json 或者是 Ruby 的 Gemfile 都类似.
-不过, 其他语言的依赖文件规定的往往是某个包的最低版本, 在实际安装的时候, 很可能会安装最新版, 这个时候实际版本会形成另外一个 lock 文件, 像 package.json.lock. 但是 Maven 不会, 因为在 Maven 的一个依赖节点中, 会要求声明具体的版本.
-其次, 因为和构建相关, 所以 pom.xml 中需要声明项目所属的组织、项目的名称、版本, 同时还要在 properties 节点中声明使用的 Java 版本、编码等信息, build 也是经常见到的一个节点, 但我不是很理解它的作用.
-&amp;lt;!--项目信息--&amp;gt; &amp;lt;groupId\&amp;gt;域名/项目名&amp;lt;/groupId\&amp;gt; &amp;lt;artifactId\&amp;gt;项目名/组件&amp;lt;/artifactId\&amp;gt; &amp;lt;version\&amp;gt;版本&amp;lt;/version\&amp;gt; ​ &amp;lt;properties\&amp;gt; &amp;lt;!-- 可以声明编码 --&amp;gt; &amp;lt;!-- 声明 jdk 版本--&amp;gt; &amp;lt;maven.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tool on Breeze Bless U</title><link>https://imzhizi.com/tags/tool/</link><description>Recent content in tool on Breeze Bless U</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Mar 2020 01:10:48 +0800</lastBuildDate><atom:link href="https://imzhizi.com/tags/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>个人对于 Maven 的理解</title><link>https://imzhizi.com/2020/03/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E4%BA%8E-maven-%E7%9A%84%E7%90%86%E8%A7%A3/</link><pubDate>Sat, 07 Mar 2020 01:10:48 +0800</pubDate><guid>https://imzhizi.com/2020/03/%E4%B8%AA%E4%BA%BA%E5%AF%B9%E4%BA%8E-maven-%E7%9A%84%E7%90%86%E8%A7%A3/</guid><description>&lt;p>Maven 一直都在使用, 但如果说是不是真的懂 Maven, 很难谈得上. 或许什么时候系统地学习一下, 但在那之前, 打算先记下自己目前对于 Maven 的理解, 之后再进行对比, 看有哪些疏漏和错误.&lt;/p>
+&lt;h3 id="maven-基础">Maven 基础&lt;/h3>
+&lt;p>最直观的, Maven 使用 pom.xml 文件来管理项目中所使用的依赖, 这跟 Python 的 requirement.txt、JS 的 &lt;code>package.json&lt;/code> 或者是 Ruby 的 &lt;code>Gemfile&lt;/code> 都类似.&lt;/p>
+&lt;p>不过, 其他语言的依赖文件规定的往往是某个包的最低版本, 在实际安装的时候, 很可能会安装最新版, 这个时候实际版本会形成另外一个 lock 文件, 像 &lt;code>package.json.lock&lt;/code>. 但是 Maven 不会, 因为在 Maven 的一个依赖节点中, 会要求声明具体的版本.&lt;/p>
+&lt;p>其次, 因为和构建相关, 所以 pom.xml 中需要声明项目所属的组织、项目的名称、版本, 同时还要在 &lt;code>properties&lt;/code> 节点中声明使用的 Java 版本、编码等信息, &lt;code>build&lt;/code> 也是经常见到的一个节点, 但我不是很理解它的作用.&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;lt;!--项目信息--&amp;gt;
+&amp;lt;groupId\&amp;gt;域名/项目名&amp;lt;/groupId\&amp;gt;
+&amp;lt;artifactId\&amp;gt;项目名/组件&amp;lt;/artifactId\&amp;gt;
+&amp;lt;version\&amp;gt;版本&amp;lt;/version\&amp;gt;
+​
+&amp;lt;properties\&amp;gt;
+&amp;lt;!-- 可以声明编码 --&amp;gt;
+&amp;lt;!-- 声明 jdk 版本--&amp;gt;
+&amp;lt;maven.compiler.source\&amp;gt;1.8&amp;lt;/maven.compiler.source\&amp;gt;
+&amp;lt;maven.compiler.target\&amp;gt;1.8&amp;lt;/maven.compiler.target\&amp;gt;
+&amp;lt;!-- 可以自定义一些版本值 --&amp;gt;
+&amp;lt;/properties\&amp;gt;
+​
+&amp;lt;!-- 一些构建相关的信息 --&amp;gt;
+&amp;lt;build\&amp;gt;
+……
+&amp;lt;/build\&amp;gt;
+​
+&amp;lt;!-- 最重要的部分, 列出所依赖的包 --&amp;gt;
+&amp;lt;dependencies\&amp;gt;
+&amp;lt;dependency\&amp;gt;
+&amp;lt;groupId\&amp;gt;域名/项目名&amp;lt;/groupId\&amp;gt;
+&amp;lt;artifactId\&amp;gt;项目名/组件&amp;lt;/artifactId\&amp;gt;
+&amp;lt;version\&amp;gt;版本&amp;lt;/version\&amp;gt;
+&amp;lt;/dependency\&amp;gt;
+……
+&amp;lt;/dependencies\&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>同时, 和其他包管理工具相比, Maven 不像 pip、npm、gem 一样可以使用 &lt;code>install xxxx&lt;/code> 命令安装依赖, 而是需要自己向 &lt;code>pom.xml&lt;/code> 中添加 &lt;code>&amp;lt;dependency&amp;gt;……&amp;lt;/dependency&amp;gt;&lt;/code> 节点来添加依赖, 然后执行 &lt;code>mvn install&lt;/code> 命令才能安装.&lt;/p>
+&lt;p>项目名, 包名, 版本号往往琐碎而难以记忆, 所以常常借用现有的 &lt;code>pom.xml&lt;/code> 文件; 或者像 &lt;code>Spring initializer&lt;/code> 一样生成 &lt;code>pom.xml&lt;/code> 文件; 同时也可以依赖搜索引擎, 比如说 &lt;a class="link" href="https://mvnrepository.com/" target="_blank" rel="noopener"
+>Maven Repository Search&lt;/a> 就是一个很好用的 Maven 搜索工具.&lt;/p>
+&lt;p>但在包管理之外, Maven 还可以进编译和打包, Maven 的使用大大简化了项目编译, 打包, 部署的工作量, 因为操作非常简单:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>运行是 &lt;code>mvn run&lt;/code>, 或者有一些特殊的项目可以定义特殊的启动方式, 如 &lt;code>mvn spring-boot:run&lt;/code> 命令;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>打包是 &lt;code>mvn package&lt;/code> , 打包之后产生的 &lt;code>fat jar package&lt;/code> 就可以通过 &lt;code>java -jar xx.jar&lt;/code> 来运行;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>mvn clean&lt;/code> 命令可以删除掉项目中的 &lt;code>target&lt;/code> 文件夹, 也就是清除掉所有的编译后的内容.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="jsp-项目">JSP 项目&lt;/h3>
+&lt;p>而对于传统的项目, 我以前并不太会使用 Maven 处理, 最近有需求之后有这些经验.&lt;/p>
+&lt;p>一个JSP 项目的 Maven 的典型目录是 &lt;code>java&lt;/code>、&lt;code>resources&lt;/code>、&lt;code>webapp&lt;/code>. 在编译时, webapp 文件夹会成为根文件夹, &lt;code>java&lt;/code> 文件夹中代码会被编译成 &lt;code>.class&lt;/code> 文件放到 &lt;code>webapp/WEB-INF/lib&lt;/code> 中, &lt;code>resources&lt;/code> 文件夹和 &lt;code>java&lt;/code> 文件夹去的地方一样, 但因为是配置文件, 所以不会被编译.&lt;/p>
+&lt;p>最最重要的一点, 就是 Maven 如何把这个项目识别成一个传统项目呢, 就是在项目信息下方添加 packaging 信息, 也就是 &lt;code>&amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt;&lt;/code>, 这样, Maven 就会识别 &lt;code>java&lt;/code>、&lt;code>resources&lt;/code>、&lt;code>webapp&lt;/code> 的结构了. 在拿到这样一个 xx.war 包之后, 把它拷贝到服务器 Tomcat 的 &lt;code>webapps&lt;/code> 文件夹下面, 重启 Tomcat 就可以成功部署.&lt;/p>
+&lt;h3 id="spring-boot-项目">Spring Boot 项目&lt;/h3>
+&lt;p>我 Spring Boot 相关的项目经验并不多, 仅有的经验是 Spring Boot 项目会在根目录产生 &lt;code>mvnw&lt;/code> 脚本, 通过该脚本, 可以使用 &lt;code>mvn spring-boot:run&lt;/code> 命令运行项目.&lt;/p>
+&lt;p>因为 Spring Boot 项目往往具有共享的版本号, 所以可以添加 &lt;code>&amp;lt;parent&amp;gt;...&amp;lt;/parent&amp;gt;&lt;/code> 节点来一次性指定 Spring Boot 的版本, 之后可以省&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;lt;parent\&amp;gt;
+&amp;lt;groupId\&amp;gt;org.springframework.boot&amp;lt;/groupId\&amp;gt;
+&amp;lt;artifactId\&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId\&amp;gt;
+&amp;lt;version\&amp;gt;2.0.7.RELEASE&amp;lt;/version\&amp;gt;
+&amp;lt;/parent\&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>略.&lt;/p>
+&lt;p>PS: 在使用 &lt;code>mvn package&lt;/code> 时会要求数据库必须有连通性, 所以应当是本地打包完成后再在服务器部署使用.&lt;/p>
+&lt;p>PS: &lt;code>mvn spring-boot:run&lt;/code> 命令为何可用, 是因为 添加以下插件带来的效果.&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;lt;build\&amp;gt;
+&amp;lt;plugins\&amp;gt;
+&amp;lt;plugin\&amp;gt;
+&amp;lt;groupId\&amp;gt;org.springframework.boot&amp;lt;/groupId\&amp;gt;
+&amp;lt;artifactId\&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId\&amp;gt;
+&amp;lt;/plugin\&amp;gt;
+&amp;lt;/plugins\&amp;gt;
+&amp;lt;/build\&amp;gt;
+&lt;/code>&lt;/pre></description></item></channel></rss>
