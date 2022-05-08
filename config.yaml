@@ -2,8 +2,8 @@ baseurl: https://imzhizi.com
 languageCode: en-us
 DefaultContentLanguage: en
 theme: stack
-paginate: 6
-title: 难以想象的晴朗
+paginate: 7
+title: Breeze Bless U
 
 # Change it to your Disqus shortname before using
 disqusShortname: imzhizi-com
@@ -35,11 +35,14 @@ params:
         emoji: 🤯
         subtitle: "大家好，这里是质子"
         avatar:
-          local: false 
-          src: /static/avatar.png
+            enabled: true
+            local: false 
+            src: /static/avatar.png
 
     article:
         math: false
+        toc: true
+        readingTime: true
         license:
             enabled: true
             default: Licensed under CC BY-NC-SA 4.0
@@ -47,35 +50,32 @@ params:
     comments:
         enabled: true
         provider: disqus
-        # utterances:
-        #     repo:
-        #     issueTerm: pathname
-        #     label:
-        #     theme: preferred-color-scheme
 
     widgets:
-        enabled:
-            - search
-            - archives
-            - tag-cloud
-
-        archives:
-            limit: 5
-            path: archives
-
-        tagCloud:
-            limit: 10
+        homepage:
+            - type: search
+            - type: archives
+              params:
+                  limit: 5
+            - type: categories
+              params:
+                  limit: 10
+            - type: tag-cloud
+              params:
+                  limit: 10
+        page:
+            - type: toc
 
     opengraph:
         twitter:
             site: imzhizi
-            card: summary
+            card: summary_large_image
 
     defaultImage:
         opengraph:
-            enabled: true
-            # local: true
-            # src: /img/avatar.png
+            enabled: false
+            local: false
+            src:
 
     colorScheme:
         toggle: false
@@ -94,32 +94,31 @@ menu:
           url: /
           weight: -100
           pre: home
-
-        - identifier: about
-          name: About
-          url: about
-          weight: -90
-          pre: user
-
+        
         - identifier: feed
           name: Feed
           url: index.xml
           weight: -80
           pre: rss
 
+    social:
+        - identifier: douban
+          name: imzhizi
+          url: https://www.douban.com/people/imzhizi
+          params:
+              icon: douban
+
+        - identifier: github
+          name: imzhizi
+          url: https://github.com/imzhizi
+          params:
+              icon: brand-github
+
         - identifier: twitter
-          name: Twitter
-          url: "http://twitter.com/imzhizi"
-          weight: -70
-          pre: twitter
-
-        - identifier: archives
-          name: Archives
-          url: archives
-          weight: -60
-          pre: archives
-
-
+          name: imzhizi
+          url: https://twitter.com/imzhizi
+          params:
+              icon: brand-twitter
 
 related:
     includeNewer: true

@@ -101,14 +101,20 @@
     background: none;
     border: none;
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 0;
+    top: 0;
     z-index: 2;
     cursor: pointer;
 
-    @media (min-width: $on-phone + 1) {
+    [dir="rtl"] & {
+        left: 0;
+        right: auto;
+    }
+
+    @include respond(md) {
         display: none;
     }
+
     outline: none;
 
     &.is-active {
@@ -124,69 +130,56 @@
 .menu {
     padding-left: 0;
     list-style: none;
-    display: flex;
     flex-direction: column;
-    margin-top: var(--sidebar-element-separation);
-    margin-bottom: 0;
     overflow-y: auto;
     flex-grow: 1;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    background-color: var(--card-background);
 
-    @media (min-width: $on-desktop-large) {
-        margin-top: 30px;
+    box-shadow: var(--shadow-l1);
+    display: none;
+    margin: 0 calc(var(--container-padding) * -1);
+
+    padding: 30px 30px;
+    @include respond(xl) {
+        padding: 15px 0;
     }
 
-    @media (max-width: $on-phone) {
-        background-color: var(--card-background);
-        margin-top: 0;
-        padding: 15px 0;
-        box-shadow: var(--shadow-l1);
-        display: none;
-
-        &.show {
-            display: block;
+    &,
+    .menu-bottom-section {
+        gap: 30px;
+        @include respond(xl) {
+            gap: 25px;
         }
     }
 
-    @media (min-width: $on-phone + 1) {
+    &.show {
+        display: flex;
+    }
+
+    @include respond(md) {
         align-items: flex-end;
+        display: flex;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        margin: 0;
     }
 
     li {
         position: relative;
         vertical-align: middle;
-        padding: 10px 0;
+        padding: 0;
 
-        &:not(:last-of-type) {
-            margin-bottom: 15px;
-
-            @media (min-width: $on-desktop-large) {
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (max-width: $on-phone) {
-            padding: 10px 30px;
-        }
-
-        @media (min-width: $on-phone + 1) and (max-width: ($on-desktop - 1)) {
-            padding: 10px 0;
-        }
-
-        @media (min-width: $on-phone + 1) {
+        @include respond(md) {
             width: 100%;
         }
 
         svg {
-            width: 25px;
-            height: 25px;
             stroke-width: 1.33;
-            margin-right: 40px;
 
-            @media (max-width: $on-desktop-large) {
-                width: 20px;
-                height: 20px;
-            }
+            width: 20px;
+            height: 20px;
         }
 
         a {
@@ -194,10 +187,7 @@
             display: inline-flex;
             align-items: center;
             color: var(--body-text-color);
-
-            @media (max-width: $on-desktop-large) {
-                font-size: 1.4rem;
-            }
+            gap: var(--menu-icon-separation);
         }
 
         span {
@@ -210,5 +200,28 @@
                 font-weight: bold;
             }
         }
+    }
+
+    .menu-bottom-section {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.social-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--body-text-color);
+        stroke-width: 1.33;
     }
 }
