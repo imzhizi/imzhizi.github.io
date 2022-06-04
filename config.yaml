@@ -93,20 +93,22 @@ menu:
           name: Home
           url: /
           weight: -100
-          pre: home
+          params:
+            icon: home
         
         - identifier: feed
           name: Feed
           url: index.xml
           weight: -80
-          pre: rss
+          params:
+            icon: rss
 
     social:
         - identifier: douban
           name: imzhizi
           url: https://www.douban.com/people/imzhizi
           params:
-              icon: douban
+            icon: douban
 
         - identifier: github
           name: imzhizi
