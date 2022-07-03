@@ -1,4 +1,146 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Breeze Bless U</title><link>https://imzhizi.com/post/</link><description>Recent content in Posts on Breeze Bless U</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 04 Jun 2022 23:15:23 +0800</lastBuildDate><atom:link href="https://imzhizi.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>2022 年的 5 月拾遗</title><link>https://imzhizi.com/2022/06/2022-%E5%B9%B4%E7%9A%84-5-%E6%9C%88%E6%8B%BE%E9%81%97/</link><pubDate>Sat, 04 Jun 2022 23:15:23 +0800</pubDate><guid>https://imzhizi.com/2022/06/2022-%E5%B9%B4%E7%9A%84-5-%E6%9C%88%E6%8B%BE%E9%81%97/</guid><description>&lt;img src="https://imzhizi.com/images/Pasted%20image%2020220605024923.png" alt="Featured image of post 2022 年的 5 月拾遗" />&lt;p>不知道是不是居家的原因，感觉五月的思考、想法似乎都比往日多一些。其实也可能每个月我都有那么多的想法，只是我没有把它们记下来而已，所以我再次恢复了记录。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Breeze Bless U</title><link>https://imzhizi.com/post/</link><description>Recent content in Posts on Breeze Bless U</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 03 Jul 2022 19:24:00 +0800</lastBuildDate><atom:link href="https://imzhizi.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>如何用 Notion 同步豆瓣标记</title><link>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</link><pubDate>Sun, 03 Jul 2022 19:24:00 +0800</pubDate><guid>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>核心思路是利用 RSS 获得豆瓣标记数据，利用 Notion 的 RSS 插件拿到豆瓣标记数据，这样数据就增量同步到 Notion&lt;/p>
+&lt;h3 id="大致效果">大致效果&lt;/h3>
+&lt;p>我的这个「豆瓣标记数据自动同步 Notion」效果大概如下：
+&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703192509.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="注意">注意&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>如果不太理解什么是 RSS 的话，或许可以看一下这篇文章 &lt;a class="link" href="https://sspai.com/post/56391" target="_blank" rel="noopener"
+>高效获取信息，你需要这份 RSS 入门指南 - 少数派&lt;/a> ，如果还是不明白那就不明白吧&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>需要使用电脑才能完成本教程&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="操作流程">操作流程&lt;/h2>
+&lt;h3 id="21-制造数据">2.1 制造数据&lt;/h3>
+&lt;p>也就是正常使用豆瓣，在豆瓣上标记影音即可&lt;/p>
+&lt;h3 id="22-获取新增的数据">2.2 获取新增的数据&lt;/h3>
+&lt;p>我个人目前是基于 RSSHub 提供的豆瓣 RSS 来做，有兴趣的也可以试一试豆瓣官方 RSS&lt;/p>
+&lt;p>RSSHub 提供的 RSS 或者 豆瓣官方提供的 RSS，两者的区别：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>这两种方式提供的数据内容和数据格式有所区别&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>RSSHub 能够抓取到用户所有的广播，不仅是影音标记&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>RSSHub 的文档地址： &lt;a class="link" href="https://docs.rsshub.app/social-media.html#dou-ban" target="_blank" rel="noopener"
+>社交媒体 | RSSHub&lt;/a> ，在这个链接里找到「用户广播」&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>豆瓣官方的 RSS 地址，在页面的右下角可以获得
+&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703192924.png"
+loading="lazy"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>RSSHub 需使用用户 ID，怎么获取呢&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193002.png"
+loading="lazy"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193012.png"
+loading="lazy"
+>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>这样就能拿到一个 RSS 链接了：https://rsshub.app/douban/people/1000001/status&lt;/p>
+&lt;h3 id="23-同步新增数据到-notion">2.3 同步新增数据到 Notion&lt;/h3>
+&lt;p>这里主要利用到的是 &lt;a class="link" href="https://notion-feed.com/" target="_blank" rel="noopener"
+>NotionFeed &lt;/a> 这个工具，它可以将RSS内容同步到Notion中，实现在Notion中阅读RSS订阅文章的效果&lt;/p>
+&lt;p>如果不会使用的话，可以参考这个视频 &lt;a class="link" href="https://www.bilibili.com/video/BV1JB4y1i7t2" target="_blank" rel="noopener"
+>NOTION RSS 作为浏览器订阅|NOTION FEED 配置使用演示_哔哩哔哩&lt;/a>&lt;/p>
+&lt;p>但由于一旦数据来到 Notion 中，那么它就是可编辑的，因此我们就可以在它的基础上做一些工作&lt;/p>
+&lt;h3 id="24-格式化-notion-中的豆瓣数据">2.4 格式化 Notion 中的豆瓣数据&lt;/h3>
+&lt;p>刚拿到的的原始数据大概长这个样子，可以看到里面充斥着各种广播（如果你是一个发广播的人的话）
+&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193157.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>那么我们要做的第一件事是筛选出来影音标记，这个可以通过增加 Filter 实现，想要筛选看过的影音的话，就用「看过」来筛选，同理也可以筛选「听过」、「想看」、「玩过」之类的&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193216.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193226.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>筛选完之后的数据大概是这样子，虽然数据已经拿到，但这个数据非常粗糙，所有的文字都集中在 Title 列中
+&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193248.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>从豆瓣用插件导出，放到 Notion 中的 Page 长这样（以后我都叫它标记 Page），所以我们目前的目标就是为了让两者适配，也就是有着同样的格式&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193307.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>如果说你的格式和我的不一样，那么你善用属性的排序和隐藏即可实现&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193315.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="25-标题处理">2.5 标题处理&lt;/h3>
+&lt;p>可以看到标记 Page 的第一列是标题，所以我们的第一步是提取出来标题，这里是这样做的，新建一个 Type 为 Formula 的列
+&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193333.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>点击 Formula 的「Edit」，因为标题两边都是书名号，所以可以通过书名号提取出标题，输入 &lt;code>replace(replace(prop(&amp;quot;Title&amp;quot;), &amp;quot;.*《&amp;quot;, &amp;quot;&amp;quot;), &amp;quot;》.*&amp;quot;, &amp;quot;&amp;quot;)&lt;/code>，就能够得到标题列
+&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193359.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193412.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="26-解析短评">2.6 解析短评&lt;/h3>
+&lt;p>由于书名号之后的就是短评，所以我这里先将打分和评论一起提取了出来，方便下一步处理，也是增加一个 Formula 列，公式为 &lt;code>replace(prop(&amp;quot;Title&amp;quot;), &amp;quot;.*》&amp;quot;, &amp;quot;&amp;quot;)&lt;/code>，也就是拿到书名号后面的所有内容&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193429.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>然后在评论之上拿到短评，这里用了个讨巧的办法，因为一般来说大家都会打分，而这在评论开头的五个字符就是★或者☆，所以直接截取评论第五个之后的内容即可，&lt;code>slice(prop(&amp;quot;评论&amp;quot;), 5)&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193443.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193449.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="27-解析打分">2.7 解析打分&lt;/h3>
+&lt;p>打分这个要麻烦一些，我从豆瓣导出的数据中，是直接的数字而不是★，所以^^我在标记 Page 中加了一个公式^^，&lt;code>![image.png](../assets/image_1656846959541_0.png) &lt;/code>，将数字转换成星星&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193512.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>因为星星有时候是实心，有时候是空心，所以我们就不能通过字符替换的方式来进行星星的截取，这里我用的方法是计算评论存在几个「★」，具体是这么做的 &lt;code>length(replaceAll(prop(&amp;quot;评论&amp;quot;), &amp;quot;[^★]&amp;quot;, &amp;quot;&amp;quot;))&lt;/code>，这样就把星星转换成了数字评分&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193521.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>最终效果长这样，日期是自带的&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193528.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="28-手动同步">2.8 手动同步&lt;/h3>
+&lt;p>接下来就是手动同步，我们的目标格式是这样的
+&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193548.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>由于星星是自动生成的，需要事先空出来，所以我增加了一列空白列作为 PlaceHolder，接下来只要复制再粘贴到「标记 Page」中即可，==注意，这里是可以一次性全部复制的，不需要一行一行的复制==&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193556.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193807.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193844.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>到这里就大功告成了&lt;/p>
+&lt;h2 id="补充">补充&lt;/h2>
+&lt;p>总之就是活用公式来做到数据的处理。&lt;/p>
+&lt;p>但现在还存在一些问题，大部分是因为RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。&lt;/p></description></item><item><title>2022 年的 5 月拾遗</title><link>https://imzhizi.com/2022/06/2022-%E5%B9%B4%E7%9A%84-5-%E6%9C%88%E6%8B%BE%E9%81%97/</link><pubDate>Sat, 04 Jun 2022 23:15:23 +0800</pubDate><guid>https://imzhizi.com/2022/06/2022-%E5%B9%B4%E7%9A%84-5-%E6%9C%88%E6%8B%BE%E9%81%97/</guid><description>&lt;img src="https://imzhizi.com/images/Pasted%20image%2020220605024923.png" alt="Featured image of post 2022 年的 5 月拾遗" />&lt;p>不知道是不是居家的原因，感觉五月的思考、想法似乎都比往日多一些。其实也可能每个月我都有那么多的想法，只是我没有把它们记下来而已，所以我再次恢复了记录。&lt;/p>
 &lt;p>在我看来，居家之后大家时间观念都变得混沌，工作时间显著变长，生活和工作的界限模糊不清，缺少必要的活动，所以我一点也不喜欢居家办公。&lt;/p>
 &lt;p>不过由于做饭机会多了，在家这段时间尝试制作了各种形式的面条。做饭期间我会下意识地开始追求并行工作，比如炒菜的时候煮面，收汁的时候清洗菜刀、菜板之类的，尽量提高的做饭的效率，所以谈不上厨艺增长，但确实变得熟练了。&lt;/p>
 &lt;h2 id="fimarathon电影马拉松">Fimarathon（电影马拉松）&lt;/h2>

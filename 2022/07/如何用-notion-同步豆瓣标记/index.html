@@ -1,0 +1,330 @@
+<!doctype html><html lang=en-us dir=ltr>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="简单来说是用 Notion 的 RSS 插件同步豆瓣标记数据"><title>如何用 Notion 同步豆瓣标记</title>
+<link rel=canonical href=https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/>
+<link rel=stylesheet href=/scss/style.min.450926226e724574a6b936335ea06111f8aeb253d932c86cb2cc807341cd2889.css><meta property="og:title" content="如何用 Notion 同步豆瓣标记">
+<meta property="og:description" content="简单来说是用 Notion 的 RSS 插件同步豆瓣标记数据">
+<meta property="og:url" content="https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/">
+<meta property="og:site_name" content="Breeze Bless U">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="app"><meta property="article:tag" content="productivity"><meta property="article:published_time" content="2022-07-03T19:24:00+08:00"><meta property="article:modified_time" content="2022-07-03T19:24:00+08:00">
+<meta name=twitter:site content="@imzhizi">
+<meta name=twitter:creator content="@imzhizi"><meta name=twitter:title content="如何用 Notion 同步豆瓣标记">
+<meta name=twitter:description content="简单来说是用 Notion 的 RSS 插件同步豆瓣标记数据">
+<link rel="shortcut icon" href=#ZgotmplZ>
+</head>
+<body class=article-page>
+<script>(function(){const a='StackColorScheme';localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header>
+<figure class=site-avatar>
+<a href=/>
+<img src=/static/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a>
+<span class=emoji>🤯</span>
+</figure>
+<div class=site-meta>
+<h1 class=site-name><a href=/>Breeze Bless U</a></h1>
+<h2 class=site-description>大家好，这里是质子</h2>
+</div>
+</header><ol class=social-menu>
+<li>
+<a href=https://www.douban.com/people/imzhizi target=_blank title=imzhizi><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"/><path d="M16.314 19.138h4.065a.62.62.0 01.621.62v.621a.62.62.0 01-.62.621H3.62A.62.62.0 013 20.38v-.621a.62.62.0 01.62-.621h3.754l-.96-3.104h2.19a.62.62.0 01.59.425l.892 2.679H13.6l1.225-4.035H5.172a.62.62.0 01-.62-.62V7.345a.62.62.0 01.62-.62h13.656a.62.62.0 01.62.62v7.138a.62.62.0 01-.62.62h-1.289l-1.225 4.035zM3.931 3h16.138a.62.62.0 01.62.62v.621a.62.62.0 01-.62.621H3.931a.62.62.0 01-.62-.62V3.62A.62.62.0 013.93 3zM7.19 8.586a.155.155.0 00-.156.155v4.035c0 .086.07.155.156.155h9.62c.086.0.156-.07.156-.155V8.74a.155.155.0 00-.156-.155H7.19z"/></g></svg>
+</a>
+</li>
+<li>
+<a href=https://github.com/imzhizi target=_blank title=imzhizi><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/imzhizi target=_blank title=imzhizi><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84.0 00.497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg>
+</a>
+</li>
+</ol><ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=/index.xml><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg>
+<span>Feed</span>
+</a>
+</li>
+<li>
+<a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li>
+<div class=menu-bottom-section>
+</div>
+</ol>
+</aside>
+<main class="main full-width">
+<article class=main-article>
+<header class=article-header>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/mist/ style=background-color:#2a9d8f;color:#fff>
+Mist
+</a>
+</header>
+<div class=article-title-wrapper>
+<h2 class=article-title>
+<a href=/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/>如何用 Notion 同步豆瓣标记</a>
+</h2>
+<h3 class=article-subtitle>
+简单来说是用 Notion 的 RSS 插件同步豆瓣标记数据
+</h3>
+</div>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2022/07/03</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+1 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h2 id=前言>前言</h2>
+<p>核心思路是利用 RSS 获得豆瓣标记数据，利用 Notion 的 RSS 插件拿到豆瓣标记数据，这样数据就增量同步到 Notion</p>
+<h3 id=大致效果>大致效果</h3>
+<p>我的这个「豆瓣标记数据自动同步 Notion」效果大概如下：
+<img src=/../../images/Pasted%20image%2020220703192509.png loading=lazy></p>
+<h3 id=注意>注意</h3>
+<ol>
+<li>
+<p>如果不太理解什么是 RSS 的话，或许可以看一下这篇文章 <a class=link href=https://sspai.com/post/56391 target=_blank rel=noopener>高效获取信息，你需要这份 RSS 入门指南 - 少数派</a> ，如果还是不明白那就不明白吧</p>
+</li>
+<li>
+<p>需要使用电脑才能完成本教程</p>
+</li>
+</ol>
+<h2 id=操作流程>操作流程</h2>
+<h3 id=21-制造数据>2.1 制造数据</h3>
+<p>也就是正常使用豆瓣，在豆瓣上标记影音即可</p>
+<h3 id=22-获取新增的数据>2.2 获取新增的数据</h3>
+<p>我个人目前是基于 RSSHub 提供的豆瓣 RSS 来做，有兴趣的也可以试一试豆瓣官方 RSS</p>
+<p>RSSHub 提供的 RSS 或者 豆瓣官方提供的 RSS，两者的区别：</p>
+<ul>
+<li>
+<p>这两种方式提供的数据内容和数据格式有所区别</p>
+</li>
+<li>
+<p>RSSHub 能够抓取到用户所有的广播，不仅是影音标记</p>
+</li>
+<li>
+<p>RSSHub 的文档地址： <a class=link href=https://docs.rsshub.app/social-media.html#dou-ban target=_blank rel=noopener>社交媒体 | RSSHub</a> ，在这个链接里找到「用户广播」</p>
+</li>
+<li>
+<p>豆瓣官方的 RSS 地址，在页面的右下角可以获得
+<img src=/../../images/Pasted%20image%2020220703192924.png loading=lazy></p>
+</li>
+<li>
+<p>RSSHub 需使用用户 ID，怎么获取呢</p>
+<ul>
+<li>
+<p><img src=/../../images/Pasted%20image%2020220703193002.png loading=lazy></p>
+</li>
+<li>
+<p><img src=/../../images/Pasted%20image%2020220703193012.png loading=lazy></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>这样就能拿到一个 RSS 链接了：https://rsshub.app/douban/people/1000001/status</p>
+<h3 id=23-同步新增数据到-notion>2.3 同步新增数据到 Notion</h3>
+<p>这里主要利用到的是 <a class=link href=https://notion-feed.com/ target=_blank rel=noopener>NotionFeed </a> 这个工具，它可以将RSS内容同步到Notion中，实现在Notion中阅读RSS订阅文章的效果</p>
+<p>如果不会使用的话，可以参考这个视频 <a class=link href=https://www.bilibili.com/video/BV1JB4y1i7t2 target=_blank rel=noopener>NOTION RSS 作为浏览器订阅|NOTION FEED 配置使用演示_哔哩哔哩</a></p>
+<p>但由于一旦数据来到 Notion 中，那么它就是可编辑的，因此我们就可以在它的基础上做一些工作</p>
+<h3 id=24-格式化-notion-中的豆瓣数据>2.4 格式化 Notion 中的豆瓣数据</h3>
+<p>刚拿到的的原始数据大概长这个样子，可以看到里面充斥着各种广播（如果你是一个发广播的人的话）
+<img src=/../../images/Pasted%20image%2020220703193157.png loading=lazy></p>
+<p>那么我们要做的第一件事是筛选出来影音标记，这个可以通过增加 Filter 实现，想要筛选看过的影音的话，就用「看过」来筛选，同理也可以筛选「听过」、「想看」、「玩过」之类的</p>
+<p><img src=/../../images/Pasted%20image%2020220703193216.png loading=lazy></p>
+<p><img src=/../../images/Pasted%20image%2020220703193226.png loading=lazy></p>
+<p>筛选完之后的数据大概是这样子，虽然数据已经拿到，但这个数据非常粗糙，所有的文字都集中在 Title 列中
+<img src=/../../images/Pasted%20image%2020220703193248.png loading=lazy></p>
+<p>从豆瓣用插件导出，放到 Notion 中的 Page 长这样（以后我都叫它标记 Page），所以我们目前的目标就是为了让两者适配，也就是有着同样的格式</p>
+<p><img src=/../../images/Pasted%20image%2020220703193307.png loading=lazy></p>
+<p>如果说你的格式和我的不一样，那么你善用属性的排序和隐藏即可实现</p>
+<p><img src=/../../images/Pasted%20image%2020220703193315.png loading=lazy></p>
+<h3 id=25-标题处理>2.5 标题处理</h3>
+<p>可以看到标记 Page 的第一列是标题，所以我们的第一步是提取出来标题，这里是这样做的，新建一个 Type 为 Formula 的列
+<img src=/../../images/Pasted%20image%2020220703193333.png loading=lazy></p>
+<p>点击 Formula 的「Edit」，因为标题两边都是书名号，所以可以通过书名号提取出标题，输入 <code>replace(replace(prop("Title"), ".*《", ""), "》.*", "")</code>，就能够得到标题列
+<img src=/../../images/Pasted%20image%2020220703193359.png loading=lazy></p>
+<p><img src=/../../images/Pasted%20image%2020220703193412.png loading=lazy></p>
+<h3 id=26-解析短评>2.6 解析短评</h3>
+<p>由于书名号之后的就是短评，所以我这里先将打分和评论一起提取了出来，方便下一步处理，也是增加一个 Formula 列，公式为 <code>replace(prop("Title"), ".*》", "")</code>，也就是拿到书名号后面的所有内容</p>
+<p><img src=/../../images/Pasted%20image%2020220703193429.png loading=lazy></p>
+<p>然后在评论之上拿到短评，这里用了个讨巧的办法，因为一般来说大家都会打分，而这在评论开头的五个字符就是★或者☆，所以直接截取评论第五个之后的内容即可，<code>slice(prop("评论"), 5)</code></p>
+<p><img src=/../../images/Pasted%20image%2020220703193443.png loading=lazy></p>
+<p><img src=/../../images/Pasted%20image%2020220703193449.png loading=lazy></p>
+<h3 id=27-解析打分>2.7 解析打分</h3>
+<p>打分这个要麻烦一些，我从豆瓣导出的数据中，是直接的数字而不是★，所以^^我在标记 Page 中加了一个公式^^，<code>![image.png](../assets/image_1656846959541_0.png) </code>，将数字转换成星星</p>
+<p><img src=/../../images/Pasted%20image%2020220703193512.png loading=lazy></p>
+<p>因为星星有时候是实心，有时候是空心，所以我们就不能通过字符替换的方式来进行星星的截取，这里我用的方法是计算评论存在几个「★」，具体是这么做的 <code>length(replaceAll(prop("评论"), "[^★]", ""))</code>，这样就把星星转换成了数字评分</p>
+<p><img src=/../../images/Pasted%20image%2020220703193521.png loading=lazy></p>
+<p>最终效果长这样，日期是自带的</p>
+<p><img src=/../../images/Pasted%20image%2020220703193528.png loading=lazy></p>
+<h3 id=28-手动同步>2.8 手动同步</h3>
+<p>接下来就是手动同步，我们的目标格式是这样的
+<img src=/../../images/Pasted%20image%2020220703193548.png loading=lazy></p>
+<p>由于星星是自动生成的，需要事先空出来，所以我增加了一列空白列作为 PlaceHolder，接下来只要复制再粘贴到「标记 Page」中即可，==注意，这里是可以一次性全部复制的，不需要一行一行的复制==</p>
+<p><img src=/../../images/Pasted%20image%2020220703193556.png loading=lazy></p>
+<p><img src=/../../images/Pasted%20image%2020220703193807.png loading=lazy></p>
+<p><img src=/../../images/Pasted%20image%2020220703193844.png loading=lazy></p>
+<p>到这里就大功告成了</p>
+<h2 id=补充>补充</h2>
+<p>总之就是活用公式来做到数据的处理。</p>
+<p>但现在还存在一些问题，大部分是因为RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/app/>app</a>
+<a href=/tags/productivity/>productivity</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/2020/05/%E4%BB%8E-notion-%E8%AF%B4%E5%BC%80%E5%8E%BB/>
+<div class=article-image>
+<img src=/images/email-from-notion.png loading=lazy data-key data-hash=/images/email-from-notion.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>从 Notion 说开去</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/2019/07/%E5%85%B3%E4%BA%8E-todo-%E5%BA%94%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%84%9F%E6%83%B3/>
+<div class=article-details>
+<h2 class=article-title>关于 Todo 应用的一些感想</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/2015/10/%E5%85%B3%E4%BA%8E%E8%AE%B0%E8%B4%A6%E8%BD%AF%E4%BB%B6/>
+<div class=article-details>
+<h2 class=article-title>关于记账软件</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<div class=disqus-container>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//imzhizi-com.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style>
+<script>window.addEventListener('onColorSchemeChange',a=>{DISQUS&&DISQUS.reset({reload:!0})})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2018 -
+2022 Breeze Bless U
+</section>
+<section class=powerby>
+May Breeze Bless U <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.11.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#前言>前言</a>
+<ul>
+<li><a href=#大致效果>大致效果</a></li>
+<li><a href=#注意>注意</a></li>
+</ul>
+</li>
+<li><a href=#操作流程>操作流程</a>
+<ul>
+<li><a href=#21-制造数据>2.1 制造数据</a></li>
+<li><a href=#22-获取新增的数据>2.2 获取新增的数据</a></li>
+<li><a href=#23-同步新增数据到-notion>2.3 同步新增数据到 Notion</a></li>
+<li><a href=#24-格式化-notion-中的豆瓣数据>2.4 格式化 Notion 中的豆瓣数据</a></li>
+<li><a href=#25-标题处理>2.5 标题处理</a></li>
+<li><a href=#26-解析短评>2.6 解析短评</a></li>
+<li><a href=#27-解析打分>2.7 解析打分</a></li>
+<li><a href=#28-手动同步>2.8 手动同步</a></li>
+</ul>
+</li>
+<li><a href=#补充>补充</a></li>
+</ul>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
