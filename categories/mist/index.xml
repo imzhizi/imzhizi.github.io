@@ -110,7 +110,7 @@ loading="lazy"
 loading="lazy"
 >&lt;/p>
 &lt;h3 id="27-解析打分">2.7 解析打分&lt;/h3>
-&lt;p>打分这个要麻烦一些，我从豆瓣导出的数据中，是直接的数字而不是★，所以^^我在标记 Page 中加了一个公式^^，&lt;code>![image.png](../assets/image_1656846959541_0.png) &lt;/code>，将数字转换成星星&lt;/p>
+&lt;p>打分这个要麻烦一些，我从豆瓣导出的数据中，是直接的数字而不是★，所以==我在标记 Page 中加了一个公式==，&lt;code>![image.png](../assets/image_1656846959541_0.png) &lt;/code>，将数字转换成星星&lt;/p>
 &lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193512.png"
 loading="lazy"
 >&lt;/p>

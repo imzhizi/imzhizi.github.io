@@ -175,7 +175,7 @@ Mist
 <p><img src=/../../images/Pasted%20image%2020220703193443.png loading=lazy></p>
 <p><img src=/../../images/Pasted%20image%2020220703193449.png loading=lazy></p>
 <h3 id=27-解析打分>2.7 解析打分</h3>
-<p>打分这个要麻烦一些，我从豆瓣导出的数据中，是直接的数字而不是★，所以^^我在标记 Page 中加了一个公式^^，<code>![image.png](../assets/image_1656846959541_0.png) </code>，将数字转换成星星</p>
+<p>打分这个要麻烦一些，我从豆瓣导出的数据中，是直接的数字而不是★，所以==我在标记 Page 中加了一个公式==，<code>![image.png](../assets/image_1656846959541_0.png) </code>，将数字转换成星星</p>
 <p><img src=/../../images/Pasted%20image%2020220703193512.png loading=lazy></p>
 <p>因为星星有时候是实心，有时候是空心，所以我们就不能通过字符替换的方式来进行星星的截取，这里我用的方法是计算评论存在几个「★」，具体是这么做的 <code>length(replaceAll(prop("评论"), "[^★]", ""))</code>，这样就把星星转换成了数字评分</p>
 <p><img src=/../../images/Pasted%20image%2020220703193521.png loading=lazy></p>
