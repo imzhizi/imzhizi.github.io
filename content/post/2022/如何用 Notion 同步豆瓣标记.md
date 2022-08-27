@@ -6,7 +6,7 @@ description: "简单来说是用 Notion 的 RSS 插件同步豆瓣标记数据"
 tags:
 - app
 - productivity
-categories: 
+categories:
 - mist
 ---
 
@@ -40,7 +40,7 @@ RSSHub 提供的 RSS 或者 豆瓣官方提供的 RSS，两者的区别：
 - 豆瓣官方的 RSS 地址，在页面的右下角可以获得
         ![](../../images/Pasted%20image%2020220703192924.png)
 
-- RSSHub 需使用用户 ID，怎么获取呢
+- RSSHub 需使用用户 ID，怎么获取呢
     - ![](../../images/Pasted%20image%2020220703193002.png)
 
     - ![](../../images/Pasted%20image%2020220703193012.png)
@@ -126,4 +126,4 @@ RSSHub 提供的 RSS 或者 豆瓣官方提供的 RSS，两者的区别：
 ## 补充
 总之就是活用公式来做到数据的处理。
 
-但现在还存在一些问题，大部分是因为RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。
+但现在还存在一些问题，大部分是因为 RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。

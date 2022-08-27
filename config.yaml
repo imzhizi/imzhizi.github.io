@@ -3,7 +3,7 @@ languageCode: en-us
 DefaultContentLanguage: en
 theme: stack
 paginate: 7
-title: Breeze Bless U
+title: Breeze Bless
 
 # Change it to your Disqus shortname before using
 disqusShortname: imzhizi-com
@@ -25,7 +25,7 @@ params:
 
     footer:
         since: 2018
-        customText: May Breeze Bless U
+        customText: May The Freedom Be With U
 
     dateFormat:
         published: 2006/01/02

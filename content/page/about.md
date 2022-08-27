@@ -4,7 +4,7 @@ date: 2018-05-05T20:20:19+08:00
 author: "质子"
 description: ""
 license: "CC BY-NC-ND"
-lastmod: "2019-10-09"
+lastmod: "2022-08-27T23:10:19+08:00"
 menu:
     main: 
         weight: -80
@@ -12,14 +12,12 @@ menu:
             icon: user
 ---
 
-`大家好，这里是质子`
+英美影视剧 播客爱好者  
+  
+大厂螺丝钉 互联网观察者  
+  
+永远半吊子 永远浅尝辄止  
+  
+瞎写一下，更新无常 
 
-`大厂螺丝钉 | 北京 | 互联网观察者`
-
-🚀 对科技、文化、生活有着广泛的兴趣和热情
-
-🎬 英美剧、电影、播客爱好者
-
-🚺 Feminist
-
-✍️ 你可以公众号「BreezeBlessU」看到我的文字, 还可以在[豆瓣](https://www.douban.com/people/imzhizi/)找到我
+May The Freedom Be With U 
