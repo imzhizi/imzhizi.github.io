@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mist on Breeze Bless U</title><link>https://imzhizi.com/categories/mist/</link><description>Recent content in Mist on Breeze Bless U</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 03 Jul 2022 19:24:00 +0800</lastBuildDate><atom:link href="https://imzhizi.com/categories/mist/index.xml" rel="self" type="application/rss+xml"/><item><title>如何用 Notion 同步豆瓣标记</title><link>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</link><pubDate>Sun, 03 Jul 2022 19:24:00 +0800</pubDate><guid>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mist on Breeze Bless</title><link>https://imzhizi.com/categories/mist/</link><description>Recent content in Mist on Breeze Bless</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 03 Jul 2022 19:24:00 +0800</lastBuildDate><atom:link href="https://imzhizi.com/categories/mist/index.xml" rel="self" type="application/rss+xml"/><item><title>如何用 Notion 同步豆瓣标记</title><link>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</link><pubDate>Sun, 03 Jul 2022 19:24:00 +0800</pubDate><guid>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
 &lt;p>核心思路是利用 RSS 获得豆瓣标记数据，利用 Notion 的 RSS 插件拿到豆瓣标记数据，这样数据就增量同步到 Notion&lt;/p>
 &lt;h3 id="大致效果">大致效果&lt;/h3>
 &lt;p>我的这个「豆瓣标记数据自动同步 Notion」效果大概如下：
@@ -39,7 +39,7 @@ loading="lazy"
 >&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>RSSHub 需使用用户 ID，怎么获取呢&lt;/p>
+&lt;p>RSSHub 需使用用户 ID，怎么获取呢&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193002.png"
@@ -140,7 +140,7 @@ loading="lazy"
 &lt;p>到这里就大功告成了&lt;/p>
 &lt;h2 id="补充">补充&lt;/h2>
 &lt;p>总之就是活用公式来做到数据的处理。&lt;/p>
-&lt;p>但现在还存在一些问题，大部分是因为RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。&lt;/p></description></item><item><title>观影计划 2 - 马丁斯科塞斯</title><link>https://imzhizi.com/2020/06/%E8%A7%82%E5%BD%B1%E8%AE%A1%E5%88%92-2-%E9%A9%AC%E4%B8%81%E6%96%AF%E7%A7%91%E5%A1%9E%E6%96%AF/</link><pubDate>Tue, 09 Jun 2020 19:53:16 +0800</pubDate><guid>https://imzhizi.com/2020/06/%E8%A7%82%E5%BD%B1%E8%AE%A1%E5%88%92-2-%E9%A9%AC%E4%B8%81%E6%96%AF%E7%A7%91%E5%A1%9E%E6%96%AF/</guid><description>&lt;p>过去几个月发生了太多事情，当我回忆过去几个月的经历时，仿佛一瞬间从记忆磁盘读取大量事件，直到今天还能感受到那些事件给我带来的精神压力。&lt;/p>
+&lt;p>但现在还存在一些问题，大部分是因为 RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。&lt;/p></description></item><item><title>观影计划 2 - 马丁斯科塞斯</title><link>https://imzhizi.com/2020/06/%E8%A7%82%E5%BD%B1%E8%AE%A1%E5%88%92-2-%E9%A9%AC%E4%B8%81%E6%96%AF%E7%A7%91%E5%A1%9E%E6%96%AF/</link><pubDate>Tue, 09 Jun 2020 19:53:16 +0800</pubDate><guid>https://imzhizi.com/2020/06/%E8%A7%82%E5%BD%B1%E8%AE%A1%E5%88%92-2-%E9%A9%AC%E4%B8%81%E6%96%AF%E7%A7%91%E5%A1%9E%E6%96%AF/</guid><description>&lt;p>过去几个月发生了太多事情，当我回忆过去几个月的经历时，仿佛一瞬间从记忆磁盘读取大量事件，直到今天还能感受到那些事件给我带来的精神压力。&lt;/p>
 &lt;p>前半年中很长一段时间，我都在用一把老式的铁菜刀，它相当有分量，但不是很锋利，切菜时就像一个年迈的老人。&lt;/p>
 &lt;p>在我去了另外的地方的第一天，走进厨房，我随手拿起菜刀，那把银闪闪的不锈钢菜刀轻得不可思议，刀身与蒜触碰时毫无阻力，发出一种清脆的声音，我想，我一定切出了很薄的蒜片。&lt;/p>
 &lt;p>我再一次感到不真实，也可能是过于舒适，我有种怀疑，是真的我在切蒜吗，还是梦中的我。我想起电影《好家伙》中Paulie在监狱里切蒜的场景，这么薄的蒜片放到锅中稍稍加热肯定就融化了。&lt;/p>

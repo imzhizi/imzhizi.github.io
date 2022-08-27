@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>app on Breeze Bless U</title><link>https://imzhizi.com/tags/app/</link><description>Recent content in app on Breeze Bless U</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 03 Jul 2022 19:24:00 +0800</lastBuildDate><atom:link href="https://imzhizi.com/tags/app/index.xml" rel="self" type="application/rss+xml"/><item><title>如何用 Notion 同步豆瓣标记</title><link>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</link><pubDate>Sun, 03 Jul 2022 19:24:00 +0800</pubDate><guid>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>app on Breeze Bless</title><link>https://imzhizi.com/tags/app/</link><description>Recent content in app on Breeze Bless</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 03 Jul 2022 19:24:00 +0800</lastBuildDate><atom:link href="https://imzhizi.com/tags/app/index.xml" rel="self" type="application/rss+xml"/><item><title>如何用 Notion 同步豆瓣标记</title><link>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</link><pubDate>Sun, 03 Jul 2022 19:24:00 +0800</pubDate><guid>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
 &lt;p>核心思路是利用 RSS 获得豆瓣标记数据，利用 Notion 的 RSS 插件拿到豆瓣标记数据，这样数据就增量同步到 Notion&lt;/p>
 &lt;h3 id="大致效果">大致效果&lt;/h3>
 &lt;p>我的这个「豆瓣标记数据自动同步 Notion」效果大概如下：
@@ -39,7 +39,7 @@ loading="lazy"
 >&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>RSSHub 需使用用户 ID，怎么获取呢&lt;/p>
+&lt;p>RSSHub 需使用用户 ID，怎么获取呢&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020220703193002.png"
@@ -140,7 +140,7 @@ loading="lazy"
 &lt;p>到这里就大功告成了&lt;/p>
 &lt;h2 id="补充">补充&lt;/h2>
 &lt;p>总之就是活用公式来做到数据的处理。&lt;/p>
-&lt;p>但现在还存在一些问题，大部分是因为RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。&lt;/p></description></item><item><title>从 Notion 说开去</title><link>https://imzhizi.com/2020/05/%E4%BB%8E-notion-%E8%AF%B4%E5%BC%80%E5%8E%BB/</link><pubDate>Fri, 15 May 2020 19:28:36 +0800</pubDate><guid>https://imzhizi.com/2020/05/%E4%BB%8E-notion-%E8%AF%B4%E5%BC%80%E5%8E%BB/</guid><description>&lt;img src="https://imzhizi.com/images/email-from-notion.png" alt="Featured image of post 从 Notion 说开去" />&lt;h2 id="notion-是什么">Notion 是什么&lt;/h2>
+&lt;p>但现在还存在一些问题，大部分是因为 RSSHub 提供的内容有限，比如说图片没有特别好的解析方法，评论后面的字会被吞掉。&lt;/p></description></item><item><title>从 Notion 说开去</title><link>https://imzhizi.com/2020/05/%E4%BB%8E-notion-%E8%AF%B4%E5%BC%80%E5%8E%BB/</link><pubDate>Fri, 15 May 2020 19:28:36 +0800</pubDate><guid>https://imzhizi.com/2020/05/%E4%BB%8E-notion-%E8%AF%B4%E5%BC%80%E5%8E%BB/</guid><description>&lt;img src="https://imzhizi.com/images/email-from-notion.png" alt="Featured image of post 从 Notion 说开去" />&lt;h2 id="notion-是什么">Notion 是什么&lt;/h2>
 &lt;p>如果你知道 Notion 是什么可以跳过这部分。如果你不知道 Notion 是什么? 一句话来说，Notion 是一个功能丰富、形式美观的笔记应用，是科技、数码圈中非常网红的一款产品，如果还没有概念的话，可以把它想像成功能更强大、样式更好看的「印象笔记」。&lt;/p>
 &lt;p>为了后面的展开，我得再展开说一下 Notion 中的一些概念（即便这样没用过的用户大概率也理解不了接下来我想讨论的内容）。&lt;/p>
 &lt;p>一般的笔记应用，用户首先需要建一个新笔记，然后在打开的笔记页面中输入自己想要记录的内容即可。类似地，在 Notion 中可以创建一个 Page 来记录内容，但和其他应用不同的是，Page 并不是直接的文本框，而像是一个容器，用户可以在其中添加不同类型的 block，如果添加了一个文本 block，那么就可以在其中输入文字，而如果是其他类型比如说todo block，那么就可以在其中添加待办事项。&lt;/p>
