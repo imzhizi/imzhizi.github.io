@@ -30,8 +30,10 @@
 &lt;h2 id="现在">现在&lt;/h2>
 &lt;p>今年最喜欢的导演还应属&lt;a class="link" href="https://movie.douban.com/celebrity/1322354/" target="_blank" rel="noopener"
 >滨口龙介 Ryûsuke Hamaguchi&lt;/a>，无论篇幅长短，情节寻常还是特别，他都一如既往地重视对话，在那些平淡甚至有些尴尬的对话中，我能感受到平凡人的情感激荡，平凡人是不会把自己的情感大书特书的，他们都淹没在混沌和嘈杂的现实中，感谢滨口龙介给了这些情感一个机会。&lt;/p>
-&lt;p>因为疫情的原因，在家做饭的机会多了很多，虽然我做饭经历颇多，但因为没有章法，又充满喜欢简化操作，所以我做饭只能被称为瞎胡搞。
-![[Pasted image 20230101010201.png]]&lt;/p>
+&lt;p>因为疫情的原因，在家做饭的机会多了很多，虽然我做饭经历颇多，但因为没有章法，又充满喜欢简化操作，所以我做饭只能被称为瞎胡搞。&lt;/p>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020230101010201.png"
+loading="lazy"
+>&lt;/p>
 &lt;p>记得我第一次在互联网上被别人拉黑（我知晓的），好像就是在豆瓣上为波米稍微辩护了几句，被别人称为是「一堆脏话做形容词限定的理中客」，虽然印象深刻，但也没有那么在意，因为我会觉得是拉黑我的人太偏激了。但在2022的当下，公共平台上的所有议题，都充满了各种对骂、嘲讽和人身攻击，一方面，保持距离是合理的，但另一方面，拒绝表达自己的观点只会被让自己被其他观点所代表。但从我个人的体验和观察出发，我发现当你尝试选择一个立场时，又会发现激进和保守的互相拉扯，让观点的范围被各种拉扯，我不知道其他人是如何在这样的舆论环境下形成自己的观点。&lt;/p>
 &lt;p>但我渐渐地，是从&lt;a class="link" href="https://www.stovol.club/091" target="_blank" rel="noopener"
 >随机波动091 -《从戛纳到我们的生活：与波米聊天》&lt;/a>和&lt;a class="link" href="https://siji.typlog.io/episodes/changgui" target="_blank" rel="noopener"
@@ -77,7 +79,9 @@
 &lt;h2 id="其他">其他&lt;/h2>
 &lt;p>2022年我的新年愿望是自己能够少拧巴一些，大约是没做到的。2023的话，希望能够勇敢一些，多做一下不一样的事情，多尝试一些不同的东西吧。&lt;/p>
 &lt;p>未来会好吗？未来会差吗？就这么过吧，未来怎么样还得到未来去看。&lt;/p>
-&lt;p>![[Pasted image 20230101010220.png]]&lt;/p></description></item><item><title>如何用 Notion 同步豆瓣标记</title><link>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</link><pubDate>Sun, 03 Jul 2022 19:24:00 +0800</pubDate><guid>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>&lt;img src="https://imzhizi.com/../../images/Pasted%20image%2020230101010220.png"
+loading="lazy"
+>&lt;/p></description></item><item><title>如何用 Notion 同步豆瓣标记</title><link>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</link><pubDate>Sun, 03 Jul 2022 19:24:00 +0800</pubDate><guid>https://imzhizi.com/2022/07/%E5%A6%82%E4%BD%95%E7%94%A8-notion-%E5%90%8C%E6%AD%A5%E8%B1%86%E7%93%A3%E6%A0%87%E8%AE%B0/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
 &lt;p>核心思路是利用 RSS 获得豆瓣标记数据，利用 Notion 的 RSS 插件拿到豆瓣标记数据，这样数据就增量同步到 Notion&lt;/p>
 &lt;h3 id="大致效果">大致效果&lt;/h3>
 &lt;p>我的这个「豆瓣标记数据自动同步 Notion」效果大概如下：
