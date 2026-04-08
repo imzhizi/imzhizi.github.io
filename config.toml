@@ -1,0 +1,59 @@
+# Site URL
+baseURL = "https://imzhizi.github.io/"
+theme = "hugo-bearblog"
+
+# Basic metadata
+title = "🍃 Breeze Bless"
+author = "imzhizi"
+copyright = "Copyright © 2018-2026, imzhizi"
+languageCode = "en-us"
+
+# Hugo settings
+enableRobotsTXT = true
+disableKinds = []
+ignoreErrors = ["error-disable-taxonomy"]
+
+# Permalinks
+[permalinks]
+  blog = "/:slug/"
+
+# Params
+[params]
+  description = "大家好，这里是质子 | May The Freedom Be With U"
+  favicon = "favicon.ico"
+  images = ["images/share.png"]
+  # hideMadeWithLine = true  # Uncomment to hide "Made with Hugo"
+
+# Menu
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 2
+
+[[menu.main]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 3
+
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/imzhizi"
+  weight = 4
+
+[[menu.main]]
+  name = "Douban"
+  url = "https://www.douban.com/people/imzhizi"
+  weight = 5
+
+# Markup
+[markup]
+  [markup.highlight]
+    style = "friendly"
+    lineNos = true
+    lineNumbersInTable = false
+    codeFences = true
